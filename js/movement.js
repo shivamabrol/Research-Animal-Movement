@@ -1,4 +1,4 @@
-d3.select("svg")
+d3.select("svg#map")
   .selectAll("circle")
   .data([1, 2, 3, 4, 5])
   .enter()
@@ -8,3 +8,4 @@ d3.select("svg")
   })
   .attr("cy", 50)
   .attr("r", 20);
+// .fill("red");
