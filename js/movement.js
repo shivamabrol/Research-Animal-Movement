@@ -8,4 +8,6 @@ d3.select("svg#map")
   })
   .attr("cy", 50)
   .attr("r", 20);
+attr("fill", "red");
+
 // .fill("red");
