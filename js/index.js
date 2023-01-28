@@ -82,9 +82,9 @@ document.getElementById("update").addEventListener("click", function () {
   showPoints(svgPanZoom.getViewBox(), "blue", "none");
 });
 
-// document.getElementById("cols").addEventListener("click", function () {
-//   alterPoints();
-// });
+document.getElementById("cols").addEventListener("click", function () {
+  alterPoints();
+});
 
 //top left
 // Latitude : 9.181898
@@ -355,7 +355,7 @@ function showPoints(corners, colorSize, column) {
 }
 
 function alterPoints() {
-  let div = document.getElementById("colums");
+  let div = document.getElementById("item3");
   let cols = ["col_int", "col_int2", "col_int3", "col_bool"];
   let cols2 = ["RB1", "RB2", "RB3"];
 
@@ -375,7 +375,7 @@ function alterPoints() {
     });
 
     // Select the element where you want to append the button
-    var div = document.getElementById("columns");
+    var div = document.getElementById("item3");
 
     // Append the button to the selected element
     div.appendChild(btn);
@@ -397,7 +397,7 @@ function alterPoints() {
     });
 
     // Select the element where you want to append the button
-    var div = document.getElementById("columns");
+    var div = document.getElementById("item3");
 
     // Append the button to the selected element
     div.appendChild(btn);
