@@ -123,7 +123,7 @@ function filterDataCharts(id) {
 
   // get the data
 
-  d3.csv("../data/DR.csv") //updted the data
+  d3.csv("../data/sliced.csv") //updted the data
     .then((data) => {
       // format the data
       data.forEach(function (d) {
@@ -179,7 +179,7 @@ function columnColorPoints(id) {
     // .filter(function(d, i) { return i === 2; })
     .remove();
 
-  d3.csv("../data/DR.csv") //updted the data
+  d3.csv("../data/sliced.csv") //updted the data
     .then((data) => {
       let vals = [];
       data.forEach((d) => {
@@ -254,7 +254,7 @@ function showPointsColumn(corners, selectedColumn, selectedValue) {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/DR.csv") //updted the data
+  d3.csv("../data/sliced.csv") //updted the data
     .then((data) => {
       data = data.filter((d) => d[selectedColumn] == selectedValue);
       console.log(data);
@@ -306,7 +306,7 @@ function showPoints(corners, colorSize, column) {
   var yScale = d3
     .scaleLinear()
     .domain([1009715.5668793379, 1015157.5668793379])
-    .range([0, 1000]);
+    .range([1000, 0]);
 
   var left = xScale.invert(corners.x);
   var top = yScale.invert(corners.y);
@@ -318,7 +318,7 @@ function showPoints(corners, colorSize, column) {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/DR.csv") //updted the data
+  d3.csv("../data/sliced.csv") //updted the data
     .then((data) => {
       var dot = svg
         .selectAll("circle")
