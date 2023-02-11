@@ -51,7 +51,7 @@ document.getElementById("zoom-out").addEventListener("click", function () {
   svgPanZoom.zoomOut(1);
 });
 
-document.getElementById("left").addEventListener("click", function () {
+document.getElementById("left").addEventListener("mousedown", function () {
   // code to be executed when button is clicked
   // simulating hold event
   setTimeout(function () {
@@ -59,6 +59,14 @@ document.getElementById("left").addEventListener("click", function () {
   }, 200);
   // console.log(svgPanZoom.getViewBox());
 });
+
+document.getElementById("fruit").addEventListener("click", function () {
+  // code to be executed when button is clicked
+
+  console.log(svgPanZoom.getViewBox());
+  plotFruitTrees();
+});
+
 document.getElementById("right").addEventListener("click", function () {
   // code to be executed when button is clicked
   svgPanZoom.panRight(5);
@@ -78,8 +86,7 @@ document.getElementById("down").addEventListener("click", function () {
 
 document.getElementById("update").addEventListener("click", function () {
   // code to be executed when button is clicked
-  // svgPanZ/oom.panDown(5);
-  showPoints(svgPanZoom.getViewBox(), "blue", "none");
+  // showPoints(svgPanZoom.getViewBox(), "blue", "none");
 });
 
 document.getElementById("cols").addEventListener("click", function () {
@@ -123,7 +130,7 @@ function filterDataCharts(id) {
 
   // get the data
 
-  d3.csv("../data/sliced.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
     .then((data) => {
       // format the data
       data.forEach(function (d) {
@@ -179,7 +186,7 @@ function columnColorPoints(id) {
     // .filter(function(d, i) { return i === 2; })
     .remove();
 
-  d3.csv("../data/sliced.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
     .then((data) => {
       let vals = [];
       data.forEach((d) => {
@@ -254,7 +261,7 @@ function showPointsColumn(corners, selectedColumn, selectedValue) {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/sliced.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
     .then((data) => {
       data = data.filter((d) => d[selectedColumn] == selectedValue);
       console.log(data);
@@ -266,11 +273,11 @@ function showPointsColumn(corners, selectedColumn, selectedValue) {
         .append("circle")
         // .attr("cx", (d) => xScale(d.UTM_X))
         .attr("cx", function (d) {
-          return xScale(d.UTM_lat) - 100;
+          return xScale(d["UTM-easting"]) - 100;
         })
         .attr("cy", function (d) {
           // console.log(yScale(d.UTM_lon));
-          return yScale(d.UTM_lon);
+          return yScale(d["UTM-northing"]);
         })
         .attr("r", function (d) {
           if (d[selectedColumn] == selectedValue) {
@@ -318,7 +325,7 @@ function showPoints(corners, colorSize, column) {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/sliced.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
     .then((data) => {
       var dot = svg
         .selectAll("circle")
@@ -328,11 +335,11 @@ function showPoints(corners, colorSize, column) {
         .append("circle")
         // .attr("cx", (d) => xScale(d.UTM_X))
         .attr("cx", function (d) {
-          return xScale(d.UTM_lat);
+          return xScale(d["UTM-easting"]);
         })
         .attr("cy", function (d) {
           // console.log(yScale(d.UTM_lon));
-          return yScale(d.UTM_lon);
+          return yScale(d["UTM-northing"]);
         })
         .attr("r", function (d) {
           if (corners.width < 200) {
@@ -345,11 +352,7 @@ function showPoints(corners, colorSize, column) {
           return 1;
         })
         .attr("fill", function (d) {
-          if (column == "none") {
-            return "red";
-          }
-          return colorArray[d[column]];
-          // return Math.floor(Math.random() * 10);
+          return "blue";
         });
     });
 }
@@ -402,4 +405,80 @@ function alterPoints() {
     // Append the button to the selected element
     div.appendChild(btn);
   });
+}
+
+// Define the dimensions of the brush
+var brushWidth = 500;
+var brushHeight = 50;
+
+// Create an SVG element to hold the brush
+
+// Define the brush scale
+var x = d3.scaleLinear().domain([0, 100]).range([0, brushWidth]);
+
+// Create the brush component
+var brush = d3
+  .brush()
+  .extent([
+    [0, 0],
+    [brushWidth, brushHeight],
+  ])
+  .on("brush", brushed);
+
+// Append the brush component to the SVG
+var gBrush = svg.append("g").attr("class", "brush").call(brush);
+
+// Function to handle brush events
+function brushed() {
+  var selection = d3.event.selection;
+  console.log("Selection:", selection);
+}
+
+function plotFruitTrees() {
+  var corners = svgPanZoom.getViewBox();
+
+  // Define the input domain and output range
+  var xScale = d3
+    .scaleLinear()
+    .domain([624079.8465020715, 629752.8465020715])
+    .range([0, 1000]);
+  // 643249.2264808861
+
+  // 629,297.409565999990000","1,013,079.908749999900000
+  var yScale = d3
+    .scaleLinear()
+    .domain([1009715.5668793379, 1015157.5668793379])
+    .range([1000, 0]);
+
+  const svg = d3.select("svg#map");
+
+  svg.selectAll(".selected").remove();
+
+  d3.csv("../data/fruit_tree.csv") //updted the data
+    .then((data) => {
+      var dot = svg
+        .selectAll("circle")
+        .classed("selected", true)
+        .data(data)
+        .enter()
+        .append("circle")
+        // .attr("cx", (d) => xScale(d.UTM_X))
+        .attr("cx", function (d) {
+          // console.log(xScale(parseFloat(d["X_cent"].replace(",", ""))));
+          return xScale(parseFloat(d["X_cent"].replace(",", "")));
+        })
+        .attr("cy", function (d) {
+          console.log(yScale(parseFloat(d["Y_cent"].replace(/,/g, ""))));
+          return yScale(parseFloat(d["Y_cent"].replace(/,/g, "")));
+        })
+        .attr("r", function (d) {
+          return parseInt(d.Area) / 300;
+        })
+        .style("opacity", function (d) {
+          return 1;
+        })
+        .attr("fill", function (d) {
+          return "pink";
+        });
+    });
 }
