@@ -13,7 +13,11 @@
   'map map map map menu menu '
   'map map map map main main'
   'map map map map data data'
+  'map map map map footer footer'
+  'map map map map . .'
+  'map map map map . .'
   'map map map map . .';
+
   grid-gap: 10px;
   background-color: #2196F3;
   padding: 10px;
@@ -26,3 +30,4 @@
   padding: 20px 0;
   font-size: 30px;
 }
+
