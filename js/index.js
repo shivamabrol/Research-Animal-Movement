@@ -32,6 +32,9 @@ const names = [
   "Gendry_2",
   "Daenerys",
   "Olenna",
+  "John Snow",
+  "Samwell Tarly",
+  "Olenna Tyrell",
 ];
 
 var svgPanZoom = $("svg#map").svgPanZoom();
@@ -43,7 +46,7 @@ var image = d3.select("image#myimg");
 // zoomFactor: number (0.25)
 svgPanZoom.events.mouseWheel = false;
 svgPanZoom.events.doubleClick = false;
-// svgPanZoom.events.drag = false;
+svgPanZoom.events.drag = false;
 
 document.getElementById("reset").addEventListener("click", function () {
   // code to be executed when button is clicked
@@ -94,6 +97,10 @@ document.getElementById("down").addEventListener("click", function () {
 document.getElementById("bci").addEventListener("click", function () {
   // code to be executed when button is clicked
   plotBCIdata();
+});
+
+document.getElementById("paths").addEventListener("click", function () {
+  //******Timeline chart data */
 });
 
 const container = document.getElementById("names");
@@ -212,7 +219,9 @@ function plotBCIdata(individual = "all") {
           }
         })
         .attr("fill", function (d) {
-          return colorArray[names.indexOf(d["individual-local-identifier"])];
+          return colorArray[
+            names.indexOf(d["individual-local-identifier"]) % names.length
+          ];
         });
     });
 }
@@ -261,231 +270,98 @@ function separateBCIdata() {
     });
 }
 
-//******Timeline chart data */
+// Add brushing
+svg.call(
+  d3
+    .brush() // Add the brush feature using the d3.brush function
+    .extent([
+      [0, 0],
+      [1000, 1000],
+    ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+    .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
+);
 
-var margin = { top: 20, right: 20, bottom: 90, left: 50 },
-  margin2 = { top: 230, right: 20, bottom: 30, left: 50 },
-  width = 960 - margin.left - margin.right,
-  height = 300 - margin.top - margin.bottom,
-  height2 = 300 - margin2.top - margin2.bottom;
+// Function that is triggered when brushing is performed
+function updateChart(e1) {
+  extent = e1.selection;
+  start = e1.selection[0];
+  end = e1.selection[1];
+  console.log(start, end);
 
-var parseTime = d3.timeParse("%Y-%m-%d");
+  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
+    .then((data) => {
+      const filteredData = data.filter(function (d) {
+        var xScale = d3
+          .scaleLinear()
+          .domain([624079.8465020715, 629752.8465020715])
+          .range([0, 1000]);
+        // 643249.2264808861
 
-var x = d3.scaleTime().range([0, width]),
-  x2 = d3.scaleTime().range([0, width]),
-  y = d3.scaleLinear().range([height, 0]),
-  y2 = d3.scaleLinear().range([height2, 0]);
+        // 629,297.409565999990000","1,013,079.908749999900000
+        var yScale = d3
+          .scaleLinear()
+          .domain([1009715.5668793379, 1015157.5668793379])
+          .range([1000, 0]);
 
-var xAxis = d3.axisBottom(x).tickSize(0),
-  xAxis2 = d3.axisBottom(x2).tickSize(0),
-  yAxis = d3.axisLeft(y).tickSize(0);
+        var horizontal = xScale(d["utm-easting"]);
+        var vertical = yScale(d["utm-northing"]);
+        return (
+          horizontal > start[0] &&
+          horizontal < end[0] &&
+          vertical > start[1] &&
+          vertical < end[1] &&
+          d["individual-local-identifier"] == "Daniel"
+        );
+      });
 
-var brush = d3
-  .brushX()
-  .extent([
-    [0, 0],
-    [width, height2],
-  ])
-  .on("brush", brushed);
-
-var zoom = d3
-  .zoom()
-  .scaleExtent([1, Infinity])
-  .translateExtent([
-    [0, 0],
-    [width, height],
-  ])
-  .extent([
-    [0, 0],
-    [width, height],
-  ])
-  .on("zoom", zoomed);
-
-var svg2 = d3.select("svg#timeline");
-
-svg2
-  .append("defs")
-  .append("clipPath")
-  .attr("id", "clip")
-  .append("rect")
-  .attr("width", width)
-  .attr("height", height);
-
-var focus = svg2
-  .append("g")
-  .attr("class", "focus")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var context = svg2
-  .append("g")
-  .attr("class", "context")
-  .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-
-// // Data Load from CSV
-
-d3.csv("../data/fruit_tree.csv") //updted the data
-  .then((data) => {});
-
-// d3.csv("data/fruit_tree.csv", function (error, data) {
-//   if (error) throw error;
-
-//   data.forEach(function (d) {
-//     d.sent_time = parseTime(d.sent_time);
-//   });
-
-//   var xMin = d3.min(data, function (d) {
-//     return d.sent_time;
-//   });
-//   var yMax = Math.max(
-//     20,
-//     d3.max(data, function (d) {
-//       return d.messages_sent_in_day;
-//     })
-//   );
-
-//   x.domain([xMin, new Date()]);
-//   y.domain([0, yMax]);
-//   x2.domain(x.domain());
-//   y2.domain(y.domain());
-
-//   var num_messages = function (dataArray, domainRange) {
-//     return d3.sum(dataArray, function (d) {
-//       return (
-//         d.sent_time >= domainRange.domain()[0] &&
-//         d.sent_time <= domainRange.domain()[1]
-//       );
-//     });
-//   };
-
-//   // append scatter plot to main chart area
-//   var messages = focus.append("g");
-//   messages.attr("clip-path", "url(#clip)");
-//   messages
-//     .selectAll("message")
-//     .data(data)
-//     .enter()
-//     .append("circle")
-//     .attr("class", "message")
-//     .attr("r", 4)
-//     .style("opacity", 0.4)
-//     .attr("cx", function (d) {
-//       return x(d.sent_time);
-//     })
-//     .attr("cy", function (d) {
-//       return y(d.messages_sent_in_day);
-//     });
-
-//   focus
-//     .append("g")
-//     .attr("class", "axis x-axis")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(xAxis);
-
-//   focus.append("g").attr("class", "axis axis--y").call(yAxis);
-
-//   // Summary Stats
-//   focus
-//     .append("text")
-//     .attr("transform", "rotate(-90)")
-//     .attr("y", 0 - margin.left)
-//     .attr("x", 0 - height / 2)
-//     .attr("dy", "1em")
-//     .style("text-anchor", "middle")
-//     .text("Messages (in the day)");
-
-//   focus
-//     .append("text")
-//     .attr("x", width - margin.right)
-//     .attr("dy", "1em")
-//     .attr("text-anchor", "end")
-//     .text("Messages: " + num_messages(data, x));
-
-//   svg2
-//     .append("text")
-//     .attr(
-//       "transform",
-//       "translate(" +
-//         (width + margin.right + margin.left) / 2 +
-//         " ," +
-//         (height + margin.top + margin.bottom) +
-//         ")"
-//     )
-//     .style("text-anchor", "middle")
-//     .text("Date");
-
-//   svg2
-//     .append("rect")
-//     .attr("class", "zoom")
-//     .attr("width", width)
-//     .attr("height", height)
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-//     .call(zoom);
-
-//   // append scatter plot to brush chart area
-//   var messages = context.append("g");
-//   messages.attr("clip-path", "url(#clip)");
-//   messages
-//     .selectAll("message")
-//     .data(data)
-//     .enter()
-//     .append("circle")
-//     .attr("class", "messageContext")
-//     .attr("r", 3)
-//     .style("opacity", 0.6)
-//     .attr("cx", function (d) {
-//       return x2(d.sent_time);
-//     })
-//     .attr("cy", function (d) {
-//       return y2(d.messages_sent_in_day);
-//     });
-
-//   context
-//     .append("g")
-//     .attr("class", "axis x-axis")
-//     .attr("transform", "translate(0," + height2 + ")")
-//     .call(xAxis2);
-
-//   context
-//     .append("g")
-//     .attr("class", "brush")
-//     .call(brush)
-//     .call(brush.move, x.range());
-// });
-
-// //create brush function redraw scatterplot with selection
-function brushed() {
-  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
-  var s = d3.event.selection || x2.range();
-  x.domain(s.map(x2.invert, x2));
-  focus
-    .selectAll(".message")
-    .attr("cx", function (d) {
-      return x(d.sent_time);
-    })
-    .attr("cy", function (d) {
-      return y(d.messages_sent_in_day);
+      plotSeparatePaths(filteredData);
     });
-  focus.select(".x-axis").call(xAxis);
-  svg
-    .select(".zoom")
-    .call(
-      zoom.transform,
-      d3.zoomIdentity.scale(width / (s[1] - s[0])).translate(-s[0], 0)
-    );
 }
 
-function zoomed() {
-  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
-  var t = d3.event.transform;
-  x.domain(t.rescaleX(x2).domain());
-  focus
-    .selectAll(".message")
+function plotSeparatePaths(data) {
+  const margin = { top: 30, right: 30, bottom: 30, left: 30 },
+    width = 300 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  const svg2 = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  var x = d3
+    .scaleLinear()
+    .domain([624079.8465020715, 629752.8465020715])
+    .range([0, width]);
+
+  svg2
+    .append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+
+  // Add Y axis
+  var y = d3
+    .scaleLinear()
+    .domain([1009715.5668793379, 1015157.5668793379])
+    .range([height, 0]);
+  svg2.append("g").call(d3.axisLeft(y));
+
+  // Add dots
+  svg2
+    .append("g")
+    .selectAll("dot")
+    .data(data)
+    .enter()
+    .append("circle")
     .attr("cx", function (d) {
-      return x(d.sent_time);
+      return x(d["utm-easting"]);
     })
     .attr("cy", function (d) {
-      return y(d.messages_sent_in_day);
-    });
-  focus.select(".x-axis").call(xAxis);
-  context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+      return y(d["utm-northing"]);
+    })
+    .attr("r", 1.5)
+    .style("fill", "#69b3a2");
 }

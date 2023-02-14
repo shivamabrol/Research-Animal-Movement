@@ -1,0 +1,27 @@
+take an array of captured points
+and figure out 
+
+separte trajectories 
+
+
+in the selected area. 
+Histogram binned by time
+see if they were multiple 
+
+
+make time incrementing work first 
+and then have a meeting with Rich and Alexander
+
+Extract these points and tell about them
+
+
+how to sample
+
+burst of samples 
+- pull out points too far 
+
+sample on the based of distance - keep a minimum 
+
+
+can we connect these points to a path. - feed the points to these lines 
+see movement lines
