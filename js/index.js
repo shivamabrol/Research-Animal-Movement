@@ -189,7 +189,7 @@ function plotBCIdata(individual = "all") {
   const svg = d3.select("svg#map");
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
+  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
     .then((data) => {
       var dot = svg
         .selectAll("circle")
@@ -244,7 +244,7 @@ function separateBCIdata() {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
+  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
     .then((data) => {
       var dot = svg
         .selectAll("circle")
@@ -288,7 +288,7 @@ function updateChart(e1) {
   end = e1.selection[1];
   console.log(start, end);
 
-  d3.csv("../data/Dead-Reackon-Sample.csv") //updted the data
+  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
     .then((data) => {
       const filteredData = data.filter(function (d) {
         var xScale = d3
