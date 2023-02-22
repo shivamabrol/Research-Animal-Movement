@@ -51,6 +51,8 @@ svgPanZoom.events.drag = false;
 document.getElementById("reset").addEventListener("click", function () {
   // code to be executed when button is clicked
   svgPanZoom.reset();
+  svg.selectAll(".selected").remove();
+  svg.selectAll(".lined").remove();
 });
 
 document.getElementById("zoom-in").addEventListener("click", function () {
@@ -99,15 +101,34 @@ document.getElementById("bci").addEventListener("click", function () {
   plotBCIdata();
 });
 
+document.getElementById("lines").addEventListener("click", function () {
+  // code to be executed when button is clicked
+  addLinesBCI();
+});
+
 document.getElementById("paths").addEventListener("click", function () {
   //******Timeline chart data */
+});
+
+//******Uncomment after testing is over  */
+
+document.getElementById("startstamp").addEventListener("change", function () {
+  // code to execute when the input value changes
+  var inputValue = document.getElementById("startstamp").value;
+  plotBCIdata();
+});
+
+document.getElementById("endstamp").addEventListener("change", function () {
+  // code to execute when the input value changes
+  var inputValue = document.getElementById("startstamp").value;
+  plotBCIdata();
 });
 
 const container = document.getElementById("names");
 
 container.addEventListener("click", function (event) {
   if (event.target.classList.contains("btn-primary")) {
-    plotBCIdata(event.target.innerHTML.trim());
+    plotBCIdata((individual = event.target.innerHTML.trim()));
   }
 });
 
@@ -155,10 +176,10 @@ function plotFruitTrees() {
         .append("circle")
         // .attr("cx", (d) => xScale(d.UTM_X))
         .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"].replace(",", "")));
+          return xScale(parseFloat(d["utm-easting"]));
         })
         .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"].replace(/,/g, "")));
+          return yScale(parseFloat(d["utm-northing"]));
         })
         .attr("r", function (d) {
           return parseInt(d.Area) / 300;
@@ -172,7 +193,24 @@ function plotFruitTrees() {
     });
 }
 
-function plotBCIdata(individual = "all") {
+function plotBCIdata(
+  individual = "all",
+  starttime = "2000-07-07 22:07:07.000",
+  endtime = "2100-07-07 22:07:07.000"
+) {
+  // starttime = document.getElementById()
+  console.log([individual, starttime, endtime]);
+
+  starttime =
+    document.getElementById("startstamp").value == ""
+      ? starttime
+      : document.getElementById("startstamp").value;
+  endtime =
+    document.getElementById("endstamp").value == ""
+      ? endtime
+      : document.getElementById("endstamp").value;
+  console.log([individual, starttime, endtime]);
+
   // Define the input domain and output range
   var xScale = d3
     .scaleLinear()
@@ -189,8 +227,12 @@ function plotBCIdata(individual = "all") {
   const svg = d3.select("svg#map");
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
     .then((data) => {
+      var data = data.filter(function (d) {
+        return d["timestamp"] >= starttime && d["timestamp"] <= endtime;
+      });
+      console.log(data);
       var dot = svg
         .selectAll("circle")
         .classed("selected", true)
@@ -198,10 +240,10 @@ function plotBCIdata(individual = "all") {
         .enter()
         .append("circle")
         .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"].replace(",", "")));
+          return xScale(parseFloat(d["utm-easting"]));
         })
         .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"].replace(/,/g, "")));
+          return yScale(parseFloat(d["utm-northing"]));
         })
         .attr("r", function (d) {
           return parseInt(svgPanZoom.getViewBox().width) / 600;
@@ -244,7 +286,7 @@ function separateBCIdata() {
 
   svg.selectAll(".selected").remove();
 
-  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
     .then((data) => {
       var dot = svg
         .selectAll("circle")
@@ -253,10 +295,10 @@ function separateBCIdata() {
         .enter()
         .append("circle")
         .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"].replace(",", "")));
+          return xScale(parseFloat(d["utm-easting"]));
         })
         .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"].replace(/,/g, "")));
+          return yScale(parseFloat(d["utm-northing"]));
         })
         .attr("r", function (d) {
           return parseInt(svgPanZoom.getViewBox().width) / 600;
@@ -288,7 +330,7 @@ function updateChart(e1) {
   end = e1.selection[1];
   console.log(start, end);
 
-  d3.csv("../data/Dead-Reackoning-Sample-1.csv") //updted the data
+  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
     .then((data) => {
       const filteredData = data.filter(function (d) {
         var xScale = d3
@@ -364,4 +406,46 @@ function plotSeparatePaths(data) {
     })
     .attr("r", 1.5)
     .style("fill", "#69b3a2");
+}
+
+function addLinesBCI() {
+  // svg.selectAll("*").remove();
+
+  plotBCIdata();
+  // Define the input domain and output range
+  var xScale = d3
+    .scaleLinear()
+    .domain([624079.8465020715, 629752.8465020715])
+    .range([0, 1000]);
+  // 643249.2264808861
+
+  // 629,297.409565999990000","1,013,079.908749999900000
+  var yScale = d3
+    .scaleLinear()
+    .domain([1009715.5668793379, 1015157.5668793379])
+    .range([1000, 0]);
+
+  const line = d3
+    .line()
+    .x(function (d) {
+      return xScale(d["utm-easting"]);
+    })
+    .y(function (d) {
+      return yScale(d["utm-northing"]);
+    });
+
+  const svg = d3.select("svg#map");
+
+  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
+    .then((data) => {
+      const path = svg
+        .append("path")
+        .datum(datum)
+        .attr("d", line)
+        .attr("fill", "none")
+        .classed("lined", true)
+        .attr("stroke", function (d) {
+          return "blue";
+        });
+    });
 }

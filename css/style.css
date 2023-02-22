@@ -7,6 +7,8 @@
 .item4 { grid-area: data; }
 .item5 { grid-area: footer; }
 
+.item7 {grid-area: timechart; }
+
 .grid-container {
   display: grid;
   grid-template-areas:
@@ -15,8 +17,8 @@
   'map map map map data data'
   'map map map map footer footer'
   'map map map map footer footer'
-  'map map map map . .'
-  'map map map map . .';
+  'map map map map timechart timechart'
+  'map map map map timechart timechart';
 
   grid-gap: 10px;
   background-color: #2196F3;
