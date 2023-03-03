@@ -1,24 +1,28 @@
 .item1 { grid-area: map; }
 .item2 { 
     grid-area: menu; 
-    justify-content: center;
+    /* justify-content: center; */
 }
 .item3 { grid-area: main; }
 .item4 { grid-area: data; }
+.item9 {grid-area: lines}
 .item5 { grid-area: footer; }
 
 .item7 {grid-area: timechart; }
+input[type="range"] {
+  width:400px;
+}
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  'map map map map menu menu '
-  'map map map map main main'
-  'map map map map data data'
-  'map map map map footer footer'
-  'map map map map footer footer'
-  'map map map map timechart timechart'
-  'map map map map timechart timechart';
+  'map map map map menu menu menu'
+  'map map map map main main main'
+  'map map map map data data data'
+  'map map map map footer footer footer'
+  'map map map map footer footer footer'
+  'map map map map timechart timechart timechart'
+  'map map map map timechart timechart timechart';
 
   grid-gap: 10px;
   background-color: #2196F3;
@@ -32,4 +36,3 @@
   padding: 20px 0;
   font-size: 30px;
 }
-

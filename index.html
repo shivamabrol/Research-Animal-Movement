@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -52,35 +53,84 @@
       </div>
       <div class="item2">
         <button type="button" id="zoom-in" class="btn btn-success">
-          Zoom in
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-zoom-in"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+            />
+            <path
+              d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M6.5 3a.5.5 0 0 1 .5.5V6h2.5a.5.5 0 0 1 0 1H7v2.5a.5.5 0 0 1-1 0V7H3.5a.5.5 0 0 1 0-1H6V3.5a.5.5 0 0 1 .5-.5z"
+            />
+          </svg>
         </button>
         <button type="button" id="zoom-out" class="btn btn-danger">
-          Zoom out
-        </button>
-        <button type="button" id="fruit" class="btn btn-primary">
-          See Fruit Trees
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-zoom-out"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+            />
+            <path
+              d="M10.344 11.742c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1 6.538 6.538 0 0 1-1.398 1.4z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M3 6.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"
+            />
+          </svg>
         </button>
 
-        <button type="button" id="paths" class="btn btn-primary">
-          See paths
+        <button type="button" id="reset" class="btn btn-warning">
+          &#x21bb;
         </button>
-        <button type="button" id="reset" class="btn btn-warning">Reset</button>
-        <br />
-        <button type="button" id="left" class="btn btn-primary">
-          Move Left
-        </button>
+        <button type="button" id="left" class="btn btn-primary">&#8592;</button>
         <button type="button" id="right" class="btn btn-primary">
-          Move Right
+          &#8594;
         </button>
-        <button type="button" id="up" class="btn btn-primary">Move up</button>
+        <button type="button" id="up" class="btn btn-primary">&#8593;</button>
         <button type="button" id="down" class="btn btn-primary">
-          Move down
+          <span>&#8595;</span>
         </button>
       </div>
       <div id="item3" class="item3">
         <button type="button" id="bci" class="btn btn-primary">BCI data</button>
-        <button type="button" id="lines" class="btn btn-primary">
-          Add Lines
+        <button type="button" id="lines-add" class="btn btn-primary">
+          See Lines
+        </button>
+        <button type="button" id="lines-remove" class="btn btn-primary">
+          Remove Lines
+        </button>
+
+        <button type="button" id="fruit" class="btn btn-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-tree"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
+            />
+          </svg>
         </button>
       </div>
 
@@ -198,16 +248,75 @@
           Olenna
         </button>
       </div>
-      <div id="my_dataviz" class="item5">Brush Chart</div>
+      <div id="my_dataviz" class="item5">
+        Pending
+        <button
+          type="button"
+          style="background-color: #e74c3c"
+          id="start-location"
+          class="btn btn-primary"
+        >
+          Start
+        </button>
+
+        <button
+          type="button"
+          style="background-color: #e74c3c"
+          id="find-paths"
+          class="btn btn-primary"
+        >
+          Find
+        </button>
+      </div>
 
       <div id="timeline" class="item7">
         Timeline
 
         <input type="datetime-local" id="startstamp" name="timestamp" />
         <input type="datetime-local" id="endstamp" name="timestamp" />
-        <button type="button" id="Start Clock" class="btn btn-success">
-          Start Clock
+        <br />
+        <!-- <button type="button" id="start-clock" class="btn btn-success">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-clock"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+            />
+            <path
+              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
+            />
+          </svg>
         </button>
+        <button type="button" id="stop-clock" class="btn btn-danger">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-clock"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
+            />
+            <path
+              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
+            />
+          </svg>
+        </button> -->
+        <label for="customRange1" class="form-label">Travel</label>
+        <input
+          type="range"
+          class="form-range"
+          min="0"
+          max="7000"
+          id="movement-range"
+        />
       </div>
     </div>
     <script src="js/index.js"></script>
