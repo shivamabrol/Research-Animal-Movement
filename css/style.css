@@ -21,7 +21,11 @@ input[type="range"] {
   'map map map map data data data'
   'map map map map footer footer footer'
   'map map map map footer footer footer'
+  'map map map map footer footer footer'
+  'map map map map footer footer footer'
   'map map map map timechart timechart timechart'
+  'map map map map timechart timechart timechart'
+
   'map map map map timechart timechart timechart';
 
   grid-gap: 10px;
@@ -35,4 +39,9 @@ input[type="range"] {
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
+}
+
+.btn-check {
+  background-color: #ff0000;
+
 }

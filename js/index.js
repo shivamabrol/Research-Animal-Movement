@@ -1,4 +1,5 @@
 //do button click isolation
+
 var pointsPlotted = false;
 const colorArray = [
   "#1abc9c",
@@ -39,7 +40,7 @@ const names = [
 
 var svgPanZoom = $("svg#map").svgPanZoom();
 
-var svg = d3.select("svg#map");
+const svg = d3.select("svg#map");
 
 var image = d3.select("image#myimg");
 
@@ -84,7 +85,7 @@ document.getElementById("left").addEventListener("mousedown", function () {
   setTimeout(function () {
     svgPanZoom.panLeft(5);
   }, 200);
-  // console.log(svgPanZoom.getViewBox());
+  //
 });
 
 document.getElementById("fruit").addEventListener("click", function () {
@@ -92,7 +93,7 @@ document.getElementById("fruit").addEventListener("click", function () {
 
   plotFruitTrees();
 
-  // console.log(svgPanZoom.getViewBox());
+  //
 });
 
 document.getElementById("lines-remove").addEventListener("click", function () {
@@ -145,6 +146,12 @@ document.getElementById("find-paths").addEventListener("click", function () {
   plotCircles();
 });
 
+document
+  .getElementById("isolate-points")
+  .addEventListener("click", function () {
+    isolatePoints();
+  });
+
 // document.getElementById("start-clock").addEventListener("click", function () {
 //   // code to be executed when button is clicked
 //   clockPlot();
@@ -182,8 +189,6 @@ var bottom = 1009715.5668793379;
 function plotFruitTrees() {
   var corners = svgPanZoom.getViewBox();
 
-  const svg = d3.select("svg#map");
-
   // svg.selectAll(".selected").remove();
 
   d3.csv("../data/fruit_tree.csv") //updted the data
@@ -202,7 +207,7 @@ function plotFruitTrees() {
           return yScale(parseFloat(d["utm-northing"]));
         })
         .attr("r", function (d) {
-          return parseInt(d.Area) / 300;
+          return parseInt(parseInt(d.Area)) / 300;
         })
         .style("opacity", function (d) {
           return 1;
@@ -224,7 +229,7 @@ function plotBCIdata(
 ) {
   pointsPlotted = true;
   // starttime = document.getElementById()
-  // console.log([individual, starttime, endtime]);
+  //
 
   starttime =
     document.getElementById("startstamp").value == ""
@@ -234,9 +239,7 @@ function plotBCIdata(
     document.getElementById("endstamp").value == ""
       ? endtime
       : document.getElementById("endstamp").value;
-  console.log([individual, starttime, endtime]);
 
-  const svg = d3.select("svg#map");
   svg.selectAll(".points").remove();
 
   d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
@@ -269,7 +272,7 @@ function plotBCIdata(
           return parseInt(svgPanZoom.getViewBox().width) / 600;
         })
         .style("opacity", function (d) {
-          // console.log(individual);
+          //
           if (individual == "all") {
             return 1;
           } else {
@@ -295,9 +298,10 @@ svg.call(
       [0, 0],
       [1000, 1000],
     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
+    .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
 );
 
+function updateChart2() {}
 // Function that is triggered when brushing is performed
 function updateChart(e1) {
   extent = e1.selection;
@@ -382,8 +386,6 @@ function plotLinesBCI() {
       return yScale(d["utm-northing"]);
     });
 
-  const svg = d3.select("svg#map");
-
   d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
     .then((data) => {
       const circles = d3.selectAll("circle");
@@ -409,7 +411,7 @@ function plotLinesBCI() {
             }
           }),
         ])
-        .range([0.5, 0]);
+        .range([1, 0]);
 
       // var individual = 'all'
       // Do something with the filtered selection, e.g. log the IDs to the console
@@ -430,7 +432,7 @@ function plotLinesBCI() {
       //   .attr("fill", "none")
       //   .attr("opacity", 0.5)
       //   .attr("stroke", function (d) {
-      //     console.log(d);
+      //
       //     return "white";
       //   })
       //   .attr("stroke-width", corners.width / 500);
@@ -452,24 +454,22 @@ function plotLinesBCI() {
             var dy = d["utm-northing"] - data[i]["utm-northing"];
             var length = Math.sqrt(dx * dx + dy * dy);
             let a = opacityScale(length);
-            console.log(a);
+            //
             return a;
           }
           return 1;
         })
         .attr("stroke-width", corners.width / 500)
         .attr("stroke", function (d) {
-          console.log(d);
+          //
           return "white";
         });
     });
-  console.log("x");
+
   // plotBCIdata();
 }
 
 function moveRange() {
-  console.log("clock has started");
-
   // Define the input domain and output range
 
   var rangeScale = d3.scaleLinear().domain([0, 100000]).range([0, 100]);
@@ -484,7 +484,6 @@ function moveRange() {
     individual = d3.select(this).attr("id");
   });
 
-  console.log(individual);
   d3.selectAll("circle").remove();
   var rangeValue = document.getElementById("movement-range").value;
   d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
@@ -495,7 +494,6 @@ function moveRange() {
           parseInt(d.index) <= rangeValue
         );
       });
-      console.log(data);
 
       var dot = svg
         .selectAll("circle")
@@ -521,7 +519,7 @@ function moveRange() {
           return parseInt(svgPanZoom.getViewBox().width) / 600;
         })
         .style("opacity", function (d) {
-          // console.log(individual);
+          //
           return 1;
         })
         .attr("fill", function (d) {
@@ -534,8 +532,8 @@ function moveRange() {
 
 function plotCircles() {
   var circleData = [
-    { x: 100, y: 100, r: 5, color: "blue", opacity: 0.5 },
-    { x: 250, y: 200, r: 7, color: "red", opacity: 0.5 },
+    { x: 100, y: 100, r: 20, color: "blue", opacity: 0.5, id: "end-circle" },
+    { x: 250, y: 200, r: 20, color: "red", opacity: 0.5, id: "start-circle" },
   ];
 
   // Create an SVG element
@@ -553,12 +551,13 @@ function plotCircles() {
         .raise()
         .attr("cx", (d.x = event.x))
         .attr("cy", (d.y = event.y));
+
+      trajectoryPlotter();
     })
     .on("end", function (event, d) {
       // Do something when the drag ends
 
       d3.select(this).attr("stroke", null);
-      console.log(d);
     });
 
   // Add circles to the SVG
@@ -567,6 +566,10 @@ function plotCircles() {
     .data(circleData)
     .enter()
     .append("circle")
+    .attr("class", "isolated")
+    .attr("id", function (d) {
+      return d.id;
+    })
     .attr("cx", function (d) {
       return d.x;
     })
@@ -578,6 +581,9 @@ function plotCircles() {
     })
     .attr("fill", function (d) {
       return d.color;
+    })
+    .attr("opacity", function (d) {
+      return d.opacity;
     })
     .call(drag)
     .on("click", clicked);
@@ -594,4 +600,242 @@ function clicked(event, d) {
     .attr("r", r)
     .attr("opacity", 0.5)
     .attr("fill", "green");
+}
+
+//code for focus + context
+function plotfocusTimeline() {
+  var margin = { top: 10, right: 10, bottom: 100, left: 40 },
+    margin2 = { top: 430, right: 10, bottom: 20, left: 40 },
+    width = 800 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom,
+    height2 = 500 - margin2.top - margin2.bottom;
+
+  var parseDate = d3.timeParse("%Y");
+
+  var x = d3.scaleUtc().range([0, width]),
+    x2 = d3.scaleUtc().range([0, width]),
+    y = d3.scaleLinear().range([height, 0]),
+    y2 = d3.scaleLinear().range([height2, 0]);
+
+  var xAxis = d3.axisBottom(x),
+    xAxis2 = d3.axisBottom(x2),
+    yAxis = d3.axisLeft(y);
+
+  var brush = d3
+    .brushX()
+    .extent([
+      [0, 0],
+      [width, height2],
+    ])
+    .on("brush", brushed);
+
+  var area = d3
+    .area()
+    .curve(d3.curveMonotoneX)
+    .x(function (d) {
+      return x(parseInt(d["timestamp"]));
+    })
+    .y0(height)
+    .y1(function (d) {
+      return y(parseInt(d["location-lat"]));
+    });
+
+  var area2 = d3
+    .area()
+    .curve(d3.curveMonotoneX)
+    .x(function (d) {
+      return x2(parseInt(d["timestamp"]));
+    })
+    .y0(height2)
+    .y1(function (d) {
+      return y2(parseInt(d["location-lat"]));
+    });
+
+  // var svg = d3
+  //   .select("body")
+  //   .append("svg")
+  //   .attr("width", width + margin.left + margin.right)
+  //   .attr("height", height + margin.top + margin.bottom);
+
+  // append the svg object to the body of the page
+  const svg = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  svg
+    .append("defs")
+    .append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+  var focus = svg
+    .append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var context = svg
+    .append("g")
+    .attr("class", "context")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
+    .then((data) => {
+      // if (error) throw error;
+
+      x.domain(
+        d3.extent(
+          data.map(function (d) {
+            return d["timestamp"];
+          })
+        )
+      );
+      y.domain([
+        0,
+        d3.max(
+          data.map(function (d) {
+            return parseInt(d["location-lat"]);
+          })
+        ),
+      ]);
+      x2.domain(x.domain());
+      y2.domain(y.domain());
+
+      focus.append("path").datum(data).attr("class", "area").attr("d", area);
+
+      focus
+        .append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+      focus.append("g").attr("class", "y axis").call(yAxis);
+
+      context.append("path").datum(data).attr("class", "area").attr("d", area2);
+
+      context
+        .append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0,${height2})`)
+        .call(xAxis2);
+
+      context
+        .append("g")
+        .attr("class", "x brush")
+        .call(brush)
+        .selectAll("rect")
+        .attr("y", -6)
+        .attr("height", height2 + 7);
+    });
+  function brushed(event) {
+    x.domain(event ? event.selection : x2.domain());
+    focus.select(".area").attr("d", area);
+    focus.select(".x.axis").call(xAxis);
+  }
+}
+
+//developing the trajectory plotter while this is in progress
+// plotfocusTimeline();
+
+function isolatePoints() {
+  const circles = d3.selectAll("circle.points");
+  const isolated = d3.selectAll("circle.isolated");
+  // Filter the selection to only include circles with a non-empty ID
+  // const circlesWithId = circles.filter(function () {
+  //   return d3.select(this).attr("id") !== null;
+  // });
+  let start = isolated.nodes()[0];
+  let end = isolated.nodes()[1];
+
+  var data = circles.filter(function (d) {
+    let radius = 15;
+
+    //start conditions
+    let startX = parseInt(start.getAttribute("cx"));
+    let startY = parseInt(start.getAttribute("cy"));
+    let pointStartX = xScale(d["utm-easting"]);
+    let pointStartY = yScale(d["utm-northing"]);
+    let startXCondition =
+      pointStartX >= startX - radius && pointStartX <= startX + radius;
+    let startYCondition =
+      pointStartY >= startY - radius && pointStartY <= startY + radius;
+
+    //end conditions
+    let endX = parseInt(end.getAttribute("cx"));
+    let endY = parseInt(end.getAttribute("cy"));
+    let pointendX = xScale(d["utm-easting"]);
+    let pointendY = yScale(d["utm-northing"]);
+    let endXCondition =
+      pointendX >= endX - radius && pointendX <= endX + radius;
+    let endYCondition =
+      pointendY >= endY - radius && pointendY <= endY + radius;
+
+    return (
+      (startXCondition && startYCondition) || (endXCondition && endYCondition)
+    );
+  });
+
+  return data;
+}
+
+function plotIsolatedPoints() {
+  data = isolatePoints();
+
+  svg.selectAll(".points").remove();
+  data = data.data();
+  var dot = svg
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("class", "points")
+    .attr("id", function (d) {
+      return d["individual-local-identifier"];
+    })
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      //
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", function (d) {
+      //
+      return parseInt(svgPanZoom.getViewBox().width) / 600;
+    })
+    .style("opacity", function (d) {
+      //
+      return 1;
+    })
+    .attr("fill", function (d) {
+      // console.log(
+      //   colorArray[
+      //     names.indexOf(d["individual-local-identifier"]) % names.length
+      //   ]
+      // );
+      return colorArray[
+        names.indexOf(d["individual-local-identifier"]) % names.length
+      ];
+    });
+}
+
+//break into grid and then creat a treemap from the data - aggregation and
+
+//slider to reize the circles
+function sliderChanged(id) {
+  var sliderValue = document.getElementById("start-resize").value;
+  // var circle1 = d3.selectAll("circle.points");
+  var circle = d3.selectAll("circle.isolated#" + id);
+
+  circle.attr("r", sliderValue);
+}
+
+function trajectoryPlotter() {
+  data = isolatePoints().data();
+  console.log(data);
 }

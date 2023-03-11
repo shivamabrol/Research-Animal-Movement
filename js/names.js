@@ -1,0 +1,20 @@
+// names.js
+export const NAMES = {
+  DANIEL: "Daniel",
+  MAGNOLIA: "Magnolia",
+  JESSY: "Jessy",
+  DROGON: "Drogon",
+  VISERION: "Viserion",
+  RHAEGAL: "Rhaegal",
+  JOHN: "John",
+  RHAEGAL_2: "Rhaegal_2",
+  VISERION_2: "Viserion_2",
+  SAMWELL: "Samwell",
+  GENDRY: "Gendry",
+  GENDRY_2: "Gendry_2",
+  DAENERYS: "Daenerys",
+  OLENNA: "Olenna",
+  JOHN_SNOW: "John Snow",
+  SAMWELL_TARLY: "Samwell Tarly",
+  OLENNA_TYRELL: "Olenna Tyrell",
+};
