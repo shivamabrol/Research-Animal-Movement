@@ -1,6 +1,16 @@
-//do button click isolation
-
 var pointsPlotted = false;
+
+let myData; // declare a variable to store the data
+
+d3.csv("../data/Dead-Reackon-Sample-1.csv")
+  .then(function (data) {
+    myData = data; // assign the data to the variable
+    // Do something with the data here
+  })
+  .catch(function (error) {
+    console.log(error); // log any errors to the console
+  });
+
 const colorArray = [
   "#1abc9c",
   "#16a085",
@@ -149,7 +159,7 @@ document.getElementById("find-paths").addEventListener("click", function () {
 document
   .getElementById("isolate-points")
   .addEventListener("click", function () {
-    isolatePoints();
+    plotIsolatedPoints();
   });
 
 // document.getElementById("start-clock").addEventListener("click", function () {
@@ -552,7 +562,8 @@ function plotCircles() {
         .attr("cx", (d.x = event.x))
         .attr("cy", (d.y = event.y));
 
-      trajectoryPlotter();
+      // trajectoryPlotter();
+      trajectoryPlotter2();
     })
     .on("end", function (event, d) {
       // Do something when the drag ends
@@ -835,7 +846,95 @@ function sliderChanged(id) {
   circle.attr("r", sliderValue);
 }
 
+function trajectoryPlotter2() {
+  objects = isolatePoints().data();
+}
+
 function trajectoryPlotter() {
-  data = isolatePoints().data();
-  console.log(data);
+  objects = isolatePoints().data();
+  // console.log(data);
+
+  let lowestIndex = Math.min.apply(
+    Math,
+    objects.map(function (obj) {
+      return parseInt(obj.index);
+    })
+  );
+
+  let largestIndex = Math.max.apply(
+    Math,
+    objects.map(function (obj) {
+      return parseInt(obj.index);
+    })
+  );
+
+  let filteredData = myData.filter(function (d) {
+    return (
+      parseInt(d.index) >= lowestIndex && parseInt(d.index) <= largestIndex
+    ); // filter out any data points with 'alpha' value greater than 10
+  });
+
+  plotLinesData(filteredData);
+}
+
+function plotLinesData(data) {
+  // svg.selectAll("*").remove();
+
+  const line = d3
+    .line()
+    .x(function (d) {
+      return xScale(d["utm-easting"]);
+    })
+    .y(function (d) {
+      return yScale(d["utm-northing"]);
+    });
+
+  var opacityScale = d3
+    .scalePow()
+    .exponent(0.5)
+    .domain([
+      0,
+      d3.max(data, function (d, i) {
+        if (i > 0) {
+          // Calculate the length of the line
+          var dx = data[i]["utm-easting"] - data[i - 1]["utm-easting"];
+          var dy = data[i]["utm-northing"] - data[i - 1]["utm-northing"];
+          return Math.sqrt(dx * dx + dy * dy);
+        } else {
+          return 0;
+        }
+      }),
+    ])
+    .range([1, 0]);
+
+  var corners = svgPanZoom.getViewBox();
+  svg.selectAll(".lines").remove();
+
+  svg
+    .selectAll("path")
+    .data(data.slice(1))
+    .join("path")
+    .attr("class", "lines")
+    .attr("d", function (d, i) {
+      // Generate the line path
+      var pathData = line([data[i], d]);
+      return pathData;
+    })
+    .attr("opacity", function (d, i) {
+      // Calculate the length of the line
+      if (i > 0) {
+        var dx = d["utm-easting"] - data[i - 1]["utm-easting"];
+        var dy = d["utm-northing"] - data[i]["utm-northing"];
+        var length = Math.sqrt(dx * dx + dy * dy);
+        let a = opacityScale(length);
+        //
+        return a;
+      }
+      return 1;
+    })
+    .attr("stroke-width", corners.width / 500)
+    .attr("stroke", function (d) {
+      //
+      return "white";
+    });
 }
