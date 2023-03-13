@@ -1,10 +1,20 @@
 var pointsPlotted = false;
 
-let myData; // declare a variable to store the data
-
+let data;
 d3.csv("../data/Dead-Reackon-Sample-1.csv")
-  .then(function (data) {
-    myData = data; // assign the data to the variable
+  .then(function (data1) {
+    // Do something with the data here
+    data = data1;
+  })
+  .catch(function (error) {
+    console.log(error); // log any errors to the console
+  }); // declare a variable to store the data
+
+let fruitTreeData;
+
+d3.csv("../data/fruit_tree.csv")
+  .then(function (data1) {
+    fruitTreeData = data1; // assign the data to the variable
     // Do something with the data here
   })
   .catch(function (error) {
@@ -52,22 +62,20 @@ var svgPanZoom = $("svg#map").svgPanZoom();
 
 const svg = d3.select("svg#map");
 
-var image = d3.select("image#myimg");
-
-var xScale = d3
+const xScale = d3
   .scaleLinear()
   .domain([624079.8465020715, 629752.8465020715])
   .range([0, 1000]);
 
-var yScale = d3
+const yScale = d3
   .scaleLinear()
   .domain([1009715.5668793379, 1015157.5668793379])
   .range([1000, 0]);
 
 // zoomFactor: number (0.25)
-svgPanZoom.events.mouseWheel = false;
+svgPanZoom.events.mouseWheel = true;
 svgPanZoom.events.doubleClick = false;
-svgPanZoom.events.drag = false;
+svgPanZoom.events.drag = true;
 
 document.getElementById("reset").addEventListener("click", function () {
   // code to be executed when button is clicked
@@ -122,11 +130,6 @@ document.getElementById("up").addEventListener("click", function () {
 document.getElementById("down").addEventListener("click", function () {
   // code to be executed when button is clicked
   svgPanZoom.panDown(5);
-});
-
-document.getElementById("bci").addEventListener("click", function () {
-  // code to be executed when button is clicked
-  plotBCIdata();
 });
 
 document.getElementById("lines-add").addEventListener("click", function () {
@@ -201,30 +204,27 @@ function plotFruitTrees() {
 
   // svg.selectAll(".selected").remove();
 
-  d3.csv("../data/fruit_tree.csv") //updted the data
-    .then((data) => {
-      var dot = svg
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        // .attr("cx", (d) => xScale(d.UTM_X))
-        .attr("class", "fruits")
-        .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"]));
-        })
-        .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"]));
-        })
-        .attr("r", function (d) {
-          return parseInt(parseInt(d.Area)) / 300;
-        })
-        .style("opacity", function (d) {
-          return 1;
-        })
-        .attr("fill", function (d) {
-          return "pink";
-        });
+  var dot = svg
+    .selectAll("circle")
+    .data(fruitTreeData)
+    .enter()
+    .append("circle")
+    // .attr("cx", (d) => xScale(d.UTM_X))
+    .attr("class", "fruits")
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", function (d) {
+      return parseInt(parseInt(d.Area)) / 300;
+    })
+    .style("opacity", function (d) {
+      return 1;
+    })
+    .attr("fill", function (d) {
+      return "pink";
     });
 
   if (pointsPlotted === true) {
@@ -250,66 +250,63 @@ function plotBCIdata(
       ? endtime
       : document.getElementById("endstamp").value;
 
-  svg.selectAll(".points").remove();
+  // svg.selectAll(".points").remove();
 
-  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
-    .then((data) => {
-      var data = data.filter(function (d) {
-        return d["timestamp"] >= starttime && d["timestamp"] <= endtime;
-      });
-      if (individual != "all") {
-        data = data.filter(function (d) {
-          return d["individual-local-identifier"] == individual;
-        });
+  var data2 = data.filter(function (d) {
+    return d["timestamp"] >= starttime && d["timestamp"] <= endtime;
+  });
+  if (individual != "all") {
+    data2 = data2.filter(function (d) {
+      return d["individual-local-identifier"] == individual;
+    });
+  }
+
+  var dot = svg
+    .selectAll("circle")
+    .data(data2)
+    .enter()
+    .append("circle")
+    .attr("class", "points")
+    .attr("id", function (d) {
+      return d["individual-local-identifier"];
+    })
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", function (d) {
+      return 1;
+    })
+    .style("opacity", function (d) {
+      //
+      if (individual == "all") {
+        return 1;
+      } else {
+        if (d["individual-local-identifier"] == individual) {
+          return 1;
+        }
+        return 0;
       }
-
-      var dot = svg
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", "points")
-        .attr("id", function (d) {
-          return d["individual-local-identifier"];
-        })
-        .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"]));
-        })
-        .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"]));
-        })
-        .attr("r", function (d) {
-          return parseInt(svgPanZoom.getViewBox().width) / 600;
-        })
-        .style("opacity", function (d) {
-          //
-          if (individual == "all") {
-            return 1;
-          } else {
-            if (d["individual-local-identifier"] == individual) {
-              return 1;
-            }
-            return 0;
-          }
-        })
-        .attr("fill", function (d) {
-          return colorArray[
-            names.indexOf(d["individual-local-identifier"]) % names.length
-          ];
-        });
+    })
+    .attr("fill", function (d) {
+      return colorArray[
+        names.indexOf(d["individual-local-identifier"]) % names.length
+      ];
     });
 }
 
 // Add brushing
-svg.call(
-  d3
-    .brush() // Add the brush feature using the d3.brush function
-    .extent([
-      [0, 0],
-      [1000, 1000],
-    ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
-);
+// svg.call(
+//   d3
+//     .brush() // Add the brush feature using the d3.brush function
+//     .extent([
+//       [0, 0],
+//       [1000, 1000],
+//     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+//     .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
+// );
 
 function updateChart2() {}
 // Function that is triggered when brushing is performed
@@ -396,84 +393,67 @@ function plotLinesBCI() {
       return yScale(d["utm-northing"]);
     });
 
-  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
-    .then((data) => {
-      const circles = d3.selectAll("circle");
+  const circles = d3.selectAll("circle");
 
-      // Filter the selection to only include circles with a non-empty ID
-      const circlesWithId = circles.filter(function () {
-        return d3.select(this).attr("id") !== null;
-      });
+  // Filter the selection to only include circles with a non-empty ID
+  const circlesWithId = circles.filter(function () {
+    return d3.select(this).attr("id") !== null;
+  });
 
-      var opacityScale = d3
-        .scalePow()
-        .exponent(0.5)
-        .domain([
-          0,
-          d3.max(data, function (d, i) {
-            if (i > 0) {
-              // Calculate the length of the line
-              var dx = data[i]["utm-easting"] - data[i - 1]["utm-easting"];
-              var dy = data[i]["utm-northing"] - data[i - 1]["utm-northing"];
-              return Math.sqrt(dx * dx + dy * dy);
-            } else {
-              return 0;
-            }
-          }),
-        ])
-        .range([1, 0]);
-
-      // var individual = 'all'
-      // Do something with the filtered selection, e.g. log the IDs to the console
-      circlesWithId.each(function () {
-        individual = d3.select(this).attr("id");
-      });
-
-      var data = data.filter(function (d) {
-        return d["individual-local-identifier"] == individual;
-      });
-      var corners = svgPanZoom.getViewBox();
-      svg.selectAll(".lines").remove();
-      // const path = svg
-      //   .append("path")
-      //   .data(data)
-      //   .attr("d", line)
-      //   .attr("class", "lines")
-      //   .attr("fill", "none")
-      //   .attr("opacity", 0.5)
-      //   .attr("stroke", function (d) {
-      //
-      //     return "white";
-      //   })
-      //   .attr("stroke-width", corners.width / 500);
-
-      svg
-        .selectAll("path")
-        .data(data.slice(1))
-        .join("path")
-        .attr("class", "lines")
-        .attr("d", function (d, i) {
-          // Generate the line path
-          var pathData = line([data[i], d]);
-          return pathData;
-        })
-        .attr("opacity", function (d, i) {
+  var opacityScale = d3
+    .scalePow()
+    .exponent(0.5)
+    .domain([
+      0,
+      d3.max(data, function (d, i) {
+        if (i > 0) {
           // Calculate the length of the line
-          if (i > 0) {
-            var dx = d["utm-easting"] - data[i - 1]["utm-easting"];
-            var dy = d["utm-northing"] - data[i]["utm-northing"];
-            var length = Math.sqrt(dx * dx + dy * dy);
-            let a = opacityScale(length);
-            //
-            return a;
-          }
-          return 1;
-        })
-        .attr("stroke-width", corners.width / 500)
-        .attr("stroke", function (d) {
-          //
-          return "white";
-        });
+          var dx = data[i]["utm-easting"] - data[i - 1]["utm-easting"];
+          var dy = data[i]["utm-northing"] - data[i - 1]["utm-northing"];
+          return Math.sqrt(dx * dx + dy * dy);
+        } else {
+          return 0;
+        }
+      }),
+    ])
+    .range([1, 0]);
+
+  circlesWithId.each(function () {
+    individual = d3.select(this).attr("id");
+  });
+
+  var linedata = data.filter(function (d) {
+    return d["individual-local-identifier"] == individual;
+  });
+  var corners = svgPanZoom.getViewBox();
+  svg.selectAll(".lines").remove();
+
+  svg
+    .selectAll("path")
+    .data(linedata.slice(1))
+    .join("path")
+    .attr("class", "lines")
+    .attr("d", function (d, i) {
+      // Generate the line path
+      var pathData = line([linedata[i], d]);
+      return pathData;
+    })
+    .attr("opacity", function (d, i) {
+      // Calculate the length of the line
+      if (i > 0) {
+        var dx = d["utm-easting"] - linedata[i - 1]["utm-easting"];
+        var dy = d["utm-northing"] - linedata[i]["utm-northing"];
+        var length = Math.sqrt(dx * dx + dy * dy);
+        let a = opacityScale(length);
+        //
+        return a;
+      }
+      return 1;
+    })
+    .attr("stroke-width", corners.width / 500)
+    .attr("stroke", function (d) {
+      //
+      return "white";
     });
 
   // plotBCIdata();
@@ -496,47 +476,45 @@ function moveRange() {
 
   d3.selectAll("circle").remove();
   var rangeValue = document.getElementById("movement-range").value;
-  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
-    .then((data) => {
-      data = data.filter(function (d) {
-        return (
-          d["individual-local-identifier"] == individual &&
-          parseInt(d.index) <= rangeValue
-        );
-      });
 
-      var dot = svg
-        .selectAll("circle")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", "points")
-        // .transition()
-        // .delay(function (d, i) {
-        //   return i * 20; // Set a delay for each circle based on its index
-        // })
+  let rangeData = data.filter(function (d) {
+    return (
+      d["individual-local-identifier"] == individual &&
+      parseInt(d.index) <= rangeValue
+    );
+  });
 
-        .attr("id", function (d) {
-          return d["individual-local-identifier"];
-        })
-        .attr("cx", function (d) {
-          return xScale(parseFloat(d["utm-easting"]));
-        })
-        .attr("cy", function (d) {
-          return yScale(parseFloat(d["utm-northing"]));
-        })
-        .attr("r", function (d) {
-          return parseInt(svgPanZoom.getViewBox().width) / 600;
-        })
-        .style("opacity", function (d) {
-          //
-          return 1;
-        })
-        .attr("fill", function (d) {
-          return colorArray[
-            names.indexOf(d["individual-local-identifier"]) % names.length
-          ];
-        });
+  var dot = svg
+    .selectAll("circle")
+    .data(rangeData)
+    .enter()
+    .append("circle")
+    .attr("class", "points")
+    // .transition()
+    // .delay(function (d, i) {
+    //   return i * 20; // Set a delay for each circle based on its index
+    // })
+
+    .attr("id", function (d) {
+      return d["individual-local-identifier"];
+    })
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", function (d) {
+      return parseInt(svgPanZoom.getViewBox().width) / 600;
+    })
+    .style("opacity", function (d) {
+      //
+      return 1;
+    })
+    .attr("fill", function (d) {
+      return colorArray[
+        names.indexOf(d["individual-local-identifier"]) % names.length
+      ];
     });
 }
 
@@ -562,8 +540,8 @@ function plotCircles() {
         .attr("cx", (d.x = event.x))
         .attr("cy", (d.y = event.y));
 
-      // trajectoryPlotter();
-      trajectoryPlotter2();
+      trajectoryPlotter();
+      // trajectoryPlotter2();
     })
     .on("end", function (event, d) {
       // Do something when the drag ends
@@ -695,54 +673,51 @@ function plotfocusTimeline() {
     .attr("class", "context")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
-    .then((data) => {
-      // if (error) throw error;
+  // if (error) throw error;
 
-      x.domain(
-        d3.extent(
-          data.map(function (d) {
-            return d["timestamp"];
-          })
-        )
-      );
-      y.domain([
-        0,
-        d3.max(
-          data.map(function (d) {
-            return parseInt(d["location-lat"]);
-          })
-        ),
-      ]);
-      x2.domain(x.domain());
-      y2.domain(y.domain());
+  x.domain(
+    d3.extent(
+      data.map(function (d) {
+        return d["timestamp"];
+      })
+    )
+  );
+  y.domain([
+    0,
+    d3.max(
+      data.map(function (d) {
+        return parseInt(d["location-lat"]);
+      })
+    ),
+  ]);
+  x2.domain(x.domain());
+  y2.domain(y.domain());
 
-      focus.append("path").datum(data).attr("class", "area").attr("d", area);
+  focus.append("path").datum(data).attr("class", "area").attr("d", area);
 
-      focus
-        .append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+  focus
+    .append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
 
-      focus.append("g").attr("class", "y axis").call(yAxis);
+  focus.append("g").attr("class", "y axis").call(yAxis);
 
-      context.append("path").datum(data).attr("class", "area").attr("d", area2);
+  context.append("path").datum(data).attr("class", "area").attr("d", area2);
 
-      context
-        .append("g")
-        .attr("class", "x axis")
-        .attr("transform", `translate(0,${height2})`)
-        .call(xAxis2);
+  context
+    .append("g")
+    .attr("class", "x axis")
+    .attr("transform", `translate(0,${height2})`)
+    .call(xAxis2);
 
-      context
-        .append("g")
-        .attr("class", "x brush")
-        .call(brush)
-        .selectAll("rect")
-        .attr("y", -6)
-        .attr("height", height2 + 7);
-    });
+  context
+    .append("g")
+    .attr("class", "x brush")
+    .call(brush)
+    .selectAll("rect")
+    .attr("y", -6)
+    .attr("height", height2 + 7);
   function brushed(event) {
     x.domain(event ? event.selection : x2.domain());
     focus.select(".area").attr("d", area);
@@ -868,7 +843,7 @@ function trajectoryPlotter() {
     })
   );
 
-  let filteredData = myData.filter(function (d) {
+  let filteredData = data.filter(function (d) {
     return (
       parseInt(d.index) >= lowestIndex && parseInt(d.index) <= largestIndex
     ); // filter out any data points with 'alpha' value greater than 10
@@ -937,4 +912,12 @@ function plotLinesData(data) {
       //
       return "white";
     });
+}
+
+function resizePoints() {
+  var sliderValue = document.getElementById("point-resize").value;
+  // var circle1 = d3.selectAll("circle.points");
+  var circle = d3.selectAll("circle.points");
+
+  circle.attr("r", sliderValue);
 }
