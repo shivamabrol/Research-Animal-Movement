@@ -134,139 +134,193 @@
       </div>
 
       <div id="names" class="item4">
-        <!-- <button
-          type="button"
-          style="background-color: #1abc9c"
-          id="Daniel"
-          class="btn btn-primary"
-        >
-          Daniel
-        </button> -->
+        Point Plotter
+        <br />
+        <input
+          type="range"
+          id="point-resize"
+          min="0.1"
+          max="1"
+          step="0.1"
+          onchange="resizePoints()"
+        />
+        <br />
 
         <input
+          class="form-check-input"
           type="checkbox"
-          class="btn-check"
-          id="btn-check-outlined"
-          autocomplete="off"
+          value=""
+          id="all"
+          style="background-color: cyan"
+          ;
+          onchange="selectAll(id)"
         />
-        <label class="btn btn-outline-danger" for="btn-check-outlined"
-          >Daneil</label
-        ><br />
+        <label class="form-check-label" for="all"> Select All </label>
 
-        <button
-          type="button"
-          style="background-color: #16a085"
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="Daniel"
+          style="background-color: #1abc9c"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Daniel"> Daniel </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Magnolia"
-          class="btn btn-primary"
-        >
-          Magnolia
-        </button>
-        <button
-          type="button"
-          style="background-color: #2ecc71"
+          style="background-color: #16a085"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Magnolia"> Magnolia </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Jessy"
-          class="btn btn-primary"
-        >
-          Jessy
-        </button>
-        <button
-          type="button"
-          style="background-color: #27ae60"
+          style="background-color: #2ecc71"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Jessy"> Jessy </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Drogon"
-          class="btn btn-primary"
-        >
-          Drogon
-        </button>
-        <button
-          type="button"
-          style="background-color: #3498db"
+          style="background-color: #27ae60"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Drogon"> Drogon </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Viserion"
-          class="btn btn-primary"
-        >
-          Viserion
-        </button>
-        <button
-          type="button"
-          style="background-color: #2980b9"
+          style="background-color: #3498db"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Viserion"> Viserion </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Rhaegal"
-          class="btn btn-primary"
-        >
-          Rhaegal
-        </button>
-        <button
-          type="button"
-          style="background-color: #9b59b6"
+          style="background-color: #2980b9"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Rhaegal"> Rhaegal </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="John"
-          class="btn btn-primary"
-        >
-          John Snow
-        </button>
-        <button
-          type="button"
-          style="background-color: #8e44ad"
+          style="background-color: #9b59b6"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="John"> John </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Rhaegal_2"
-          class="btn btn-primary"
-        >
-          Rhaegal_2
-        </button>
-        <button
-          type="button"
-          style="background-color: #f1c40f"
+          style="background-color: #8e44ad"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Rhaegal_2"> Rhaegal_2 </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Viserion_2"
-          class="btn btn-primary"
-        >
-          Viserion_2
-        </button>
-        <button
-          type="button"
-          style="background-color: #f39c12"
+          style="background-color: #f1c40f"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Viserion_2"> Viserion_2 </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Samwell"
-          class="btn btn-primary"
-        >
-          Samwell
-        </button>
-        <button
-          type="button"
-          style="background-color: #e67e22"
+          style="background-color: #f39c12"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Samwell"> Samwell </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Gendry"
-          class="btn btn-primary"
-        >
-          Gendry
-        </button>
-        <button
-          type="button"
-          style="background-color: #d35400"
+          style="background-color: #e67e22"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Gendry"> Gendry </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Gendry_2"
-          class="btn btn-primary"
-        >
-          Gendry_2
-        </button>
-        <button
-          type="button"
-          style="background-color: #e74c3c"
+          style="background-color: #d35400"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Gendry_2"> Gendry_2 </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Daenerys"
-          class="btn btn-primary"
-        >
-          Daenerys
-        </button>
-        <button
-          type="button"
-          style="background-color: #c0392b"
+          style="background-color: #e74c3c"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Daenerys"> Daenerys </label>
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
           id="Olenna"
-          class="btn btn-primary"
-        >
-          Olenna
-        </button>
+          style="background-color: #c0392b"
+          ;
+          onchange="showPoints(id)"
+        />
+        <label class="form-check-label" for="Olenna"> Olenna </label>
       </div>
-      <div id="my_dataviz" class="item5">
-        Pending
+
+      <div class="item5">
+        Trajectory finder
 
         <div>
           <button
             type="button"
-            style="background-color: #e74c3c"
             id="start-location"
             class="btn btn-primary"
+            onclick="plotCircles()"
           >
             Start
           </button>
@@ -279,6 +333,7 @@
             step="0.1"
             onchange="sliderChanged('start-circle')"
           />
+
           <br />
           <button
             type="button"
@@ -318,55 +373,7 @@
         </button>
       </div>
 
-      <div id="timeline" class="item7">
-        Timeline
-
-        <input type="datetime-local" id="startstamp" name="timestamp" />
-        <input type="datetime-local" id="endstamp" name="timestamp" />
-        <br />
-        <!-- <button type="button" id="start-clock" class="btn btn-success">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-clock"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-            />
-            <path
-              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
-            />
-          </svg>
-        </button>
-        <button type="button" id="stop-clock" class="btn btn-danger">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-clock"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"
-            />
-            <path
-              d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
-            />
-          </svg>
-        </button> -->
-        <label for="customRange1" class="form-label">Travel</label>
-        <input
-          type="range"
-          class="form-range"
-          min="0"
-          max="7000"
-          id="movement-range"
-        />
-      </div>
+      <div id="my_dataviz" class="item7">Timeline</div>
     </div>
     <script src="js/index.js"></script>
   </body>

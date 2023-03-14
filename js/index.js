@@ -53,9 +53,6 @@ const names = [
   "Gendry_2",
   "Daenerys",
   "Olenna",
-  "John Snow",
-  "Samwell Tarly",
-  "Olenna Tyrell",
 ];
 
 var svgPanZoom = $("svg#map").svgPanZoom();
@@ -83,6 +80,11 @@ document.getElementById("reset").addEventListener("click", function () {
   svg.selectAll(".points").remove();
   svg.selectAll(".lines").remove();
   svg.selectAll(".fruits").remove();
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+  // document.getElementById("Daniel").checked = false;
 });
 
 document.getElementById("zoom-in").addEventListener("click", function () {
@@ -137,18 +139,6 @@ document.getElementById("lines-add").addEventListener("click", function () {
   plotLinesBCI();
 });
 
-document.getElementById("startstamp").addEventListener("change", function () {
-  // code to execute when the input value changes
-  var inputValue = document.getElementById("startstamp").value;
-  plotBCIdata();
-});
-
-document.getElementById("endstamp").addEventListener("change", function () {
-  // code to execute when the input value changes
-  var inputValue = document.getElementById("startstamp").value;
-  plotBCIdata();
-});
-
 document
   .getElementById("start-location")
   .addEventListener("click", function () {
@@ -169,13 +159,6 @@ document
 //   // code to be executed when button is clicked
 //   clockPlot();
 // });
-
-document
-  .getElementById("movement-range")
-  .addEventListener("change", function () {
-    // code to execute when the input value changes
-    moveRange();
-  });
 
 const container = document.getElementById("names");
 
@@ -726,7 +709,7 @@ function plotfocusTimeline() {
 }
 
 //developing the trajectory plotter while this is in progress
-// plotfocusTimeline();
+plotfocusTimeline();
 
 function isolatePoints() {
   const circles = d3.selectAll("circle.points");
@@ -920,4 +903,80 @@ function resizePoints() {
   var circle = d3.selectAll("circle.points");
 
   circle.attr("r", sliderValue);
+}
+
+function showPoints(id) {
+  const cb = document.getElementById(id);
+
+  const checkboxes = [
+    { label: "Daniel", checked: document.getElementById("Daniel").checked },
+    { label: "Magnolia", checked: document.getElementById("Magnolia").checked },
+    { label: "Jessy", checked: document.getElementById("Jessy").checked },
+    { label: "Drogon", checked: document.getElementById("Drogon").checked },
+    { label: "Viserion", checked: document.getElementById("Viserion").checked },
+    { label: "Rhaegal", checked: document.getElementById("Rhaegal").checked },
+    { label: "John", checked: document.getElementById("John").checked },
+    {
+      label: "Rhaegal_2",
+      checked: document.getElementById("Rhaegal_2").checked,
+    },
+    {
+      label: "Viserion_2",
+      checked: document.getElementById("Viserion_2").checked,
+    },
+    { label: "Samwell", checked: document.getElementById("Samwell").checked },
+    { label: "Gendry", checked: document.getElementById("Gendry").checked },
+    { label: "Gendry_2", checked: document.getElementById("Gendry_2").checked },
+    { label: "Daenerys", checked: document.getElementById("Daenerys").checked },
+    { label: "Olenna", checked: document.getElementById("Olenna").checked },
+  ];
+
+  const filteredData = data.filter((item) => {
+    const checkbox = checkboxes.find(
+      (cb) => cb.label === item["individual-local-identifier"]
+    );
+    return checkbox && checkbox.checked;
+  });
+
+  console.log(filteredData);
+  d3.selectAll("circle.points").remove();
+
+  var dot = svg
+    .selectAll("circle")
+    .data(filteredData)
+    .enter()
+    .append("circle")
+    .attr("class", "points")
+    .attr("id", function (d) {
+      return d["individual-local-identifier"];
+    })
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", 1)
+    .style("opacity", 1)
+    .attr("fill", function (d) {
+      return colorArray[
+        names.indexOf(d["individual-local-identifier"]) % names.length
+      ];
+    });
+
+  // if (!cb.checked) {
+  //   d3.selectAll("circle.points#" + id).remove();
+  // }
+}
+
+function selectAll(id) {
+  if (document.getElementById(id).checked) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = true;
+    });
+    showPoints(id);
+  } else {
+    d3.selectAll("circle.points").remove();
+  }
 }

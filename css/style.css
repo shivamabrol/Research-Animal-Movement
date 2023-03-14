@@ -45,3 +45,8 @@ input[type="range"] {
   background-color: #ff0000;
 
 }
+
+.form-check-label {
+  font-style: italic;
+  /* color: white */
+}
