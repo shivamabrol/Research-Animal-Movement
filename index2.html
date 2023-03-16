@@ -99,7 +99,7 @@
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-    d3.csv("data/totaltopics.csv", type, function (error, data) {
+    d3.csv("../data/totaltopics.csv", type, function (error, data) {
       console.log(data);
       x.domain(
         d3.extent(

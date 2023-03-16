@@ -22,11 +22,7 @@ input[type="range"] {
   'map map map map footer footer footer'
   'map map map map footer footer footer'
   'map map map map footer footer footer'
-  'map map map map footer footer footer'
-  'map map map map timechart timechart timechart'
-  'map map map map timechart timechart timechart'
-
-  'map map map map timechart timechart timechart';
+  'timechart timechart timechart timechart timechart timechart timechart';
 
   grid-gap: 10px;
   background-color: #2196F3;
