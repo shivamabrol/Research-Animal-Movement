@@ -1,0 +1,5 @@
+*.csv
+*.icloud
+*.tsv
+*.json
+.DS_Store

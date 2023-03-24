@@ -316,133 +316,140 @@ function updateChart(e1) {
     });
 }
 
-function s() {
-  let data1;
-  d3.csv("../data/Dead-Reackon-Sample-1.csv").then(function (data) {
-    data1 = data;
-    const margin = { top: 10, right: 10, bottom: 100, left: 40 };
-    const margin2 = { top: 430, right: 10, bottom: 20, left: 40 };
-    const width = 960 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
-    const height2 = 500 - margin2.top - margin2.bottom;
+function s(attribute) {
+  const margin = { top: 10, right: 30, bottom: 30, left: 60 },
+    width = 460 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
 
-    const parseDate = d3.timeParse("%Y");
-    //%b
+  // append the svg object to the body of the page
+  const svg2 = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const x = d3.scaleTime().range([0, width]);
-    const x2 = d3.scaleTime().range([0, width]);
-    const y = d3.scaleLinear().range([height, 0]);
-    const y2 = d3.scaleLinear().range([height2, 0]);
+  //Read the data
+  d3.csv(
+    "../data/Dead-Reackon-Sample-1.csv",
 
-    const xAxis = d3.axisBottom(x);
-    const xAxis2 = d3.axisBottom(x2);
-    const yAxis = d3.axisLeft(y);
-
-    const brush = d3
-      .brushX()
-      .extent([
-        [0, 0],
-        [width, height2],
-      ])
-      .on("brush end", brushed);
-
-    // create the area
-    const area = d3
-      .area()
-      .x(function (d) {
-        return x(new Date(d["date_string"]));
-      })
-      .y0(height)
-      .y1(function (d) {
-        return y(d["trajectory-finder"]);
-      });
-
-    // create the area
-    const area2 = d3
-      .area()
-      .x(function (d) {
-        return x2(new Date(d["date_string"]));
-      })
-      .y0(height)
-      .y1(function (d) {
-        return y2(d["trajectory-finder"]);
-      });
-
-    // var lineV = d3.svg.line()
-    //                   .interpolate("monotone")
-    //                   .x(function(d) { return x(d.date); })
-    //                   .y(function(d) { return yV(d.y)});
-    const svg2 = d3
-      .select("#my_dataviz")
-      .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
-
-    svg2
-      .append("defs")
-      .append("clipPath")
-      .attr("id", "clip")
-      .append("rect")
-      .attr("width", width)
-      .attr("height", height);
-
-    const focus = svg2
-      .append("g")
-      .attr("class", "focus")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    const context = svg2
-      .append("g")
-      .attr("class", "context")
-      .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
-
-    console.log(data);
-    // Do something with the data here
-
-    x.domain([new Date(2022, 6, 1), new Date(2022, 10, 1)]);
-    y.domain([0, 100]);
-    x2.domain(x.domain());
-    y2.domain(y.domain());
-
-    focus.append("path").attr("class", "area").attr("d", area(data));
-
-    focus
-      .append("g")
-      .attr("class", "x axis")
-      .attr("transform", `translate(0,${height})`)
-      .call(xAxis);
-
-    focus.append("g").attr("class", "y axis").call(yAxis);
-
-    context.append("path").attr("class", "area").attr("d", area2(data));
-
-    context
-      .append("g")
-      .attr("class", "x axis")
-      .attr("transform", `translate(0,${height2})`)
-      .call(xAxis2);
-
-    context
-      .append("g")
-      .attr("class", "x brush")
-      .call(brush)
-      .selectAll("rect")
-      .attr("y", -6)
-      .attr("height", height2 + 7);
-
-    function brushed(event) {
-      if (event.selection) {
-        const [x0, x1] = event.selection.map(x2.invert);
-        x.domain([x0, x1]);
-        focus.select(".area").attr("d", area(data1));
-        focus.select(".x.axis").call(xAxis);
-      }
+    // When reading the csv, I must format variables:
+    (d) => {
+      return {
+        date: d3.timeParse("%Y-%m-%d %H:%M:%S.%L")(d["timestamp"]),
+        value: d[attribute],
+      };
     }
-  });
+  ).then(
+    // Now I can use this dataset:
+    function (data1) {
+      console.log(data1);
+      // Add X axis --> it is a date format
+      const x = d3
+        .scaleTime()
+        .domain(d3.extent(data1, (d) => d.date))
+        .range([0, width]);
+      xAxis = svg2
+        .append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x));
+
+      // Add Y axis
+      const y = d3
+        .scaleLinear()
+        .domain([0, d3.max(data1, (d) => +d.value)])
+        .range([height, 0]);
+      yAxis = svg2.append("g").call(d3.axisLeft(y));
+
+      // Add a clipPath: everything out of this area won't be drawn.
+      const clip = svg2
+        .append("defs")
+        .append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("x", 0)
+        .attr("y", 0);
+
+      // Add brushing
+      const brush = d3
+        .brushX() // Add the brush feature using the d3.brush function
+        .extent([
+          [0, 0],
+          [width, height],
+        ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+        .on("end", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
+
+      // Create the area variable: where both the area and the brush take place
+      const area = svg2.append("g").attr("clip-path", "url(#clip)");
+
+      // Create an area generator
+      const areaGenerator = d3
+        .area()
+        .x((d) => x(d.date))
+        .y0(y(0))
+        .y1((d) => y(d.value));
+
+      //   // Add the area
+      //   area
+      //     .append("path")
+      //     .datum(data)
+      //     .attr("class", "myArea") // I add the class myArea to be able to modify it later on.
+      //     .attr("fill", "#69b3a2")
+      //     .attr("fill-opacity", 0.3)
+      //     .attr("stroke", "black")
+      //     .attr("stroke-width", 1)
+      //     .attr("d", areaGenerator);
+
+      area
+        .append("path")
+        .attr("class", "myArea")
+        .attr("d", areaGenerator(data1));
+
+      // Add the brushing
+      area.append("g").attr("class", "brush").call(brush);
+
+      // A function that set idleTimeOut to null
+      let idleTimeout;
+      function idled() {
+        idleTimeout = null;
+      }
+
+      // A function that update the chart for given boundaries
+      function updateChart(event) {
+        // What are the selected boundaries?
+        extent = event.selection;
+
+        // If no selection, back to initial coordinate. Otherwise, update X axis domain
+        if (!extent) {
+          if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
+          x.domain([4, 8]);
+        } else {
+          x.domain([x.invert(extent[0]), x.invert(extent[1])]);
+          area.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
+        }
+
+        // Update axis and area position
+        xAxis.transition().duration(1000).call(d3.axisBottom(x));
+        area
+          .select(".myArea")
+          .transition()
+          .duration(1000)
+          .attr("d", areaGenerator(data1));
+      }
+
+      // If user double click, reinitialize the chart
+      svg2.on("dblclick", function () {
+        x.domain(d3.extent(data1, (d) => d.date));
+        xAxis.transition().call(d3.axisBottom(x));
+        area.select(".myArea").transition().attr("d", areaGenerator(data1));
+      });
+    }
+  );
 }
-s();
+
 function plotSeparatePaths(data) {
   const margin = { top: 30, right: 30, bottom: 30, left: 30 },
     width = 300 - margin.left - margin.right,
