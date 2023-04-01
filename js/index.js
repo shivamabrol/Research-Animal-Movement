@@ -1,7 +1,5 @@
-var pointsPlotted = false;
-
 let data;
-d3.csv("../data/Dead-Reackon-Sample-1.csv")
+d3.csv("../data/BCI-movement-data.csv")
   .then(function (data1) {
     // Do something with the data here
     data = data1;
@@ -58,6 +56,27 @@ const names = [
 var svgPanZoom = $("svg#map").svgPanZoom();
 
 const svg = d3.select("svg#map");
+
+var pointsPlotted = false;
+var data3D = [
+  [
+    [0, -1, 0],
+    [-1, 1, 0],
+    [1, 1, 0],
+  ],
+];
+
+var triangles3D = d3._3d().scale(100).origin([480, 250]).shape("TRIANGLE");
+
+var projectedData = triangles3D(data3D);
+
+init(projectedData);
+
+function init(data) {
+  var triangles = svg.selectAll("path").data(data);
+
+  // add your logic here...
+}
 
 const xScale = d3
   .scaleLinear()
@@ -298,7 +317,7 @@ function updateChart(e1) {
   start = e1.selection[0];
   end = e1.selection[1];
 
-  d3.csv("../data/Dead-Reackon-Sample-1.csv") //updted the data
+  d3.csv("../data/BCI-movement-data.csv") //updted the data
     .then((data) => {
       const filteredData = data.filter(function (d) {
         var horizontal = xScale(d["utm-easting"]);
@@ -332,7 +351,7 @@ function s(attribute) {
 
   //Read the data
   d3.csv(
-    "../data/Dead-Reackon-Sample-1.csv",
+    "../data/BCI-movement-data.csv",
 
     // When reading the csv, I must format variables:
     (d) => {
