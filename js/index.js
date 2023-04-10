@@ -36,6 +36,65 @@ const colorArray = [
   "#c0392b",
 ];
 
+const colorArrayTrajectory = [
+  "#1abc9c",
+  "#16a085",
+  "#2ecc71",
+  "#27ae60",
+  "#3498db",
+  "#2980b9",
+  "#9b59b6",
+  "#8e44ad",
+  "#f1c40f",
+  "#f39c12",
+  "#e67e22",
+  "#d35400",
+  "#e74c3c",
+  "#c0392b",
+  "#1abc9c",
+  "#16a085",
+  "#2ecc71",
+  "#27ae60",
+  "#3498db",
+  "#2980b9",
+  "#9b59b6",
+  "#8e44ad",
+  "#f1c40f",
+  "#f39c12",
+  "#e67e22",
+  "#d35400",
+  "#e74c3c",
+  "#c0392b",
+  "#1abc9c",
+  "#16a085",
+  "#2ecc71",
+  "#27ae60",
+  "#3498db",
+  "#2980b9",
+  "#9b59b6",
+  "#8e44ad",
+  "#f1c40f",
+  "#f39c12",
+  "#e67e22",
+  "#d35400",
+  "#e74c3c",
+  "#c0392b",
+  "#1abc9c",
+  "#16a085",
+  "#2ecc71",
+  "#27ae60",
+  "#3498db",
+  "#2980b9",
+  "#9b59b6",
+  "#8e44ad",
+  "#f1c40f",
+  "#f39c12",
+  "#e67e22",
+  "#d35400",
+  "#e74c3c",
+  "#c0392b",
+];
+
 const names = [
   "Daniel",
   "Magnolia",
@@ -153,9 +212,14 @@ document.getElementById("down").addEventListener("click", function () {
   svgPanZoom.panDown(5);
 });
 
+// document.getElementById("lines-add").addEventListener("click", function () {
+//   // code to be executed when button is clicked
+//   plotLinesBCI();
+// });
+
 document.getElementById("lines-add").addEventListener("click", function () {
   // code to be executed when button is clicked
-  plotLinesBCI();
+  plotTrajectoryBCI();
 });
 
 document
@@ -198,8 +262,8 @@ container.addEventListener("click", function (event) {
 var left = 624079.8465020715;
 var right = 629752.8465020715;
 
-var top = 1015157.5668793379;
-var bottom = 1009715.5668793379;
+var top = 1009715.5668793379;
+var bottom = 1015157.5668793379;
 
 function plotFruitTrees() {
   var corners = svgPanZoom.getViewBox();
@@ -515,6 +579,62 @@ function plotSeparatePaths(data) {
     })
     .attr("r", 1.5)
     .style("fill", "#69b3a2");
+}
+function plotTrajectoryBCI() {
+  console.log(data);
+  plotList = [];
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked == true) {
+      plotList.push(checkbox.id);
+    }
+  });
+  console.log(plotList);
+  const trajectoryData = data.filter((item) =>
+    plotList.includes(item["individual-local-identifier"])
+  );
+
+  // Get the unique categories from the data
+  const uniqueTrajectories = [
+    ...new Set(trajectoryData.map((item) => item["trajectory_number"])),
+  ];
+
+  // // Log the unique categories to the console
+  console.log(uniqueTrajectories);
+
+  var line = d3
+    .line()
+    .x(function (d) {
+      return xScale(d["utm-easting"]);
+    })
+    .y(function (d) {
+      return yScale(d["utm-northing"]);
+    });
+
+  svg
+    .selectAll(".line")
+    .data(d3.groups(trajectoryData, (d) => d["trajectory_number"]))
+    .enter()
+    .append("path")
+    .attr("class", "line")
+    .attr("d", function (d) {
+      return line(d[1]);
+    })
+    .style("stroke", function (d) {
+      console.log(colorArrayTrajectory[parseInt(d[0]) % 60]);
+      return colorArrayTrajectory[parseInt(d[0]) % 60];
+    });
+}
+
+function getColorList() {
+  // Use D3's schemeCategory20c() and schemeSet3() functions to get 20 and 12 colors respectively
+  var colorList1 = d3.schemeCategory10;
+  var colorList2 = d3.schemeCategory10;
+
+  // Combine the two color lists and select the first 35 colors
+  var colorList = colorList1.concat(colorList2).slice(0, 15);
+
+  return colorList;
 }
 
 function plotLinesBCI() {
@@ -937,7 +1057,10 @@ function showPoints(id) {
     { label: "Drogon", checked: document.getElementById("Drogon").checked },
     { label: "Viserion", checked: document.getElementById("Viserion").checked },
     { label: "Rhaegal", checked: document.getElementById("Rhaegal").checked },
-    { label: "John", checked: document.getElementById("John").checked },
+    {
+      label: "John Snow",
+      checked: document.getElementById("John Snow").checked,
+    },
     {
       label: "Rhaegal_2",
       checked: document.getElementById("Rhaegal_2").checked,
@@ -960,7 +1083,6 @@ function showPoints(id) {
     return checkbox && checkbox.checked;
   });
 
-  console.log(filteredData);
   d3.selectAll("circle.points").remove();
 
   var dot = svg
@@ -999,6 +1121,10 @@ function selectAll(id) {
     });
     showPoints(id);
   } else {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
     d3.selectAll("circle.points").remove();
   }
 }
