@@ -158,6 +158,8 @@ document.getElementById("reset").addEventListener("click", function () {
   svg.selectAll(".points").remove();
   svg.selectAll(".lines").remove();
   svg.selectAll(".fruits").remove();
+  svg.selectAll(".cells").remove();
+
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
     checkbox.checked = false;
@@ -194,11 +196,6 @@ document.getElementById("fruit").addEventListener("click", function () {
   //
 });
 
-document.getElementById("lines-remove").addEventListener("click", function () {
-  // code to be executed when button is clicked
-  svg.selectAll(".lines").remove();
-});
-
 document.getElementById("right").addEventListener("click", function () {
   // code to be executed when button is clicked
   svgPanZoom.panRight(5);
@@ -217,11 +214,6 @@ document.getElementById("down").addEventListener("click", function () {
 //   plotLinesBCI();
 // });
 
-document.getElementById("lines-add").addEventListener("click", function () {
-  // code to be executed when button is clicked
-  plotTrajectoryBCI();
-});
-
 document
   .getElementById("start-location")
   .addEventListener("click", function () {
@@ -237,6 +229,12 @@ document
   .addEventListener("click", function () {
     plotIsolatedPoints();
   });
+
+document.getElementById("voronoi-plot").addEventListener("click", function () {
+  let width = document.getElementById("voronoi-cell-width").value;
+  console.log(width);
+  voronoiPlots(parseInt(width));
+});
 
 // document.getElementById("start-clock").addEventListener("click", function () {
 //   // code to be executed when button is clicked
@@ -571,6 +569,7 @@ function plotSeparatePaths(data) {
     .data(data)
     .enter()
     .append("circle")
+
     .attr("cx", function (d) {
       return x(d["utm-easting"]);
     })
@@ -581,12 +580,16 @@ function plotSeparatePaths(data) {
     .style("fill", "#69b3a2");
 }
 function plotTrajectoryBCI() {
+  if (document.getElementById("lines-add").checked == false) {
+    svg.selectAll(".lines").remove();
+    return;
+  }
   console.log(data);
   plotList = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked == true) {
-      plotList.push(checkbox.id);
+      plotList.push(checkbox.value);
     }
   });
   console.log(plotList);
@@ -601,7 +604,11 @@ function plotTrajectoryBCI() {
 
   // // Log the unique categories to the console
   console.log(uniqueTrajectories);
+  svg.remove;
+  trajectoryLinePlotter(trajectoryData);
+}
 
+function trajectoryLinePlotter(data) {
   var line = d3
     .line()
     .x(function (d) {
@@ -613,10 +620,10 @@ function plotTrajectoryBCI() {
 
   svg
     .selectAll(".line")
-    .data(d3.groups(trajectoryData, (d) => d["trajectory_number"]))
+    .data(d3.groups(data, (d) => d["trajectory_number"]))
     .enter()
     .append("path")
-    .attr("class", "line")
+    .attr("class", "lines")
     .attr("d", function (d) {
       return line(d[1]);
     })
@@ -896,7 +903,7 @@ function isolatePoints() {
 
 function plotIsolatedPoints() {
   data = isolatePoints();
-
+  console.log(data);
   svg.selectAll(".points").remove();
   data = data.data();
   var dot = svg
@@ -933,6 +940,8 @@ function plotIsolatedPoints() {
         names.indexOf(d["individual-local-identifier"]) % names.length
       ];
     });
+
+  plotLinesData(data);
 }
 
 //break into grid and then creat a treemap from the data - aggregation and
@@ -954,27 +963,23 @@ function trajectoryPlotter() {
   objects = isolatePoints().data();
   // console.log(data);
 
-  let lowestIndex = Math.min.apply(
-    Math,
-    objects.map(function (obj) {
-      return parseInt(obj.index);
-    })
+  //Given a list of those points plot all the trajectories through those points - originating / passing through
+
+  //Find all the trajectories in the data
+  const distinctTrajectories = [
+    ...new Set(objects.map((item) => item["trajectory_number"])),
+  ];
+
+  // Filter the data based on the list of names
+  const filteredTrajectories = data.filter((item) =>
+    distinctTrajectories.includes(item["trajectory_number"])
   );
 
-  let largestIndex = Math.max.apply(
-    Math,
-    objects.map(function (obj) {
-      return parseInt(obj.index);
-    })
-  );
+  // console.log(filteredData);
+  svg.selectAll(".lines").remove();
 
-  let filteredData = data.filter(function (d) {
-    return (
-      parseInt(d.index) >= lowestIndex && parseInt(d.index) <= largestIndex
-    ); // filter out any data points with 'alpha' value greater than 10
-  });
-
-  plotLinesData(filteredData);
+  trajectoryLinePlotter(filteredTrajectories);
+  //get points with all those trajectories
 }
 
 function plotLinesData(data) {
@@ -1048,40 +1053,34 @@ function resizePoints() {
 }
 
 function showPoints(id) {
-  const cb = document.getElementById(id);
-
   const checkboxes = [
-    { label: "Daniel", checked: document.getElementById("Daniel").checked },
-    { label: "Magnolia", checked: document.getElementById("Magnolia").checked },
-    { label: "Jessy", checked: document.getElementById("Jessy").checked },
-    { label: "Drogon", checked: document.getElementById("Drogon").checked },
-    { label: "Viserion", checked: document.getElementById("Viserion").checked },
-    { label: "Rhaegal", checked: document.getElementById("Rhaegal").checked },
-    {
-      label: "John Snow",
-      checked: document.getElementById("John Snow").checked,
-    },
-    {
-      label: "Rhaegal_2",
-      checked: document.getElementById("Rhaegal_2").checked,
-    },
-    {
-      label: "Viserion_2",
-      checked: document.getElementById("Viserion_2").checked,
-    },
-    { label: "Samwell", checked: document.getElementById("Samwell").checked },
-    { label: "Gendry", checked: document.getElementById("Gendry").checked },
-    { label: "Gendry_2", checked: document.getElementById("Gendry_2").checked },
-    { label: "Daenerys", checked: document.getElementById("Daenerys").checked },
-    { label: "Olenna", checked: document.getElementById("Olenna").checked },
+    document.getElementById("Daniel-checkbox"),
+    document.getElementById("Magnolia-checkbox"),
+    document.getElementById("Jessy-checkbox"),
+    document.getElementById("Drogon-checkbox"),
+    document.getElementById("Viserion-checkbox"),
+    document.getElementById("Rhaegal-checkbox"),
+    document.getElementById("John Snow-checkbox"),
+    document.getElementById("Rhaegal_2-checkbox"),
+    document.getElementById("Viserion_2-checkbox"),
+    document.getElementById("Samwell-checkbox"),
+    document.getElementById("Gendry-checkbox"),
+    document.getElementById("Gendry_2-checkbox"),
+    document.getElementById("Daenerys-checkbox"),
+    document.getElementById("Olenna-checkbox"),
   ];
 
-  const filteredData = data.filter((item) => {
-    const checkbox = checkboxes.find(
-      (cb) => cb.label === item["individual-local-identifier"]
-    );
-    return checkbox && checkbox.checked;
+  let checkedValues = [];
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked) {
+      checkedValues.push(checkbox.value);
+    }
   });
+  const filteredData = data.filter((item) =>
+    checkedValues.includes(item["individual-local-identifier"])
+  );
+
+  console.log(checkedValues);
 
   d3.selectAll("circle.points").remove();
 
@@ -1127,4 +1126,66 @@ function selectAll(id) {
     });
     d3.selectAll("circle.points").remove();
   }
+}
+function voronoiCirlces() {
+  // Assume that `voronoi` is an array of Voronoi cells, where each cell contains an array of indices representing the vertices of the cell.
+}
+function voronoiPlots(cellW) {
+  d3.text("data/centroids.txt").then(function (data) {
+    const xMin = 624079.8465020715,
+      xMax = 629752.8465020715,
+      yMin = 1009715.5668793379,
+      yMax = 1015157.5668793379;
+
+    // Define the cell width
+    const cellWidth = cellW;
+
+    const xScale = d3
+      .scaleLinear()
+      .domain([624079.8465020715, 629752.8465020715])
+      .range([0, 1000]);
+
+    const yScale = d3
+      .scaleLinear()
+      .domain([1009715.5668793379, 1015157.5668793379])
+      .range([1000, 0]);
+
+    // Generate a set of points
+    const points = [];
+    for (let x = xMin; x < xMax; x += cellWidth) {
+      for (let y = yMin; y < yMax; y += cellWidth) {
+        points.push([xScale(x), yScale(y)]);
+      }
+    }
+
+    let centroids = data.split("\n");
+    for (let i = 0; i < centroids.length; i++) {
+      let coordinates = centroids[i].split(",");
+      points.push([
+        xScale(parseInt(coordinates[0])),
+        yScale(parseInt(coordinates[1])),
+      ]);
+    }
+    // Compute the Voronoi diagram
+    const delaunay2 = new d3.Delaunay(Float64Array.of(0, 0, 0, 1, 1, 0, 1, 1));
+    console.log(delaunay2);
+    const delaunay = d3.Delaunay.from(points);
+    const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+
+    // Create SVG element
+    const svg = d3.select("svg#map");
+
+    // Draw Voronoi cells
+    svg
+      .selectAll("path")
+      .data(voronoi.cellPolygons())
+      .enter()
+      .append("path")
+      .attr("d", (d) => "M" + d.join("L") + "Z")
+      .attr("class", "cells")
+      .attr("stroke", "orange")
+      .attr("stroke-width", 1)
+      .attr("stroke-opacity", 0.5)
+      .attr("fill", "none");
+  });
 }

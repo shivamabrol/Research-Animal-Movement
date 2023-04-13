@@ -114,12 +114,29 @@
       </div>
       <div id="item3" class="item3">
         <button type="button" id="bci" class="btn btn-primary">BCI data</button>
-        <button type="button" id="lines-add" class="btn btn-primary">
-          See Trajectories
+
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="lines-add"
+          style="background-color: cyan"
+          ;
+          onchange="plotTrajectoryBCI()"
+        />
+        <label class="form-check-label" for="lines-add"> Trajectories </label>
+
+        <button type="button" id="voronoi-plot" class="btn btn-primary">
+          Show Voronoi Plot
         </button>
-        <button type="button" id="lines-remove" class="btn btn-primary">
-          Remove Trajectories
-        </button>
+        <input
+          type="range"
+          min="100"
+          max="1000"
+          value="100"
+          class="slider"
+          id="voronoi-cell-width"
+        />
 
         <button type="button" id="fruit" class="btn btn-success">
           <svg
@@ -164,8 +181,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Daniel"
+          value="Daniel"
+          id="Daniel-checkbox"
           style="background-color: #1abc9c"
           ;
           onchange="showPoints(id)"
@@ -175,8 +192,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Magnolia"
+          value="Magnolia"
+          id="Magnolia-checkbox"
           style="background-color: #16a085"
           ;
           onchange="showPoints(id)"
@@ -186,8 +203,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Jessy"
+          value="Jessy"
+          id="Jessy-checkbox"
           style="background-color: #2ecc71"
           ;
           onchange="showPoints(id)"
@@ -197,8 +214,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Drogon"
+          value="Drogon"
+          id="Drogon-checkbox"
           style="background-color: #27ae60"
           ;
           onchange="showPoints(id)"
@@ -208,8 +225,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Viserion"
+          value="Viserion"
+          id="Viserion-checkbox"
           style="background-color: #3498db"
           ;
           onchange="showPoints(id)"
@@ -219,8 +236,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Rhaegal"
+          value="Rhaegal"
+          id="Rhaegal-checkbox"
           style="background-color: #2980b9"
           ;
           onchange="showPoints(id)"
@@ -230,8 +247,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="John Snow"
+          value="John Snow"
+          id="John Snow-checkbox"
           style="background-color: #9b59b6"
           ;
           onchange="showPoints(id)"
@@ -241,8 +258,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Rhaegal_2"
+          value="Rhaegal_2"
+          id="Rhaegal_2-checkbox"
           style="background-color: #8e44ad"
           ;
           onchange="showPoints(id)"
@@ -252,8 +269,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Viserion_2"
+          value="Viserion_2"
+          id="Viserion_2-checkbox"
           style="background-color: #f1c40f"
           ;
           onchange="showPoints(id)"
@@ -263,8 +280,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Samwell"
+          value="Samwell"
+          id="Samwell-checkbox"
           style="background-color: #f39c12"
           ;
           onchange="showPoints(id)"
@@ -274,8 +291,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Gendry"
+          value="Gendry"
+          id="Gendry-checkbox"
           style="background-color: #e67e22"
           ;
           onchange="showPoints(id)"
@@ -285,8 +302,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Gendry_2"
+          value="Gendry_2"
+          id="Gendry_2-checkbox"
           style="background-color: #d35400"
           ;
           onchange="showPoints(id)"
@@ -296,8 +313,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Daenerys"
+          value="Daenerys"
+          id="Daenerys-checkbox"
           style="background-color: #e74c3c"
           ;
           onchange="showPoints(id)"
@@ -307,8 +324,8 @@
         <input
           class="form-check-input"
           type="checkbox"
-          value=""
-          id="Olenna"
+          value="Olenna"
+          id="Olenna-checkbox"
           style="background-color: #c0392b"
           ;
           onchange="showPoints(id)"
