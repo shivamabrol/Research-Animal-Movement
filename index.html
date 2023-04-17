@@ -138,6 +138,16 @@
           id="voronoi-cell-width"
         />
 
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="summarize"
+          style="background-color: rgb(72, 0, 255)"
+          ;
+        />
+        <label class="form-check-label" for="summarize"> Summarize </label>
+
         <button type="button" id="fruit" class="btn btn-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -167,6 +177,15 @@
         />
         <br />
 
+        <label for="colorpicker">Color Picker:</label>
+        <input
+          type="color"
+          id="colorpicker"
+          value="#0000ff"
+          oninput="changeColor()"
+        />
+        <br />
+
         <input
           class="form-check-input"
           type="checkbox"
@@ -176,6 +195,7 @@
           ;
           onchange="selectAll(id)"
         />
+
         <label class="form-check-label" for="all"> Select All </label>
 
         <input
@@ -356,42 +376,7 @@
           />
 
           <br />
-          <button
-            type="button"
-            style="background-color: #e74c3c"
-            id="end-location"
-            class="btn btn-primary"
-          >
-            End
-          </button>
-
-          <input
-            type="range"
-            id="end-resize"
-            min="5"
-            max="30"
-            step="0.1"
-            onchange="sliderChanged('end-circle')"
-          />
         </div>
-
-        <button
-          type="button"
-          style="background-color: #e74c3c"
-          id="find-paths"
-          class="btn btn-primary"
-        >
-          Find
-        </button>
-
-        <button
-          type="button"
-          style="background-color: #e74c3c"
-          id="isolate-points"
-          class="btn btn-primary"
-        >
-          Isolate
-        </button>
       </div>
 
       <div id="my_dataviz" height="1000px" width="1000px" class="item5">

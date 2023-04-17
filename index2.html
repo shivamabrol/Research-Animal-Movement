@@ -8,39 +8,44 @@
   </head>
   <body>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <svg id="map" x="100" y="100" width="1000" height="1000"></svg>
-    <script>
-      // Define the bounding box
+    <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
 
-      // Define some sample data.
-      var data = [
-        [100, 100],
-        [200, 200],
-        [300, 100],
-        [150, 250],
-        [250, 250],
+    <svg id="map" x="0" y="0" width="1000" height="1000"></svg>
+    <script>
+      // Define an array of points
+      const points = [
+        [0, 0],
+        [0, 1],
+        [1, 0],
+        [1, 1],
+        [0.5, 0.5],
+        [0.25, 0.75],
+        [0.75, 0.25],
       ];
 
-      const delaunay = d3.Delaunay.from(data);
-      const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+      // Compute the Delaunay triangulation
+      const delaunay = d3.Delaunay.from(points);
 
-      // Create a Voronoi diagram using D3.js.
+      // Define the index of the cell to get the centroid for
+      const cellIndex = 0;
 
-      // Define a test point.
-      var point = [175, 175];
+      // Get the indices of the triangles that make up the cell
+      const triangleIndices = delaunay.cellTriangles[cellIndex];
 
-      // Find the index of the Voronoi cell that contains the test point.
-      var cellIndex = -1;
-      for (var i = 0; i < voronoi.length; i++) {
-        var cell = voronoi[i];
-        if (d3.polygonContains(cell, point)) {
-          cellIndex = i;
-          break;
-        }
-      }
+      // Get the polygon vertices for each triangle
+      const polygonVertices = triangleIndices.map((triangleIndex) =>
+        delaunay.trianglePolygon(triangleIndex)
+      );
 
-      // Log the result to the console.
-      console.log(cellIndex);
+      // Compute the centroid of the polygon vertices
+      const centroid = polygonVertices.reduce(
+        (acc, curr) => [acc[0] + curr[0], acc[1] + curr[1]],
+        [0, 0]
+      );
+      centroid[0] /= polygonVertices.length;
+      centroid[1] /= polygonVertices.length;
+
+      console.log(centroid);
     </script>
   </body>
 </html>

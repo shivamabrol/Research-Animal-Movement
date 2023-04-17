@@ -1,3 +1,6 @@
+//Color picker would be activated only if single animal is present on screen a
+// It'll be disabled if there are 2 or more
+
 let data;
 d3.csv("../data/BCI-movement-data.csv")
   .then(function (data1) {
@@ -18,23 +21,6 @@ d3.csv("../data/fruit_tree.csv")
   .catch(function (error) {
     console.log(error); // log any errors to the console
   });
-
-const colorArray = [
-  "#1abc9c",
-  "#16a085",
-  "#2ecc71",
-  "#27ae60",
-  "#3498db",
-  "#2980b9",
-  "#9b59b6",
-  "#8e44ad",
-  "#f1c40f",
-  "#f39c12",
-  "#e67e22",
-  "#d35400",
-  "#e74c3c",
-  "#c0392b",
-];
 
 const colorArrayTrajectory = [
   "#1abc9c",
@@ -111,6 +97,46 @@ const names = [
   "Daenerys",
   "Olenna",
 ];
+
+const colors = {
+  Daniel: "",
+  Magnolia: "",
+  Jessy: "",
+  Drogon: "",
+  Viserion: "",
+  Rhaegal: "",
+  John: "",
+  Rhaegal_2: "",
+  Viserion_2: "",
+  Samwell: "",
+  Gendry: "",
+  Gendry_2: "",
+  Daenerys: "",
+  Olenna: "",
+};
+
+const colorArray = [
+  "#1abc9c",
+  "#16a085",
+  "#2ecc71",
+  "#27ae60",
+  "#3498db",
+  "#2980b9",
+  "#9b59b6",
+  "#8e44ad",
+  "#f1c40f",
+  "#f39c12",
+  "#e67e22",
+  "#d35400",
+  "#e74c3c",
+  "#c0392b",
+];
+
+let colorDictionary = {};
+
+for (let key in colors) {
+  colorDictionary[key] = colorArray.shift();
+}
 
 var svgPanZoom = $("svg#map").svgPanZoom();
 
@@ -220,16 +246,6 @@ document
     plotCircles();
   });
 
-document.getElementById("find-paths").addEventListener("click", function () {
-  plotCircles();
-});
-
-document
-  .getElementById("isolate-points")
-  .addEventListener("click", function () {
-    plotIsolatedPoints();
-  });
-
 document.getElementById("voronoi-plot").addEventListener("click", function () {
   let width = document.getElementById("voronoi-cell-width").value;
   console.log(width);
@@ -296,6 +312,28 @@ function plotFruitTrees() {
   }
 }
 
+function changeColor() {
+  const colorPoints = svg.selectAll("circle.points").data();
+  const uniqueAnimals = [
+    ...new Set(colorPoints.map((item) => item["individual-local-identifier"])),
+  ];
+
+  //This doesn't let color changes on the latest one
+  if (uniqueAnimals.length > 1 || uniqueAnimals.length == 0) {
+    return;
+  }
+
+  const checkbox = document.getElementById(uniqueAnimals[0] + "-checkbox");
+  checkbox.style.backgroundColor = document.getElementById("colorpicker").value;
+  colorDictionary[uniqueAnimals[0]] =
+    document.getElementById("colorpicker").value;
+  d3.selectAll("circle")
+    .data(colorPoints)
+    .style("fill", function (d) {
+      return document.getElementById("colorpicker").value;
+    });
+}
+
 function plotBCIdata(
   individual = "all",
   starttime = "2000-07-07 22:07:07.000",
@@ -355,9 +393,7 @@ function plotBCIdata(
       }
     })
     .attr("fill", function (d) {
-      return colorArray[
-        names.indexOf(d["individual-local-identifier"]) % names.length
-      ];
+      return colorDictionary[d["individual-local-identifier"]];
     });
 }
 
@@ -775,15 +811,12 @@ function moveRange() {
       return 1;
     })
     .attr("fill", function (d) {
-      return colorArray[
-        names.indexOf(d["individual-local-identifier"]) % names.length
-      ];
+      return colorDictionary[d["individual-local-identifier"]];
     });
 }
 
 function plotCircles() {
   var circleData = [
-    { x: 100, y: 100, r: 20, color: "blue", opacity: 0.5, id: "end-circle" },
     { x: 250, y: 200, r: 20, color: "red", opacity: 0.5, id: "start-circle" },
   ];
 
@@ -883,19 +916,7 @@ function isolatePoints() {
     let startYCondition =
       pointStartY >= startY - radius && pointStartY <= startY + radius;
 
-    //end conditions
-    let endX = parseInt(end.getAttribute("cx"));
-    let endY = parseInt(end.getAttribute("cy"));
-    let pointendX = xScale(d["utm-easting"]);
-    let pointendY = yScale(d["utm-northing"]);
-    let endXCondition =
-      pointendX >= endX - radius && pointendX <= endX + radius;
-    let endYCondition =
-      pointendY >= endY - radius && pointendY <= endY + radius;
-
-    return (
-      (startXCondition && startYCondition) || (endXCondition && endYCondition)
-    );
+    return startXCondition && startYCondition;
   });
 
   return data;
@@ -936,9 +957,7 @@ function plotIsolatedPoints() {
       //     names.indexOf(d["individual-local-identifier"]) % names.length
       //   ]
       // );
-      return colorArray[
-        names.indexOf(d["individual-local-identifier"]) % names.length
-      ];
+      return colorDictionary[d["individual-local-identifier"]];
     });
 
   plotLinesData(data);
@@ -1102,9 +1121,7 @@ function showPoints(id) {
     .attr("r", 1)
     .style("opacity", 1)
     .attr("fill", function (d) {
-      return colorArray[
-        names.indexOf(d["individual-local-identifier"]) % names.length
-      ];
+      return colorDictionary[d["individual-local-identifier"]];
     });
 
   // if (!cb.checked) {
@@ -1130,6 +1147,71 @@ function selectAll(id) {
 function voronoiCirlces() {
   // Assume that `voronoi` is an array of Voronoi cells, where each cell contains an array of indices representing the vertices of the cell.
 }
+
+function summarizeMovement(delaunay, voronoi) {
+  let summarizedPoints = d3.selectAll("circle.points").data();
+
+  // summarizedPoints.sort((a, b) => a["timestamp"] - b["timestamp"]);
+  let summarizedCells = [];
+  for (let i = 0; i < summarizedPoints.length; i++) {
+    summarizedCells.push(
+      delaunay.find(
+        xScale(parseInt(summarizedPoints[i]["utm-easting"])),
+        yScale(parseInt(summarizedPoints[i]["utm-northing"]))
+      )
+    );
+  }
+  let currentCell = summarizedCells[0];
+  let currentCount = 0;
+  let countList = [];
+  let cellList = [];
+  for (let i = 1; i < summarizedCells.length; i++) {
+    const cell = summarizedCells[i];
+
+    if (cell === currentCell) {
+      currentCount++;
+    } else {
+      cellList.push(currentCell);
+      countList.push(currentCount);
+      currentCell = cell;
+      currentCount = 1;
+    }
+  }
+
+  cellList.push(currentCell);
+  countList.push(currentCount);
+  let delaunayTriangles = [];
+  for (let i = 0; i < cellList.length; i++) {
+    delaunayTriangles.push(delaunay.trianglePolygon(cellList[i]));
+  }
+  const flattened = delaunayTriangles.flatMap((item) => [].concat(...item));
+
+  let xCoordinates = [];
+  let yCoordinates = [];
+
+  // Iterate over the input array, pushing x and y values into separate arrays
+  for (let i = 0; i < flattened.length; i += 2) {
+    xCoordinates.push(flattened[i]);
+    yCoordinates.push(flattened[i + 1]);
+  }
+
+  const xValues = [50, 100, 150, 200];
+  const yValues = [50, 100, 150, 200];
+
+  // Get the SVG container element
+  // const svg = d3.select("#my-svg");
+
+  // Append a circle for each pair of x and y values
+  svg
+    .selectAll("circle")
+    .data(xValues)
+    .enter()
+    .append("circle")
+    .attr("cx", "100")
+    .attr("cy", "200")
+    .attr("r", 100) // set the radius to 10 for example purposes
+    .style("fill", "blue");
+}
 function voronoiPlots(cellW) {
   d3.text("data/centroids.txt").then(function (data) {
     const xMin = 624079.8465020715,
@@ -1139,16 +1221,6 @@ function voronoiPlots(cellW) {
 
     // Define the cell width
     const cellWidth = cellW;
-
-    const xScale = d3
-      .scaleLinear()
-      .domain([624079.8465020715, 629752.8465020715])
-      .range([0, 1000]);
-
-    const yScale = d3
-      .scaleLinear()
-      .domain([1009715.5668793379, 1015157.5668793379])
-      .range([1000, 0]);
 
     // Generate a set of points
     const points = [];
@@ -1167,8 +1239,6 @@ function voronoiPlots(cellW) {
       ]);
     }
     // Compute the Voronoi diagram
-    const delaunay2 = new d3.Delaunay(Float64Array.of(0, 0, 0, 1, 1, 0, 1, 1));
-    console.log(delaunay2);
     const delaunay = d3.Delaunay.from(points);
     const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
 
@@ -1187,5 +1257,9 @@ function voronoiPlots(cellW) {
       .attr("stroke-width", 1)
       .attr("stroke-opacity", 0.5)
       .attr("fill", "none");
+
+    if (document.getElementById("summarize").checked) {
+      summarizeMovement(delaunay, voronoi);
+    }
   });
 }
