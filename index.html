@@ -42,8 +42,8 @@
       <div class="item1">
         <svg
           id="map"
-          width="1000px"
-          height="1000px"
+          width="800px"
+          height="800px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <image
@@ -103,6 +103,7 @@
         <button type="button" id="reset" class="btn btn-warning">
           &#x21bb;
         </button>
+
         <button type="button" id="left" class="btn btn-primary">&#8592;</button>
         <button type="button" id="right" class="btn btn-primary">
           &#8594;
@@ -113,8 +114,6 @@
         </button>
       </div>
       <div id="item3" class="item3">
-        <button type="button" id="bci" class="btn btn-primary">BCI data</button>
-
         <input
           class="form-check-input"
           type="checkbox"
@@ -126,13 +125,19 @@
         />
         <label class="form-check-label" for="lines-add"> Trajectories </label>
 
-        <button type="button" id="voronoi-plot" class="btn btn-primary">
-          Show Voronoi Plot
-        </button>
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="voronoi-plot"
+          style="background-color: cyan"
+          ;
+        />
+        <label class="form-check-label" for="lines-add"> Voronoi </label>
         <input
           type="range"
-          min="100"
-          max="1000"
+          min="50"
+          max="2000"
           value="100"
           class="slider"
           id="voronoi-cell-width"
@@ -143,12 +148,13 @@
           type="checkbox"
           value=""
           id="summarize"
+          disabled="true;"
           style="background-color: rgb(72, 0, 255)"
           ;
         />
         <label class="form-check-label" for="summarize"> Summarize </label>
-
-        <button type="button" id="fruit" class="btn btn-success">
+        <br>
+        <input type="checkbox" id="fruit" class="btn btn-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -161,7 +167,7 @@
               d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
             />
           </svg>
-        </button>
+        </input>
       </div>
 
       <div id="names" class="item4">
@@ -174,15 +180,6 @@
           max="1"
           step="0.1"
           onchange="resizePoints()"
-        />
-        <br />
-
-        <label for="colorpicker">Color Picker:</label>
-        <input
-          type="color"
-          id="colorpicker"
-          value="#0000ff"
-          oninput="changeColor()"
         />
         <br />
 
@@ -263,7 +260,7 @@
           onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Rhaegal"> Rhaegal </label>
-
+        <br />
         <input
           class="form-check-input"
           type="checkbox"
@@ -351,6 +348,15 @@
           onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Olenna"> Olenna </label>
+        <br />
+        <label for="colorpicker">Color Picker:</label>
+        <input
+          type="color"
+          id="colorpicker"
+          value="#0000ff"
+          oninput="changeColor()"
+        />
+        <br />
       </div>
 
       <div class="item7">
@@ -363,7 +369,7 @@
             class="btn btn-primary"
             onclick="plotCircles()"
           >
-            Start
+            Isolate Trajectories
           </button>
 
           <input
@@ -379,7 +385,7 @@
         </div>
       </div>
 
-      <div id="my_dataviz" height="1000px" width="1000px" class="item5">
+      <div id="my_dataviz" class="item5">
         Timeline
         <div class="dropdown">
           <button

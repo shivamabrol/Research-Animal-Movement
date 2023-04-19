@@ -214,10 +214,13 @@ document.getElementById("left").addEventListener("mousedown", function () {
   //
 });
 
-document.getElementById("fruit").addEventListener("click", function () {
+document.getElementById("fruit").addEventListener("change", (event) => {
   // code to be executed when button is clicked
-
-  plotFruitTrees();
+  if (event.target.checked) {
+    plotFruitTrees();
+  } else {
+    svg.selectAll("*.fruits").remove();
+  }
 
   //
 });
@@ -246,10 +249,31 @@ document
     plotCircles();
   });
 
-document.getElementById("voronoi-plot").addEventListener("click", function () {
-  let width = document.getElementById("voronoi-cell-width").value;
-  console.log(width);
-  voronoiPlots(parseInt(width));
+document.getElementById("voronoi-plot").addEventListener("change", (event) => {
+  let summarize = document.getElementById("summarize");
+  if (event.target.checked) {
+    let width = document.getElementById("voronoi-cell-width").value;
+    summarize.disabled = false;
+    // console.log(width);
+    voronoiCells(parseInt(width));
+  } else {
+    svg.selectAll("*.cells").remove();
+    // svg.selectAll("*.voronoi-cell").remove();
+    // svg.selectAll("*.voronoi-path").remove();
+    summarize.disabled = true;
+  }
+});
+
+document.getElementById("summarize").addEventListener("change", (event) => {
+  if (event.target.checked) {
+    // Checkbox is checked
+    // Do something here
+    let width = document.getElementById("voronoi-cell-width").value;
+    voronoiCells(parseInt(width));
+  } else {
+    svg.selectAll("*.voronoi-cell").remove();
+    svg.selectAll("*.voronoi-path").remove();
+  }
 });
 
 // document.getElementById("start-clock").addEventListener("click", function () {
@@ -282,7 +306,7 @@ var bottom = 1015157.5668793379;
 function plotFruitTrees() {
   var corners = svgPanZoom.getViewBox();
 
-  // svg.selectAll(".selected").remove();
+  svg.selectAll("circle.points").remove();
 
   var dot = svg
     .selectAll("circle")
@@ -307,12 +331,11 @@ function plotFruitTrees() {
       return "pink";
     });
 
-  if (pointsPlotted === true) {
-    plotBCIdata();
-  }
+  showPoints("");
 }
 
 function changeColor() {
+  console.log("working");
   const colorPoints = svg.selectAll("circle.points").data();
   const uniqueAnimals = [
     ...new Set(colorPoints.map((item) => item["individual-local-identifier"])),
@@ -405,7 +428,7 @@ svg.call(
       [0, 0],
       [1000, 1000],
     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
+    .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
 );
 
 function updateChart2() {}
@@ -640,7 +663,6 @@ function plotTrajectoryBCI() {
 
   // // Log the unique categories to the console
   console.log(uniqueTrajectories);
-  svg.remove;
   trajectoryLinePlotter(trajectoryData);
 }
 
@@ -822,6 +844,8 @@ function plotCircles() {
 
   // Create an SVG element
   const svg = d3.select("svg#map");
+  d3.selectAll("circle.points").remove();
+  svg.selectAll(".fruits").remove();
 
   var drag = d3
     .drag()
@@ -872,6 +896,11 @@ function plotCircles() {
     })
     .call(drag)
     .on("click", clicked);
+
+  showPoints("");
+  if (document.getElementById("fruit").checked) {
+    plotFruitTrees();
+  }
 }
 
 function clicked(event, d) {
@@ -896,14 +925,16 @@ plotFocusTimeline();
 function isolatePoints() {
   const circles = d3.selectAll("circle.points");
   const isolated = d3.selectAll("circle.isolated");
+
   // Filter the selection to only include circles with a non-empty ID
   // const circlesWithId = circles.filter(function () {
   //   return d3.select(this).attr("id") !== null;
   // });
   let start = isolated.nodes()[0];
-  let end = isolated.nodes()[1];
-
+  console.log(start);
   var data = circles.filter(function (d) {
+    //this radius needs to be dynamic accordingto circle
+
     let radius = 15;
 
     //start conditions
@@ -924,7 +955,6 @@ function isolatePoints() {
 
 function plotIsolatedPoints() {
   data = isolatePoints();
-  console.log(data);
   svg.selectAll(".points").remove();
   data = data.data();
   var dot = svg
@@ -1144,14 +1174,45 @@ function selectAll(id) {
     d3.selectAll("circle.points").remove();
   }
 }
-function voronoiCirlces() {
-  // Assume that `voronoi` is an array of Voronoi cells, where each cell contains an array of indices representing the vertices of the cell.
-}
 
 function summarizeMovement(delaunay, voronoi) {
   let summarizedPoints = d3.selectAll("circle.points").data();
+  let minX = xScale(
+    parseInt(
+      summarizedPoints.reduce(
+        (min, obj) => (obj["utm-easting"] < min ? obj["utm-easting"] : min),
+        summarizedPoints[0]["utm-easting"]
+      )
+    )
+  );
+  let maxY = yScale(
+    parseInt(
+      summarizedPoints.reduce(
+        (min, obj) => (obj["utm-northing"] < min ? obj["utm-northing"] : min),
+        summarizedPoints[0]["utm-northing"]
+      )
+    )
+  );
 
-  // summarizedPoints.sort((a, b) => a["timestamp"] - b["timestamp"]);
+  let minY = yScale(
+    parseInt(
+      summarizedPoints.reduce(
+        (max, obj) => (obj["utm-northing"] > max ? obj["utm-northing"] : max),
+        summarizedPoints[0]["utm-northing"]
+      )
+    )
+  );
+
+  let maxX = xScale(
+    parseInt(
+      summarizedPoints.reduce(
+        (max, obj) => (obj["utm-easting"] > max ? obj["utm-easting"] : max),
+        summarizedPoints[0]["utm-easting"]
+      )
+    )
+  );
+
+  summarizedPoints.sort((a, b) => a["timestamp"] - b["timestamp"]);
   let summarizedCells = [];
   for (let i = 0; i < summarizedPoints.length; i++) {
     summarizedCells.push(
@@ -1165,7 +1226,7 @@ function summarizeMovement(delaunay, voronoi) {
   let currentCount = 0;
   let countList = [];
   let cellList = [];
-  for (let i = 1; i < summarizedCells.length; i++) {
+  for (let i = 1; i < summarizedCells.length / 2; i++) {
     const cell = summarizedCells[i];
 
     if (cell === currentCell) {
@@ -1178,41 +1239,83 @@ function summarizeMovement(delaunay, voronoi) {
     }
   }
 
-  cellList.push(currentCell);
-  countList.push(currentCount);
   let delaunayTriangles = [];
   for (let i = 0; i < cellList.length; i++) {
-    delaunayTriangles.push(delaunay.trianglePolygon(cellList[i]));
+    delaunayTriangles.push(voronoi.cellPolygon(cellList[i]));
   }
-  const flattened = delaunayTriangles.flatMap((item) => [].concat(...item));
 
+  //delaunay triangles object can be used to calculate centers
+  let delaunayCenters = [];
+  for (let i = 0; i < delaunayTriangles.length; i++) {
+    let dList = delaunayTriangles[i];
+    let n = dList.length;
+    let sumX = 0,
+      sumY = 0;
+
+    dList.forEach((point) => {
+      sumX += point[0];
+      sumY += point[1];
+    });
+
+    let avgX = sumX / n;
+    let avgY = sumY / n;
+    delaunayCenters.push([avgX, avgY]);
+  }
+
+  const flattened = delaunayCenters.flatMap((item) => [].concat(...item));
+  console.log(flattened.length);
   let xCoordinates = [];
   let yCoordinates = [];
 
   // Iterate over the input array, pushing x and y values into separate arrays
   for (let i = 0; i < flattened.length; i += 2) {
+    // if (
+    //   flattened[i] < maxX &&
+    //   flattened[i] > minX &&
+    //   flattened[i + 1] >= minY &&
+    //   flattened[i] <= maxY
+    // ) {
     xCoordinates.push(flattened[i]);
     yCoordinates.push(flattened[i + 1]);
+    // }
   }
 
-  const xValues = [50, 100, 150, 200];
-  const yValues = [50, 100, 150, 200];
+  svg.selectAll("circle.points").remove();
 
-  // Get the SVG container element
-  // const svg = d3.select("#my-svg");
-
-  // Append a circle for each pair of x and y values
   svg
     .selectAll("circle")
-    .data(xValues)
+    .data(xCoordinates)
     .enter()
     .append("circle")
-    .attr("cx", "100")
-    .attr("cy", "200")
-    .attr("r", 100) // set the radius to 10 for example purposes
+    .attr("class", "voronoi-cell")
+    .attr("cx", function (d, i) {
+      return xCoordinates[i];
+    })
+    .attr("cy", (d, i) => yCoordinates[i])
+    .attr("r", 2) // set the radius to 10 for example purposes
     .style("fill", "blue");
+
+  plotSummaryLines(xCoordinates, yCoordinates);
 }
-function voronoiPlots(cellW) {
+
+function plotSummaryLines(xCoordinates, yCoordinates) {
+  // Append a circle for each pair of x and y values
+
+  const line = d3
+    .line()
+    .x((d, i) => xCoordinates[i])
+    .y((d, i) => yCoordinates[i]);
+
+  svg
+    .append("path")
+    .datum(d3.range(xCoordinates.length))
+    .attr("d", line)
+    .attr("class", "voronoi-path")
+    .attr("stroke-width", 1)
+    .attr("stroke", "black")
+    .attr("fill", "none");
+}
+function voronoiCells(cellW) {
   d3.text("data/centroids.txt").then(function (data) {
     const xMin = 624079.8465020715,
       xMax = 629752.8465020715,
@@ -1238,28 +1341,35 @@ function voronoiPlots(cellW) {
         yScale(parseInt(coordinates[1])),
       ]);
     }
+
     // Compute the Voronoi diagram
     const delaunay = d3.Delaunay.from(points);
     const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
-
     // Create SVG element
-    const svg = d3.select("svg#map");
 
-    // Draw Voronoi cells
-    svg
-      .selectAll("path")
-      .data(voronoi.cellPolygons())
-      .enter()
-      .append("path")
-      .attr("d", (d) => "M" + d.join("L") + "Z")
-      .attr("class", "cells")
-      .attr("stroke", "orange")
-      .attr("stroke-width", 1)
-      .attr("stroke-opacity", 0.5)
-      .attr("fill", "none");
+    if (document.getElementById("voronoi-plot").checked) {
+      plotVoronoiCells(voronoi);
+    }
 
     if (document.getElementById("summarize").checked) {
       summarizeMovement(delaunay, voronoi);
     }
   });
+}
+
+function plotVoronoiCells(voronoi) {
+  const svg = d3.select("svg#map");
+
+  // Draw Voronoi cells
+  svg
+    .selectAll("path")
+    .data(voronoi.cellPolygons())
+    .enter()
+    .append("path")
+    .attr("d", (d) => "M" + d.join("L") + "Z")
+    .attr("class", "cells")
+    .attr("stroke", "orange")
+    .attr("stroke-width", 1)
+    .attr("stroke-opacity", 0.5)
+    .attr("fill", "none");
 }

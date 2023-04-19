@@ -1,7 +1,6 @@
 .item1 { grid-area: map; }
 .item2 { 
     grid-area: menu; 
-    /* justify-content: center; */
 }
 .item3 { grid-area: main; }
 .item4 { grid-area: data; }
@@ -10,31 +9,30 @@
 
 .item7 {grid-area: timechart; }
 input[type="range"] {
-  width:400px;
+  width:200px;
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  'map map map map menu menu menu'
-  'map map map map main main main'
-  'map map map map data data data'
-  'map map map map footer footer footer'
-  'map map map map footer footer footer'
-  'map map map map footer footer footer'
-  'timechart timechart timechart timechart timechart timechart timechart';
-
-  grid-gap: 10px;
+  'map map map  menu menu menu'
+  'map map map  main main main'
+  'map map map  data data data'
+  'map map map  footer footer footer'
+  'map map map  timechart timechart timechart';
+  grid-gap: 5px;
   background-color: #2196F3;
   padding: 10px;
+    justify-content: center; /* align grid horizontally to the center */
+  align-content: center;
   
 }
 
 .grid-container > div {
-  background-color: rgba(231, 238, 241, 0.8);
+  background-color: rgba(254, 250, 250, 0.8);
   text-align: center;
-  padding: 20px 0;
-  font-size: 30px;
+
+  /* font-size: 30px; */
 }
 
 .btn-check {
