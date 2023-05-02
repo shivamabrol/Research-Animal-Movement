@@ -136,8 +136,8 @@
         <label class="form-check-label" for="lines-add"> Voronoi </label>
         <input
           type="range"
-          min="50"
-          max="2000"
+          min="100"
+          max="1000"
           value="100"
           class="slider"
           id="voronoi-cell-width"
@@ -152,7 +152,9 @@
           style="background-color: rgb(72, 0, 255)"
           ;
         />
+        
         <label class="form-check-label" for="summarize"> Summarize </label>
+
         <br>
         <input type="checkbox" id="fruit" class="btn btn-success">
           <svg
@@ -387,23 +389,11 @@
 
       <div id="my_dataviz" class="item5">
         Timeline
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Dropdown button
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Speed</a>
-            <a class="dropdown-item" href="#">Accelaration</a>
-            <a class="dropdown-item" href="#">Turning Angle</a>
-          </div>
-        </div>
+        <select id="myDropdown" onchange="changeAttribute(value)">
+          <option value=""></option>
+          <option value="location-lat">Speed</option>
+          <option value="acc">Acceleration</option>
+        </select>
       </div>
     </div>
     <script src="js/index.js"></script>

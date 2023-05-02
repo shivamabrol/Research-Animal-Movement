@@ -21,7 +21,7 @@ input[type="range"] {
   'map map map  footer footer footer'
   'map map map  timechart timechart timechart';
   grid-gap: 5px;
-  background-color: #2196F3;
+  background-color: #9c9595bf;
   padding: 10px;
     justify-content: center; /* align grid horizontally to the center */
   align-content: center;
@@ -29,7 +29,7 @@ input[type="range"] {
 }
 
 .grid-container > div {
-  background-color: rgba(254, 250, 250, 0.8);
+  background-color: rgb(255, 255, 255);
   text-align: center;
 
   /* font-size: 30px; */

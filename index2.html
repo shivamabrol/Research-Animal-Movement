@@ -10,42 +10,74 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
 
-    <svg id="map" x="0" y="0" width="1000" height="1000"></svg>
+    <svg id="map" x="0" y="0" width="500" height="500"></svg>
     <script>
-      // Define an array of points
-      const points = [
-        [0, 0],
-        [0, 1],
-        [1, 0],
-        [1, 1],
-        [0.5, 0.5],
-        [0.25, 0.75],
-        [0.75, 0.25],
-      ];
+      const xScale = d3
+        .scaleLinear()
+        .domain([624079.8465020715, 629752.8465020715])
+        .range([0, 1000]);
 
-      // Compute the Delaunay triangulation
-      const delaunay = d3.Delaunay.from(points);
+      const yScale = d3
+        .scaleLinear()
+        .domain([1009715.5668793379, 1015157.5668793379])
+        .range([1000, 0]);
 
-      // Define the index of the cell to get the centroid for
-      const cellIndex = 0;
+      // Load the CSV data
+      d3.csv("data/centroids.csv").then(function (data) {
+        // Convert the CSV data into an array of objects with x and y properties
+        var points = [];
+        for (let i = 0; i < data.length; i++) {
+          points.push([xScale(data[i].X), yScale(data[i].Y)]);
+        }
+        // Create an SVG element
+        var svg = d3.select("map");
 
-      // Get the indices of the triangles that make up the cell
-      const triangleIndices = delaunay.cellTriangles[cellIndex];
+        // Define the arrowhead markers
+        svg
+          .append("defs")
+          .selectAll("marker")
+          .data([
+            {
+              id: "arrow",
+              viewBox: "0 -5 10 10",
+              refX: 10,
+              refY: 0,
+              markerWidth: 6,
+              markerHeight: 6,
+              orient: "auto",
+            },
+          ])
+          .join("marker")
+          .attr("id", (d) => d.id)
+          .attr("viewBox", (d) => d.viewBox)
+          .attr("refX", (d) => d.refX)
+          .attr("refY", (d) => d.refY)
+          .attr("markerWidth", (d) => d.markerWidth)
+          .attr("markerHeight", (d) => d.markerHeight)
+          .attr("orient", (d) => d.orient)
+          .append("path")
+          .attr("d", "M0,-5L10,0L0,5");
 
-      // Get the polygon vertices for each triangle
-      const polygonVertices = triangleIndices.map((triangleIndex) =>
-        delaunay.trianglePolygon(triangleIndex)
-      );
+        // Create a line generator
+        var line = d3
+          .line()
+          .x(function (d) {
+            return d[0];
+          })
+          .y(function (d) {
+            return d[1];
+          });
 
-      // Compute the centroid of the polygon vertices
-      const centroid = polygonVertices.reduce(
-        (acc, curr) => [acc[0] + curr[0], acc[1] + curr[1]],
-        [0, 0]
-      );
-      centroid[0] /= polygonVertices.length;
-      centroid[1] /= polygonVertices.length;
-
-      console.log(centroid);
+        // Create a path element for the line and add arrowheads to the endpoints
+        svg
+          .append("path")
+          .datum(points)
+          .attr("d", line)
+          .attr("fill", "none")
+          .attr("stroke", "black")
+          .attr("marker-start", "url(#arrow)")
+          .attr("marker-end", "url(#arrow)");
+      });
     </script>
   </body>
 </html>
