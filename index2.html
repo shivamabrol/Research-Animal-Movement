@@ -1,83 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <title>Upload Large CSV File</title>
   </head>
   <body>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/d3-delaunay@6"></script>
+    <h1>Upload Large CSV File</h1>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload File</button>
 
-    <svg id="map" x="0" y="0" width="500" height="500"></svg>
     <script>
-      const xScale = d3
-        .scaleLinear()
-        .domain([624079.8465020715, 629752.8465020715])
-        .range([0, 1000]);
+      function uploadFile() {
+        var input = document.querySelector('input[type="file"]');
 
-      const yScale = d3
-        .scaleLinear()
-        .domain([1009715.5668793379, 1015157.5668793379])
-        .range([1000, 0]);
+        var data = new FormData();
+        data.append("file", input.files[0]);
+        data.append("user", "hubot");
 
-      // Load the CSV data
-      d3.csv("data/centroids.csv").then(function (data) {
-        // Convert the CSV data into an array of objects with x and y properties
-        var points = [];
-        for (let i = 0; i < data.length; i++) {
-          points.push([xScale(data[i].X), yScale(data[i].Y)]);
-        }
-        // Create an SVG element
-        var svg = d3.select("map");
-
-        // Define the arrowhead markers
-        svg
-          .append("defs")
-          .selectAll("marker")
-          .data([
-            {
-              id: "arrow",
-              viewBox: "0 -5 10 10",
-              refX: 10,
-              refY: 0,
-              markerWidth: 6,
-              markerHeight: 6,
-              orient: "auto",
-            },
-          ])
-          .join("marker")
-          .attr("id", (d) => d.id)
-          .attr("viewBox", (d) => d.viewBox)
-          .attr("refX", (d) => d.refX)
-          .attr("refY", (d) => d.refY)
-          .attr("markerWidth", (d) => d.markerWidth)
-          .attr("markerHeight", (d) => d.markerHeight)
-          .attr("orient", (d) => d.orient)
-          .append("path")
-          .attr("d", "M0,-5L10,0L0,5");
-
-        // Create a line generator
-        var line = d3
-          .line()
-          .x(function (d) {
-            return d[0];
-          })
-          .y(function (d) {
-            return d[1];
-          });
-
-        // Create a path element for the line and add arrowheads to the endpoints
-        svg
-          .append("path")
-          .datum(points)
-          .attr("d", line)
-          .attr("fill", "none")
-          .attr("stroke", "black")
-          .attr("marker-start", "url(#arrow)")
-          .attr("marker-end", "url(#arrow)");
-      });
+        fetch("/data", {
+          method: "POST",
+          body: data,
+        });
+      }
     </script>
   </body>
 </html>

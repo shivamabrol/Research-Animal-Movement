@@ -1,13 +1,35 @@
-.item1 { grid-area: map; }
+.item1 { grid-area: map;
+  
+  text-align: center;
+ }
 .item2 { 
     grid-area: menu; 
-}
-.item3 { grid-area: main; }
-.item4 { grid-area: data; }
-.item9 {grid-area: lines}
-.item5 { grid-area: footer; }
+    padding-top: 40px;
 
-.item7 {grid-area: timechart; }
+    border: 2px grey solid;
+    padding-top: 40px;
+}
+.item3 { grid-area: main;
+  padding-top: 40px;
+  border: 2px grey solid;
+}
+.item4 { grid-area: data; 
+  padding-top: 40px;
+  border: 2px grey solid;
+}
+.item9 {grid-area: lines;
+  padding-top: 40px;
+  border: 2px grey solid;
+}
+.item5 { grid-area: footer; 
+  border: 2px grey solid;
+  padding-top: 40px;
+}
+
+.item7 {grid-area: timechart; 
+  border: 2px grey solid;
+  padding-top: 40px;
+}
 input[type="range"] {
   width:200px;
 }
@@ -16,24 +38,30 @@ input[type="range"] {
   display: grid;
   grid-template-areas:
   'map map map  menu menu menu'
-  'map map map  main main main'
+  'map map map  menu menu menu'
+  'map map map  data data data'
+  'map map map  data data data'
   'map map map  data data data'
   'map map map  footer footer footer'
-  'map map map  timechart timechart timechart';
-  grid-gap: 5px;
-  background-color: #9c9595bf;
-  padding: 10px;
-    justify-content: center; /* align grid horizontally to the center */
-  align-content: center;
-  
-}
+  'map map map  footer footer footer'
+  'map map map  footer footer footer'
+  'map map map  timechart timechart timechart'
+  'map map map  timechart timechart timechart'
+  'map map map  timechart timechart timechart'
+  'map map map  main main main'
+  'map map map  main main main'
+  'map map map  main main main'
+  ;
 
-.grid-container > div {
+  margin: auto;
   background-color: rgb(255, 255, 255);
   text-align: center;
+  border: 1px solid black;
 
-  /* font-size: 30px; */
+
 }
+
+
 
 .btn-check {
   background-color: #ff0000;

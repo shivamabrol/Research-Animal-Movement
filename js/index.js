@@ -1,6 +1,5 @@
 //Color picker would be activated only if single animal is present on screen a
 // It'll be disabled if there are 2 or more
-
 let data;
 
 let totalData;
@@ -339,8 +338,11 @@ function changeColor() {
 
   //This doesn't let color changes on the latest one
   if (uniqueAnimals.length > 1 || uniqueAnimals.length == 0) {
+    document.getElementById("colorpicker").disabled = true;
     return;
   }
+
+  document.getElementById("colorpicker").disabled = false;
 
   const checkbox = document.getElementById(uniqueAnimals[0] + "-checkbox");
   checkbox.style.backgroundColor = document.getElementById("colorpicker").value;
@@ -612,21 +614,7 @@ function updateChart(e1) {
     });
 }
 
-function changeAttribute(attribute) {
-  // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
-    width = 660 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
-
-  // append the svg2 object to the body of the page
-  const svg2 = d3
-    .select("#my_dataviz")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
+function changeAttribute(svg2, attribute, width, height) {
   // Parse the Data
   //////////
   // GENERAL //
@@ -649,12 +637,15 @@ function changeAttribute(attribute) {
 
   const x = d3
     .scaleTime()
-    .domain([new Date("2022-01-01"), new Date("2022-12-31")])
+    .domain([new Date("2022-01-01T00:00:00"), new Date("2022-01-01T23:59:59")])
     .range([0, width]);
+
+  let xAxisGenerator = d3.axisBottom(xScale);
+
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(5));
+    .call(d3.axisBottom(x).ticks(10));
 
   // Add X axis label:
   svg2
@@ -699,8 +690,7 @@ function changeAttribute(attribute) {
       [0, 0],
       [width, height],
     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
-
+    .on("brush", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
   // Create the scatter variable: where both the circles and the brush take place
   const areaChart = svg2.append("g").attr("clip-path", "url(#clip)");
 
@@ -737,26 +727,32 @@ function changeAttribute(attribute) {
   function idled() {
     idleTimeout = null;
   }
-
+  function reset(event, d) {
+    console.log("reset triggered");
+  }
   // A function that update the chart for given boundaries
   function updateChart(event, d) {
+    addEventListener("dblclick", (event) => {});
+
     extent = event.selection;
+    // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
+    showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
 
-    // If no selection, back to initial coordinate. Otherwise, update X axis domain
-    if (!extent) {
-      if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
-      x.domain([new Date("2022-01-01"), new Date("2022-12-31")]);
-      showPoints("");
-    } else {
-      x.domain([x.invert(extent[0]), x.invert(extent[1])]);
-      // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
-      showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
-      areaChart.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
-    }
+    // // If no selection, back to initial coordinate. Otherwise, update X axis domain
+    // if (!extent) {
+    //   if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
+    //   x.domain([new Date("2022-01-01"), new Date("2022-12-31")]);
+    //   showPoints("");
+    // } else {
+    //   x.domain([x.invert(extent[0]), x.invert(extent[1])]);
+    //   // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
+    //   showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
+    //   areaChart.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
+    // }
 
-    // Update axis and area position
-    xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(5));
-    areaChart.selectAll("path").transition().duration(1000).attr("d", area);
+    // // Update axis and area position
+    // xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(5));
+    // areaChart.selectAll("path").transition().duration(1000).attr("d", area);
   }
 
   //////////
@@ -820,7 +816,6 @@ function changeAttribute(attribute) {
 }
 
 function changeAttribute2(attribute) {
-  console.log("welcome to the party");
   const margin = { top: 10, right: 30, bottom: 30, left: 60 },
     width = 460 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
@@ -1878,7 +1873,7 @@ function plotVoronoiCells(voronoi) {
 }
 
 function showPointsTimeline(startTime, endTime) {
-  console.log(startTime, endTime);
+  // console.log(startTime, endTime);
 
   var plotList = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -1891,11 +1886,10 @@ function showPointsTimeline(startTime, endTime) {
     plotList.includes(item["individual-local-identifier"])
   );
 
-  console.log(plotList);
   var data2 = circles.filter(function (d) {
     return (
-      new Date(d.date) >= new Date(startTime) &&
-      new Date(d.date) <= new Date(endTime)
+      new Date(d["study-local-timestamp"]) >= new Date(startTime) &&
+      new Date(d["study-local-timestamp"]) <= new Date(endTime)
     );
   });
   pointsTimelinePlot(data2);
@@ -1927,3 +1921,43 @@ function pointsTimelinePlot(data2) {
     });
 }
 // changeAttribute("speed");
+
+function caller() {
+  // append the svg2 object to the body of the page
+  // set the dimensions and margins of the graph
+  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
+    width = 660 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+  const svg2 = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+  changeAttribute(svg2, "speed", width, height, margin);
+}
+
+function caller() {
+  // append the svg2 object to the body of the page
+  // set the dimensions and margins of the graph
+  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
+    width = 660 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+  const svg2 = d3
+    .select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+  changeAttribute(svg2, "speed", width, height, margin);
+}
+
+setTimeout(function () {
+  //your code here
+  caller();
+  caller();
+}, 500);
