@@ -9,49 +9,45 @@
     border: 2px grey solid;
     padding-top: 40px;
 }
+
+
+.item-fruit {
+  grid-area: fruit;
+  height: auto;
+  width: auto;
+}
 .item3 { grid-area: main;
   padding-top: 40px;
   border: 2px grey solid;
 }
 .item4 { grid-area: data; 
-  padding-top: 40px;
+  /* padding-top: 40px; */
   border: 2px grey solid;
 }
 .item9 {grid-area: lines;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   border: 2px grey solid;
 }
 .item5 { grid-area: footer; 
   border: 2px grey solid;
-  padding-top: 40px;
+  /* padding-top: 40px; */
 }
 
 .item7 {grid-area: timechart; 
   border: 2px grey solid;
-  padding-top: 40px;
-}
-input[type="range"] {
-  width:200px;
+  /* padding-top: 40px; */
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  'map map map  menu menu menu'
-  'map map map  menu menu menu'
-  'map map map  data data data'
-  'map map map  data data data'
-  'map map map  data data data'
-  'map map map  footer footer footer'
-  'map map map  footer footer footer'
-  'map map map  footer footer footer'
-  'map map map  timechart timechart timechart'
-  'map map map  timechart timechart timechart'
-  'map map map  timechart timechart timechart'
-  'map map map  main main main'
-  'map map map  main main main'
-  'map map map  main main main'
-  ;
+  'map map map  menu menu menu footer'
+  'map map map  data data data footer'
+  'map map map  data data data footer'
+  'map map map  fruit fruit main main'
+  /* 'map map map  main main main' */
+  'map map map  timechart timechart timechart timechart'
+  'map map map  timechart timechart timechart timechart';
 
   margin: auto;
   background-color: rgb(255, 255, 255);

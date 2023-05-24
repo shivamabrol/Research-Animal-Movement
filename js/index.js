@@ -1,12 +1,14 @@
 //Color picker would be activated only if single animal is present on screen a
+
 // It'll be disabled if there are 2 or more
 let data;
 
 let totalData;
-d3.csv("../data/BCI-movement-data.csv")
+d3.csv("../data/BCI-movement-total.csv")
   .then(function (data1) {
     // Do something with the data here
     data = data1;
+    // console.log(data);
   })
   .catch(function (error) {
     console.log(error); // log any errors to the console
@@ -222,6 +224,18 @@ document.getElementById("fruit").addEventListener("change", (event) => {
     plotFruitTrees();
   } else {
     svg.selectAll("*.fruits").remove();
+
+    // select the div element by its ID
+    let divElement = document.getElementById("fruit-container");
+
+    // select all child elements with the class name "myClass"
+    let checkboxes = divElement.querySelectorAll(".fruit-checkbox");
+    let labels = divElement.querySelectorAll(".fruit-checkbox-label");
+
+    // loop through the child elements and remove each one
+    checkboxes.forEach((child) => {
+      child.checked = false;
+    });
   }
 
   //
@@ -277,14 +291,6 @@ document.getElementById("summarize").addEventListener("change", (event) => {
   }
 });
 
-const container = document.getElementById("names");
-
-container.addEventListener("click", function (event) {
-  if (event.target.classList.contains("btn-primary")) {
-    plotBCIdata((individual = event.target.innerHTML.trim()));
-  }
-});
-
 //top left
 // Latitude : 9.181898
 // Longitude: -79.870619
@@ -299,10 +305,84 @@ var right = 629752.8465020715;
 var top = 1009715.5668793379;
 var bottom = 1015157.5668793379;
 
+function generateRandomColors(length) {
+  const colors = ["red", "blue", "magenta", "yellow", "cyan", "magenta"];
+
+  // for (let i = 0; i < length; i++) {
+  //   const r = Math.floor(Math.random() * 256);
+  //   const g = Math.floor(Math.random() * 256);
+  //   const b = Math.floor(Math.random() * 256);
+
+  //   const hex = `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+
+  //   colors.push(hex);
+  // }
+
+  return colors;
+}
+function plotFruitTrees_helper() {
+  var corners = svgPanZoom.getViewBox();
+
+  svg.selectAll("circle.points").remove();
+}
+
+function handleMouseOver(d) {
+  // Access the data associated with the hovered circle
+  console.log("Circle Data:", d);
+
+  // Access specific properties of the data
+  console.log("Label:", d.label);
+}
+
 function plotFruitTrees() {
   var corners = svgPanZoom.getViewBox();
 
   svg.selectAll("circle.points").remove();
+
+  // // filter out duplicates and get only unique elements
+  // const uniqueFruits = [...new Set(fruitTreeData.map((item) => item["type"]))];
+  // const colorList = generateRandomColors(uniqueFruits.length);
+  // const container = document.getElementById("fruit-container"); // Assuming there is a container element with the ID "fruit-container"
+
+  // let divElement = document.getElementById("fruit-container");
+
+  // let checkboxes = divElement.querySelectorAll(".fruit-checkbox");
+  // if (checkboxes.length > 0) {
+  //   checkboxes.forEach((checkbox) => {
+  //     checkbox.checked = true;
+  //   });
+  //   // return;
+  // } else {
+  //   uniqueFruits.forEach((fruit) => {
+  //     const checkbox = document.createElement("input");
+  //     checkbox.type = "checkbox";
+  //     checkbox.name = "fruit";
+  //     checkbox.id = fruit;
+  //     checkbox.classList.add("fruit-checkbox");
+  //     checkbox.value = fruit;
+  //     checkbox.checked = true;
+  //     const label = document.createElement("label");
+  //     label.textContent = fruit;
+  //     label.classList.add("fruit-checkbox-label");
+
+  //     container.appendChild(checkbox);
+  //     container.appendChild(label);
+  //     container.appendChild(document.createElement("br"));
+  //   });
+  // }
+
+  var tooltip = d3
+    .select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "2px")
+    .style("z-index", "10")
+    .style("visibility", "hidden");
+  // .text("");
+  // Define the image dimensions and URL
 
   var dot = svg
     .selectAll("circle")
@@ -323,8 +403,27 @@ function plotFruitTrees() {
     .style("opacity", function (d) {
       return 1;
     })
-    .attr("fill", function (d) {
-      return "pink";
+    .attr("fill", "pink")
+    // .on("mouseover", handleMouseOver)
+
+    .on("mouseover", function () {
+      return tooltip.style("visibility", "visible");
+    })
+    .on("mousemove", function (d) {
+      let positionX = d.target.__data__["utm-easting"];
+      let positionY = d.target.__data__["utm-northing"];
+      let type = d.target.__data__.feature.split("&");
+      return (
+        tooltip
+          .html(positionX + " <br> " + positionY + " <br> " + type)
+          // .style("left", d3.mouse(this)[0] + 70 + "px")
+          // .style("top", d3.mouse(this)[1] + "px")
+          .style("top", event.pageY - 10 + "px")
+          .style("left", event.pageX + 10 + "px")
+      );
+    })
+    .on("mouseout", function () {
+      return tooltip.style("visibility", "hidden");
     });
 
   showPoints("");
@@ -355,66 +454,27 @@ function changeColor() {
     });
 }
 
-function plotBCIdata(
-  individual = "all",
-  starttime = "2000-07-07 22:07:07.000",
-  endtime = "2100-07-07 22:07:07.000"
-) {
-  pointsPlotted = true;
-  // starttime = document.getElementById()
-  //
+function changeColorFruits() {
+  const fruitPoints = svg.selectAll("circle.fruits").data();
+  const uniqueFruits = [...new Set(colorPoints.map((item) => item["type"]))];
 
-  starttime =
-    document.getElementById("startstamp").value == ""
-      ? starttime
-      : document.getElementById("startstamp").value;
-  endtime =
-    document.getElementById("endstamp").value == ""
-      ? endtime
-      : document.getElementById("endstamp").value;
-
-  // svg.selectAll(".points").remove();
-
-  var data2 = data.filter(function (d) {
-    return d["timestamp"] >= starttime && d["timestamp"] <= endtime;
-  });
-  if (individual != "all") {
-    data2 = data2.filter(function (d) {
-      return d["individual-local-identifier"] == individual;
-    });
+  //This doesn't let color changes on the latest one
+  if (uniqueFruits.length > 1 || uniqueFruits.length == 0) {
+    document.getElementById("colorpicker-fruit").disabled = true;
+    return;
   }
 
-  var dot = svg
-    .selectAll("circle")
-    .data(data2)
-    .enter()
-    .append("circle")
-    .attr("class", "points")
-    .attr("id", function (d) {
-      return d["individual-local-identifier"];
-    })
-    .attr("cx", function (d) {
-      return xScale(parseFloat(d["utm-easting"]));
-    })
-    .attr("cy", function (d) {
-      return yScale(parseFloat(d["utm-northing"]));
-    })
-    .attr("r", function (d) {
-      return 1;
-    })
-    .style("opacity", function (d) {
-      //
-      if (individual == "all") {
-        return 1;
-      } else {
-        if (d["individual-local-identifier"] == individual) {
-          return 1;
-        }
-        return 0;
-      }
-    })
-    .attr("fill", function (d) {
-      return colorDictionary[d["individual-local-identifier"]];
+  document.getElementById("colorpicker-fruit").disabled = false;
+
+  const checkbox = document.getElementById(uniqueAnimals[0]);
+  checkbox.style.backgroundColor =
+    document.getElementById("colorpicker-fruit").value;
+  colorDictionary[uniqueAnimals[0]] =
+    document.getElementById("colorpicker-fruit").value;
+  d3.selectAll("circle")
+    .data(fruitPoints)
+    .style("fill", function (d) {
+      return document.getElementById("colorpicker-fruit").value;
     });
 }
 
@@ -428,79 +488,86 @@ svg.call(
     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
     .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
 );
+let totalClicks = [];
+svg.on("click", function () {
+  // Get the coordinates of the mouse pointer relative to the SVG element
+  var coordinates = d3.pointer(event, this);
+  console.log(coordinates);
+  // Log the coordinates to the console
+  let summarizedPoints = d3.selectAll(".points").data();
+  // console.log("Clicked at: (" + x + ", " + y + ")");
+  d3.csv("data/centroids.csv").then(function (data) {
+    const xMin = 624079.8465020715,
+      xMax = 629752.8465020715,
+      yMin = 1009715.5668793379,
+      yMax = 1015157.5668793379;
 
-// svg.on("click", function () {
-//   // Get the coordinates of the mouse pointer relative to the SVG element
-//   var coordinates = d3.pointer(event, this);
+    // Define the cell width
+    // const cellWidth = parseInt(
+    //   document.getElementById("voronoi-cell-width").value
+    // );
+    const cellWidth = 100;
+    // let summarizedPoints = d3.selectAll("circle.points").data();
 
-//   // Log the coordinates to the console
-//   let summarizedPoints = d3.selectAll(".points").data();
-//   // console.log("Clicked at: (" + x + ", " + y + ")");
-//   d3.csv("data/centroids.csv").then(function (data) {
-//     const xMin = 624079.8465020715,
-//       xMax = 629752.8465020715,
-//       yMin = 1009715.5668793379,
-//       yMax = 1015157.5668793379;
+    // Generate a set of points
+    const points = [];
 
-//     // Define the cell width
-//     // const cellWidth = parseInt(
-//     //   document.getElementById("voronoi-cell-width").value
-//     // );
-//     const cellWidth = 100;
-//     // let summarizedPoints = d3.selectAll("circle.points").data();
+    for (let x = xMin; x < xMax; x += cellWidth) {
+      for (let y = yMin; y < yMax; y += cellWidth) {
+        points.push([xScale(x), yScale(y)]);
+      }
+    }
+    let centroids = data;
+    // for (let i = 0; i < centroids.length; i++) {
+    //   let coordinates = centroids[i];
+    //   points.push([
+    //     xScale(parseInt(coordinates.X)),
+    //     yScale(parseInt(coordinates.Y)),
+    //   ]);
+    // }
 
-//     // Generate a set of points
-//     const points = [];
-//     for (let x = xMin; x < xMax; x += cellWidth) {
-//       for (let y = yMin; y < yMax; y += cellWidth) {
-//         points.push([xScale(x), yScale(y)]);
-//       }
-//     }
-//     console.log(points);
-//     let centroids = data;
-//     for (let i = 0; i < centroids.length; i++) {
-//       let coordinates = centroids[i];
-//       points.push([
-//         xScale(parseInt(coordinates.X)),
-//         yScale(parseInt(coordinates.Y)),
-//       ]);
-//     }
+    // Compute the Voronoi diagram
+    const delaunay = d3.Delaunay.from(points);
+    const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
 
-//     // Compute the Voronoi diagram
-//     const delaunay = d3.Delaunay.from(points);
-//     const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+    let groups = trajectoryGroups(summarizedPoints);
+    let summarizedCells = trajectoryGroupCells(delaunay, groups);
+    let visits = cellVisits(summarizedCells);
+    let moves = cellMoves(visits);
+    let dataCells = visits.flat().map((obj) => obj.cell);
 
-//     let groups = trajectoryGroups(summarizedPoints);
-//     let summarizedCells = trajectoryGroupCells(delaunay, groups);
-//     let visits = cellVisits(summarizedCells);
-//     let moves = cellMoves(visits);
-//     let dataCells = visits.flat().map((obj) => obj.cell);
-//     // Create SVG element
-//     console.log(moves);
+    //Finding the pattern
+    if (totalClicks.length < 5) {
+      totalClicks.push(delaunay.find(coordinates[0], coordinates[1]));
+    }
+    // Create SVG element
+    console.log(moves);
+    let c11 = delaunay.find(coordinates[0], coordinates[1]);
+    const svg = d3.select("svg#map");
+    d3.selectAll(".cells").remove();
+    // Draw Voronoi cells
+    svg
+      .selectAll("path")
+      .data(voronoi.cellPolygons())
+      .enter()
+      .append("path")
+      .attr("d", (d) => "M" + d.join("L") + "Z")
+      .attr("class", "cells")
+      .attr("stroke", "orange")
+      .attr("stroke-width", 1)
+      .attr("stroke-opacity", 0.5)
+      .attr("fill", function (d, i) {
+        if (totalClicks.indexOf(i) != -1) {
+          // console.log(i);
+          return "red";
+        }
 
-//     const svg = d3.select("svg#map");
-//     d3.selectAll(".cells").remove();
-//     // Draw Voronoi cells
-//     svg
-//       .selectAll("path")
-//       .data(voronoi.cellPolygons())
-//       .enter()
-//       .append("path")
-//       .attr("d", (d) => "M" + d.join("L") + "Z")
-//       .attr("class", "cells")
-//       .attr("stroke", "orange")
-//       .attr("stroke-width", 1)
-//       .attr("stroke-opacity", 0.5)
-//       .attr("fill", function (d, i) {
-//         if (dataCells.includes(i)) {
-//           return "green";
-//         }
-//         return "none";
-//       })
-//       .attr("fill-opacity", 0.3);
-//     plotMoveLines(voronoi, moves);
-//   });
-// });
+        return "none";
+      })
+      .attr("fill-opacity", 0.9);
+    // plotMoveLines(voronoi, moves);
+  });
+});
 
 function plotMoveLines(voronoi, moves) {
   console.log(moves);
@@ -596,7 +663,7 @@ function updateChart(e1) {
   start = e1.selection[0];
   end = e1.selection[1];
 
-  d3.csv("../data/BCI-movement-data.csv") //updted the data
+  d3.csv("../data/BCI-movement-total.csv") //updted the data
     .then((data) => {
       const filteredData = data.filter(function (d) {
         var horizontal = xScale(d["utm-easting"]);
@@ -637,15 +704,15 @@ function changeAttribute(svg2, attribute, width, height) {
 
   const x = d3
     .scaleTime()
-    .domain([new Date("2022-01-01T00:00:00"), new Date("2022-01-01T23:59:59")])
+    .domain([new Date("2022-01-01"), new Date("2022-12-31")])
     .range([0, width]);
-
+  console.log(x(new Date("2022-05-05")));
   let xAxisGenerator = d3.axisBottom(xScale);
 
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(10));
+    .call(d3.axisBottom(x).ticks(6));
 
   // Add X axis label:
   svg2
@@ -723,13 +790,6 @@ function changeAttribute(svg2, attribute, width, height) {
   // Add the brushing
   areaChart.append("g").attr("class", "brush").call(brush);
 
-  let idleTimeout;
-  function idled() {
-    idleTimeout = null;
-  }
-  function reset(event, d) {
-    console.log("reset triggered");
-  }
   // A function that update the chart for given boundaries
   function updateChart(event, d) {
     addEventListener("dblclick", (event) => {});
@@ -737,82 +797,125 @@ function changeAttribute(svg2, attribute, width, height) {
     extent = event.selection;
     // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
     showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
-
-    // // If no selection, back to initial coordinate. Otherwise, update X axis domain
-    // if (!extent) {
-    //   if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
-    //   x.domain([new Date("2022-01-01"), new Date("2022-12-31")]);
-    //   showPoints("");
-    // } else {
-    //   x.domain([x.invert(extent[0]), x.invert(extent[1])]);
-    //   // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
-    //   showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
-    //   areaChart.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
-    // }
-
-    // // Update axis and area position
-    // xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(5));
-    // areaChart.selectAll("path").transition().duration(1000).attr("d", area);
   }
+}
+
+function changeAttributeDays(svg2, attribute, width, height) {
+  // Parse the Data
+  //////////
+  // GENERAL //
+  //////////
+  // List of groups = header of the csv files
+  const keys = ["max_speed"];
+
+  // color palette
+
+  const color = d3.scaleOrdinal().domain(keys).range(d3.schemeSet2);
+
+  //stack the data?
+  const stackedData = d3.stack().keys(keys)(data);
 
   //////////
-  // HIGHLIGHT GROUP //
+  // AXIS //
   //////////
 
-  // What to do when one group is hovered
-  const highlight = function (event, d) {
-    // reduce opacity of all groups
-    d3.selectAll(".myArea").style("opacity", 0.1);
-    // expect the one that is hovered
-    d3.select("." + d).style("opacity", 1);
-  };
+  // Add X axis
 
-  // And when it is not hovered anymore
-  const noHighlight = function (event, d) {
-    d3.selectAll(".myArea").style("opacity", 1);
-  };
+  const x = d3
+    .scaleTime()
+    .domain([new Date("2022-01-01T00:00:00"), new Date("2022-01-01T23:59:59")])
+    .range([0, width]);
+  let xAxisGenerator = d3.axisBottom(xScale);
 
-  //////////
-  // LEGEND //
-  //////////
+  const xAxis = svg2
+    .append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(x).ticks(6));
 
-  // Add one dot in the legend for each name.
-  const size = 20;
+  // Add X axis label:
   svg2
-    .selectAll("myrect")
-    .data(keys)
-    .join("rect")
-    .attr("x", 400)
-    .attr("y", function (d, i) {
-      return 10 + i * (size + 5);
-    }) // 100 is where the first dot appears. 25 is the distance between dots
-    .attr("width", size)
-    .attr("height", size)
-    .style("fill", function (d) {
-      return color(d);
-    })
-    .on("mouseover", highlight)
-    .on("mouseleave", noHighlight);
+    .append("text")
+    .attr("text-anchor", "end")
+    .attr("x", width)
+    .attr("y", height)
+    .text("Time");
 
-  // Add one dot in the legend for each name.
+  // Add Y axis label:
   svg2
-    .selectAll("mylabels")
-    .data(keys)
-    .join("text")
-    .attr("x", 400 + size * 1.2)
-    .attr("y", function (d, i) {
-      return 10 + i * (size + 5) + size / 2;
-    }) // 100 is where the first dot appears. 25 is the distance between dots
+    .append("text")
+    .attr("text-anchor", "end")
+    .attr("x", 0)
+    .attr("y", -20)
+    .text("Attribute")
+    .attr("text-anchor", "start");
+
+  // Add Y axis
+  const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  svg2.append("g").call(d3.axisLeft(y).ticks(5));
+
+  //////////
+  // BRUSHING AND CHART //
+  //////////
+
+  // Add a clipPath: everything out of this area won't be drawn.
+  const clip = svg2
+    .append("defs")
+    .append("svg2:clipPath")
+    .attr("id", "clip")
+    .append("svg2:rect")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("x", 0)
+    .attr("y", 0);
+
+  // Add brushing
+  const brush = d3
+    .brushX() // Add the brush feature using the d3.brush function
+    .extent([
+      [0, 0],
+      [width, height],
+    ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+    .on("brush", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
+  // Create the scatter variable: where both the circles and the brush take place
+  const areaChart = svg2.append("g").attr("clip-path", "url(#clip)");
+
+  // Area generator
+  const area = d3
+    .area()
+    .x(function (d) {
+      return x(parseTime(d.data["study-local-timestamp"]));
+    })
+    .y0(function (d) {
+      return 10;
+    })
+    .y1(function (d) {
+      return 10;
+    });
+
+  // Show the areas
+  areaChart
+    .selectAll("mylayers")
+    .data(stackedData)
+    .join("path")
+    .attr("class", function (d) {
+      return "myArea " + d.key;
+    })
     .style("fill", function (d) {
-      return color(d);
+      return color(d.key);
     })
-    .text(function (d) {
-      return d;
-    })
-    .attr("text-anchor", "left")
-    .style("alignment-baseline", "middle")
-    .on("mouseover", highlight)
-    .on("mouseleave", noHighlight);
+    .attr("d", area);
+
+  // Add the brushing
+  areaChart.append("g").attr("class", "brush").call(brush);
+
+  // A function that update the chart for given boundaries
+  function updateChart(event, d) {
+    addEventListener("dblclick", (event) => {});
+
+    extent = event.selection;
+    // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
+    showPointsTimelineDays(x.invert(extent[0]), x.invert(extent[1]));
+  }
 }
 
 function changeAttribute2(attribute) {
@@ -832,7 +935,7 @@ function changeAttribute2(attribute) {
 
   //Read the data
   d3.csv(
-    "../data/BCI-movement-data.csv",
+    "../data/BCI-movement-total.csv",
 
     // When reading the csv, I must format variables:
     (d) => {
@@ -1019,7 +1122,7 @@ function plotTrajectoryBCI() {
 
   // Get the unique categories from the data
   const uniqueTrajectories = [
-    ...new Set(trajectoryData.map((item) => item.trajectoryNumber)),
+    ...new Set(trajectoryData.map((item) => item[trajectoryColumn])),
   ];
 
   // // Log the unique categories to the console
@@ -1038,7 +1141,7 @@ function trajectoryLinePlotter(data) {
 
   svg
     .selectAll(".line")
-    .data(d3.groups(data, (d) => d.trajectoryNumber))
+    .data(d3.groups(data, (d) => d[trajectoryColumn]))
     .enter()
     .append("path")
     .attr("class", "lines")
@@ -1374,12 +1477,12 @@ function trajectoryPlotter() {
 
   //Find all the trajectories in the data
   const distinctTrajectories = [
-    ...new Set(objects.map((item) => item.trajectoryNumber)),
+    ...new Set(objects.map((item) => item[trajectoryColumn])),
   ];
 
   // Filter the data based on the list of names
   const filteredTrajectories = data.filter((item) =>
-    distinctTrajectories.includes(item.trajectoryNumber)
+    distinctTrajectories.includes(item[trajectoryColumn])
   );
 
   // console.log(filteredData);
@@ -1533,12 +1636,12 @@ function selectAll(id) {
 
 function trajectoryGroups(summarizedPoints) {
   const groups = [
-    ...new Set(summarizedPoints.map((obj) => obj.trajectoryNumber)),
-  ].map((trajectoryNumber) => {
+    ...new Set(summarizedPoints.map((obj) => obj[trajectoryColumn])),
+  ].map((trajectoryColumn) => {
     return {
-      trajectoryNumber,
+      trajectoryColumn,
       objects: summarizedPoints.filter(
-        (obj) => obj.trajectoryNumber === trajectoryNumber
+        (obj) => obj[trajectoryColumn] === trajectoryColumn
       ),
     };
   });
@@ -1652,7 +1755,7 @@ function summarizeMovement(delaunay, voronoi) {
     //   document.getElementById("voronoi-cell-width").value
     // );
     let cellWidth = document.getElementById("voronoi-cell-width").value;
-    cellWidth = Math.round(cellWidth / 100) * 100;
+    cellWidth = Math.round(cellWidth / 50) * 50;
 
     // let summarizedPoints = d3.selectAll("circle.points").data();
 
@@ -1772,43 +1875,26 @@ function plotSummaryLines(startC, endC) {
 }
 
 function getDelaunay() {
-  let d = -1;
-  d3.csv("data/centroids.csv").then(function (data2) {
-    const xMin = 624079.8465020715,
-      xMax = 629752.8465020715,
-      yMin = 1009715.5668793379,
-      yMax = 1015157.5668793379;
+  const xMin = 624079.8465020715,
+    xMax = 629752.8465020715,
+    yMin = 1009715.5668793379,
+    yMax = 1015157.5668793379;
 
-    // Define the cell width
-    const cellWidth = cellW;
+  // Define the cell width
+  const cellWidth = 100;
 
-    // Generate a set of points
-    const points = [];
-    for (let x = xMin; x < xMax; x += cellWidth) {
-      for (let y = yMin; y < yMax; y += cellWidth) {
-        points.push([xScale(x), yScale(y)]);
-      }
+  // Generate a set of points
+  const points = [];
+  for (let x = xMin; x < xMax; x += cellWidth) {
+    for (let y = yMin; y < yMax; y += cellWidth) {
+      points.push([xScale(x), yScale(y)]);
     }
+  }
 
-    let centroids = data2;
-    for (let i = 0; i < centroids.length; i++) {
-      let coordinates = centroids[i];
-      points.push([
-        xScale(parseInt(coordinates.X)),
-        yScale(parseInt(coordinates.Y)),
-      ]);
-    }
+  // Compute the Voronoi diagram
+  const delaunay = d3.Delaunay.from(points);
 
-    // Compute the Voronoi diagram
-    const delaunay = d3.Delaunay.from(points);
-    const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
-    // Create SVG element
-
-    d = delaunay;
-    return delaunay;
-  });
-
-  return d;
+  return delaunay;
 }
 function voronoiCells(cellW) {
   d3.json("data/centroids.json").then(function (data2) {
@@ -1829,14 +1915,14 @@ function voronoiCells(cellW) {
       }
     }
 
-    let centroids = data2[cellWidth];
-    for (let i = 0; i < centroids.length; i++) {
-      let coordinates = centroids[i];
-      points.push([
-        xScale(parseInt(coordinates[0])),
-        yScale(parseInt(coordinates[1])),
-      ]);
-    }
+    // let centroids = data2[cellWidth];
+    // for (let i = 0; i < centroids.length; i++) {
+    //   let coordinates = centroids[i];
+    //   points.push([
+    //     xScale(parseInt(coordinates[0])),
+    //     yScale(parseInt(coordinates[1])),
+    //   ]);
+    // }
 
     // Compute the Voronoi diagram
     const delaunay = d3.Delaunay.from(points);
@@ -1873,7 +1959,7 @@ function plotVoronoiCells(voronoi) {
 }
 
 function showPointsTimeline(startTime, endTime) {
-  // console.log(startTime, endTime);
+  console.log(startTime, endTime);
 
   var plotList = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -1893,10 +1979,62 @@ function showPointsTimeline(startTime, endTime) {
     );
   });
   pointsTimelinePlot(data2);
+  gridHeatmaps("");
+}
+function compareTimes(first, second) {
+  const dateString1 = first;
+  const dateString2 = second;
+  const dateObj1 = new Date(dateString1);
+  const dateObj2 = new Date(dateString2);
+
+  const hours1 = dateObj1.getHours();
+  const minutes1 = dateObj1.getMinutes();
+  const seconds1 = dateObj1.getSeconds();
+
+  const hours2 = dateObj2.getHours();
+  const minutes2 = dateObj2.getMinutes();
+  const seconds2 = dateObj2.getSeconds();
+
+  if (hours1 > hours2) {
+    return true;
+  } else if (hours1 < hours2) {
+    return false;
+  } else if (minutes1 > minutes2) {
+    return true;
+  } else if (minutes1 < minutes2) {
+    return false;
+  } else if (seconds1 > seconds2) {
+    return true;
+  } else if (seconds1 < seconds2) {
+    return false;
+  } else {
+    return true;
+  }
+}
+function showPointsTimelineDays(startTime, endTime) {
+  var plotList = [];
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  checkboxes.forEach((checkbox) => {
+    if (checkbox.checked == true) {
+      plotList.push(checkbox.value);
+    }
+  });
+  const circles = data.filter((item) =>
+    plotList.includes(item["individual-local-identifier"])
+  );
+
+  var data2 = circles.filter(function (d) {
+    return (
+      compareTimes(d["study-local-timestamp"], startTime) &&
+      compareTimes(endTime, d["study-local-timestamp"])
+    );
+  });
+  pointsTimelinePlot(data2);
+  // add condition if color grid is checked
+  gridHeatmaps("");
 }
 
 function pointsTimelinePlot(data2) {
-  console.log(data2);
   d3.selectAll("circle.points").remove();
 
   var dot = svg
@@ -1936,17 +2074,7 @@ function caller() {
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  changeAttribute(svg2, "speed", width, height, margin);
-}
-
-function caller() {
-  // append the svg2 object to the body of the page
-  // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
-    width = 660 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
-
-  const svg2 = d3
+  const svg3 = d3
     .select("#my_dataviz")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -1954,10 +2082,242 @@ function caller() {
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
   changeAttribute(svg2, "speed", width, height, margin);
+  changeAttributeDays(svg3, "speed", width, height, margin);
 }
 
+function convertToCSV(arr) {
+  const array = [Object.keys(arr[0])].concat(arr);
+
+  return array
+    .map((it) => {
+      return Object.values(it).toString();
+    })
+    .join("\n");
+}
 setTimeout(function () {
   //your code here
-  caller();
-  caller();
-}, 500);
+  // caller();
+  //This function is for getting different trajectories from the dataset
+  // getTrajectoryColumns();
+}, 2000);
+
+function exportData() {
+  var a = document.createElement("a");
+  var exportData = d3.selectAll("circle.points").data();
+  console.log(exportData);
+  a.href = URL.createObjectURL(
+    new Blob([convertToCSV(exportData)], { type: "application/csv" })
+  );
+  a.download = "myFile.csv";
+  a.click();
+}
+function getTrajectoryColumns() {
+  const trajectoryColumns = data.columns.filter((column) => {
+    return column.includes("trajectory");
+  });
+  console.log(trajectoryColumns);
+  const dropdown = document.getElementById("trajectory-column");
+
+  trajectoryColumns.forEach((column) => {
+    const option = document.createElement("option");
+    option.value = column;
+    option.text = column;
+    dropdown.add(option);
+  });
+}
+var trajectoryColumn;
+document
+  .getElementById("trajectory-column")
+  .addEventListener("change", function () {
+    trajectoryColumn = document.getElementById("trajectory-column").value;
+    console.log(trajectoryColumn);
+  });
+
+function gridHeatmaps(value) {
+  console.log(value);
+  //starting function for grid heatmap
+  // console.log("Clicked at: (" + x + ", " + y + ")");
+  const xMin = 624079.8465020715,
+    xMax = 629752.8465020715,
+    yMin = 1009715.5668793379,
+    yMax = 1015157.5668793379;
+
+  // Define the cell width
+  // const cellWidth = parseInt(
+  //   document.getElementById("voronoi-cell-width").value
+  // );
+  let cellWidth = document.getElementById("voronoi-cell-width").value;
+  cellWidth = Math.round(cellWidth / 100) * 100;
+
+  // let summarizedPoints = d3.selectAll("circle.points").data();
+
+  // Generate a set of points
+  const points = [];
+  for (let x = xMin; x < xMax; x += cellWidth) {
+    for (let y = yMin; y < yMax; y += cellWidth) {
+      points.push([xScale(x), yScale(y)]);
+    }
+  }
+
+  // Build color scale
+
+  // Compute the Voronoi diagram
+  const delaunay = d3.Delaunay.from(points);
+  const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+
+  let gridData = d3.selectAll(".points").data();
+  let cellList = pointsInGridCount(delaunay, gridData);
+  let cellPointCounts = createNumberCountDict(cellList);
+  let uniqueRevists = uniqueRevisitsCount(cellList);
+  let uniqueRevisitCounts = createNumberCountDict(uniqueRevists);
+  console.log(cellPointCounts);
+  console.log(uniqueRevisitCounts);
+  let selectedData = cellPointCounts;
+  if (value == "uniqueRevisits") {
+    selectedData = uniqueRevisitCounts;
+  }
+  console.log(value);
+  // Initialize max value variable with the smallest possible value
+  var maxValue = Number.MIN_VALUE;
+
+  // Iterate over the values and update max value if necessary
+  for (var key in selectedData) {
+    if (selectedData.hasOwnProperty(key)) {
+      var value = selectedData[key];
+      if (value > maxValue) {
+        maxValue = value;
+      }
+    }
+  }
+  const svg = d3.select("svg#map");
+  d3.selectAll(".cells").remove();
+  var myColor = d3
+    .scaleSequential()
+    .interpolator(d3.interpolateOrRd)
+    .domain([1, maxValue]);
+  // Draw Voronoi cells
+  svg
+    .selectAll("path")
+    .data(voronoi.cellPolygons())
+    .enter()
+    .append("path")
+    .attr("d", (d) => "M" + d.join("L") + "Z")
+    .attr("class", "cells")
+    .attr("stroke", "orange")
+    .attr("stroke-width", 1)
+    .attr("stroke-opacity", 0.5)
+    .attr("fill", function (d, i) {
+      return myColor(selectedData[i]);
+    })
+    .attr("fill-opacity", 0.5);
+}
+
+function pointsInGridCount(delaunay, data) {
+  let cellList = [];
+  for (let i = 0; i < data.length; i++) {
+    cellList.push(
+      delaunay.find(
+        xScale(data[i]["utm-easting"]),
+        yScale(data[i]["utm-northing"])
+      )
+    );
+  }
+  return cellList;
+}
+
+function uniqueRevisitsCount(cells) {
+  let visitedCells = [];
+  let uniqueRevisits = 0;
+  let prevCell = null;
+
+  for (let i = 0; i < cells.length; i++) {
+    let cell = cells[i];
+    if (cell === prevCell) {
+      continue;
+    }
+    visitedCells.push(cell);
+    prevCell = cell;
+  }
+
+  return visitedCells;
+}
+
+function createNumberCountDict(numbers) {
+  let countDict = {};
+
+  // Count the occurrences of each number
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+    countDict[number] = (countDict[number] || 0) + 1;
+  }
+
+  return countDict;
+}
+
+//Given a min value which is diff bw 2 coordinates
+
+///function for finding the pattern
+function patternFinder() {
+  let gridData = d3.selectAll(".points").data();
+  const delaunay = getDelaunay();
+  let cellList = pointsInGridCount(delaunay, gridData);
+  let uniqueRevists = uniqueRevisitsCount(cellList);
+  console.log(uniqueRevists);
+  console.log(totalClicks);
+
+  let patterns = findCombos(uniqueRevists, totalClicks);
+  highlightCellsFromPatterns(delaunay, patterns.flat());
+}
+
+function highlightCellsFromPatterns(delaunay, highlightCells) {
+  d3.selectAll(".cells").remove();
+  const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+
+  svg
+    .selectAll("path")
+    .data(voronoi.cellPolygons())
+    .enter()
+    .append("path")
+    .attr("d", (d) => "M" + d.join("L") + "Z")
+    .attr("class", "cells")
+    .attr("stroke", "orange")
+    .attr("stroke-width", 1)
+    .attr("stroke-opacity", 0.5)
+    .attr("fill", function (d, i) {
+      if (highlightCells.indexOf(i) != -1) {
+        // console.log(i);
+        return "red";
+      }
+
+      return "none";
+    })
+    .attr("fill-opacity", 0.3);
+}
+
+function findCombos(list, pattern) {
+  const combos = [];
+
+  for (let i = 0; i <= list.length - pattern.length; i++) {
+    let isValidCombo = true;
+
+    for (let j = 0; j < pattern.length - 1; j++) {
+      const diff1 = list[i + j + 1] - list[i + j];
+      const diff2 = pattern[j + 1] - pattern[j];
+
+      if (diff1 !== diff2) {
+        isValidCombo = false;
+        break; // Exit the inner loop if the difference doesn't match
+      }
+    }
+
+    if (isValidCombo) {
+      combos.push(list.slice(i, i + pattern.length));
+    }
+  }
+
+  return combos;
+}
+
+function patternReset() {
+  totalClicks = [];
+}

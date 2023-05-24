@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
     />
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
 
     <title>Animal movement Data</title>
@@ -149,6 +150,29 @@
 
       <div id="names" class="item4">
         Point Plotter
+        <button
+          type="button"
+          id="start-location"
+          class="btn btn-primary"
+          onclick="exportData()"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-download"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+            />
+            <path
+              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+            />
+          </svg>
+          Download
+        </button>
         <br />
 
         <input
@@ -331,6 +355,11 @@
           step="0.1"
           onchange="resizePoints()"
         />
+
+        <br />
+      </div>
+
+      <div class="item-fruit" id="fruit-container">
         <input type="checkbox" id="fruit" class="btn btn-success" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -344,7 +373,6 @@
             d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
           />
         </svg>
-        <br />
       </div>
 
       <div class="item7">
@@ -371,6 +399,38 @@
             Isolate Trajectories
           </button>
 
+          <button
+            type="button"
+            id="color-grid"
+            class="btn btn-primary"
+            onclick="patternFinder()"
+          >
+            Find the pattern
+          </button>
+
+          <button
+            type="button"
+            id="color-grid"
+            class="btn btn-primary"
+            onclick="patternReset()"
+          >
+            Reset Pattern
+          </button>
+
+          <button
+            type="button"
+            id="color-grid"
+            class="btn btn-primary"
+            onclick="gridHeatmaps('')"
+          >
+            Color Grid
+          </button>
+
+          <select id="metricDropdown" onchange="gridHeatmaps(value)">
+            <option value="totalVisit">Total Visit</option>
+            <option value="uniqueRevisits">Unique Revisits</option>
+          </select>
+
           <input
             type="range"
             id="start-resize"
@@ -380,18 +440,15 @@
             onchange="sliderChanged('start-circle')"
           />
 
+          <select id="trajectory-column">
+            <!-- This is where the trajectory columns will be added -->
+          </select>
+
           <br />
         </div>
       </div>
 
-      <div id="my_dataviz" class="item5">
-        Timeline
-        <select id="myDropdown">
-          <option value=""></option>
-          <option value="location-lat">Speed</option>
-          <option value="acc">Acceleration</option>
-        </select>
-      </div>
+      <div id="my_dataviz" class="item5"></div>
     </div>
     <script src="js/index.js"></script>
   </body>

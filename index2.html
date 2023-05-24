@@ -10,18 +10,52 @@
     <button onclick="uploadFile()">Upload File</button>
 
     <script>
-      function uploadFile() {
-        var input = document.querySelector('input[type="file"]');
+      const data = {
+        id: 1,
+        name: "John",
+        age: 30,
+        x_trajectory: 10,
+        y_trajectory: 20,
+        z_position: 5,
+      };
 
-        var data = new FormData();
-        data.append("file", input.files[0]);
-        data.append("user", "hubot");
+      const trajectoryColumns = [];
 
-        fetch("/data", {
-          method: "POST",
-          body: data,
-        });
+      for (const column in data) {
+        if (column.includes("trajectory")) {
+          trajectoryColumns.push(column);
+        }
       }
+
+      const dropdown = document.getElementById("trajectory-column");
+
+      trajectoryColumns.forEach((column) => {
+        const option = document.createElement("option");
+        option.value = column;
+        option.text = column;
+        dropdown.add(option);
+      });
+
+      // Define the image dimensions and URL
+      var imageWidth = 50;
+      var imageHeight = 50;
+      var imageUrl = "path/to/your/image.png";
+
+      // Create SVG container
+      var svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", 800)
+        .attr("height", 600);
+
+      // Add the image
+      svg
+        .append("image")
+        .attr("xlink:href", imageUrl)
+        .attr("width", imageWidth)
+        .attr("height", imageHeight)
+        .attr("x", 100) // X position of the image
+        .attr("y", 100); // Y position of the image
     </script>
   </body>
 </html>
