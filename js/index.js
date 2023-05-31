@@ -506,7 +506,7 @@ svg.on("click", function () {
     // const cellWidth = parseInt(
     //   document.getElementById("voronoi-cell-width").value
     // );
-    const cellWidth = 100;
+    const cellWidth = 30;
     // let summarizedPoints = d3.selectAll("circle.points").data();
 
     // Generate a set of points
@@ -1881,7 +1881,7 @@ function getDelaunay() {
     yMax = 1015157.5668793379;
 
   // Define the cell width
-  const cellWidth = 100;
+  const cellWidth = 30;
 
   // Generate a set of points
   const points = [];
@@ -2125,13 +2125,13 @@ function getTrajectoryColumns() {
     dropdown.add(option);
   });
 }
-var trajectoryColumn;
-document
-  .getElementById("trajectory-column")
-  .addEventListener("change", function () {
-    trajectoryColumn = document.getElementById("trajectory-column").value;
-    console.log(trajectoryColumn);
-  });
+var trajectoryColumn = "trajectory_number";
+// document
+//   .getElementById("trajectory-column")
+//   .addEventListener("change", function () {
+//     trajectoryColumn = document.getElementById("trajectory-column").value;
+//     console.log(trajectoryColumn);
+//   });
 
 function gridHeatmaps(value) {
   console.log(value);
