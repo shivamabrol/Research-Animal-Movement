@@ -1,9 +1,9 @@
-.item1 { grid-area: map;
+.map-class { grid-area: map;
   
   text-align: center;
  }
-.item2 { 
-    grid-area: menu; 
+.zoom-class { 
+    grid-area: zoom; 
     padding-top: 40px;
 
     border: 2px grey solid;
@@ -11,43 +11,51 @@
 }
 
 
-.item-fruit {
+.fruit-class {
   grid-area: fruit;
   height: auto;
   width: auto;
 }
-.item3 { grid-area: main;
+.voronoi-class { grid-area: voronoi;
   padding-top: 40px;
   border: 2px grey solid;
 }
-.item4 { grid-area: data; 
+.name-class { grid-area: name; 
   /* padding-top: 40px; */
   border: 2px grey solid;
 }
-.item9 {grid-area: lines;
-  /* padding-top: 40px; */
+
+.timeline-class { grid-area: timeline; 
   border: 2px grey solid;
+  /* padding-top: 40px; */
 }
-.item5 { grid-area: footer; 
+.pattern-class {
+  grid-area: pattern;
+  border: 2px grey solid;
+
+}
+
+.trajectory-class {grid-area: trajectory; 
   border: 2px grey solid;
   /* padding-top: 40px; */
 }
 
-.item7 {grid-area: timechart; 
+.heatmap-class {
+  grid-area: heatmap;
   border: 2px grey solid;
-  /* padding-top: 40px; */
 }
 
 .grid-container {
   display: grid;
   grid-template-areas:
-  'map map map  menu menu menu footer'
-  'map map map  data data data footer'
-  'map map map  data data data footer'
-  'map map map  fruit fruit main main'
+  'map map map  zoom zoom zoom zoom'
+  'map map map  name name name fruit'
+  'map map map  trajectory trajectory pattern pattern'
+  'map map map  voronoi voronoi heatmap heatmap';
+  /* 'map map map  fruit fruit main main' */
   /* 'map map map  main main main' */
-  'map map map  timechart timechart timechart timechart'
-  'map map map  timechart timechart timechart timechart';
+  /* 'map map map  timechart timechart timechart timechart' */
+  /* 'map map map  timechart timechart timechart timechart'; */
 
   margin: auto;
   background-color: rgb(255, 255, 255);

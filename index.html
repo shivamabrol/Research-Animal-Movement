@@ -40,7 +40,7 @@
     <!-- <script src="https://unpkg.com/d3-3d/build/d3-3d.js"></script> -->
 
     <div class="grid-container">
-      <div class="item1">
+      <div class="map-class">
         <svg
           id="map"
           width="800px"
@@ -55,7 +55,7 @@
           />
         </svg>
       </div>
-      <div class="item2">
+      <div class="zoom-class">
         <button type="button" id="zoom-in" class="btn btn-success">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,16 +105,32 @@
           &#x21bb;
         </button>
 
-        <button type="button" id="left" class="btn btn-primary">&#8592;</button>
-        <button type="button" id="right" class="btn btn-primary">
-          &#8594;
-        </button>
-        <button type="button" id="up" class="btn btn-primary">&#8593;</button>
-        <button type="button" id="down" class="btn btn-primary">
+        <button type="button" id="left">&#8592;</button>
+        <button type="button" id="right">&#8594;</button>
+        <button type="button" id="up">&#8593;</button>
+        <button type="button" id="down">
           <span>&#8595;</span>
         </button>
+
+        <button type="button" id="download" onclick="exportData()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-download"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
+            />
+            <path
+              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
+            />
+          </svg>
+        </button>
       </div>
-      <div id="item3" class="item3">
+      <div id="voronoi-grid" class="voronoi-class">
         <input
           class="form-check-input"
           type="checkbox"
@@ -148,33 +164,7 @@
         <br />
       </div>
 
-      <div id="names" class="item4">
-        Point Plotter
-        <button
-          type="button"
-          id="start-location"
-          class="btn btn-primary"
-          onclick="exportData()"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-download"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"
-            />
-            <path
-              d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
-            />
-          </svg>
-          Download
-        </button>
-        <br />
-
+      <div class="name-class" id="names">
         <input
           class="form-check-input"
           type="checkbox"
@@ -194,7 +184,6 @@
           id="Daniel-checkbox"
           style="background-color: #1abc9c"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Daniel"> Daniel </label>
 
@@ -205,7 +194,6 @@
           id="Magnolia-checkbox"
           style="background-color: #16a085"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Magnolia"> Magnolia </label>
 
@@ -216,7 +204,6 @@
           id="Jessy-checkbox"
           style="background-color: #2ecc71"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Jessy"> Jessy </label>
 
@@ -227,7 +214,6 @@
           id="Drogon-checkbox"
           style="background-color: #27ae60"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Drogon"> Drogon </label>
 
@@ -238,7 +224,6 @@
           id="Viserion-checkbox"
           style="background-color: #3498db"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Viserion"> Viserion </label>
 
@@ -249,7 +234,6 @@
           id="Rhaegal-checkbox"
           style="background-color: #2980b9"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Rhaegal"> Rhaegal </label>
         <br />
@@ -257,10 +241,9 @@
           class="form-check-input"
           type="checkbox"
           value="John Snow"
-          id="John Snow-checkbox"
+          id="John_Snow-checkbox"
           style="background-color: #9b59b6"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="John"> John </label>
 
@@ -271,7 +254,6 @@
           id="Rhaegal_2-checkbox"
           style="background-color: #8e44ad"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Rhaegal_2"> Rhaegal_2 </label>
 
@@ -282,7 +264,6 @@
           id="Viserion_2-checkbox"
           style="background-color: #f1c40f"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Viserion_2"> Viserion_2 </label>
 
@@ -293,7 +274,6 @@
           id="Samwell-checkbox"
           style="background-color: #f39c12"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Samwell"> Samwell </label>
 
@@ -304,7 +284,6 @@
           id="Gendry-checkbox"
           style="background-color: #e67e22"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Gendry"> Gendry </label>
 
@@ -315,7 +294,6 @@
           id="Gendry_2-checkbox"
           style="background-color: #d35400"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Gendry_2"> Gendry_2 </label>
 
@@ -326,7 +304,6 @@
           id="Daenerys-checkbox"
           style="background-color: #e74c3c"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Daenerys"> Daenerys </label>
 
@@ -337,29 +314,16 @@
           id="Olenna-checkbox"
           style="background-color: #c0392b"
           ;
-          onchange="showPoints(id)"
         />
         <label class="form-check-label" for="Olenna"> Olenna </label>
         <br />
-        <input
-          type="color"
-          id="colorpicker"
-          value="#0000ff"
-          oninput="changeColor()"
-        />
-        <input
-          type="range"
-          id="point-resize"
-          min="0.1"
-          max="1"
-          step="0.1"
-          onchange="resizePoints()"
-        />
+        <input type="color" id="colorpicker" value="#0000ff" />
+        <input type="range" id="point-resize" min="0.1" max="1" step="0.1" />
 
         <br />
       </div>
 
-      <div class="item-fruit" id="fruit-container">
+      <div class="fruit-class" id="fruit-container">
         <input type="checkbox" id="fruit" class="btn btn-success" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -374,8 +338,23 @@
           />
         </svg>
       </div>
+      <div class="heatmap-class">
+        <button type="button" id="find-heatmap" onclick="gridHeatmaps('')">
+          Color Grid
+        </button>
 
-      <div class="item7">
+        <select id="metricDropdown" onchange="gridHeatmaps(value)">
+          <option value="totalVisit">Total Visit</option>
+          <option value="uniqueRevisits">Unique Revisits</option>
+        </select>
+      </div>
+
+      <div class="pattern-class">
+        <button type="button" id="find-pattern">Find the pattern</button>
+
+        <button type="button" id="reset-pattern">Reset Pattern</button>
+      </div>
+      <div class="trajectory-class">
         Trajectory finder
 
         <div>
@@ -386,59 +365,16 @@
             id="lines-add"
             style="background-color: cyan"
             ;
-            onchange="plotTrajectoryBCI()"
           />
           <label class="form-check-label" for="lines-add"> Trajectories </label>
 
-          <button
-            type="button"
-            id="start-location"
-            class="btn btn-primary"
-            onclick="plotCircles()"
-          >
+          <!-- <button type="button" id="start-location" >
             Isolate Trajectories
-          </button>
+          </button> -->
 
-          <button
-            type="button"
-            id="color-grid"
-            class="btn btn-primary"
-            onclick="patternFinder()"
-          >
-            Find the pattern
-          </button>
+          <button id="start-location">Trajectory Lens</button>
 
-          <button
-            type="button"
-            id="color-grid"
-            class="btn btn-primary"
-            onclick="patternReset()"
-          >
-            Reset Pattern
-          </button>
-
-          <button
-            type="button"
-            id="color-grid"
-            class="btn btn-primary"
-            onclick="gridHeatmaps('')"
-          >
-            Color Grid
-          </button>
-
-          <select id="metricDropdown" onchange="gridHeatmaps(value)">
-            <option value="totalVisit">Total Visit</option>
-            <option value="uniqueRevisits">Unique Revisits</option>
-          </select>
-
-          <input
-            type="range"
-            id="start-resize"
-            min="5"
-            max="30"
-            step="0.1"
-            onchange="sliderChanged('start-circle')"
-          />
+          <input type="range" id="start-resize" min="5" max="30" step="0.1" />
 
           <select id="trajectory-column">
             <!-- This is where the trajectory columns will be added -->
@@ -448,8 +384,12 @@
         </div>
       </div>
 
-      <div id="my_dataviz" class="item5"></div>
+      <div class="timeline-class" id="timechart"></div>
     </div>
-    <script src="js/index.js"></script>
+    <script src="js/data.js" type="module"></script>
+    <script src="js/index.js" type="module"></script>
+    <script src="js/trajectory.js" type="module"></script>
+    <script src="js/grid.js" type="module"></script>
+    <script src="js/summarize.js" type="module"></script>
   </body>
 </html>
