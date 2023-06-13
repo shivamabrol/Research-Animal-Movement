@@ -301,7 +301,7 @@ export function cellVisits(summarizedCells) {
   return trajectoryCellSummaries;
 }
 
-function pointsInGridCount(delaunay, data) {
+export function pointsInGridCount(delaunay, data) {
   let cellList = [];
   for (let i = 0; i < data.length; i++) {
     cellList.push(
@@ -314,7 +314,7 @@ function pointsInGridCount(delaunay, data) {
   return cellList;
 }
 
-function uniqueRevisitsCount(cells) {
+export function uniqueRevisitsCount(cells) {
   let visitedCells = [];
   let uniqueRevisits = 0;
   let prevCell = null;

@@ -8,8 +8,6 @@ import { plotCircles } from "./trajectory.js";
 
 // It'll be disabled if there are 2 or more
 
-const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
-
 var svgPanZoom = $("svg#map").svgPanZoom();
 
 const svg = d3.select("svg#map");
@@ -373,29 +371,6 @@ function selectAll(id) {
 //for each cell find the time the animal enters the cell and leaves the cell
 //c1 , c1, c1 , c1 -> c1, <tstart, tend>
 
-function showPointsTimeline(startTime, endTime) {
-  console.log(startTime, endTime);
-
-  var plotList = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked == true) {
-      plotList.push(checkbox.value);
-    }
-  });
-  const circles = data.filter((item) =>
-    plotList.includes(item["individual-local-identifier"])
-  );
-
-  var data2 = circles.filter(function (d) {
-    return (
-      new Date(d["study-local-timestamp"]) >= new Date(startTime) &&
-      new Date(d["study-local-timestamp"]) <= new Date(endTime)
-    );
-  });
-  pointsTimelinePlot(data2);
-  gridHeatmaps("");
-}
 function compareTimes(first, second) {
   const dateString1 = first;
   const dateString2 = second;
@@ -426,79 +401,8 @@ function compareTimes(first, second) {
     return true;
   }
 }
-function showPointsTimelineDays(startTime, endTime) {
-  var plotList = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked == true) {
-      plotList.push(checkbox.value);
-    }
-  });
-  const circles = data.filter((item) =>
-    plotList.includes(item["individual-local-identifier"])
-  );
 
-  var data2 = circles.filter(function (d) {
-    return (
-      compareTimes(d["study-local-timestamp"], startTime) &&
-      compareTimes(endTime, d["study-local-timestamp"])
-    );
-  });
-  pointsTimelinePlot(data2);
-  // add condition if color grid is checked
-  gridHeatmaps("");
-}
-
-function pointsTimelinePlot(data2) {
-  d3.selectAll("circle.points").remove();
-
-  var dot = svg
-    .selectAll("circle")
-    .data(data2)
-    .enter()
-    .append("circle")
-    .attr("class", "points")
-    .attr("id", function (d) {
-      return d["individual-local-identifier"];
-    })
-    .attr("cx", function (d) {
-      return xScale(parseFloat(d["utm-easting"]));
-    })
-    .attr("cy", function (d) {
-      return yScale(parseFloat(d["utm-northing"]));
-    })
-    .attr("r", 1)
-    .style("opacity", 1)
-    .attr("fill", function (d) {
-      return colorDictionary[d["individual-local-identifier"]];
-    });
-}
 // changeAttribute("speed");
-
-function caller() {
-  // append the svg2 object to the body of the page
-  // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
-    width = 660 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
-
-  const svg2 = d3
-    .select("#timechart")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  const svg3 = d3
-    .select("#timechart")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  changeAttribute(svg2, "speed", width, height, margin);
-  changeAttributeDays(svg3, "speed", width, height, margin);
-}
 
 function convertToCSV(arr) {
   const array = [Object.keys(arr[0])].concat(arr);
@@ -509,12 +413,6 @@ function convertToCSV(arr) {
     })
     .join("\n");
 }
-setTimeout(function () {
-  //your code here
-  // caller();
-  //This function is for getting different trajectories from the dataset
-  // getTrajectoryColumns();
-}, 2000);
 
 function exportData() {
   var a = document.createElement("a");
@@ -526,20 +424,7 @@ function exportData() {
   a.download = "myFile.csv";
   a.click();
 }
-function getTrajectoryColumns() {
-  const trajectoryColumns = data.columns.filter((column) => {
-    return column.includes("trajectory");
-  });
-  console.log(trajectoryColumns);
-  const dropdown = document.getElementById("trajectory-column");
 
-  trajectoryColumns.forEach((column) => {
-    const option = document.createElement("option");
-    option.value = column;
-    option.text = column;
-    dropdown.add(option);
-  });
-}
 var trajectoryColumn = "trajectory_number";
 // document
 //   .getElementById("trajectory-column")
@@ -547,96 +432,5 @@ var trajectoryColumn = "trajectory_number";
 //     trajectoryColumn = document.getElementById("trajectory-column").value;
 //     console.log(trajectoryColumn);
 //   });
-
-function gridHeatmaps(value) {
-  console.log(value);
-  //starting function for grid heatmap
-  // console.log("Clicked at: (" + x + ", " + y + ")");
-  const xMin = 624079.8465020715,
-    xMax = 629752.8465020715,
-    yMin = 1009715.5668793379,
-    yMax = 1015157.5668793379;
-
-  // Define the cell width
-  // const cellWidth = parseInt(
-  //   document.getElementById("voronoi-cell-width").value
-  // );
-  let cellWidth = document.getElementById("voronoi-cell-width").value;
-  cellWidth = Math.round(cellWidth / 100) * 100;
-
-  // let summarizedPoints = d3.selectAll("circle.points").data();
-
-  // Generate a set of points
-  const points = [];
-  for (let x = xMin; x < xMax; x += cellWidth) {
-    for (let y = yMin; y < yMax; y += cellWidth) {
-      points.push([xScale(x), yScale(y)]);
-    }
-  }
-
-  // Build color scale
-
-  // Compute the Voronoi diagram
-  const delaunay = d3.Delaunay.from(points);
-  const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
-
-  let gridData = d3.selectAll(".points").data();
-  let cellList = pointsInGridCount(delaunay, gridData);
-  let cellPointCounts = createNumberCountDict(cellList);
-  let uniqueRevists = uniqueRevisitsCount(cellList);
-  let uniqueRevisitCounts = createNumberCountDict(uniqueRevists);
-  console.log(cellPointCounts);
-  console.log(uniqueRevisitCounts);
-  let selectedData = cellPointCounts;
-  if (value == "uniqueRevisits") {
-    selectedData = uniqueRevisitCounts;
-  }
-  console.log(value);
-  // Initialize max value variable with the smallest possible value
-  var maxValue = Number.MIN_VALUE;
-
-  // Iterate over the values and update max value if necessary
-  for (var key in selectedData) {
-    if (selectedData.hasOwnProperty(key)) {
-      var value = selectedData[key];
-      if (value > maxValue) {
-        maxValue = value;
-      }
-    }
-  }
-  const svg = d3.select("svg#map");
-  d3.selectAll(".cells").remove();
-  var myColor = d3
-    .scaleSequential()
-    .interpolator(d3.interpolateOrRd)
-    .domain([1, maxValue]);
-  // Draw Voronoi cells
-  svg
-    .selectAll("path")
-    .data(voronoi.cellPolygons())
-    .enter()
-    .append("path")
-    .attr("d", (d) => "M" + d.join("L") + "Z")
-    .attr("class", "cells")
-    .attr("stroke", "orange")
-    .attr("stroke-width", 1)
-    .attr("stroke-opacity", 0.5)
-    .attr("fill", function (d, i) {
-      return myColor(selectedData[i]);
-    })
-    .attr("fill-opacity", 0.5);
-}
-
-function createNumberCountDict(numbers) {
-  let countDict = {};
-
-  // Count the occurrences of each number
-  for (let i = 0; i < numbers.length; i++) {
-    const number = numbers[i];
-    countDict[number] = (countDict[number] || 0) + 1;
-  }
-
-  return countDict;
-}
 
 //Given a min value which is diff bw 2 coordinates

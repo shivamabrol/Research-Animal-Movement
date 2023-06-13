@@ -10,6 +10,11 @@
     padding-top: 40px;
 }
 
+.empty-class {
+  grid-area: empty;
+  padding: auto;
+}
+
 
 .fruit-class {
   grid-area: fruit;
@@ -48,10 +53,13 @@
 .grid-container {
   display: grid;
   grid-template-areas:
-  'map map map  zoom zoom zoom zoom'
-  'map map map  name name name fruit'
-  'map map map  trajectory trajectory pattern pattern'
-  'map map map  voronoi voronoi heatmap heatmap';
+  'pattern map map map map map zoom zoom'
+  'heatmap map map map map map name name '
+  'trajectory map map map map map name name'
+  'trajectory map map map map map fruit fruit '
+  'trajectory map map map map map timeline timeline'
+  'trajectory map map map map map timeline timeline  '
+  'voronoi map map map map map timeline timeline';
   /* 'map map map  fruit fruit main main' */
   /* 'map map map  main main main' */
   /* 'map map map  timechart timechart timechart timechart' */

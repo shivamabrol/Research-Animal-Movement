@@ -255,3 +255,35 @@ document
 document
   .getElementById("start-resize")
   .addEventListener("change", sliderChanged, false);
+
+document
+  .getElementById("get-trajectory")
+  .addEventListener("click", getTrajectoryColumns, false);
+
+function getTrajectoryColumns() {
+  const trajectoryColumns = data.columns.filter((column) => {
+    return column.includes("trajectory");
+  });
+  console.log(trajectoryColumns);
+  const dropdown = document.getElementById("trajectory-column");
+
+  trajectoryColumns.forEach((column) => {
+    const option = document.createElement("option");
+    option.value = column;
+    option.text = column;
+    dropdown.add(option);
+  });
+}
+
+document
+  .getElementById("trajectory-column")
+  .addEventListener("change", function () {
+    var dropdown = document.getElementById("trajectory-column");
+    var selectedOption = dropdown.options[dropdown.selectedIndex];
+    var selectedValue = selectedOption.value;
+    var selectedText = selectedOption.text;
+    trajectoryColumn = selectedValue;
+
+    console.log("Selected Value: " + selectedValue);
+    console.log("Selected Text: " + selectedText);
+  });

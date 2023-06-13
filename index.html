@@ -40,11 +40,12 @@
     <!-- <script src="https://unpkg.com/d3-3d/build/d3-3d.js"></script> -->
 
     <div class="grid-container">
+      <div class="empty-class"></div>
       <div class="map-class">
         <svg
           id="map"
-          width="800px"
-          height="800px"
+          width="900px"
+          height="900px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <image
@@ -339,11 +340,9 @@
         </svg>
       </div>
       <div class="heatmap-class">
-        <button type="button" id="find-heatmap" onclick="gridHeatmaps('')">
-          Color Grid
-        </button>
+        <button type="button" id="find-heatmap">Color Grid</button>
 
-        <select id="metricDropdown" onchange="gridHeatmaps(value)">
+        <select id="metricDropdown">
           <option value="totalVisit">Total Visit</option>
           <option value="uniqueRevisits">Unique Revisits</option>
         </select>
@@ -376,6 +375,8 @@
 
           <input type="range" id="start-resize" min="5" max="30" step="0.1" />
 
+          <button id="get-trajectory">Trajectories</button>
+
           <select id="trajectory-column">
             <!-- This is where the trajectory columns will be added -->
           </select>
@@ -384,12 +385,16 @@
         </div>
       </div>
 
-      <div class="timeline-class" id="timechart"></div>
+      <div class="timeline-class" id="timechart">
+        <button id="see-timeline">See Timelines</button>
+      </div>
     </div>
     <script src="js/data.js" type="module"></script>
     <script src="js/index.js" type="module"></script>
     <script src="js/trajectory.js" type="module"></script>
     <script src="js/grid.js" type="module"></script>
     <script src="js/summarize.js" type="module"></script>
+    <script src="js/heatmap.js" type="module"></script>
+    <script src="js/timeline.js" type="module"></script>
   </body>
 </html>
