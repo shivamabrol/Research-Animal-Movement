@@ -1,6 +1,8 @@
 .map-class { grid-area: map;
   
   text-align: center;
+  background-color: black;
+
  }
 .zoom-class { 
     grid-area: zoom; 
@@ -53,17 +55,12 @@
 .grid-container {
   display: grid;
   grid-template-areas:
-  'pattern map map map map map zoom zoom'
-  'heatmap map map map map map name name '
-  'trajectory map map map map map name name'
-  'trajectory map map map map map fruit fruit '
-  'trajectory map map map map map timeline timeline'
-  'trajectory map map map map map timeline timeline  '
-  'voronoi map map map map map timeline timeline';
-  /* 'map map map  fruit fruit main main' */
-  /* 'map map map  main main main' */
-  /* 'map map map  timechart timechart timechart timechart' */
-  /* 'map map map  timechart timechart timechart timechart'; */
+  'pattern map map  zoom zoom'
+  'heatmap map map  name name '
+  'heatmap map map  name name'
+  'trajectory map map  timeline timeline '
+  'voronoi map map timeline timeline';
+
 
   margin: auto;
   background-color: rgb(255, 255, 255);

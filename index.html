@@ -44,8 +44,8 @@
       <div class="map-class">
         <svg
           id="map"
-          width="900px"
-          height="900px"
+          width="800px"
+          height="800px"
           xmlns="http://www.w3.org/2000/svg"
         >
           <image
@@ -113,7 +113,7 @@
           <span>&#8595;</span>
         </button>
 
-        <button type="button" id="download" onclick="exportData()">
+        <button type="button" id="download">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -170,10 +170,9 @@
           class="form-check-input"
           type="checkbox"
           value=""
-          id="all"
+          id="all-checkbox"
           style="background-color: cyan"
           ;
-          onchange="selectAll(id)"
         />
 
         <label class="form-check-label" for="all"> Select All </label>
@@ -318,28 +317,30 @@
         />
         <label class="form-check-label" for="Olenna"> Olenna </label>
         <br />
+        <div class="fruit-class" id="fruit-container">
+          <input type="checkbox" id="fruit" class="btn btn-success" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-tree"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
+            />
+          </svg>
+        </div>
         <input type="color" id="colorpicker" value="#0000ff" />
         <input type="range" id="point-resize" min="0.1" max="1" step="0.1" />
 
         <br />
       </div>
 
-      <div class="fruit-class" id="fruit-container">
-        <input type="checkbox" id="fruit" class="btn btn-success" />
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-tree"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5zM6.437 4.758A.5.5 0 0 0 6 4.5h-.066L8 1.401 10.066 4.5H10a.5.5 0 0 0-.424.765L11.598 8.5H11.5a.5.5 0 0 0-.447.724L12.69 12.5H3.309l1.638-3.276A.5.5 0 0 0 4.5 8.5h-.098l2.022-3.235a.5.5 0 0 0 .013-.507z"
-          />
-        </svg>
-      </div>
       <div class="heatmap-class">
+        Heatmap Finder
+        <br />
         <button type="button" id="find-heatmap">Color Grid</button>
 
         <select id="metricDropdown">
@@ -350,6 +351,7 @@
 
       <div class="pattern-class">
         <button type="button" id="find-pattern">Find the pattern</button>
+        <button type="button" id="find-all-pattern">Find all patterns</button>
 
         <button type="button" id="reset-pattern">Reset Pattern</button>
       </div>
@@ -396,5 +398,7 @@
     <script src="js/summarize.js" type="module"></script>
     <script src="js/heatmap.js" type="module"></script>
     <script src="js/timeline.js" type="module"></script>
+    <!-- <script src="js/suffixTree.js" type="module"></script> -->
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

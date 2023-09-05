@@ -1,5 +1,5 @@
 export let data;
-d3.csv("../data/BCI-movement-filtered.csv")
+d3.csv("../data/BCI-movement-data.csv")
   .then(function (data1) {
     // Do something with the data here
     data = data1;

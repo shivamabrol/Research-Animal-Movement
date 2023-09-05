@@ -135,7 +135,7 @@ function isolatePoints() {
 
 function trajectoryPlotter() {
   let objects = isolatePoints();
-  if (objects.length == 0) {
+  if (objects.data().length == 0) {
     return;
   }
 

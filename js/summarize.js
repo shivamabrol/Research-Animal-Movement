@@ -147,9 +147,9 @@ function summarizeMovement(delaunay, voronoi) {
 
 function plotMoveLines(voronoi, moves) {
   console.log(moves);
+  let line_points = [];
   // const i = 6;
   for (let i = 0; i < moves.length; i++) {
-    let line_points = [];
     let move = moves[i];
     for (let j = 0; j < move.length; j++) {
       line_points.push(d3.polygonCentroid(voronoi.cellPolygon(move[j][0])));
@@ -204,7 +204,7 @@ function plotMoveLines(voronoi, moves) {
       .attr("class", "cells")
       .attr("stroke", colorArrayTrajectory[i])
       .attr("marker-start", (d) => "url(#arrow)")
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 1)
       .attr("fill", "none");
 
     // Add a mouseover event listener to the path element
@@ -230,6 +230,7 @@ function plotMoveLines(voronoi, moves) {
       });
     });
   }
+  console.log(line_points);
 }
 
 document.getElementById("voronoi-plot").addEventListener("change", (event) => {

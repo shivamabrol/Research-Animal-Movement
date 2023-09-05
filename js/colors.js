@@ -60,6 +60,7 @@ export const colorArrayTrajectory = [
 ];
 
 export const names = [
+  "all",
   "Daniel",
   "Magnolia",
   "Jessy",
@@ -91,6 +92,7 @@ const colors = {
   Gendry_2: "",
   Daenerys: "",
   Olenna: "",
+  all: "",
 };
 
 const colorArray = [

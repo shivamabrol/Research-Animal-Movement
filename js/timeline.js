@@ -8,8 +8,8 @@ const svg = d3.select("svg#map");
 function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 230, bottom: 50, left: 50 },
-    width = 660 - margin.left - margin.right,
+  const margin = { top: 60, right: 50, bottom: 50, left: 50 },
+    width = 500 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
   const svg2 = d3
@@ -113,7 +113,7 @@ function changeAttribute(svg2, attribute, width, height) {
   const area = d3
     .area()
     .x(function (d) {
-      return x(parseTime(d.data["study-local-timestamp"]));
+      return x(parseTime(d.data["date"]));
     })
     .y0(function (d) {
       return 10;
@@ -231,7 +231,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
   const area = d3
     .area()
     .x(function (d) {
-      return x(parseTime(d.data["study-local-timestamp"]));
+      return x(parseTime(d.data["date"]));
     })
     .y0(function (d) {
       return 10;
@@ -260,7 +260,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
   function updateChart(event, d) {
     addEventListener("dblclick", (event) => {});
 
-    extent = event.selection;
+    let extent = event.selection;
     // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
     showPointsTimelineDays(x.invert(extent[0]), x.invert(extent[1]));
   }
@@ -268,7 +268,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
 
 function changeAttribute2(attribute) {
   const margin = { top: 10, right: 30, bottom: 30, left: 60 },
-    width = 460 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
@@ -283,7 +283,7 @@ function changeAttribute2(attribute) {
 
   //Read the data
   d3.csv(
-    "../data/BCI-movement-filtered.csv",
+    "../data/BCI-movement-data.csv",
 
     // When reading the csv, I must format variables:
     (d) => {
@@ -420,8 +420,8 @@ function showPointsTimeline(startTime, endTime) {
 
   var data2 = circles.filter(function (d) {
     return (
-      new Date(d["study-local-timestamp"]) >= new Date(startTime) &&
-      new Date(d["study-local-timestamp"]) <= new Date(endTime)
+      new Date(d["date"]) >= new Date(startTime) &&
+      new Date(d["date"]) <= new Date(endTime)
     );
   });
   pointsTimelinePlot(data2);
@@ -435,14 +435,18 @@ function showPointsTimelineDays(startTime, endTime) {
       plotList.push(checkbox.value);
     }
   });
+  if (document.getElementById("all-checkbox").checked) {
+    checkboxes.forEach((checkbox) => {
+      plotList.push(checkbox.value);
+    });
+  }
   const circles = data.filter((item) =>
     plotList.includes(item["individual-local-identifier"])
   );
 
   var data2 = circles.filter(function (d) {
     return (
-      compareTimes(d["study-local-timestamp"], startTime) &&
-      compareTimes(endTime, d["study-local-timestamp"])
+      compareTimes(d["date"], startTime) && compareTimes(endTime, d["date"])
     );
   });
   pointsTimelinePlot(data2);

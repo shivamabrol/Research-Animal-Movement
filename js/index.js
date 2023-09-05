@@ -63,6 +63,10 @@ document.getElementById("left").addEventListener("mousedown", function () {
   //
 });
 
+document.getElementById("download").addEventListener("click", function () {
+  exportData();
+});
+
 document.getElementById("fruit").addEventListener("change", (event) => {
   // code to be executed when button is clicked
   if (event.target.checked) {

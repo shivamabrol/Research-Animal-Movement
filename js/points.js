@@ -28,6 +28,13 @@ export function showPoints(id) {
       checkedValues.push(checkbox.value);
     }
   });
+
+  const selectAll = document.getElementById("all-checkbox");
+  if (selectAll.checked) {
+    checkboxes.forEach((checkbox) => {
+      checkedValues.push(checkbox.value);
+    });
+  }
   const filteredData = data.filter((item) =>
     checkedValues.includes(item["individual-local-identifier"])
   );

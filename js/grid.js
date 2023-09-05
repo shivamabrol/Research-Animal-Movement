@@ -4,85 +4,86 @@ const svg = d3.select("svg#map");
 var trajectoryColumn = "trajectory_number";
 
 let totalClicks = [];
-svg.on("click", function () {
-  // Get the coordinates of the mouse pointer relative to the SVG element
-  var coordinates = d3.pointer(event, this);
-  console.log(coordinates);
-  // Log the coordinates to the console
-  let summarizedPoints = d3.selectAll(".points").data();
-  // console.log("Clicked at: (" + x + ", " + y + ")");
-  d3.csv("data/centroids.csv").then(function (data) {
-    const xMin = 624079.8465020715,
-      xMax = 629752.8465020715,
-      yMin = 1009715.5668793379,
-      yMax = 1015157.5668793379;
+// svg.on("click", function () {
+//   // Get the coordinates of the mouse pointer relative to the SVG element
+//   var coordinates = d3.pointer(event, this);
+//   console.log(coordinates);
+//   // Log the coordinates to the console
+//   let summarizedPoints = d3.selectAll(".points").data();
+//   // console.log("Clicked at: (" + x + ", " + y + ")");
+//   d3.csv("data/centroids.csv").then(function (data) {
+//     const xMin = 624079.8465020715,
+//       xMax = 629752.8465020715,
+//       yMin = 1009715.5668793379,
+//       yMax = 1015157.5668793379;
 
-    // Define the cell width
-    // const cellWidth = parseInt(
-    //   document.getElementById("voronoi-cell-width").value
-    // );
-    const cellWidth = 100;
-    // let summarizedPoints = d3.selectAll("circle.points").data();
+//     // Define the cell width
+//     // const cellWidth = parseInt(
+//     //   100
+//     // );
+//     const cellWidth = 100;
+//     // let summarizedPoints = d3.selectAll("circle.points").data();
 
-    // Generate a set of points
-    const points = [];
+//     // Generate a set of points
+//     const points = [];
 
-    for (let x = xMin; x < xMax; x += cellWidth) {
-      for (let y = yMin; y < yMax; y += cellWidth) {
-        points.push([xScale(x), yScale(y)]);
-      }
-    }
-    let centroids = data;
-    // for (let i = 0; i < centroids.length; i++) {
-    //   let coordinates = centroids[i];
-    //   points.push([
-    //     xScale(parseInt(coordinates.X)),
-    //     yScale(parseInt(coordinates.Y)),
-    //   ]);
-    // }
+//     for (let x = xMin; x < xMax; x += cellWidth) {
+//       for (let y = yMin; y < yMax; y += cellWidth) {
+//         points.push([xScale(x), yScale(y)]);
+//       }
+//     }
+//     let centroids = data;
+//     // for (let i = 0; i < centroids.length; i++) {
+//     //   let coordinates = centroids[i];
+//     //   points.push([
+//     //     xScale(parseInt(coordinates.X)),
+//     //     yScale(parseInt(coordinates.Y)),
+//     //   ]);
+//     // }
 
-    // Compute the Voronoi diagram
-    const delaunay = d3.Delaunay.from(points);
-    const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+//     // Compute the Voronoi diagram
+//     const delaunay = d3.Delaunay.from(points);
+//     const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
 
-    let groups = trajectoryGroups(summarizedPoints);
-    let summarizedCells = trajectoryGroupCells(delaunay, groups);
-    let visits = cellVisits(summarizedCells);
-    let moves = cellMoves(visits);
-    let dataCells = visits.flat().map((obj) => obj.cell);
+//     let groups = trajectoryGroups(summarizedPoints);
+//     let summarizedCells = trajectoryGroupCells(delaunay, groups);
+//     let visits = cellVisits(summarizedCells);
+//     let moves = cellMoves(visits);
+//     let dataCells = visits.flat().map((obj) => obj.cell);
 
-    //Finding the pattern
-    if (totalClicks.length < 5) {
-      totalClicks.push(delaunay.find(coordinates[0], coordinates[1]));
-    }
-    // Create SVG element
-    console.log(moves);
-    let c11 = delaunay.find(coordinates[0], coordinates[1]);
-    const svg = d3.select("svg#map");
-    d3.selectAll(".cells").remove();
-    // Draw Voronoi cells
-    svg
-      .selectAll("path")
-      .data(voronoi.cellPolygons())
-      .enter()
-      .append("path")
-      .attr("d", (d) => "M" + d.join("L") + "Z")
-      .attr("class", "cells")
-      .attr("stroke", "orange")
-      .attr("stroke-width", 1)
-      .attr("stroke-opacity", 0.5)
-      .attr("fill", function (d, i) {
-        if (totalClicks.indexOf(i) != -1) {
-          // console.log(i);
-          return "red";
-        }
+//     //Finding the pattern
+//     if (totalClicks.length < 5) {
+//       totalClicks.push(delaunay.find(coordinates[0], coordinates[1]));
+//     }
+//     console.log(totalClicks);
+//     // Create SVG element
+//     console.log(moves);
+//     let c11 = delaunay.find(coordinates[0], coordinates[1]);
+//     const svg = d3.select("svg#map");
+//     d3.selectAll(".cells").remove();
+//     // Draw Voronoi cells
+//     svg
+//       .selectAll("path")
+//       .data(voronoi.cellPolygons())
+//       .enter()
+//       .append("path")
+//       .attr("d", (d) => "M" + d.join("L") + "Z")
+//       .attr("class", "cells")
+//       .attr("stroke", "orange")
+//       .attr("stroke-width", 1)
+//       .attr("stroke-opacity", 0.5)
+//       .attr("fill", function (d, i) {
+//         if (totalClicks.indexOf(i) != -1) {
+//           // console.log(i);
+//           return "red";
+//         }
 
-        return "none";
-      })
-      .attr("fill-opacity", 0.9);
-    // plotMoveLines(voronoi, moves);
-  });
-});
+//         return "none";
+//       })
+//       .attr("fill-opacity", 0.9);
+//     // plotMoveLines(voronoi, moves);
+//   });
+// });
 
 //movement between the cells. based on the previous data strcture <ci, ci+1, tend(i), tstart(i + 1)
 export function cellMoves(visits) {
@@ -219,7 +220,47 @@ function patternFinder() {
   highlightCellsFromPatterns(delaunay, patterns.flat());
 }
 
-function highlightCellsFromPatterns(delaunay, highlightCells) {
+function allPatternFinder() {
+  console.log(totalClicks);
+  if (totalClicks.length < 2) {
+    return;
+  }
+  let patternGap = totalClicks[1] - totalClicks[0];
+  let gridData = d3.selectAll(".points").data();
+  const delaunay = getDelaunay();
+  let cellList = pointsInGridCount(delaunay, gridData);
+  let uniqueRevists = uniqueRevisitsCount(cellList);
+  let patternsFound = "";
+  for (let i = 0; i < cellList.length - 1; i++) {
+    patternsFound += findDirection(cellList[i], cellList[i + 1], patternGap);
+  }
+  console.log(patternsFound);
+
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+      console.log(
+        findCombos(uniqueRevists, [0, patternGap + j, 2 * patternGap + i])
+          .length
+      );
+    }
+  }
+
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++)
+      for (let k = -1; k <= 1; k++) {
+        console.log(
+          findCombos(uniqueRevists, [
+            0,
+            patternGap + j,
+            2 * patternGap + i,
+            3 * patternGap + k,
+          ]).length
+        );
+      }
+  }
+}
+
+function highlightCellsFromPatterns(delaunay, highlightCells, color = "red") {
   d3.selectAll(".cells").remove();
   const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
 
@@ -236,7 +277,7 @@ function highlightCellsFromPatterns(delaunay, highlightCells) {
     .attr("fill", function (d, i) {
       if (highlightCells.indexOf(i) != -1) {
         // console.log(i);
-        return "red";
+        return color;
       }
 
       return "none";
@@ -301,6 +342,35 @@ export function cellVisits(summarizedCells) {
   return trajectoryCellSummaries;
 }
 
+function findDirection(originalCell, nextCell, width) {
+  const directions = ["N", "S", "E", "W", "1", "2", "3", "4"];
+
+  let gap = nextCell - originalCell;
+  let direction = "";
+
+  if (gap === -1) {
+    direction = directions[0]; // N
+  } else if (gap === 1) {
+    direction = directions[1]; // S
+  } else if (gap === width) {
+    direction = directions[2]; // E
+  } else if (gap === -1 * width) {
+    direction = directions[3]; // W
+  } else if (gap === 0) {
+    direction = "";
+  } else if (gap === width + 1) {
+    direction = directions[4];
+  } else if (gap === width - 1) {
+    direction = directions[5];
+  } else if (gap === 1 + width) {
+    direction = directions[6];
+  } else if (gap === 1 - width) {
+    direction = directions[6];
+  }
+
+  return direction;
+}
+
 export function pointsInGridCount(delaunay, data) {
   let cellList = [];
   for (let i = 0; i < data.length; i++) {
@@ -362,6 +432,10 @@ function patternReset() {
 document
   .getElementById("find-pattern")
   .addEventListener("click", patternFinder, false);
+
+document
+  .getElementById("find-all-pattern")
+  .addEventListener("click", allPatternFinder, false);
 
 document
   .getElementById("reset-pattern")
