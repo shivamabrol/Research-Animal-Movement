@@ -4,90 +4,215 @@ const svg = d3.select("svg#map");
 var trajectoryColumn = "trajectory_number";
 
 let totalClicks = [];
+// svg.on("click", function () {
+//   const delaunay = getDelaunay();
+//   console.log(rightNeighbourIndex());
+//   var coordinates = d3.pointer(event, this);
+//   const cellIndex = delaunay.find(coordinates[0], coordinates[1]);
 
-svg.on("click", function () {
-  if (!document.getElementById("pattern-toggle").checked) {
-    return;
-  }
-  // Get the coordinates of the mouse pointer relative to the SVG element
+//   const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+//   const svg = d3.select("svg#map");
+//   // console.log(Array.from(delaunay.neighbors(delaunay.find(coordinates))));
+//   // Find the index of the cell containing the point (coordinates[0], coordinates[1])
+
+//   // Find the neighbors of the cell
+//   const neighborIndexes = Array.from(delaunay.neighbors(cellIndex));
+//   console.log(cellIndex);
+//   console.log(neighborIndexes);
+//   // Define an array of colors for neighbors
+//   const neighborColors = d3.scaleOrdinal(d3.schemeCategory10);
+
+//   // Remove existing Voronoi cells
+//   d3.selectAll(".cells").remove();
+
+//   // Draw Voronoi cells with different colors for neighbors
+//   svg
+//     .selectAll("path")
+//     .data(voronoi.cellPolygons())
+//     .enter()
+//     .append("path")
+//     .attr("d", (d, i) => "M" + d.join("L") + "Z")
+//     .attr("class", "cells")
+//     .attr("stroke", "orange")
+//     .attr("stroke-width", 1)
+//     .attr("stroke-opacity", 0.5)
+//     .attr("fill", function (d, i) {
+//       // Assign different colors to neighbors
+//       if (neighborIndexes.includes(i)) {
+//         return "red";
+//       } else {
+//         return "none";
+//       }
+//     })
+//     .attr("fill-opacity", 0.9);
+
+//   // Remove any existing tooltips
+//   d3.select(".tooltip").remove();
+
+//   // Create a tooltip div
+//   const tooltip = d3
+//     .select("body")
+//     .append("div")
+//     .attr("class", "tooltip")
+//     .style("position", "absolute")
+//     .style("background-color", "white")
+//     .style("opacity", 0);
+
+//   // Draw Voronoi cells (assuming you have this part)
+//   // ...
+
+//   // Add mouseover and mouseout event listeners to Voronoi cells
+//   svg
+//     .selectAll(".cells")
+//     .on("mouseover", (event, d) => {
+//       tooltip.transition().duration(200).style("opacity", 0.9);
+//       tooltip
+//         .html(`Cell Index: ${d.index}`)
+//         .style("left", `${event.pageX}px`)
+//         .style("top", `${event.pageY - 28}px`);
+//     })
+//     .on("mouseout", function () {
+//       // Hide tooltip on mouseout
+//       tooltip.transition().duration(500).style("opacity", 0);
+//     });
+// });
+
+// comment for svg.on('click')
+
+// svg.on("click", function () {
+//   if (!document.getElementById("pattern-toggle").checked) {
+//     return;
+//   }
+//   // Get the coordinates of the mouse pointer relative to the SVG element
+//   var coordinates = d3.pointer(event, this);
+//   console.log(coordinates);
+//   // Log the coordinates to the console
+//   let summarizedPoints = d3.selectAll(".points").data();
+//   // console.log("Clicked at: (" + x + ", " + y + ")");
+//   const xMin = 624079.8465020715,
+//     xMax = 629752.8465020715,
+//     yMin = 1009715.5668793379,
+//     yMax = 1015157.5668793379;
+
+//   // Define the cell width
+//   // const cellWidth = parseInt(
+//   //   100
+//   // );
+//   let cellWidth = 5.5 * document.getElementById("voronoi-cell-width").value;
+//   cellWidth = Math.round(cellWidth / 100) * 100;
+//   // let summarizedPoints = d3.selectAll("circle.points").data();
+
+//   // Generate a set of points
+//   const points = [];
+
+//   for (let x = xMin; x < xMax; x += cellWidth) {
+//     for (let y = yMin; y < yMax; y += cellWidth) {
+//       points.push([xScale(x), yScale(y)]);
+//     }
+//   }
+//   // let centroids = data;
+//   // for (let i = 0; i < centroids.length; i++) {
+//   //   let coordinates = centroids[i];
+//   //   points.push([
+//   //     xScale(parseInt(coordinates.X)),
+//   //     yScale(parseInt(coordinates.Y)),
+//   //   ]);
+//   // }
+
+//   // Compute the Voronoi diagram
+//   const delaunay = d3.Delaunay.from(points);
+//   const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
+
+//   let groups = trajectoryGroups(summarizedPoints);
+//   let summarizedCells = trajectoryGroupCells(delaunay, groups);
+//   let visits = cellVisits(summarizedCells);
+//   let moves = cellMoves(visits);
+//   let dataCells = visits.flat().map((obj) => obj.cell);
+
+//   //Finding the pattern
+//   if (totalClicks.length < 5) {
+//     totalClicks.push(delaunay.find(coordinates[0], coordinates[1]));
+//   }
+//   console.log(totalClicks);
+//   // Create SVG element
+//   console.log(moves);
+//   let c11 = delaunay.find(coordinates[0], coordinates[1]);
+//   const svg = d3.select("svg#map");
+//   d3.selectAll(".cells").remove();
+//   // Draw Voronoi cells
+//   svg
+//     .selectAll("path")
+//     .data(voronoi.cellPolygons())
+//     .enter()
+//     .append("path")
+//     .attr("d", (d) => "M" + d.join("L") + "Z")
+//     .attr("class", "cells")
+//     .attr("stroke", "orange")
+//     .attr("stroke-width", 1)
+//     .attr("stroke-opacity", 0.5)
+//     .attr("fill", function (d, i) {
+//       if (totalClicks.indexOf(i) != -1) {
+//         // console.log(i);
+//         return "red";
+//       }
+
+//       return "none";
+//     })
+//     .attr("fill-opacity", 0.9);
+//   // plotMoveLines(voronoi, moves);
+// });
+
+function rightNeighbourIndex() {
+  // Assuming you have a Voronoi diagram and a given cell index (givenCellIndex)
+  const delaunay = getDelaunay();
+  const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
   var coordinates = d3.pointer(event, this);
-  console.log(coordinates);
-  // Log the coordinates to the console
-  let summarizedPoints = d3.selectAll(".points").data();
-  // console.log("Clicked at: (" + x + ", " + y + ")");
-  const xMin = 624079.8465020715,
-    xMax = 629752.8465020715,
-    yMin = 1009715.5668793379,
-    yMax = 1015157.5668793379;
+  const givenCellIndex = delaunay.find(coordinates[0], coordinates[1]);
+  // const givenCellIndex = 220; // Replace with the index of the given cell
 
-  // Define the cell width
-  // const cellWidth = parseInt(
-  //   100
-  // );
-  const cellWidth = 100;
-  // let summarizedPoints = d3.selectAll("circle.points").data();
+  // Get the centroid of the given cell
+  const givenCentroid = findCentroid(delaunay.trianglePolygon(givenCellIndex));
 
-  // Generate a set of points
-  const points = [];
+  // Get all neighboring cell indexes of the given cell
+  const neighborIndexes = Array.from(delaunay.neighbors(givenCellIndex));
 
-  for (let x = xMin; x < xMax; x += cellWidth) {
-    for (let y = yMin; y < yMax; y += cellWidth) {
-      points.push([xScale(x), yScale(y)]);
+  // Initialize variables to keep track of the right neighbor and its angle
+  let rightNeighborIndex = -1; // Default to -1 (no right neighbor found)
+  let minPositiveAngle = Infinity; // Initialize with a large value
+
+  // Iterate through neighboring cells to find the right neighbor
+  for (const neighborIndex of neighborIndexes) {
+    const neighborCentroid = findCentroid(
+      delaunay.trianglePolygon(givenCellIndex)
+    );
+
+    // Calculate the angle between the given cell and the neighbor cell centroids
+    const angle = Math.atan2(
+      neighborCentroid[1] - givenCentroid[1],
+      neighborCentroid[0] - givenCentroid[0]
+    );
+
+    // Ensure the angle is positive
+    if (angle < 0) {
+      angle += 2 * Math.PI;
+    }
+
+    // Check if this neighbor is on the right side based on angle
+    if (angle < minPositiveAngle) {
+      minPositiveAngle = angle;
+      rightNeighborIndex = neighborIndex;
     }
   }
-  // let centroids = data;
-  // for (let i = 0; i < centroids.length; i++) {
-  //   let coordinates = centroids[i];
-  //   points.push([
-  //     xScale(parseInt(coordinates.X)),
-  //     yScale(parseInt(coordinates.Y)),
-  //   ]);
-  // }
 
-  // Compute the Voronoi diagram
-  const delaunay = d3.Delaunay.from(points);
-  const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
-
-  let groups = trajectoryGroups(summarizedPoints);
-  let summarizedCells = trajectoryGroupCells(delaunay, groups);
-  let visits = cellVisits(summarizedCells);
-  let moves = cellMoves(visits);
-  let dataCells = visits.flat().map((obj) => obj.cell);
-
-  //Finding the pattern
-  if (totalClicks.length < 5) {
-    totalClicks.push(delaunay.find(coordinates[0], coordinates[1]));
+  if (rightNeighborIndex !== -1) {
+    console.log(
+      `The right neighbor of cell ${givenCellIndex} is cell ${rightNeighborIndex}`
+    );
+  } else {
+    console.log(`No right neighbor found for cell ${givenCellIndex}`);
   }
-  console.log(totalClicks);
-  // Create SVG element
-  console.log(moves);
-  let c11 = delaunay.find(coordinates[0], coordinates[1]);
-  const svg = d3.select("svg#map");
-  d3.selectAll(".cells").remove();
-  // Draw Voronoi cells
-  svg
-    .selectAll("path")
-    .data(voronoi.cellPolygons())
-    .enter()
-    .append("path")
-    .attr("d", (d) => "M" + d.join("L") + "Z")
-    .attr("class", "cells")
-    .attr("stroke", "orange")
-    .attr("stroke-width", 1)
-    .attr("stroke-opacity", 0.5)
-    .attr("fill", function (d, i) {
-      if (totalClicks.indexOf(i) != -1) {
-        // console.log(i);
-        return "red";
-      }
+}
 
-      return "none";
-    })
-    .attr("fill-opacity", 0.9);
-  // plotMoveLines(voronoi, moves);
-});
-
-//movement between the cells. based on the previous data strcture <ci, ci+1, tend(i), tstart(i + 1)
 export function cellMoves(visits) {
   const moves = [];
 
@@ -193,8 +318,8 @@ function getDelaunay() {
     yMax = 1015157.5668793379;
 
   // Define the cell width
-  const cellWidth = 100;
-
+  const cellWidth = 5.5 * document.getElementById("voronoi-cell-width").value;
+  // console.log(cellWidth);
   // Generate a set of points
   const points = [];
   for (let x = xMin; x < xMax; x += cellWidth) {
@@ -213,13 +338,47 @@ function getDelaunay() {
 function patternFinder() {
   let gridData = d3.selectAll(".points").data();
   const delaunay = getDelaunay();
+
   let cellList = pointsInGridCount(delaunay, gridData);
   let uniqueRevists = uniqueRevisitsCount(cellList);
+  //animal movement cell list
   console.log(uniqueRevists);
   console.log(totalClicks);
 
-  let patterns = findCombos(uniqueRevists, totalClicks);
-  highlightCellsFromPatterns(delaunay, patterns.flat());
+  let directionPattern = document.getElementById("pattern-entry").value;
+  if (directionPattern.length == 0) {
+    alert("Enter Pattern in the text box");
+    return;
+  }
+  //find direction from this
+
+  console.log(uniqueRevists);
+  console.log(findDirectionUpdated(uniqueRevists));
+  let indexOfPattern = findDirectionalCombos(
+    findDirectionUpdated(uniqueRevists),
+    directionPattern
+  );
+  console.log(indexOfPattern);
+
+  //
+  let cellPatternList = getCellsfromIndex(uniqueRevists, indexOfPattern);
+
+  // let patterns = findCombos(uniqueRevists, totalClicks);
+  // highlightCellsFromPatterns(delaunay, patterns.flat());
+  console.log(cellPatternList);
+  highlightCellsFromPatterns(delaunay, cellPatternList);
+}
+
+function getCellsfromIndex(uniqueRevists, indexOfPattern) {
+  let cellList = [];
+  for (let i = 0; i < indexOfPattern.length; i++) {
+    cellList.push(
+      uniqueRevists[indexOfPattern[i]],
+      uniqueRevists[indexOfPattern[i] + 1],
+      uniqueRevists[indexOfPattern[i] + 2]
+    );
+  }
+  return cellList;
 }
 
 function allPatternFinder() {
@@ -285,6 +444,35 @@ function highlightCellsFromPatterns(delaunay, highlightCells, color = "red") {
       return "none";
     })
     .attr("fill-opacity", 0.3);
+  // Remove any existing tooltips
+  d3.select(".tooltip").remove();
+
+  // Create a tooltip div
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("position", "absolute")
+    .style("background-color", "white")
+    .style("opacity", 0);
+
+  // Draw Voronoi cells (assuming you have this part)
+  // ...
+
+  // Add mouseover and mouseout event listeners to Voronoi cells
+  svg
+    .selectAll(".cells")
+    .on("mouseover", (event, d) => {
+      tooltip.transition().duration(200).style("opacity", 0.9);
+      tooltip
+        .html(`Cell Index: ${d.index}`)
+        .style("left", `${event.pageX}px`)
+        .style("top", `${event.pageY - 28}px`);
+    })
+    .on("mouseout", function () {
+      // Hide tooltip on mouseout
+      tooltip.transition().duration(500).style("opacity", 0);
+    });
 }
 
 export function trajectoryGroups(summarizedPoints) {
@@ -342,6 +530,68 @@ export function cellVisits(summarizedCells) {
   }
 
   return trajectoryCellSummaries;
+}
+
+function findDirectionUpdated(cellList) {
+  const directions = [];
+
+  for (let i = 0; i < cellList.length - 1; i++) {
+    const currentCellIndex = cellList[i];
+    const nextCellIndex = cellList[i + 1];
+
+    // Determine the coordinates of the current and next cells (assuming you have access to cell coordinates)
+    const currentCell = getCellCoordinates(currentCellIndex);
+    const nextCell = getCellCoordinates(nextCellIndex);
+
+    // Calculate the direction from the current cell to the next cell
+    const direction = calculateCompassDirection(currentCell, nextCell);
+
+    // Add the direction to the directions array
+    directions.push(direction);
+  }
+
+  return directions.join("");
+}
+
+// Example function to get cell coordinates based on the cell index (you should implement this)
+function getCellCoordinates(cellIndex) {
+  // Implement this function to return the coordinates of the cell based on its index
+  // Return an object with 'x' and 'y' properties
+  // For example: return { x: 1, y: 2 };
+  let delaunay = getDelaunay();
+  let coordinates = findCentroid(delaunay.trianglePolygon(cellIndex));
+  return coordinates;
+}
+
+// Example function to calculate direction from current cell to next cell
+function calculateCompassDirection(currentCell, nextCell) {
+  const dx = currentCell[0] - nextCell[0];
+  const dy = currentCell[1] - nextCell[1];
+
+  // Calculate the angle in radians
+  const angle = Math.atan2(dy, dx);
+
+  // Convert the angle to degrees
+  const degrees = (angle * 180) / Math.PI;
+
+  // Determine the compass direction based on the angle
+  if (degrees < -157.5 || degrees >= 157.5) {
+    return "N"; // North
+  } else if (degrees < -112.5) {
+    return "1"; // Northwest
+  } else if (degrees < -67.5) {
+    return "W"; // West
+  } else if (degrees < -22.5) {
+    return "2"; // Southwest
+  } else if (degrees < 22.5) {
+    return "S"; // South
+  } else if (degrees < 67.5) {
+    return "3"; // Southeast
+  } else if (degrees < 112.5) {
+    return "E"; // East
+  } else {
+    return "4"; // Northeast
+  }
 }
 
 function findDirection(originalCell, nextCell, width) {
@@ -403,6 +653,17 @@ export function uniqueRevisitsCount(cells) {
   return visitedCells;
 }
 
+function findDirectionalCombos(directionalString, pattern) {
+  const indices = [];
+  let currentIndex = directionalString.indexOf(pattern);
+
+  while (currentIndex !== -1) {
+    indices.push(currentIndex);
+    currentIndex = directionalString.indexOf(pattern, currentIndex + 1);
+  }
+
+  return indices;
+}
 function findCombos(list, pattern) {
   const combos = [];
 
@@ -442,3 +703,45 @@ document
 document
   .getElementById("reset-pattern")
   .addEventListener("click", patternReset, false);
+
+document
+  .getElementById("pattern-entry")
+  .addEventListener("change", findPatternString, false);
+
+function findPatternString() {
+  let pattern = document.getElementById("pattern-entry").value;
+  if (!isValidString(pattern)) {
+    alert("Pattern Can only contain N S E W 1 2 3 4");
+  }
+  patternFinder();
+}
+
+function isValidString(inputString) {
+  const validCharacters = "NESW1234";
+
+  for (let char of inputString) {
+    if (validCharacters.indexOf(char) === -1) {
+      return false; // Invalid character found
+    }
+  }
+
+  return true; // All characters are valid
+}
+
+function findCentroid(triangleVertices) {
+  let sumX = 0;
+  let sumY = 0;
+
+  for (const vertex of triangleVertices) {
+    sumX += vertex[0];
+    sumY += vertex[1];
+  }
+
+  // Calculate the centroid coordinates
+  const centroidX = sumX / triangleVertices.length;
+  const centroidY = sumY / triangleVertices.length;
+
+  return [centroidX, centroidY];
+
+  // The centroid is represented by the coordinates (centroidX, centroidY)
+}

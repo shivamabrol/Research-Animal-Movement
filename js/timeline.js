@@ -39,9 +39,19 @@ function compareTimes(first, second) {
 function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 50, bottom: 50, left: 50 },
-    width = 500 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
+  // Get a reference to your div element (assuming it has an id of "chart-container")
+  const container = document.getElementById("timechart");
+
+  // Calculate the dimensions based on the div's size
+  const containerWidth = container.clientWidth;
+  const containerHeight = 150;
+
+  // Define your margin
+  const margin = { top: 10, right: 30, bottom: 30, left: 50 };
+
+  // Calculate the width and height based on the div's size and margin
+  const width = containerWidth - margin.left - margin.right;
+  const height = containerHeight - margin.top - margin.bottom;
 
   const svg2 = d3
     .select("#timechart")

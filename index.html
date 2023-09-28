@@ -146,9 +146,9 @@
         <label class="form-check-label" for="lines-add"> Voronoi </label>
         <input
           type="range"
-          min="10"
-          max="100"
-          value="10"
+          min="20"
+          max="50"
+          value="5"
           class="slider"
           id="voronoi-cell-width"
         />
@@ -366,6 +366,14 @@
         </label>
 
         <button type="button" id="find-pattern">Find the pattern</button>
+        <label for="pattern-entry"> Pattern</label>
+        <p>
+          N: North, W: West, E: East, S: South, 1: North-West 2: South-West, 3:
+          South-East, 4: North-East
+        </p>
+
+        <input type="text" id="pattern-entry" name="pattern-entry-box" />
+
         <button type="button" id="find-all-pattern">Find all patterns</button>
 
         <button type="button" id="reset-pattern">Reset Pattern</button>
@@ -421,6 +429,8 @@
     <script src="js/summarize.js" type="module"></script>
     <script src="js/heatmap.js" type="module"></script>
     <script src="js/timeline.js" type="module"></script>
+    <!-- <script src="js/pattern-summarizer.js" type="module"></script> -->
+
     <!-- <script src="js/suffixTree.js" type="module"></script> -->
   </body>
 </html>
