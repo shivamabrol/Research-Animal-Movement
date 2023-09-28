@@ -1,7 +1,7 @@
 import { pointsInGridCount, uniqueRevisitsCount } from "./grid.js";
 import { xScale, yScale } from "./index.js";
 const svg = d3.select("svg#map");
-export function gridHeatmaps(value) {
+function gridHeatmaps(value) {
   console.log(value);
   //starting function for grid heatmap
   // console.log("Clicked at: (" + x + ", " + y + ")");
@@ -14,12 +14,8 @@ export function gridHeatmaps(value) {
   // const cellWidth = parseInt(
   //   document.getElementById("voronoi-cell-width").value
   // );
-  let cellWidth = 5.5 * document.getElementById("voronoi-cell-width").value;
-  cellWidth = Math.round(cellWidth);
-  const widthInfoElement = document.getElementById("widthInfo");
-
-  // Display the information on the screen
-  widthInfoElement.textContent = cellWidth + " meters";
+  let cellWidth = document.getElementById("voronoi-cell-width").value;
+  cellWidth = Math.round(cellWidth / 100) * 100;
 
   // let summarizedPoints = d3.selectAll("circle.points").data();
 
@@ -65,7 +61,7 @@ export function gridHeatmaps(value) {
   d3.selectAll(".cells").remove();
   var myColor = d3
     .scaleSequential()
-    .interpolator(d3.interpolateMagma)
+    .interpolator(d3.interpolateOrRd)
     .domain([1, maxValue]);
   // Draw Voronoi cells
   svg

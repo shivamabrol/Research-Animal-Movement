@@ -3,8 +3,7 @@ d3.csv("../data/BCI-movement-data.csv")
   .then(function (data1) {
     // Do something with the data here
     data = data1;
-
-    console.log(data);
+    // console.log(data);
   })
   .catch(function (error) {
     console.log(error); // log any errors to the console
