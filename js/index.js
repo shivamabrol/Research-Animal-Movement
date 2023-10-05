@@ -381,6 +381,37 @@ function selectAll(id) {
 //for each cell find the time the animal enters the cell and leaves the cell
 //c1 , c1, c1 , c1 -> c1, <tstart, tend>
 
+function compareTimes(first, second) {
+  const dateString1 = first;
+  const dateString2 = second;
+  const dateObj1 = new Date(dateString1);
+  const dateObj2 = new Date(dateString2);
+
+  const hours1 = dateObj1.getHours();
+  const minutes1 = dateObj1.getMinutes();
+  const seconds1 = dateObj1.getSeconds();
+
+  const hours2 = dateObj2.getHours();
+  const minutes2 = dateObj2.getMinutes();
+  const seconds2 = dateObj2.getSeconds();
+
+  if (hours1 > hours2) {
+    return true;
+  } else if (hours1 < hours2) {
+    return false;
+  } else if (minutes1 > minutes2) {
+    return true;
+  } else if (minutes1 < minutes2) {
+    return false;
+  } else if (seconds1 > seconds2) {
+    return true;
+  } else if (seconds1 < seconds2) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 // changeAttribute("speed");
 
 function convertToCSV(arr) {

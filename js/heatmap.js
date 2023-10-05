@@ -76,7 +76,7 @@ export function gridHeatmaps(value, timelineParam = false) {
   d3.selectAll(".cells").remove();
   var myColor = d3
     .scaleSequential()
-    .interpolator(d3.interpolateMagma)
+    .interpolator(d3.interpolateOrRd)
     .domain([1, maxValue]);
   // Draw Voronoi cells
   svg
