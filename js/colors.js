@@ -68,11 +68,8 @@ export const names = [
   "Viserion",
   "Rhaegal",
   "John_Snow",
-  "Rhaegal_2",
-  "Viserion_2",
   "Samwell",
   "Gendry",
-  "Gendry_2",
   "Daenerys",
   "Olenna",
 ];

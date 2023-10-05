@@ -43,13 +43,13 @@ function voronoiCells(cellW) {
     const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
     // Create SVG element
 
-    if (document.getElementById("voronoi-plot").checked) {
-      plotVoronoiCells(voronoi);
-    }
+    // if (document.getElementById("voronoi-plot").checked) {
+    plotVoronoiCells(voronoi);
+    // }
 
-    if (document.getElementById("summarize").checked) {
-      summarizeMovement(delaunay, voronoi);
-    }
+    // if (document.getElementById("summarize").checked) {
+    summarizeMovement(delaunay, voronoi);
+    // }
   });
 }
 
@@ -213,7 +213,7 @@ function plotMoveLines(voronoi, moves) {
     console.log(line_points);
 
     // Add a mouseover event listener to the path element
-    lines.on("mouseover", function (event) {
+    lines.on("click", function (event) {
       // Get the data bound to the path element
       // const lineData = d3.select(this).datum();
 
@@ -239,27 +239,15 @@ function plotMoveLines(voronoi, moves) {
 }
 
 document.getElementById("voronoi-plot").addEventListener("change", (event) => {
-  let summarize = document.getElementById("summarize");
+  // let summarize = document.getElementById("summarize");
   if (event.target.checked) {
     let width = 5.5 * document.getElementById("voronoi-cell-width").value;
-    summarize.disabled = false;
+    // summarize.disabled = false;
     voronoiCells(parseInt(width));
   } else {
     svg.selectAll("*.cells").remove();
     // svg.selectAll("*.voronoi-cell").remove();
     // svg.selectAll("*.voronoi-path").remove();
-    summarize.disabled = true;
-  }
-});
-
-document.getElementById("summarize").addEventListener("change", (event) => {
-  if (event.target.checked) {
-    // Checkbox is checked
-    // Do something here
-    let width = 5.5 * document.getElementById("voronoi-cell-width").value;
-    voronoiCells(parseInt(width));
-  } else {
-    svg.selectAll("*.voronoi-cell").remove();
-    svg.selectAll("*.voronoi-path").remove();
+    // summarize.disabled = true;
   }
 });

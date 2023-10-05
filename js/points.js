@@ -13,11 +13,8 @@ export function showPoints(id) {
     document.getElementById("Viserion-checkbox"),
     document.getElementById("Rhaegal-checkbox"),
     document.getElementById("John_Snow-checkbox"),
-    document.getElementById("Rhaegal_2-checkbox"),
-    document.getElementById("Viserion_2-checkbox"),
     document.getElementById("Samwell-checkbox"),
     document.getElementById("Gendry-checkbox"),
-    document.getElementById("Gendry_2-checkbox"),
     document.getElementById("Daenerys-checkbox"),
     document.getElementById("Olenna-checkbox"),
   ];

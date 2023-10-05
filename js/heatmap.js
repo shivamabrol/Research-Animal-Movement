@@ -1,8 +1,19 @@
 import { pointsInGridCount, uniqueRevisitsCount } from "./grid.js";
-import { xScale, yScale } from "./index.js";
+import { xScale, yScale, dataAlert } from "./index.js";
+
 const svg = d3.select("svg#map");
-export function gridHeatmaps(value) {
+export function gridHeatmaps(value, timelineParam = false) {
+  let heatmapButton = document.getElementById("find-heatmap");
   console.log(value);
+  if (!dataAlert(timelineParam)) {
+    alert("Select Animal first");
+    return;
+  }
+
+  if (!heatmapButton.checked) {
+    d3.selectAll(".cells").remove();
+    return;
+  }
   //starting function for grid heatmap
   // console.log("Clicked at: (" + x + ", " + y + ")");
   const xMin = 624079.8465020715,
@@ -14,12 +25,12 @@ export function gridHeatmaps(value) {
   // const cellWidth = parseInt(
   //   document.getElementById("voronoi-cell-width").value
   // );
-  let cellWidth = 5.5 * document.getElementById("voronoi-cell-width").value;
+  let cellWidth = 5.5 * document.getElementById("heatmap-cell-width").value;
   cellWidth = Math.round(cellWidth);
-  const widthInfoElement = document.getElementById("widthInfo");
+  const widthInfoElement = document.getElementById("heatmapInfo");
 
   // Display the information on the screen
-  widthInfoElement.textContent = cellWidth + " meters";
+  widthInfoElement.textContent = "Width of cell: " + cellWidth + " meters";
 
   // let summarizedPoints = d3.selectAll("circle.points").data();
 
@@ -108,3 +119,34 @@ document.getElementById("metricDropdown").addEventListener(
   },
   false
 );
+
+const colorScale = d3
+  .scaleQuantize()
+  .domain([0, 100]) // Define the domain of values
+  .range(["#e5f5f9", "#99d8c9", "#2ca25f"]);
+const numRectangles = 100;
+var myColor = d3
+  .scaleSequential()
+  .interpolator(d3.interpolateMagma)
+  .domain([1, numRectangles * 1.5]); // Doubling the domain range
+
+const svg_rect = d3
+  .select(".heatmap-class")
+  .append("svg")
+  .attr("width", "100%") // Set the width to 100% of the viewport
+  .attr("height", 50) // Set the height for your color scale
+  .style("position", "relative");
+
+svg_rect
+  .selectAll("rect")
+  .data(d3.range(numRectangles))
+  .enter()
+  .append("rect")
+  .attr("x", (d, i) => (i * 400) / numRectangles) // Adjust the positioning as needed
+  .attr("width", 1000 / numRectangles) // Adjust the width as needed
+  .attr("height", 50)
+  .attr("fill", (d) => myColor(d * 2)); // Doubling the input value
+
+document
+  .getElementById("heatmap-cell-width")
+  .addEventListener("change", gridHeatmaps, false);

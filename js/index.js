@@ -27,19 +27,25 @@ svgPanZoom.events.mouseWheel = false;
 svgPanZoom.events.doubleClick = false;
 svgPanZoom.events.drag = false;
 
+document.getElementById("reset-map").addEventListener("click", function () {
+  svgPanZoom.reset();
+});
+
 document.getElementById("reset").addEventListener("click", function () {
   // code to be executed when button is clicked
-  svgPanZoom.reset();
-  svg.selectAll(".points").remove();
-  svg.selectAll(".lines").remove();
-  svg.selectAll(".fruits").remove();
-  svg.selectAll(".cells").remove();
+  if (confirm("This will reset the map and remove all your data")) {
+    svgPanZoom.reset();
+    svg.selectAll(".points").remove();
+    svg.selectAll(".lines").remove();
+    svg.selectAll(".fruits").remove();
+    svg.selectAll(".cells").remove();
 
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-  });
-  // document.getElementById("Daniel").checked = false;
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+    // document.getElementById("Daniel").checked = false;
+  }
 });
 
 document.getElementById("zoom-in").addEventListener("click", function () {
@@ -407,3 +413,53 @@ var trajectoryColumn = "trajectory_number";
 //   });
 
 //Given a min value which is diff bw 2 coordinates
+
+export function dataAlert(timelineParam) {
+  console.log(timelineParam);
+  if (timelineParam) {
+    return true;
+  }
+  let d = svg.selectAll(".points");
+  return d.data().length != 0;
+}
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
+// Loop through elements with IDs from "map-info-1" to "map-info-8"
+for (var i = 1; i <= 4; i++) {
+  // Get a reference to the element with the current ID
+  var mapInfoElement = document.getElementById("map-info-" + i);
+
+  if (mapInfoElement) {
+    // Modify the CSS properties for the current element
+    mapInfoElement.style.lineHeight = "12px";
+    mapInfoElement.style.width = "18px";
+    mapInfoElement.style.fontSize = "8pt";
+    mapInfoElement.style.fontFamily = "tahoma";
+    mapInfoElement.style.marginTop = "1px";
+    mapInfoElement.style.marginRight = "2px";
+    mapInfoElement.style.position = "absolute";
+    mapInfoElement.style.top = "1";
+    mapInfoElement.style.right = "0";
+  }
+}
+
+for (var i = 5; i <= 8; i++) {
+  // Get a reference to the element with the current ID
+  var mapInfoElement = document.getElementById("map-info-" + i);
+
+  if (mapInfoElement) {
+    // Modify the CSS properties for the current element
+    mapInfoElement.style.lineHeight = "12px";
+    mapInfoElement.style.width = "18px";
+    mapInfoElement.style.fontSize = "8pt";
+    mapInfoElement.style.fontFamily = "tahoma";
+    mapInfoElement.style.marginTop = "1px";
+    mapInfoElement.style.marginRight = "2px";
+    mapInfoElement.style.position = "absolute";
+    mapInfoElement.style.top = "1";
+    mapInfoElement.style.left = "0";
+  }
+}

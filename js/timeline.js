@@ -39,9 +39,9 @@ function compareTimes(first, second) {
 function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
-  const margin = { top: 60, right: 50, bottom: 50, left: 50 },
+  const margin = { top: 0, right: 50, bottom: 30, left: 50 },
     width = 500 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
+    height = 30;
 
   const svg2 = d3
     .select("#timechart")
@@ -73,7 +73,7 @@ function changeAttribute(svg2, attribute, width, height) {
   const color = d3.scaleOrdinal().domain(keys).range(d3.schemeSet2);
 
   //stack the data?
-  const stackedData = d3.stack().keys(keys)(data);
+  // const stackedData = d3.stack().keys(keys)(data);
 
   //////////
   // AXIS //
@@ -99,20 +99,11 @@ function changeAttribute(svg2, attribute, width, height) {
     .attr("text-anchor", "end")
     .attr("x", width)
     .attr("y", height)
-    .text("Time");
-
-  // Add Y axis label:
-  svg2
-    .append("text")
-    .attr("text-anchor", "end")
-    .attr("x", 0)
-    .attr("y", -20)
-    .text("Attribute")
-    .attr("text-anchor", "start");
+    .text("Linear");
 
   // Add Y axis
-  const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-  svg2.append("g").call(d3.axisLeft(y).ticks(5));
+  // const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  // svg2.append("g").call(d3.axisLeft(y).ticks(5));
 
   //////////
   // BRUSHING AND CHART //
@@ -156,7 +147,7 @@ function changeAttribute(svg2, attribute, width, height) {
   // Show the areas
   areaChart
     .selectAll("mylayers")
-    .data(stackedData)
+    .data([])
     .join("path")
     .attr("class", function (d) {
       return "myArea " + d.key;
@@ -192,7 +183,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
   const color = d3.scaleOrdinal().domain(keys).range(d3.schemeSet2);
 
   //stack the data?
-  const stackedData = d3.stack().keys(keys)(data);
+  // const stackedData = d3.stack().keys(keys)(data);
 
   //////////
   // AXIS //
@@ -217,20 +208,13 @@ function changeAttributeDays(svg2, attribute, width, height) {
     .attr("text-anchor", "end")
     .attr("x", width)
     .attr("y", height)
-    .text("Time");
+    .text("Daily");
 
   // Add Y axis label:
-  svg2
-    .append("text")
-    .attr("text-anchor", "end")
-    .attr("x", 0)
-    .attr("y", -20)
-    .text("Attribute")
-    .attr("text-anchor", "start");
 
   // Add Y axis
-  const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
-  svg2.append("g").call(d3.axisLeft(y).ticks(5));
+  // const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
+  // svg2.append("g").call(d3.axisLeft(y).ticks(5));
 
   //////////
   // BRUSHING AND CHART //
@@ -274,7 +258,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
   // Show the areas
   areaChart
     .selectAll("mylayers")
-    .data(stackedData)
+    .data([])
     .join("path")
     .attr("class", function (d) {
       return "myArea " + d.key;
@@ -337,11 +321,11 @@ function changeAttribute2(attribute) {
         .call(d3.axisBottom(x));
 
       // Add Y axis
-      const y = d3
-        .scaleLinear()
-        .domain([0, d3.max(data1, (d) => +d.value)])
-        .range([height, 0]);
-      yAxis = svg2.append("g").call(d3.axisLeft(y));
+      // const y = d3
+      //   .scaleLinear()
+      //   .domain([0, d3.max(data1, (d) => +d.value)])
+      //   .range([height, 0]);
+      // yAxis = svg2.append("g").call(d3.axisLeft(y));
 
       // Add a clipPath: everything out of this area won't be drawn.
       const clip = svg2
@@ -456,7 +440,9 @@ function showPointsTimeline(startTime, endTime) {
     );
   });
   pointsTimelinePlot(data2);
-  gridHeatmaps("");
+  if (document.getElementById("grid-integrate").checked) {
+    gridHeatmaps("", true);
+  }
 }
 function showPointsTimelineDays(startTime, endTime) {
   var plotList = [];
@@ -485,7 +471,7 @@ function showPointsTimelineDays(startTime, endTime) {
   pointsTimelinePlot(data2);
   // add condition if color grid is checked
   if (document.getElementById("grid-integrate").checked) {
-    gridHeatmaps("");
+    gridHeatmaps("", true);
   }
 }
 
@@ -513,7 +499,7 @@ function pointsTimelinePlot(data2) {
       return colorDictionary[d["individual-local-identifier"]];
     });
 }
-
-document
-  .getElementById("see-timeline")
-  .addEventListener("click", caller, false);
+caller();
+// document
+//   .getElementById("see-timeline")
+//   .addEventListener("click", caller, false);

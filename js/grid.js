@@ -1,4 +1,4 @@
-import { xScale, yScale } from "./index.js";
+import { xScale, yScale, dataAlert } from "./index.js";
 
 const svg = d3.select("svg#map");
 var trajectoryColumn = "trajectory_number";
@@ -24,7 +24,7 @@ svg.on("click", function () {
   // const cellWidth = parseInt(
   //   100
   // );
-  const cellWidth = 100;
+  const cellWidth = 5.5 * document.getElementById("pattern-cell-width").value;
   // let summarizedPoints = d3.selectAll("circle.points").data();
 
   // Generate a set of points
@@ -193,7 +193,7 @@ function getDelaunay() {
     yMax = 1015157.5668793379;
 
   // Define the cell width
-  const cellWidth = 100;
+  const cellWidth = 5.5 * document.getElementById("pattern-cell-width").value;
 
   // Generate a set of points
   const points = [];
@@ -211,6 +211,20 @@ function getDelaunay() {
 
 ///function for finding the pattern
 function patternFinder() {
+  if (!dataAlert()) {
+    alert("Select Animal first");
+    return;
+  }
+
+  if (!document.getElementById("pattern-toggle").checked) {
+    alert("Activate Grid first");
+    return;
+  }
+  let cells = d3.selectAll(".cells").data();
+  if (cells.length == 0) {
+    alert("Grid is activated. Select the particular pattern you want to see ");
+  }
+
   let gridData = d3.selectAll(".points").data();
   const delaunay = getDelaunay();
   let cellList = pointsInGridCount(delaunay, gridData);
@@ -219,47 +233,34 @@ function patternFinder() {
   console.log(totalClicks);
 
   let patterns = findCombos(uniqueRevists, totalClicks);
+
+  // Get the <span> element where we want to display combos.length
+  var lengthValueElement = document.getElementById("lengthValue");
+  if (totalClicks.length != 0) {
+    lengthValueElement.textContent = patterns.length;
+  } else {
+    lengthValueElement.textContent = 0;
+  }
+
+  // Update the value
+  totalClicks = [];
   highlightCellsFromPatterns(delaunay, patterns.flat());
 }
 
 function allPatternFinder() {
-  console.log(totalClicks);
-  if (totalClicks.length < 2) {
-    return;
-  }
-  let patternGap = totalClicks[1] - totalClicks[0];
   let gridData = d3.selectAll(".points").data();
   const delaunay = getDelaunay();
   let cellList = pointsInGridCount(delaunay, gridData);
   let uniqueRevists = uniqueRevisitsCount(cellList);
   let patternsFound = "";
-  for (let i = 0; i < cellList.length - 1; i++) {
-    patternsFound += findDirection(cellList[i], cellList[i + 1], patternGap);
+  for (let i = 0; i < uniqueRevists.length - 1; i++) {
+    patternsFound += findDirection(
+      uniqueRevists[i],
+      uniqueRevists[i + 1],
+      patternGap
+    );
   }
   console.log(patternsFound);
-
-  for (let i = -1; i <= 1; i++) {
-    for (let j = -1; j <= 1; j++) {
-      console.log(
-        findCombos(uniqueRevists, [0, patternGap + j, 2 * patternGap + i])
-          .length
-      );
-    }
-  }
-
-  for (let i = -1; i <= 1; i++) {
-    for (let j = -1; j <= 1; j++)
-      for (let k = -1; k <= 1; k++) {
-        console.log(
-          findCombos(uniqueRevists, [
-            0,
-            patternGap + j,
-            2 * patternGap + i,
-            3 * patternGap + k,
-          ]).length
-        );
-      }
-  }
 }
 
 function highlightCellsFromPatterns(delaunay, highlightCells, color = "red") {
@@ -431,6 +432,23 @@ function patternReset() {
   totalClicks = [];
 }
 
+function gridConfig() {
+  let toggle = document.getElementById("pattern-toggle");
+  if (!dataAlert()) {
+    alert("Select an animal first");
+    toggle.checked = false;
+  }
+  if (toggle.checked) {
+    alert("Grid is enabled. Please click on the map to start it");
+  } else {
+    svg.selectAll("*.cells").remove();
+  }
+}
+
+document
+  .getElementById("pattern-toggle")
+  .addEventListener("change", gridConfig);
+
 document
   .getElementById("find-pattern")
   .addEventListener("click", patternFinder, false);
@@ -440,5 +458,5 @@ document
   .addEventListener("click", allPatternFinder, false);
 
 document
-  .getElementById("reset-pattern")
-  .addEventListener("click", patternReset, false);
+  .getElementById("pattern-cell-width")
+  .addEventListener("change", patternFinder, false);
