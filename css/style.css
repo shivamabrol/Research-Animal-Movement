@@ -9,12 +9,10 @@
   text-align: center;
 
     grid-area: zoom; 
-    /* padding-top: 40px; */
-    /* width: 300px */;
+    padding-top: 40px;
 
     border: 2px grey solid;
     padding-top: 40px;
-  padding-bottom: 30px;
 }
 
 .empty-class {
@@ -24,20 +22,17 @@
 
 .voronoi-class { grid-area: voronoi;
   padding-top: 20px;
-  /* width: 300px */;
   border: 2px grey solid;
 }
 .name-class { grid-area: name; 
   /* padding-top: 40px; */
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ; /* Three columns with equal width */
-  grid-template-rows: 1fr 1fr 1fr ; 
-  /* width: 300px */;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Three columns with equal width */
+  grid-template-rows: 1fr 1fr 1fr 1fr; 
   /* gap: 2; */
   padding-left: 30px;
   justify-items: left;
   align-items: left;
-  padding-bottom: 30px;
 
   /* border-bottom: 2px grey solid; */
 }
@@ -45,14 +40,13 @@
 .timeline-class { 
   grid-area: timeline; 
   border : 2px grey solid;
-  /* width: 300px */;
   /* width: 400px; */
   /* padding-top: 40px; */
   /* height: 100%; */
 }
 .pattern-class {
   padding-top: 20px;
-  /* width: 300px */;
+  width: auto;
   grid-area: pattern;
   border: 2px grey solid;
 
@@ -60,7 +54,6 @@
 
 .fruit-class {
   border: 2px grey solid;
-  /* width: 300px */;
   padding-top: 30px;
   grid-area: fruit;
   align-items: center;
@@ -88,21 +81,22 @@
 .grid-container {
   display: grid;
   grid-template-areas:
-    'pattern map map  zoom'
-    'pattern map map  zoom '
-    'heatmap map map  head '
-    'heatmap map map  name '
-    'trajectory map map  fruit '
-    'reset map map  voronoi '
-    'timeline timeline timeline timeline';
+  'pattern map map  zoom'
+  'pattern map map  zoom '
+  'heatmap map map  head '
+  'heatmap map map  name '
+  'trajectory map map  fruit '
+  'reset map map  voronoi '
+  'timeline timeline timeline timeline ';
+  /* 'timeline timeline timeline  timeline '; */
 
-  /* Define 4 equal-width columns */
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* margin: auto; */
   background-color: white;
   text-align: center;
+  /* border: 1px solid black; */
   height: 100vh;
-}
 
+}
 
 
 
@@ -118,19 +112,18 @@
 
 
 .button-container {
-  padding-left: 150px !important;
   grid-area: button;
+  padding-left: 100px !important;
+  padding-right: 100px !important;
+
   display: grid;
-  width: 100px !important;
-  grid-template-columns: 1fr 1fr 1fr; /* Adjust the fr values as needed */
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 10fr 10fr 10fr; /* Adjust the fr values as needed */
+  grid-template-rows: 10fr 10fr 10fr;
   grid-template-areas:
-    ". up  ."
-    "left  .  right"
-    ". down .";
-  }
-
-
+    "....  up  ....."
+    "left  ..  right"
+    ".... down .....";
+}
 
 /* Rest of your CSS for button positioning remains the same */
 #left {
@@ -170,18 +163,3 @@ html,body { height:100%;
   text-align: center;
 }
 
-
-.top-class {
-  color: blue;
-  width: 60px;
-  height: 30px; /* Add a height to the button to center vertically */
-  display: grid;
-  justify-content: justify; /* Center horizontally */
-  align-items: justify; /* Center vertically */
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  margin-right: auto;
-  text-align: center;
-  padding-bottom: 50%;
-}

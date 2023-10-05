@@ -1,10 +1,41 @@
 import { data } from "./data.js";
-import { xScale, yScale, compareTimes } from "./index.js";
+import { xScale, yScale } from "./index.js";
 import { colorDictionary } from "./colors.js";
+import { gridHeatmaps } from "./heatmap.js";
 
 const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
 const svg = d3.select("svg#map");
 
+function compareTimes(first, second) {
+  const dateString1 = first;
+  const dateString2 = second;
+  const dateObj1 = new Date(dateString1);
+  const dateObj2 = new Date(dateString2);
+
+  const hours1 = dateObj1.getHours();
+  const minutes1 = dateObj1.getMinutes();
+  const seconds1 = dateObj1.getSeconds();
+
+  const hours2 = dateObj2.getHours();
+  const minutes2 = dateObj2.getMinutes();
+  const seconds2 = dateObj2.getSeconds();
+
+  if (hours1 > hours2) {
+    return true;
+  } else if (hours1 < hours2) {
+    return false;
+  } else if (minutes1 > minutes2) {
+    return true;
+  } else if (minutes1 < minutes2) {
+    return false;
+  } else if (seconds1 > seconds2) {
+    return true;
+  } else if (seconds1 < seconds2) {
+    return false;
+  } else {
+    return true;
+  }
+}
 function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
@@ -267,7 +298,7 @@ function changeAttribute2(attribute) {
 
   //Read the data
   d3.csv(
-    "../data/BCI-movement-data.csv",
+    "../data/combined.csv",
 
     // When reading the csv, I must format variables:
     (d) => {
@@ -432,9 +463,11 @@ function showPointsTimelineDays(startTime, endTime) {
 
   var data2 = circles.filter(function (d) {
     return (
-      compareTimes(d["date"], startTime) && compareTimes(endTime, d["date"])
+      compareTimes(d["study-local-timestamp"], startTime) &&
+      compareTimes(endTime, d["study-local-timestamp"])
     );
   });
+  console.log(data2.length);
   pointsTimelinePlot(data2);
   // add condition if color grid is checked
   if (document.getElementById("grid-integrate").checked) {

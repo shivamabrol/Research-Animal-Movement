@@ -115,7 +115,10 @@ function isolatePoints() {
   var data = circles.filter(function (d) {
     //this radius needs to be dynamic accordingto circle
 
-    let radius = document.getElementById("start-circle").r;
+    let radius = parseInt(
+      document.getElementById("start-circle").getAttribute("r")
+    );
+
     console.log(radius);
 
     //start conditions

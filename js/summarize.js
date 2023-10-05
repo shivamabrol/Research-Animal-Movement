@@ -87,7 +87,7 @@ function summarizeMovement(delaunay, voronoi) {
     // const cellWidth = parseInt(
     //   document.getElementById("voronoi-cell-width").value
     // );
-    let cellWidth = document.getElementById("voronoi-cell-width").value;
+    let cellWidth = 5.5 * document.getElementById("voronoi-cell-width").value;
     cellWidth = Math.round(cellWidth / 100) * 100;
 
     // let summarizedPoints = d3.selectAll("circle.points").data();
@@ -146,10 +146,10 @@ function summarizeMovement(delaunay, voronoi) {
 }
 
 function plotMoveLines(voronoi, moves) {
-  console.log(moves);
-  let line_points = [];
   // const i = 6;
   for (let i = 0; i < moves.length; i++) {
+    let line_points = [];
+
     let move = moves[i];
     for (let j = 0; j < move.length; j++) {
       line_points.push(d3.polygonCentroid(voronoi.cellPolygon(move[j][0])));
@@ -202,10 +202,15 @@ function plotMoveLines(voronoi, moves) {
       .append("path")
       .attr("d", path)
       .attr("class", "cells")
-      .attr("stroke", colorArrayTrajectory[i])
-      .attr("marker-start", (d) => "url(#arrow)")
+      .attr("stroke", function (d, i) {
+        return colorArrayTrajectory[i];
+      })
+      .attr("marker-start", function (d) {
+        return "url(#arrow)";
+      })
       .attr("stroke-width", 1)
       .attr("fill", "none");
+    console.log(line_points);
 
     // Add a mouseover event listener to the path element
     lines.on("click", function (event) {
