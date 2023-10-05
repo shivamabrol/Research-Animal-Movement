@@ -381,7 +381,7 @@ function selectAll(id) {
 //for each cell find the time the animal enters the cell and leaves the cell
 //c1 , c1, c1 , c1 -> c1, <tstart, tend>
 
-function compareTimes(first, second) {
+export function compareTimes(first, second) {
   const dateString1 = first;
   const dateString2 = second;
   const dateObj1 = new Date(dateString1);

@@ -1,5 +1,5 @@
 import { data } from "./data.js";
-import { xScale, yScale } from "./index.js";
+import { xScale, yScale, compareTimes } from "./index.js";
 import { colorDictionary } from "./colors.js";
 
 const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
