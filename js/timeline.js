@@ -99,7 +99,7 @@ function changeAttribute(svg2, attribute, width, height) {
     .attr("text-anchor", "end")
     .attr("x", width)
     .attr("y", height)
-    .text("Linear");
+    .text("Select the day");
 
   // Add Y axis
   // const y = d3.scaleLinear().domain([0, 100]).range([height, 0]);
@@ -208,7 +208,7 @@ function changeAttributeDays(svg2, attribute, width, height) {
     .attr("text-anchor", "end")
     .attr("x", width)
     .attr("y", height)
-    .text("Daily");
+    .text("Select the time");
 
   // Add Y axis label:
 
@@ -441,7 +441,8 @@ function showPointsTimeline(startTime, endTime) {
   });
   pointsTimelinePlot(data2);
   if (document.getElementById("grid-integrate").checked) {
-    gridHeatmaps("", true);
+    document.getElementById("find-heatmap").checked = true;
+    // gridHeatmaps("", true);
   }
 }
 function showPointsTimelineDays(startTime, endTime) {

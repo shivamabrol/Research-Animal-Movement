@@ -9,6 +9,7 @@ svg.on("click", function () {
   if (!document.getElementById("pattern-toggle").checked) {
     return;
   }
+
   // Get the coordinates of the mouse pointer relative to the SVG element
   var coordinates = d3.pointer(event, this);
   console.log(coordinates);
@@ -434,14 +435,17 @@ function patternReset() {
 
 function gridConfig() {
   let toggle = document.getElementById("pattern-toggle");
+  let patternGrid = document.getElementById("pattern-cell-width");
   if (!dataAlert()) {
     alert("Select an animal first");
     toggle.checked = false;
   }
   if (toggle.checked) {
     alert("Grid is enabled. Please click on the map to start it");
+    patternGrid.disabled = false;
   } else {
     svg.selectAll("*.cells").remove();
+    patternGrid.disabled = true;
   }
 }
 

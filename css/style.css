@@ -1,29 +1,41 @@
 .map-class { grid-area: map;
+  padding-top: 50px;
   width: auto;
-
+background-color: black;
   text-align: center;
-  background-color: black;
+  border: 2px black solid;
+}
 
- }
+.flex-container {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center content */
+}
+
+
 .zoom-class { 
   text-align: center;
+  padding-top: 30px;
 
     grid-area: zoom; 
-    padding-top: 40px;
 
     border: 2px grey solid;
-    padding-top: 40px;
+    
+    padding-top: 20px;
 }
 
 .empty-class {
   grid-area: empty;
   padding: auto;
+
 }
 
 .voronoi-class { grid-area: voronoi;
-  padding-top: 20px;
   border: 2px grey solid;
+  padding-top: 30px;
+  align-items: center;
+  padding-left: 30px;
 }
+
 .name-class { grid-area: name; 
   /* padding-top: 40px; */
   display: grid;
@@ -33,72 +45,79 @@
   padding-left: 30px;
   justify-items: left;
   align-items: left;
-
+  padding-bottom: 10px;
   /* border-bottom: 2px grey solid; */
 }
 
 .timeline-class { 
   grid-area: timeline; 
   border : 2px grey solid;
+  
   /* width: 400px; */
   /* padding-top: 40px; */
   /* height: 100%; */
 }
 .pattern-class {
-  padding-top: 20px;
-  width: auto;
+  padding-top: 50px;
+  padding-left: 30px;
+  align-items: center;
   grid-area: pattern;
-  border: 2px grey solid;
+  border-right: 2px grey solid;
 
 }
+
 
 .fruit-class {
   border: 2px grey solid;
   padding-top: 30px;
-  grid-area: fruit;
   align-items: center;
+
+  grid-area: fruit;
+  
 }
 
 .trajectory-class {grid-area: trajectory; 
   padding-top: 40px;
-
+  
   border: 2px grey solid;
 }
 
 .heatmap-class {
     padding-top: 40px;
-  grid-area: heatmap;
-  border: 2px grey solid;
+    padding-left: 30px;
+    grid-area: heatmap;
+  width: auto;
+  border-right: auto grey solid;
+  border-top: 2px grey solid;
 }
 
 .reset-class {
   padding-top: 10px;
   grid-area: reset;
-  border-bottom: 2px grey solid;
+  padding-left: 50px;
+  padding-right: 30px;
+  
+  /* border-bottom: 2px grey solid; */
 }
 
 
 .grid-container {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
   grid-template-areas:
-  'pattern map map  zoom'
-  'pattern map map  zoom '
-  'heatmap map map  head '
-  'heatmap map map  name '
-  'trajectory map map  fruit '
-  'reset map map  voronoi '
-  'timeline timeline timeline timeline ';
-  /* 'timeline timeline timeline  timeline '; */
+  'zoom map map  pattern '
+  'head map map  heatmap'
+  'name  map map  heatmap'
+  'fruit map map voronoi'
+  'trajectory map map  voronoi '
+  'trajectory map map  reset '
+  'timeline timeline timeline  timeline ';
 
   /* margin: auto; */
-  background-color: white;
   text-align: center;
   /* border: 1px solid black; */
   height: 100vh;
-
 }
-
-
 
 .btn-check {
   background-color: #ff0000;
@@ -111,7 +130,9 @@
 }
 
 
+
 .button-container {
+  flex: 4;
   grid-area: button;
   padding-left: 100px !important;
   padding-right: 100px !important;
@@ -159,7 +180,8 @@
 
 
 
-html,body { height:100%; 
-  text-align: center;
+html,body { height:90%; 
+    text-align: center;
+    /* width: 90%; */
 }
 

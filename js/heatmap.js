@@ -4,6 +4,7 @@ import { xScale, yScale, dataAlert } from "./index.js";
 const svg = d3.select("svg#map");
 export function gridHeatmaps(value, timelineParam = false) {
   let heatmapButton = document.getElementById("find-heatmap");
+  let heatmapGrid = document.getElementById("heatmap-cell-width");
   console.log(value);
   if (!dataAlert(timelineParam)) {
     alert("Select Animal first");
@@ -12,7 +13,12 @@ export function gridHeatmaps(value, timelineParam = false) {
 
   if (!heatmapButton.checked) {
     d3.selectAll(".cells").remove();
+    d3.selectAll(".rect-class").remove();
+
+    heatmapGrid.disabled = true;
     return;
+  } else {
+    heatmapGrid.disabled = false;
   }
   //starting function for grid heatmap
   // console.log("Clicked at: (" + x + ", " + y + ")");
@@ -53,32 +59,104 @@ export function gridHeatmaps(value, timelineParam = false) {
   let cellPointCounts = createNumberCountDict(cellList);
   let uniqueRevists = uniqueRevisitsCount(cellList);
   let uniqueRevisitCounts = createNumberCountDict(uniqueRevists);
-  console.log(cellPointCounts);
-  console.log(uniqueRevisitCounts);
+
   let selectedData = cellPointCounts;
   if (value == "uniqueRevisits") {
     selectedData = uniqueRevisitCounts;
   }
-  console.log(value);
+
   // Initialize max value variable with the smallest possible value
   var maxValue = Number.MIN_VALUE;
+  var maxkey = -1;
 
   // Iterate over the values and update max value if necessary
   for (var key in selectedData) {
     if (selectedData.hasOwnProperty(key)) {
       var value = selectedData[key];
       if (value > maxValue) {
+        maxkey = key;
         maxValue = value;
       }
     }
   }
+
+  console.log("key : " + maxkey + " value: " + maxValue);
+
+  var minValue = Number.MAX_VALUE;
+
+  // Iterate over the values and update max value if necessary
+  for (var key in selectedData) {
+    if (selectedData.hasOwnProperty(key)) {
+      var value = selectedData[key];
+      if (value < minValue && minValue > 100) {
+        minValue = value;
+      }
+    }
+  }
+  const numRectangles = 100;
+  var myColor = d3
+    .scaleSequential()
+    .interpolator(d3.interpolateMagma)
+    .domain([1, numRectangles * 1.5]); // Doubling the domain range
+
+  const svg_rect = d3
+    .select("#map")
+    .append("svg")
+    .attr("class", "rect-class")
+    .attr("width", "100%") // Set the width to 100% of the viewport
+    .attr("height", 50) // Set the height for your color scale
+    .style("position", "relative");
+
+  svg_rect
+    .selectAll("rect")
+    .data(d3.range(numRectangles))
+    .enter()
+    .append("rect")
+    .attr("x", (d, i) => (i * 400) / numRectangles) // Adjust the positioning as needed
+    .attr("width", 1000 / numRectangles) // Adjust the width as needed
+    .attr("height", 50)
+    .attr("fill", (d) => myColor(d * 2)); // Doubling the input value
+
+  // Add numbers only to the first and last rectangles
+  svg_rect
+    .selectAll("text")
+    .data([0, maxValue / 2, maxValue]) // Bind data to the values you want
+    .enter()
+    .append("text")
+    .text((d) => d) // Set the text content to the value of 'd'
+    .attr("x", (d, i) => {
+      if (i === 0) return 0; // Position the first value at the beginning
+      else if (i === 1)
+        return 400 / 2; // Position the second value in the middle
+      else return 400; // Position the third value at the end
+    })
+    .attr("y", 25) // Set the y-position to half the height for centering
+    .attr("text-anchor", (d, i) => {
+      if (i === 0) return "start"; // Align text left for the first
+      else if (i === 1) return "middle"; // Center align the middle value
+      else return "end"; // Align text right for the third
+    })
+    .attr("fill", "blue"); // Set the text color
+
   const svg = d3.select("svg#map");
   d3.selectAll(".cells").remove();
   var myColor = d3
     .scaleSequential()
     .interpolator(d3.interpolateMagma)
-    .domain([1, maxValue]);
+    .domain([minValue, maxValue]);
   // Draw Voronoi cells
+  console.log(minValue, maxValue);
+
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+    .style("opacity", 0);
   svg
     .selectAll("path")
     .data(voronoi.cellPolygons())
@@ -92,7 +170,34 @@ export function gridHeatmaps(value, timelineParam = false) {
     .attr("fill", function (d, i) {
       return myColor(selectedData[i]);
     })
-    .attr("fill-opacity", 0.5);
+    .attr("fill-opacity", 0.5)
+    .on("mouseover", function (d, i) {
+      // Show the tooltip and set its content
+      tooltip.transition().duration(200).style("opacity", 0.9);
+      var coordinates = d3.pointer(event, this);
+      var key = [delaunay.find(coordinates[0], coordinates[1])];
+
+      var value = selectedData[delaunay.find(coordinates[0], coordinates[1])];
+      value = value == undefined ? 0 : value;
+      console.log(value);
+      console.log();
+      tooltip
+        .html("Animal count: " + value)
+        .style("left", d.screenX - 40 + "px")
+        .style("background-color", "white")
+        .style("border", "solid")
+        .style("top", d.screenY + "px");
+    })
+    .on("mouseout", function (d, i) {
+      // Hide the tooltip on mouseout
+      tooltip.transition().duration(500).style("opacity", 0);
+    });
+  // Three function that change the tooltip when user hover / move / leave a cell
+
+  const colorScale = d3
+    .scaleQuantize()
+    .domain([0, 100]) // Define the domain of values
+    .range(["#e5f5f9", "#99d8c9", "#2ca25f"]);
 }
 
 function createNumberCountDict(numbers) {
@@ -120,32 +225,15 @@ document.getElementById("metricDropdown").addEventListener(
   false
 );
 
-const colorScale = d3
-  .scaleQuantize()
-  .domain([0, 100]) // Define the domain of values
-  .range(["#e5f5f9", "#99d8c9", "#2ca25f"]);
-const numRectangles = 100;
-var myColor = d3
-  .scaleSequential()
-  .interpolator(d3.interpolateMagma)
-  .domain([1, numRectangles * 1.5]); // Doubling the domain range
+function updateRectanglesAndValues(maxValue) {
+  rectangles
+    .data([1, maxValue])
+    .transition()
+    .duration(500) // Animation duration in milliseconds
+    .attr("fill", (d) => myColor(d * 2)); // Update rectangle colors
 
-const svg_rect = d3
-  .select(".heatmap-class")
-  .append("svg")
-  .attr("width", "100%") // Set the width to 100% of the viewport
-  .attr("height", 50) // Set the height for your color scale
-  .style("position", "relative");
-
-svg_rect
-  .selectAll("rect")
-  .data(d3.range(numRectangles))
-  .enter()
-  .append("rect")
-  .attr("x", (d, i) => (i * 400) / numRectangles) // Adjust the positioning as needed
-  .attr("width", 1000 / numRectangles) // Adjust the width as needed
-  .attr("height", 50)
-  .attr("fill", (d) => myColor(d * 2)); // Doubling the input value
+  textValues.data(newData).text((d) => d); // Update text values
+}
 
 document
   .getElementById("heatmap-cell-width")

@@ -1,4 +1,4 @@
-import { xScale, yScale } from "./index.js";
+import { xScale, yScale, dataAlert } from "./index.js";
 import { colorArrayTrajectory } from "./colors.js";
 import {
   trajectoryGroups,
@@ -235,19 +235,43 @@ function plotMoveLines(voronoi, moves) {
       });
     });
   }
-  console.log(line_points);
 }
 
 document.getElementById("voronoi-plot").addEventListener("change", (event) => {
   // let summarize = document.getElementById("summarize");
+  if (!dataAlert()) {
+    alert("Select Animal first");
+    event.target.checked = false;
+    return;
+  }
+
+  let voronoiGridSize = document.getElementById("voronoi-cell-width");
   if (event.target.checked) {
-    let width = 5.5 * document.getElementById("voronoi-cell-width").value;
+    let width = 5.5 * voronoiGridSize.value;
+    voronoiGridSize.disabled = false;
     // summarize.disabled = false;
     voronoiCells(parseInt(width));
   } else {
+    voronoiGridSize.disabled = true;
     svg.selectAll("*.cells").remove();
-    // svg.selectAll("*.voronoi-cell").remove();
-    // svg.selectAll("*.voronoi-path").remove();
-    // summarize.disabled = true;
   }
 });
+
+document
+  .getElementById("voronoi-cell-width")
+  .addEventListener("change", (event) => {
+    // let summarize = document.getElementById("summarize");
+    svg.selectAll("*.cells").remove();
+
+    let voronoiGridSize = document.getElementById("voronoi-cell-width");
+    let voronoicheckBox = document.getElementById("voronoi-plot");
+
+    if (voronoicheckBox.checked) {
+      let width = 5.5 * voronoiGridSize.value;
+      voronoiGridSize.disabled = false;
+      // summarize.disabled = false;
+      voronoiCells(parseInt(width));
+    } else {
+      voronoiGridSize.disabled = true;
+    }
+  });

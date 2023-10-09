@@ -170,6 +170,8 @@ export function plotCircles() {
     { x: 250, y: 200, r: 20, color: "red", opacity: 0.5, id: "start-circle" },
   ];
 
+  let activated = document.getElementById("start-location");
+
   // Create an SVG element
   const svg = d3.select("svg#map");
   d3.selectAll("circle.points").remove();

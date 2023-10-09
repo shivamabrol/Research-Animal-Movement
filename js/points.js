@@ -32,6 +32,17 @@ export function showPoints(id) {
       checkedValues.push(checkbox.value);
     });
   }
+  let resizer = document.getElementById("point-resize");
+  let color = document.getElementById("colorpicker");
+
+  if (checkedValues.length == 0) {
+    resizer.disabled = true;
+    color.disabled = true;
+  } else {
+    resizer.disabled = false;
+    color.disabled = false;
+  }
+
   const filteredData = data.filter((item) =>
     checkedValues.includes(item["individual-local-identifier"])
   );
@@ -63,3 +74,8 @@ export function showPoints(id) {
   //   d3.selectAll("circle.points#" + id).remove();
   // }
 }
+
+setTimeout(function () {
+  // Your function code here
+  showPoints("");
+}, 500); // 1000 milliseconds = 1 second
