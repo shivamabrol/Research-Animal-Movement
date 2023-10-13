@@ -2,7 +2,9 @@ export let data;
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
-d3.csv("../data/BCI-movement-data.csv")
+d3.csv(
+  "https://github.com/shivamabrol/Research-Animal-Movement/tree/main/data/BCI-movement-data.csv"
+)
   .then(function (data1) {
     // Do something with the data here
     data = data1;
@@ -14,7 +16,9 @@ d3.csv("../data/BCI-movement-data.csv")
 
 export let fruitTreeData;
 
-d3.csv("../data/fruit_tree.csv")
+d3.csv(
+  "https://github.com/shivamabrol/Research-Animal-Movement/tree/main/data/fruit_tree.csv"
+)
   .then(function (data1) {
     fruitTreeData = data1; // assign the data to the variable
     // Do something with the data here
