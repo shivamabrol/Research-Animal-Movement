@@ -1,0 +1,3 @@
+[submodule "jquery-svg-pan-zoom"]
+	path = jquery-svg-pan-zoom
+	url = https://github.com/svg/jquery-svg-pan-zoom.git
