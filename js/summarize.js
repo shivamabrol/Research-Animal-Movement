@@ -11,7 +11,9 @@ import {
 const svg = d3.select("svg#map");
 
 function voronoiCells(cellW) {
-  d3.json("data/centroids.json").then(function (data2) {
+  d3.json(
+    "https://raw.githubusercontent.com/shivamabrol/Research-Animal-Movement/main/data/centroids.json"
+  ).then(function (data2) {
     const xMin = 624079.8465020715,
       xMax = 629752.8465020715,
       yMin = 1009715.5668793379,
@@ -77,7 +79,9 @@ function summarizeMovement(delaunay, voronoi) {
   // Log the coordinates to the console
   let summarizedPoints = d3.selectAll(".points").data();
   // console.log("Clicked at: (" + x + ", " + y + ")");
-  d3.json("data/centroids.json").then(function (data) {
+  d3.json(
+    "https://raw.githubusercontent.com/shivamabrol/Research-Animal-Movement/main/data/centroids.json"
+  ).then(function (data) {
     const xMin = 624079.8465020715,
       xMax = 629752.8465020715,
       yMin = 1009715.5668793379,
