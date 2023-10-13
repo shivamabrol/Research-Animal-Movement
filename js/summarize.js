@@ -245,8 +245,12 @@ document.getElementById("voronoi-plot").addEventListener("change", (event) => {
     return;
   }
 
+  plotCaller();
+});
+
+export function plotCaller() {
   let voronoiGridSize = document.getElementById("voronoi-cell-width");
-  if (event.target.checked) {
+  if (document.getElementById("voronoi-plot").checked) {
     let width = 5.5 * voronoiGridSize.value;
     voronoiGridSize.disabled = false;
     // summarize.disabled = false;
@@ -255,7 +259,7 @@ document.getElementById("voronoi-plot").addEventListener("change", (event) => {
     voronoiGridSize.disabled = true;
     svg.selectAll("*.cells").remove();
   }
-});
+}
 
 document
   .getElementById("voronoi-cell-width")

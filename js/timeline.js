@@ -2,6 +2,9 @@ import { data } from "./data.js";
 import { xScale, yScale } from "./index.js";
 import { colorDictionary } from "./colors.js";
 import { gridHeatmaps } from "./heatmap.js";
+import { plotPattern, getTotalClicks } from "./grid.js";
+import { plotCaller } from "./summarize.js";
+import { plotTrajectoryBCI } from "./trajectory.js";
 
 const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
 const svg = d3.select("svg#map");
@@ -40,23 +43,31 @@ function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
   const margin = { top: 0, right: 50, bottom: 30, left: 50 },
-    width = 500 - margin.left - margin.right,
+    width = 900 - margin.left - margin.right,
     height = 30;
+  const containerDiv = d3
+    .select("#timechart") // You can select a different parent element if needed
+    .append("div")
+    .attr("id", "svgContainer") // Set an ID for the container div
+    .style("display", "flex")
+    .style("justify-content", "space-between")
+    .style("height", "300px"); // Set the desired height
 
-  const svg2 = d3
-    .select("#timechart")
+  const svg2 = containerDiv
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  const svg3 = d3
-    .select("#timechart")
+
+  // Create and append the right SVG
+  const svg3 = containerDiv
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
   changeAttribute(svg2, "speed", width, height, margin);
   changeAttributeDays(svg3, "speed", width, height, margin);
 }
@@ -83,22 +94,20 @@ function changeAttribute(svg2, attribute, width, height) {
 
   const x = d3
     .scaleTime()
-    .domain([new Date("2022-01-01"), new Date("2022-12-31")])
+    .domain([new Date("2022-01-01"), new Date("2023-01-31")])
     .range([0, width]);
-  console.log(x(new Date("2022-05-05")));
-  let xAxisGenerator = d3.axisBottom(xScale);
 
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(6));
+    .call(d3.axisBottom(x).ticks(d3.timeMonth.every(1))); // Show ticks every month
 
   // Add X axis label:
   svg2
     .append("text")
     .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", height)
+    .attr("x", width / 2)
+    .attr("y", height - 15)
     .text("Select the day");
 
   // Add Y axis
@@ -191,23 +200,30 @@ function changeAttributeDays(svg2, attribute, width, height) {
 
   // Add X axis
 
+  // Adjust the x-axis to display "12 AM" as the starting point and "11:59 PM" as the ending point
   const x = d3
     .scaleTime()
     .domain([new Date("2022-01-01T00:00:00"), new Date("2022-01-01T23:59:59")])
     .range([0, width]);
-  let xAxisGenerator = d3.axisBottom(xScale);
 
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(6));
+    .call(
+      d3
+        .axisBottom(x)
+        .ticks(d3.timeHour.every(2)) // Show ticks every 2 hours
+        .tickFormat(d3.timeFormat("%I %p")) // Format ticks in "12 AM", "2 AM", etc.
+    );
+
+  // ...
 
   // Add X axis label:
   svg2
     .append("text")
     .attr("text-anchor", "end")
-    .attr("x", width)
-    .attr("y", height)
+    .attr("x", width / 2)
+    .attr("y", height - 15)
     .text("Select the time");
 
   // Add Y axis label:
@@ -440,9 +456,8 @@ function showPointsTimeline(startTime, endTime) {
     );
   });
   pointsTimelinePlot(data2);
-  if (document.getElementById("grid-integrate").checked) {
-    document.getElementById("find-heatmap").checked = true;
-    // gridHeatmaps("", true);
+  if (document.getElementById("find-heatmap").checked) {
+    gridHeatmaps("", true);
   }
 }
 function showPointsTimelineDays(startTime, endTime) {
@@ -471,8 +486,19 @@ function showPointsTimelineDays(startTime, endTime) {
   console.log(data2.length);
   pointsTimelinePlot(data2);
   // add condition if color grid is checked
-  if (document.getElementById("grid-integrate").checked) {
+  if (document.getElementById("find-heatmap").checked) {
     gridHeatmaps("", true);
+  }
+  if (document.getElementById("pattern-toggle").checked) {
+    let clicks = getTotalClicks();
+    plotPattern(clicks);
+  }
+  if (document.getElementById("voronoi-plot").checked) {
+    plotCaller();
+  }
+
+  if (document.getElementById("lines-add").checked) {
+    plotTrajectoryBCI();
   }
 }
 

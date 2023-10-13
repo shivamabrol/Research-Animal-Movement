@@ -53,6 +53,9 @@
     <!-- <script src="https://unpkg.com/d3-3d/build/d3-3d.js"></script> -->
 
     <div class="grid-container">
+      <div class="title-grid ts bgs bold">
+        <h3>TRAVIS - Trajectory Analysis and Visualization by Shivam Abrol</h3>
+      </div>
       <div class="empty-class"></div>
       <div class="map-class">
         <svg
@@ -121,27 +124,21 @@
         <button type="button" id="reset-map" class="btn btn-warning mx-1 my-1">
           Reset Map
         </button>
+        <br />
+        <br />
         <div class="flex-container">
-          <div id="imageContainer">
-            <img
-              src="img/compass.png"
-              height="100px"
-              width="100px"
-              alt="Description of the image"
-            />
-          </div>
           <div class="button-container">
             <button class="btn btn-primary btn-sm" type="button" id="left">
-              &#8592;
+              E &#8592;
             </button>
             <button class="btn btn-primary btn-sm" type="button" id="right">
-              &#8594;
+              W &#8594;
             </button>
             <button class="btn btn-primary btn-sm" type="button" id="up">
-              &#8593;
+              N &#8593;
             </button>
             <button class="btn btn-primary btn-sm" type="button" id="down">
-              <span>&#8595;</span>
+              S <span>&#8595;</span>
             </button>
           </div>
         </div>
@@ -149,6 +146,8 @@
 
       <div id="voronoi-grid" class="voronoi-class">
         <h5>Voronoi Grid</h5>
+        <br />
+
         <input
           class="form-check-input"
           type="checkbox"
@@ -158,6 +157,8 @@
           ;
         />
         <label for="voronoi-plot">See Voronoi Grid</label>
+        <br />
+        <br />
         <br />
 
         <label for="voronoi-cell-width">Grid Size:</label>
@@ -315,7 +316,7 @@
         </label>
 
         <label for="point-resize">
-          Resize data
+          Resize points
           <input
             type="range"
             id="point-resize"
@@ -326,8 +327,12 @@
             disabled
           />
         </label>
+        <br />
+        <br />
+        <br />
+
         <input type="checkbox" id="fruit" class="btn btn-success" />
-        Tree info
+        Show fruit trees
       </div>
 
       <div class="heatmap-class">
@@ -398,6 +403,8 @@
       <div class="trajectory-class">
         <h5>Trajectory View</h5>
 
+        <br />
+
         <div>
           <input
             class="form-check-input"
@@ -407,6 +414,7 @@
             style="background-color: cyan"
             ;
           />
+
           <label class="form-check-label" for="lines-add">
             See All Trajectories
           </label>
@@ -414,6 +422,10 @@
           <!-- <button type="button" id="start-location" >
             Isolate Trajectories
           </button> -->
+          <br />
+
+          <br />
+          <br />
 
           <button class="btn btn-primary btn-sm" id="start-location">
             Activate Lens
@@ -436,17 +448,6 @@
 
       <div class="timeline-class" id="timechart">
         <!-- <h5>Timeline View</h5> -->
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="grid-integrate"
-          style="background-color: blue"
-          ;
-        />
-        <label class="form-check-label" for="grid-integrate">
-          Connect heatmap
-        </label>
       </div>
 
       <div class="reset-class">
@@ -473,6 +474,9 @@
           Download Data
         </button>
         <br />
+
+        <br />
+
         <button
           class="btn btn-primary btn-sm mx-1 my-1"
           type="button"
@@ -481,8 +485,13 @@
           Download Directional String
         </button>
         <br />
+        <br />
+
+        <br />
+        <br />
+
         <button
-          class="btn btn-primary btn-sm mx-1 my-1"
+          class="btn btn-danger btn-sm mx-1 my-1"
           type="button"
           id="reset"
           class="btn btn-danger top-class"

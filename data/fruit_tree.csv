@@ -1,0 +1,1402 @@
+,Unnamed: 0,FID,pkuid,utm-easting,utm-northing,Area,type,feature,genus,property-1,property-2
+0,0,0,1,629297.4096,1013079.909,362,Travel connection,Nesting Site & Travel connection,G3,R2 & R1 & R3,T1
+1,1,1,2,629554.4701,1013051.933,220,Nesting Site,Foraging,G3 & G1,R3,T1 & T2
+2,2,2,3,629433.7001,1012966.156,567,Nesting Site,Foraging & Nesting Site,G2 & G1 & G3,R2 & R1,T2 & T3
+3,3,3,4,629485.2302,1012836.358,501,Foraging,Nesting Site & Foraging,G3 & G1,R1 & R2,T1 & T2 & T3
+4,4,4,5,629634.4101,1012838.686,161,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G1 & G2 & G3,R3 & R2,T2
+5,5,5,6,629541.7262,1012915.951,96,Nesting Site & Foraging,Foraging & Travel connection,G2 & G1 & G3,R3 & R2 & R1,T1 & T2 & T3
+6,6,6,7,629628.8223,1012727.722,55,Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3,R2,T1
+7,7,7,8,629634.5384,1012397.769,435,Foraging,Nesting Site,G1 & G3 & G2,R3,T2 & T3
+8,8,8,9,629455.9727,1012379.158,139,Travel connection,Nesting Site & Travel connection,G1 & G3,R2 & R1,T2 & T3
+9,9,9,10,629390.2844,1012474.007,406,Travel connection & Foraging & Nesting Site,Travel connection,G2 & G1,R3 & R2,T2 & T1
+10,10,10,11,629351.0158,1012488.212,308,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection,G3 & G2 & G1,R1 & R3 & R2,T1 & T2
+11,11,11,12,626998.7957,1014754.216,438,Foraging,Foraging & Travel connection & Nesting Site,G1,R1,T2
+12,12,12,13,626963.4053,1014713.94,365,Nesting Site & Foraging & Travel connection,Foraging,G3 & G2,R3 & R2 & R1,T2 & T3 & T1
+13,13,13,14,626957.9936,1014689.587,872,Travel connection & Foraging & Nesting Site,Travel connection,G1 & G2 & G3,R2 & R3 & R1,T1
+14,14,14,15,626847.3645,1014519.196,709,Foraging,Nesting Site & Foraging & Travel connection,G2,R2,T3 & T1
+15,15,15,16,626750.1368,1014563.165,257,Foraging,Travel connection & Nesting Site & Foraging,G2,R1,T1 & T3
+16,16,16,17,626885.1113,1014542.701,442,Travel connection & Foraging & Nesting Site,Foraging,G1,R3 & R2,T2
+17,17,17,18,627076.2553,1014606.928,221,Nesting Site & Travel connection,Travel connection & Nesting Site,G3 & G2,R3,T3 & T1
+18,18,18,19,627040.8439,1014530.112,151,Foraging & Nesting Site & Travel connection,Nesting Site,G2 & G3,R2,T2 & T3
+19,19,19,20,627026.5419,1014628.955,134,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G3 & G1 & G2,R2,T3
+20,20,20,21,624364.3194,1014063.178,388,Travel connection,Nesting Site & Travel connection & Foraging,G2,R1 & R3,T2
+21,21,21,22,624384.0329,1014005.365,213,Travel connection & Nesting Site & Foraging,Foraging,G2,R3 & R2,T1 & T2 & T3
+22,22,22,23,624678.7999,1014033.374,234,Nesting Site & Travel connection & Foraging,Foraging,G3 & G2 & G1,R2 & R1,T3 & T1 & T2
+23,23,23,24,624640.4769,1014067.912,284,Travel connection & Foraging,Travel connection & Foraging,G3,R3,T2
+24,24,24,25,625010.2412,1014209.58,182,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G1,R3,T3 & T2 & T1
+25,25,25,26,625636.0739,1014399.839,264,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1,R1,T3
+26,26,26,27,625628.2008,1014424.157,198,Travel connection & Foraging & Nesting Site,Nesting Site,G1 & G2 & G3,R1 & R3,T1
+27,27,27,28,625970.7593,1014228.997,255,Travel connection & Nesting Site & Foraging,Nesting Site,G2 & G1,R2 & R1 & R3,T3
+28,28,28,29,625962.8226,1014201.791,139,Nesting Site & Foraging,Foraging,G2 & G3,R1,T2 & T3 & T1
+29,29,29,30,625750.8168,1014113.975,368,Foraging,Foraging,G2,R3 & R2 & R1,T1 & T2
+30,30,30,31,625910.407,1014051.696,358,Travel connection & Foraging,Foraging & Nesting Site,G3 & G1 & G2,R3 & R2,T1
+31,31,31,32,626073.6605,1014196.869,300,Foraging,Travel connection,G2,R3,T1 & T3 & T2
+32,32,32,33,626850.5824,1014433.401,449,Nesting Site & Travel connection,Foraging,G1 & G3 & G2,R1 & R2,T3
+33,33,33,34,626873.0853,1014436.898,205,Nesting Site & Travel connection & Foraging,Travel connection,G2 & G1,R2,T2 & T1
+34,34,34,35,627004.1615,1014361.446,389,Travel connection & Nesting Site,Foraging,G3 & G1,R1 & R2,T3
+35,35,35,36,626766.6084,1014425.95,333,Nesting Site,Nesting Site & Foraging,G1 & G3,R1 & R2 & R3,T1 & T2
+36,36,36,37,626757.042,1014400.266,173,Foraging,Travel connection,G1 & G2 & G3,R2,T2 & T3 & T1
+37,37,37,38,626785.4709,1014314.038,314,Travel connection,Foraging & Travel connection & Nesting Site,G2,R1 & R3,T2
+38,38,38,39,626766.3696,1014303.148,402,Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G2 & G3 & G1,R1 & R3,T2 & T1
+39,39,39,40,626738.2929,1014300.332,124,Nesting Site,Foraging & Nesting Site,G1,R3 & R2,T3 & T1 & T2
+40,40,40,41,626853.6186,1014272.583,305,Travel connection & Nesting Site,Foraging & Travel connection,G2 & G3 & G1,R1,T2 & T1
+41,41,41,42,626852.0636,1014291.929,61,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1,R3,T3
+42,42,42,43,626831.1335,1014300.29,"1,057",Travel connection,Travel connection & Foraging,G1 & G2 & G3,R1 & R3,T2
+43,43,43,44,626952.263,1014322.653,151,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G3,R2,T1 & T3
+44,44,44,45,626918.9412,1014316.792,75,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R2,T3 & T2
+45,45,45,46,626944.3854,1014296.811,174,Foraging & Nesting Site & Travel connection,Travel connection,G3,R1 & R3 & R2,T2 & T1
+46,46,46,47,626959.2635,1014207.465,447,Travel connection & Nesting Site,Travel connection & Nesting Site,G1 & G2 & G3,R2,T3 & T1
+47,47,47,48,626850.1019,1014223.361,725,Foraging,Nesting Site & Travel connection,G3 & G1,R1,T3
+48,48,48,49,626717.6313,1014038.285,644,Foraging,Travel connection,G3,R2 & R1,T3
+49,49,49,50,626748.6514,1014084.855,348,Foraging & Nesting Site,Foraging & Nesting Site,G1 & G3,R3 & R2 & R1,T2
+50,50,50,51,626783.2681,1014106.885,139,Foraging & Nesting Site,Nesting Site,G2 & G3,R1 & R2 & R3,T3 & T2
+51,51,51,52,626799.1677,1014113.854,188,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging,G2,R2,T2 & T3 & T1
+52,52,52,53,626795.5031,1014139.549,350,Travel connection,Foraging,G1 & G2,R2 & R1 & R3,T2 & T1
+53,53,53,54,626858.2721,1014116.752,646,Travel connection & Nesting Site,Travel connection,G1,R2,T3 & T1 & T2
+54,54,54,55,626873.0796,1014020.237,830,Foraging & Travel connection,Travel connection,G3 & G1,R1 & R2,T3 & T2 & T1
+55,55,55,56,626895.3369,1014001.767,300,Travel connection,Travel connection & Nesting Site & Foraging,G3,R1 & R2,T2 & T3 & T1
+56,56,56,57,626982.5712,1014038.831,296,Travel connection & Nesting Site,Travel connection,G3,R3 & R1,T3
+57,57,57,58,627057.2033,1014388.237,421,Foraging & Nesting Site,Foraging,G1,R1 & R2 & R3,T2 & T3 & T1
+58,58,58,59,627023.3804,1014286.404,807,Foraging & Travel connection,Foraging,G2,R3 & R1 & R2,T3 & T2 & T1
+59,59,59,60,627035.2923,1014316.314,"1,629",Foraging,Nesting Site & Travel connection,G1 & G3,R3 & R1 & R2,T3 & T1 & T2
+60,60,60,61,627176.1434,1014196.957,271,Nesting Site & Travel connection,Nesting Site,G2,R2,T3 & T1
+61,61,61,62,627466.338,1014015.521,299,Travel connection,Foraging & Nesting Site,G3 & G2,R3 & R1 & R2,T3 & T2
+62,62,62,63,627460.3399,1013991.142,86,Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G1,R2 & R3 & R1,T1 & T3
+63,63,63,64,627583.963,1014167.325,299,Foraging,Nesting Site & Travel connection & Foraging,G2 & G3 & G1,R1 & R3,T3 & T2
+64,64,64,65,627571.0495,1014137.32,159,Nesting Site,Foraging,G2,R3,T1 & T3 & T2
+65,65,65,66,627537.3597,1014166.633,222,Travel connection & Nesting Site & Foraging,Foraging & Travel connection,G1 & G3,R3 & R2,T3 & T1
+66,66,66,67,627543.8729,1014144.435,129,Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G3,R3 & R1,T2 & T1 & T3
+67,67,67,68,627529.377,1014123.692,419,Travel connection,Nesting Site & Travel connection,G2,R2,T2 & T1 & T3
+68,68,68,69,627516.811,1014097.744,336,Foraging & Travel connection,Foraging,G2 & G3,R3 & R2 & R1,T1 & T3 & T2
+69,69,69,70,627537.4909,1014096.368,274,Travel connection & Nesting Site & Foraging,Travel connection & Foraging,G3,R2,T2
+70,70,70,71,627553.348,1014059.69,214,Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G3 & G2,R2,T3 & T2
+71,71,71,72,627600.0058,1014050.312,86,Travel connection,Travel connection,G3 & G1 & G2,R1 & R3,T1 & T2 & T3
+72,72,72,73,627590.9452,1014043.65,52,Travel connection & Foraging,Foraging & Nesting Site & Travel connection,G3 & G1,R3 & R1 & R2,T3
+73,73,73,74,627916.9178,1014028.73,322,Travel connection,Travel connection & Foraging,G3,R2 & R1 & R3,T3 & T2
+74,74,74,75,624329.3604,1013947.683,336,Foraging & Travel connection,Foraging & Travel connection,G2,R1 & R2 & R3,T2 & T1
+75,75,75,76,624304.0258,1013996.139,260,Travel connection & Foraging & Nesting Site,Travel connection,G2 & G3 & G1,R1,T3 & T2 & T1
+76,76,76,77,624269.2069,1013970.222,545,Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G2 & G1 & G3,R3 & R1,T2 & T1 & T3
+77,77,77,78,624394.6096,1013901.469,366,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1,R1 & R3,T1 & T3
+78,78,78,79,624445.8012,1014000.424,105,Nesting Site,Foraging & Nesting Site,G3 & G1,R1,T1
+79,79,79,80,624561.2691,1013927.755,482,Foraging,Travel connection & Nesting Site & Foraging,G3 & G2 & G1,R1,T3 & T1
+80,80,80,81,624533.9024,1013900.286,279,Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1 & G2,R2 & R1,T3 & T1 & T2
+81,81,81,82,624627.5209,1013898.322,439,Travel connection,Travel connection & Nesting Site & Foraging,G3,R1 & R2 & R3,T2 & T3 & T1
+82,82,82,83,624734.1634,1013884.326,671,Nesting Site,Nesting Site,G1 & G2 & G3,R3 & R2 & R1,T3 & T2
+83,83,83,84,624744.6733,1013904.987,393,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R2 & R3,T2 & T3
+84,84,84,85,624697.9122,1013826.689,222,Foraging,Travel connection & Foraging,G3 & G2 & G1,R1,T1 & T2
+85,85,85,86,624735.4064,1013842.811,440,Nesting Site,Nesting Site,G1 & G2,R3 & R2 & R1,T3 & T2
+86,86,86,87,624765.0447,1013846.025,500,Foraging,Travel connection & Nesting Site & Foraging,G3 & G2 & G1,R2 & R1 & R3,T3 & T2 & T1
+87,87,87,88,624791.6228,1013826.285,357,Travel connection & Nesting Site,Nesting Site & Travel connection,G2,R3,T3 & T1
+88,88,88,89,624794.7426,1013849.076,767,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G2 & G3 & G1,R3 & R2 & R1,T3 & T2
+89,89,89,90,624768.1315,1013787.637,396,Travel connection & Nesting Site & Foraging,Travel connection,G2 & G3 & G1,R3,T3
+90,90,90,91,624813.7748,1013763.99,245,Nesting Site,Foraging & Nesting Site,G1 & G2,R1 & R2,T2 & T3
+91,91,91,92,624846.5268,1013841.601,158,Foraging,Foraging,G3 & G2 & G1,R3 & R1,T2 & T3 & T1
+92,92,92,93,624883.1451,1013921.112,325,Foraging,Travel connection & Foraging,G3 & G2 & G1,R3 & R1,T2
+93,93,93,94,624798.9476,1013731.222,225,Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G3,R3,T3
+94,94,94,95,624820.4627,1013711.208,154,Nesting Site & Foraging,Foraging,G3,R2,T2
+95,95,95,96,624816.6121,1013692.169,415,Travel connection,Nesting Site,G3 & G1 & G2,R3 & R2,T1
+96,96,96,97,624777.1558,1013701.216,216,Nesting Site & Travel connection & Foraging,Travel connection & Foraging,G3,R3 & R2 & R1,T3 & T2
+97,97,97,98,624759.4237,1013708.243,500,Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G1 & G2,R3 & R2 & R1,T2
+98,98,98,99,624780.5152,1013678.724,316,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G2,R1 & R3,T3
+99,99,99,100,624763.0475,1013689.41,170,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G3,R2 & R3 & R1,T2 & T1
+100,100,100,101,624761.4218,1013671.528,369,Foraging & Nesting Site & Travel connection,Travel connection,G2 & G1 & G3,R1,T3
+101,101,101,102,624726.1452,1013693.906,119,Foraging,Foraging & Nesting Site & Travel connection,G3,R2 & R1 & R3,T1
+102,102,102,103,624692.4442,1013682.146,245,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G2 & G1,R3 & R2,T2 & T1
+103,103,103,104,624710.1612,1013680.028,234,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2,R2,T1 & T2 & T3
+104,104,104,105,624720.3118,1013669.583,360,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G3,R1,T1
+105,105,105,106,624704.6975,1013622.747,499,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G3,R3 & R1 & R2,T1 & T2
+106,106,106,107,624749.3167,1013626.031,535,Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G1,R3 & R1,T2 & T3
+107,107,107,108,624670.7593,1013558.627,374,Foraging & Nesting Site,Nesting Site & Foraging,G3 & G1 & G2,R1 & R2 & R3,T3 & T2
+108,108,108,109,624627.7223,1013590.451,367,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3,T1
+109,109,109,110,624671.5906,1013616.087,139,Foraging,Nesting Site,G1,R2,T2 & T1
+110,110,110,111,624621.3299,1013629.734,217,Travel connection & Foraging & Nesting Site,Foraging,G3,R3 & R1 & R2,T1
+111,111,111,112,624598.8864,1013615.3,529,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site,G3 & G1,R1 & R2 & R3,T1
+112,112,112,113,624616.9145,1013613.372,164,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G2 & G3 & G1,R2,T3 & T1
+113,113,113,114,624580.5631,1013680.277,166,Travel connection,Foraging & Travel connection & Nesting Site,G3 & G1 & G2,R3,T1
+114,114,114,115,624726.827,1013574.321,491,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2 & G3 & G1,R3 & R1,T3 & T1 & T2
+115,115,115,116,624796.4774,1013593.319,86,Nesting Site,Foraging & Travel connection,G2,R1,T1
+116,116,116,117,624815.5624,1013605.18,288,Foraging,Travel connection & Foraging,G2 & G3,R3,T3 & T2 & T1
+117,117,117,118,624857.9079,1013598.958,380,Travel connection & Foraging,Travel connection & Foraging,G3,R1 & R3,T3 & T2 & T1
+118,118,118,119,624830.496,1013541.854,444,Nesting Site,Travel connection & Nesting Site,G3,R2 & R1 & R3,T3 & T2
+119,119,119,120,624848.6764,1013573.467,446,Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G1 & G3,R2 & R3 & R1,T1 & T2
+120,120,120,121,624805.3537,1013513.725,495,Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G2,R2 & R1,T1 & T3 & T2
+121,121,121,122,624694.7867,1013729.248,416,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G2,R1 & R2,T1 & T3
+122,122,122,123,624856.6786,1013497.754,649,Travel connection,Nesting Site & Foraging,G3 & G2,R2,T3
+123,123,123,124,624938.502,1013530.871,488,Foraging & Travel connection & Nesting Site,Foraging,G2 & G1,R3 & R2,T2 & T1
+124,124,124,125,624956.1541,1013560.819,221,Travel connection,Travel connection & Nesting Site,G1 & G3,R3 & R2,T3 & T2
+125,125,125,126,624971.6376,1013550.581,300,Nesting Site,Foraging & Travel connection,G2,R2 & R1,T2 & T3 & T1
+126,126,126,127,624986.1475,1013525.463,352,Foraging & Nesting Site,Travel connection & Foraging,G1 & G2 & G3,R3,T1 & T2 & T3
+127,127,127,128,625004.4137,1013530.936,272,Foraging & Travel connection,Nesting Site & Travel connection,G2 & G3 & G1,R2 & R3,T2
+128,128,128,129,624890.4595,1013638.003,293,Nesting Site & Travel connection & Foraging,Foraging & Travel connection,G1 & G3 & G2,R2,T1 & T2
+129,129,129,130,624853.3015,1013651.351,222,Travel connection & Foraging,Foraging & Nesting Site,G2,R1 & R2 & R3,T1 & T2 & T3
+130,130,130,131,624947.9614,1013701.186,422,Nesting Site & Travel connection & Foraging,Travel connection,G2,R3 & R2,T1 & T3
+131,131,131,132,624915.7144,1013738.217,298,Foraging,Travel connection,G3 & G2,R3 & R2 & R1,T1 & T2 & T3
+132,132,132,133,624845.001,1013710.061,94,Travel connection & Nesting Site & Foraging,Foraging,G2 & G3 & G1,R3,T2 & T3 & T1
+133,133,133,134,624693.372,1013795.509,599,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R2,T3 & T1
+134,134,134,135,625024.3984,1013537.755,748,Foraging & Travel connection,Nesting Site,G1,R1,T3 & T1
+135,135,135,136,625040.5486,1013529.022,453,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G2 & G3 & G1,R2 & R3 & R1,T1 & T2 & T3
+136,136,136,137,625569.3612,1013765.226,148,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site,G1 & G2 & G3,R1 & R3,T2 & T1 & T3
+137,137,137,138,625584.4323,1013747.215,132,Travel connection & Foraging,Nesting Site & Foraging,G2,R1,T2 & T1 & T3
+138,138,138,139,625586.2275,1013732.451,249,Foraging & Travel connection & Nesting Site,Foraging,G1 & G2,R2,T1 & T2 & T3
+139,139,139,140,625582.6887,1013574.005,"1,111",Foraging,Travel connection,G3,R2 & R1 & R3,T3 & T2
+140,140,140,141,625583.2638,1013595.882,75,Travel connection & Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G3 & G2 & G1,R3 & R1 & R2,T2 & T3
+141,141,141,142,625521.3012,1013619.941,422,Travel connection & Foraging,Nesting Site & Foraging,G3,R2 & R1 & R3,T1
+142,142,142,143,625572.0984,1013670.694,717,Foraging,Travel connection,G2 & G3 & G1,R1 & R3 & R2,T3
+143,143,143,144,625686.2469,1013662.385,788,Foraging & Nesting Site,Foraging,G2,R3 & R2 & R1,T2 & T3
+144,144,144,145,625744.9775,1013622.805,100,Foraging & Travel connection,Foraging & Travel connection,G2,R2 & R1 & R3,T2 & T1
+145,145,145,146,625568.1713,1013509.092,607,Nesting Site & Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G3 & G2 & G1,R2 & R1,T1
+146,146,146,147,625763.0917,1013574.263,329,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G3 & G1 & G2,R2 & R3,T2
+147,147,147,148,625784.473,1013727.161,253,Travel connection,Travel connection & Nesting Site & Foraging,G1 & G3,R1 & R2,T1 & T2
+148,148,148,149,625811.9993,1013752.817,360,Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G2 & G3 & G1,R2 & R1,T2
+149,149,149,150,625767.863,1013949.921,151,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G3,R3,T2 & T1 & T3
+150,150,150,151,625817.2514,1013943.172,108,Foraging,Travel connection,G2,R2 & R1,T3
+151,151,151,152,625858.1138,1013973.209,212,Travel connection & Foraging,Foraging,G3,R1 & R2,T1 & T3 & T2
+152,152,152,153,625821.626,1013961.975,384,Travel connection,Travel connection,G3,R3,T1
+153,153,153,154,625982.6626,1013894.365,234,Travel connection,Foraging & Nesting Site & Travel connection,G1,R2 & R3 & R1,T1 & T2
+154,154,154,155,626136.9369,1013915.41,289,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G2 & G3,R1,T2 & T1
+155,155,155,156,626185.2524,1013907.191,84,Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G1,R3 & R1 & R2,T2 & T3 & T1
+156,156,156,157,626312.6574,1013894.941,202,Foraging,Nesting Site & Foraging,G3 & G1 & G2,R2,T3 & T2 & T1
+157,157,157,158,626488.5929,1013937.397,131,Travel connection,Foraging & Nesting Site & Travel connection,G3,R3 & R2 & R1,T3 & T2
+158,158,158,159,626310.5158,1013846.34,176,Nesting Site & Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G1,R3,T1 & T3
+159,159,159,160,626030.3128,1013861.421,172,Nesting Site & Travel connection & Foraging,Nesting Site,G1 & G3,R3 & R1,T3 & T1
+160,160,160,161,626256.8945,1013627.287,279,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging,G3,R3 & R1 & R2,T2 & T1 & T3
+161,161,161,162,626267.9555,1013641.097,114,Travel connection & Nesting Site,Travel connection,G3,R1 & R2 & R3,T1 & T2 & T3
+162,162,162,163,626435.9858,1013643.584,140,Travel connection & Foraging & Nesting Site,Travel connection,G1,R2 & R3,T2
+163,163,163,164,626301.2249,1013577.428,482,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1,R1 & R2,T2 & T1 & T3
+164,164,164,165,626186.2689,1013650.369,216,Travel connection,Travel connection & Foraging & Nesting Site,G1,R1 & R2 & R3,T3 & T1 & T2
+165,165,165,166,626878.7407,1013847.09,115,Nesting Site & Travel connection,Travel connection,G1 & G2,R1,T2 & T1 & T3
+166,166,166,167,626019.3237,1013603.633,56,Travel connection,Foraging,G1,R3 & R1 & R2,T3 & T1 & T2
+167,167,167,168,626019.1946,1013518.059,131,Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G2 & G1,R2 & R3 & R1,T1
+168,168,168,169,626743.2646,1013881.416,240,Nesting Site & Foraging & Travel connection,Travel connection & Foraging,G2,R3,T2
+169,169,169,170,626891.9508,1013783.717,133,Nesting Site & Travel connection,Travel connection & Nesting Site,G3 & G2,R3 & R2,T3 & T1 & T2
+170,170,170,171,626685.4069,1013720.078,612,Nesting Site & Foraging & Travel connection,Travel connection & Foraging & Nesting Site,G3 & G1 & G2,R1,T3 & T2 & T1
+171,171,171,172,626796.0458,1013816.299,294,Foraging,Nesting Site & Travel connection,G3,R2 & R3,T2
+172,172,172,173,626759.2851,1013829.172,165,Nesting Site & Foraging & Travel connection,Foraging,G2,R2 & R3,T1
+173,173,173,174,626738.9815,1013777.948,271,Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R2,T2 & T3 & T1
+174,174,174,175,626664.384,1013714.742,168,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G2 & G3,R2,T1 & T2 & T3
+175,175,175,176,626655.371,1013707.417,175,Travel connection & Nesting Site,Foraging & Travel connection,G1 & G3,R3,T2 & T3
+176,176,176,177,626771.1167,1013756.021,108,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G1,R3 & R2 & R1,T3
+177,177,177,178,626786.7226,1013742.016,119,Nesting Site,Travel connection & Nesting Site & Foraging,G3,R3 & R1,T1 & T3 & T2
+178,178,178,179,626638.5925,1013578.242,265,Travel connection,Nesting Site & Travel connection,G3,R1 & R3 & R2,T2 & T1
+179,179,179,180,626928.8518,1013644.779,615,Nesting Site,Nesting Site & Travel connection,G1 & G2,R3,T2 & T3
+180,180,180,181,626544.6584,1013535.035,292,Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G1 & G2,R2,T2
+181,181,181,182,626559.6396,1013521.9,56,Foraging,Nesting Site,G3 & G1 & G2,R3 & R2 & R1,T1 & T2
+182,182,182,183,626623.681,1013544.718,208,Travel connection & Foraging,Nesting Site & Travel connection,G1 & G2 & G3,R2 & R3,T1 & T3
+183,183,183,184,626705.8687,1013574.025,505,Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G3,R3 & R2 & R1,T2 & T1 & T3
+184,184,184,185,626864.6188,1013517.333,370,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G3,R3 & R1 & R2,T1 & T2 & T3
+185,185,185,186,627123.205,1013707.651,367,Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G1 & G2,R2 & R1,T3 & T2
+186,186,186,187,627133.6172,1013690.702,347,Travel connection & Nesting Site,Nesting Site & Foraging,G3,R3 & R2,T1 & T3 & T2
+187,187,187,188,627485.145,1013631.881,305,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G2 & G1,R2 & R1,T3
+188,188,188,189,627174.0437,1013899.721,493,Foraging & Travel connection,Nesting Site & Travel connection,G1 & G3,R3 & R1,T2
+189,189,189,190,627036.769,1013683.741,617,Foraging & Nesting Site,Foraging & Nesting Site,G3 & G2,R3,T2
+190,190,190,191,627238.0471,1013708.792,162,Nesting Site,Travel connection & Nesting Site,G3 & G2,R3,T3
+191,191,191,192,627215.7128,1013662.069,172,Foraging & Nesting Site & Travel connection,Nesting Site,G2 & G1,R2 & R1,T2 & T1
+192,192,192,193,627406.1648,1013608.264,175,Nesting Site & Travel connection & Foraging,Nesting Site,G3,R3,T1 & T3
+193,193,193,194,627356.5459,1013632.919,452,Foraging,Nesting Site & Travel connection & Foraging,G3 & G2 & G1,R1 & R3,T1
+194,194,194,195,627376.3111,1013591.235,302,Travel connection & Foraging & Nesting Site,Foraging,G2 & G3,R1 & R2,T1 & T2
+195,195,195,196,627375.7333,1013518.132,381,Travel connection & Foraging & Nesting Site,Foraging & Travel connection,G1 & G2,R3,T1
+196,196,196,197,627444.2627,1013568.372,505,Nesting Site & Travel connection & Foraging,Nesting Site,G1,R1 & R3 & R2,T1
+197,197,197,198,627485.009,1013714.581,187,Nesting Site & Travel connection,Travel connection & Foraging,G1 & G3,R1 & R3 & R2,T2 & T1
+198,198,198,199,627286.5613,1013539.648,657,Foraging,Nesting Site,G2 & G1 & G3,R3,T2
+199,199,199,200,627112.3778,1013605.077,348,Foraging & Travel connection & Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R1,T1 & T3 & T2
+200,200,200,201,627083.4535,1013535.773,381,Nesting Site & Foraging & Travel connection,Travel connection,G2 & G3 & G1,R3 & R1,T1 & T3 & T2
+201,201,201,202,627411.3609,1013568.869,568,Nesting Site & Travel connection,Nesting Site,G3 & G2,R3,T2 & T1
+202,202,202,203,627437.5434,1013537.744,899,Nesting Site & Travel connection,Foraging,G2,R1 & R2 & R3,T2
+203,203,203,204,627875.3879,1013795.989,110,Travel connection,Foraging & Travel connection & Nesting Site,G2,R2 & R3 & R1,T2 & T1
+204,204,204,205,624721.0732,1013652.492,347,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G2,R2,T1 & T3
+205,205,205,206,627542.7061,1013915.611,691,Travel connection,Foraging & Travel connection & Nesting Site,G1 & G3 & G2,R1,T2 & T3
+206,206,206,207,627784.0622,1013984.354,383,Nesting Site & Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G2 & G1 & G3,R2,T1 & T2
+207,207,207,208,627851.2099,1013916.507,493,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G2,R2,T3 & T2 & T1
+208,208,208,209,627898.9285,1013893.611,337,Nesting Site,Travel connection & Foraging,G1,R2 & R1 & R3,T2 & T3 & T1
+209,209,209,210,627922.2703,1013909.781,341,Travel connection,Nesting Site & Foraging & Travel connection,G3 & G1 & G2,R2 & R1,T2 & T3 & T1
+210,210,210,211,627951.2138,1013941.853,143,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G3 & G2,R1 & R3 & R2,T1
+211,211,211,212,627840.6652,1013831.138,567,Foraging & Travel connection,Nesting Site,G2,R2 & R1 & R3,T1
+212,212,212,213,627875.6006,1013779.443,472,Nesting Site & Foraging,Foraging,G2 & G3,R3 & R2,T1 & T2 & T3
+213,213,213,214,627759.822,1013774.769,52,Foraging & Nesting Site & Travel connection,Foraging,G1 & G2 & G3,R2,T3 & T2
+214,214,214,215,627758.7043,1013741.625,209,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging & Travel connection,G2,R3 & R2 & R1,T3 & T1
+215,215,215,216,627797.8455,1013784.188,639,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G2,R1 & R3,T1
+216,216,216,217,627826.8308,1013759.536,333,Foraging,Nesting Site,G2 & G1 & G3,R2 & R1,T2 & T1 & T3
+217,217,217,218,627792.0778,1013757.357,224,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G2,R3 & R1 & R2,T1
+218,218,218,219,627634.1195,1013647.566,281,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G2 & G1,R2,T2
+219,219,219,220,627610.1816,1013765.965,471,Foraging & Travel connection,Foraging & Travel connection,G2 & G3,R1 & R3 & R2,T2
+220,220,220,221,627557.5277,1013772.39,445,Travel connection & Foraging,Nesting Site,G3,R3 & R1,T2 & T1
+221,221,221,222,627515.3133,1013664.24,343,Foraging & Nesting Site,Foraging & Nesting Site,G3,R2 & R1 & R3,T2 & T1
+222,222,222,223,627566.2461,1013665.753,239,Nesting Site & Foraging,Nesting Site & Foraging,G3 & G1 & G2,R3 & R2,T3
+223,223,223,224,627632.9097,1013732.515,127,Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2 & G3,R2 & R3 & R1,T1
+224,224,224,225,627624.1932,1013722.666,212,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1,R1 & R2 & R3,T2 & T3
+225,225,225,226,627655.7436,1013630.882,245,Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G1 & G3 & G2,R1 & R2 & R3,T3 & T2
+226,226,226,227,627682.7715,1013647.681,133,Travel connection & Foraging & Nesting Site,Foraging,G3 & G1 & G2,R1 & R3,T1
+227,227,227,228,627654.3944,1013653.464,100,Nesting Site & Travel connection,Foraging,G2 & G1,R3 & R2 & R1,T3 & T1 & T2
+228,228,228,229,627865.6573,1013722.357,70,Nesting Site,Nesting Site & Travel connection,G1,R3,T2 & T3
+229,229,229,230,627853.5009,1013728.163,112,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site,G3,R3,T1 & T3
+230,230,230,231,627726.723,1013625.598,276,Foraging & Nesting Site,Nesting Site,G3 & G1,R3 & R1,T3 & T2
+231,231,231,232,627727.5026,1013646.583,164,Nesting Site,Nesting Site,G1 & G2 & G3,R3 & R1 & R2,T1
+232,232,232,233,627741.423,1013516.996,197,Foraging & Travel connection,Travel connection & Nesting Site,G1,R2,T3 & T2 & T1
+233,233,233,234,627686.0548,1013554.557,247,Travel connection & Nesting Site,Nesting Site & Travel connection,G1 & G3,R1 & R3,T2
+234,234,234,235,627588.4698,1013554.091,322,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G1,R1 & R2,T2
+235,235,235,236,627508.7827,1013585.516,358,Travel connection & Nesting Site,Foraging & Travel connection,G2 & G3,R1,T2 & T1 & T3
+236,236,236,237,627725.9809,1013327.202,206,Travel connection,Foraging & Travel connection,G3,R1,T1 & T2
+237,237,237,238,627699.0966,1013330.788,581,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G1,R3,T3
+238,238,238,239,627681.0646,1013339.731,269,Nesting Site & Travel connection,Foraging,G3 & G1,R2 & R3,T3 & T1
+239,239,239,240,627554.2028,1013428.457,343,Foraging & Nesting Site,Nesting Site & Foraging,G3,R2,T2 & T3
+240,240,240,241,627714.2349,1013383.864,285,Travel connection,Travel connection,G3 & G2,R3 & R1 & R2,T1
+241,241,241,242,627662.6166,1013237.911,213,Travel connection & Nesting Site,Nesting Site,G1 & G2 & G3,R3,T1 & T2 & T3
+242,242,242,243,627700.0749,1013060.127,310,Nesting Site & Foraging & Travel connection,Nesting Site,G3 & G2 & G1,R1 & R2,T1
+243,243,243,244,627566.3396,1013340.836,472,Foraging & Travel connection,Foraging & Travel connection,G3 & G1,R1 & R3,T2 & T3 & T1
+244,244,244,245,627867.7424,1013113.449,131,Travel connection & Foraging,Foraging & Nesting Site,G3 & G2 & G1,R2 & R1,T2
+245,245,245,246,627721.8838,1013141.791,173,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1,R2,T2
+246,246,246,247,627746.8778,1013090.638,664,Nesting Site & Foraging & Travel connection,Nesting Site,G1 & G3,R2 & R3 & R1,T3 & T2 & T1
+247,247,247,248,627533.815,1013104.851,689,Foraging & Travel connection,Nesting Site & Foraging,G2 & G3,R1,T3
+248,248,248,249,627534.5581,1013068.662,42,Foraging,Nesting Site & Foraging,G3,R3 & R2,T1
+249,249,249,250,627540.2417,1013060.431,174,Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G1,R1,T3 & T2
+250,250,250,251,627929.4872,1013095.386,115,Travel connection,Travel connection,G2 & G3 & G1,R2,T3
+251,251,251,252,627594.6933,1012930.187,209,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G2 & G1,R3,T1
+252,252,252,253,627507.2971,1012951.543,771,Foraging,Travel connection & Foraging,G1,R3 & R1,T3 & T1
+253,253,253,254,627714.2373,1012975.883,624,Foraging & Nesting Site & Travel connection,Travel connection & Foraging & Nesting Site,G1 & G3 & G2,R3 & R1 & R2,T2 & T3 & T1
+254,254,254,255,627546.5702,1012715.747,672,Travel connection & Nesting Site & Foraging,Travel connection,G2 & G1,R1 & R3 & R2,T2 & T1 & T3
+255,255,255,256,627939.3766,1012765.899,288,Nesting Site,Travel connection & Nesting Site & Foraging,G1,R3 & R1 & R2,T3 & T1
+256,256,256,257,627922.4023,1012597.478,227,Travel connection & Foraging,Foraging & Nesting Site,G3 & G1,R1 & R2,T2 & T3 & T1
+257,257,257,258,627808.2565,1012508.043,445,Nesting Site & Foraging & Travel connection,Foraging,G3,R3 & R1 & R2,T2
+258,258,258,259,627745.9296,1012346.465,500,Foraging & Nesting Site & Travel connection,Nesting Site,G1,R2,T2 & T3 & T1
+259,259,259,260,627528.129,1012452.977,355,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R1,T2 & T1
+260,260,260,261,627690.2924,1012473.942,105,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G1,R3 & R1 & R2,T3 & T2
+261,261,261,262,627684.3359,1012459.167,149,Travel connection & Foraging & Nesting Site,Foraging,G3 & G1,R1 & R2 & R3,T2 & T1
+262,262,262,263,627669.2291,1012463.602,281,Travel connection,Foraging & Travel connection & Nesting Site,G3 & G1,R3 & R1,T2 & T1 & T3
+263,263,263,264,627785.8763,1012433.826,343,Nesting Site & Travel connection & Foraging,Travel connection,G2 & G3 & G1,R1 & R3,T3
+264,264,264,265,627877.7407,1012287.049,490,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging,G1,R3 & R1,T3
+265,265,265,266,627854.4928,1012341.047,169,Foraging & Travel connection & Nesting Site,Travel connection & Foraging & Nesting Site,G2,R3,T2 & T1 & T3
+266,266,266,267,627586.0904,1012008.413,453,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site,G1,R3 & R2 & R1,T1 & T3
+267,267,267,268,627747.5732,1012266.452,220,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G2,R3,T2 & T1 & T3
+268,268,268,269,627628.972,1012366.023,381,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G2,R3,T3 & T2 & T1
+269,269,269,270,627628.2763,1012334.952,327,Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G3 & G2,R1 & R3 & R2,T1
+270,270,270,271,627528.2518,1012261.71,574,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G3 & G1,R3,T3
+271,271,271,272,627878.6765,1012060.142,200,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G3 & G1,R3,T3
+272,272,272,273,627829.3204,1012054.534,405,Nesting Site & Travel connection,Foraging & Nesting Site,G3,R2 & R1,T2 & T3 & T1
+273,273,273,274,627649.1919,1012058.894,301,Foraging,Nesting Site,G1 & G3,R3 & R2,T2 & T3 & T1
+274,274,274,275,627568.9742,1012090.035,283,Travel connection,Foraging & Travel connection & Nesting Site,G3 & G2,R1 & R3 & R2,T1 & T3 & T2
+275,275,275,276,627573.3121,1012030.682,376,Travel connection,Foraging & Nesting Site,G3,R3,T3
+276,276,276,277,627573.9268,1012050.802,94,Travel connection & Nesting Site,Nesting Site & Travel connection,G2,R3,T1 & T2 & T3
+277,277,277,278,627774.4538,1011936.463,468,Travel connection,Nesting Site,G2 & G1,R1 & R3 & R2,T2 & T3 & T1
+278,278,278,279,627776.2398,1011923.359,134,Nesting Site,Nesting Site,G2 & G3,R3 & R2,T2
+279,279,279,280,627730.831,1011864.991,214,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection,G3,R3 & R2,T3 & T2 & T1
+280,280,280,281,627680.3772,1011840.995,287,Foraging & Travel connection,Nesting Site,G2 & G3 & G1,R2,T2 & T3 & T1
+281,281,281,282,627653.8364,1011754.766,219,Travel connection,Foraging,G2 & G3 & G1,R1 & R2 & R3,T2 & T1
+282,282,282,283,627972.7643,1011709.645,305,Foraging & Nesting Site & Travel connection,Foraging,G2 & G3 & G1,R1,T3
+283,283,283,284,627959.33,1011691.016,556,Nesting Site & Foraging,Nesting Site & Travel connection,G1 & G2 & G3,R3,T3 & T1
+284,284,284,285,627837.9526,1011618.146,116,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G1 & G2 & G3,R1 & R2,T3 & T1
+285,285,285,286,627806.4001,1011619.451,312,Foraging,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R1,T2
+286,286,286,287,628165.6933,1012899.163,329,Nesting Site,Foraging,G1 & G2,R2,T1 & T3
+287,287,287,288,628150.1687,1012902.201,376,Travel connection & Nesting Site & Foraging,Travel connection,G3 & G2,R1 & R2,T3
+288,288,288,289,628272.4205,1012913.061,120,Foraging & Nesting Site,Nesting Site & Foraging,G2,R3,T1 & T3 & T2
+289,289,289,290,628367.826,1012584.082,256,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G2 & G1,R1 & R3,T2 & T3
+290,290,290,291,628444.7297,1012365.457,170,Travel connection & Foraging & Nesting Site,Foraging & Travel connection,G2 & G3 & G1,R3 & R1 & R2,T1 & T3
+291,291,291,292,628369.1393,1012024.781,348,Foraging & Nesting Site & Travel connection,Foraging,G1,R2 & R3,T3
+292,292,292,293,628490.7646,1012350.022,63,Nesting Site,Foraging & Travel connection & Nesting Site,G3,R3 & R2,T1 & T2
+293,293,293,294,628009.9406,1012336.215,355,Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R2 & R1 & R3,T2
+294,294,294,295,628027.8873,1012343.524,209,Nesting Site & Foraging,Nesting Site & Foraging,G2 & G1 & G3,R2,T3
+295,295,295,296,628044.2499,1012346.502,143,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection,G1 & G2,R1 & R3,T2 & T3 & T1
+296,296,296,297,628671.3724,1012889.131,114,Nesting Site & Travel connection & Foraging,Nesting Site,G2,R1 & R2 & R3,T3 & T2 & T1
+297,297,297,298,628788.2486,1012988.415,245,Travel connection,Foraging & Nesting Site & Travel connection,G3 & G2 & G1,R2 & R1,T2
+298,298,298,299,628286.6596,1011815.467,256,Nesting Site & Foraging & Travel connection,Travel connection,G2 & G3 & G1,R3 & R2 & R1,T3 & T2
+299,299,299,300,628439.1604,1011512.517,310,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G2,R2 & R3 & R1,T1 & T3 & T2
+300,300,300,301,628482.6876,1011537.215,175,Travel connection,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3 & R1,T2 & T3
+301,301,301,302,628551.9672,1012921.118,284,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R2,T1 & T2 & T3
+302,302,302,303,628916.4203,1012903.169,611,Nesting Site,Foraging & Travel connection,G2 & G3 & G1,R2 & R3,T1 & T3 & T2
+303,303,303,304,628997.4688,1012876.139,239,Nesting Site & Travel connection,Foraging,G1 & G3 & G2,R1 & R3 & R2,T3
+304,304,304,305,628896.1395,1012857.892,470,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G3,R2 & R3,T1 & T3 & T2
+305,305,305,306,628873.441,1012860.189,528,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1 & G3 & G2,R3,T3 & T2
+306,306,306,307,628858.4895,1012853.652,229,Foraging,Nesting Site,G2,R2,T1 & T2
+307,307,307,308,628762.314,1012754.956,325,Travel connection & Foraging,Foraging,G2 & G1 & G3,R3 & R2,T3
+308,308,308,309,628694.9639,1012787.726,238,Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G1,R2 & R1 & R3,T3 & T1
+309,309,309,310,628701.3466,1012806.287,287,Foraging & Nesting Site,Nesting Site & Foraging,G2 & G3 & G1,R2,T2 & T3 & T1
+310,310,310,311,628706.0241,1012819.126,106,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3,R2 & R1,T3
+311,311,311,312,628805.1326,1012500.089,272,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site,G2 & G3,R3 & R2 & R1,T1 & T3
+312,312,312,313,628829.5438,1012511.469,673,Foraging & Nesting Site,Foraging & Nesting Site,G3 & G1 & G2,R1,T1 & T2 & T3
+313,313,313,314,628838.3084,1012537.889,459,Travel connection & Foraging,Nesting Site,G2 & G3,R3,T1 & T2
+314,314,314,315,628803.0069,1012569.749,430,Foraging & Travel connection & Nesting Site,Travel connection,G2,R2 & R1 & R3,T1
+315,315,315,316,628752.8589,1012513.648,253,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G3,R3 & R1 & R2,T2
+316,316,316,317,628555.3564,1012484.082,300,Travel connection & Nesting Site & Foraging,Nesting Site,G1 & G2,R2 & R1 & R3,T2
+317,317,317,318,628643.0174,1012452.213,199,Nesting Site & Travel connection & Foraging,Nesting Site,G2,R2,T2 & T3
+318,318,318,319,628626.3787,1012448.666,170,Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G2,R2,T1
+319,319,319,320,628677.8104,1012427.703,91,Nesting Site,Foraging & Nesting Site,G3 & G1,R3,T3 & T1 & T2
+320,320,320,321,628803.8325,1012455.138,119,Foraging,Travel connection,G1 & G2,R3 & R2 & R1,T3 & T1 & T2
+321,321,321,322,628818.7401,1012410.411,425,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection,G3 & G1,R2,T3 & T2 & T1
+322,322,322,323,628758.0019,1012374.073,120,Foraging & Travel connection & Nesting Site,Nesting Site,G2,R3 & R2,T3 & T2 & T1
+323,323,323,324,628791.4361,1012367.396,172,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G2,R2 & R3 & R1,T2 & T1
+324,324,324,325,628963.4439,1012388.308,338,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G3,R3,T1
+325,325,325,326,628939.3593,1012275.36,398,Nesting Site,Nesting Site,G1 & G2 & G3,R3 & R2 & R1,T1
+326,326,326,327,628906.8401,1012252.861,191,Nesting Site,Travel connection,G2 & G1,R2 & R1,T1
+327,327,327,328,628851.2699,1012256.946,364,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G3 & G1,R1 & R3 & R2,T2 & T1
+328,328,328,329,628993.8396,1012016.398,315,Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G1,R2 & R3,T2 & T3 & T1
+329,329,329,330,628642.661,1012069.824,256,Nesting Site,Foraging & Nesting Site & Travel connection,G1,R3,T3 & T1 & T2
+330,330,330,331,628666.9365,1012051.451,700,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1,R2 & R1,T1 & T3
+331,331,331,332,628609.1024,1011987.878,180,Travel connection,Foraging,G2 & G1 & G3,R3,T3 & T2
+332,332,332,333,628661.0235,1011932.857,476,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G2,R2,T1 & T3
+333,333,333,334,628822.4646,1011965.382,482,Foraging,Foraging,G2 & G1 & G3,R2 & R3,T3 & T1 & T2
+334,334,334,335,628851.1858,1011857.49,186,Nesting Site,Travel connection & Foraging,G2 & G3 & G1,R2 & R1 & R3,T2 & T3
+335,335,335,336,628675.0564,1011664.676,425,Foraging,Nesting Site & Foraging & Travel connection,G1 & G3,R1,T1 & T3
+336,336,336,337,628794.6352,1011691.571,175,Foraging,Travel connection & Foraging & Nesting Site,G1 & G3,R2 & R1,T3
+337,337,337,338,628787.7473,1011682.668,224,Travel connection,Foraging,G1 & G3,R1,T1
+338,338,338,339,628793.8435,1011660.26,55,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1,R1 & R3,T1 & T3 & T2
+339,339,339,340,628872.5116,1011740.68,126,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging,G2 & G3 & G1,R1 & R3,T1 & T2
+340,340,340,341,628864.9945,1011683.598,113,Nesting Site & Foraging & Travel connection,Foraging,G3 & G2 & G1,R3 & R1 & R2,T3 & T2
+341,341,341,342,628873.2389,1011669.044,521,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G2 & G1,R3 & R1 & R2,T3 & T2 & T1
+342,342,342,343,628995.702,1011533.294,201,Travel connection & Nesting Site & Foraging,Travel connection,G3 & G1 & G2,R1,T3
+343,343,343,344,628913.3628,1011552.324,403,Nesting Site & Travel connection,Foraging,G3,R3 & R1 & R2,T2 & T1
+344,344,344,345,628919.2812,1011536.209,250,Travel connection & Foraging & Nesting Site,Nesting Site,G3 & G1,R2 & R3 & R1,T1 & T3 & T2
+345,345,345,346,628884.3812,1011528.327,323,Travel connection,Foraging,G1 & G2 & G3,R1 & R2 & R3,T3
+346,346,346,347,628851.2525,1011515.117,163,Travel connection & Nesting Site,Travel connection,G2 & G1 & G3,R3 & R2,T3 & T1
+347,347,347,348,628825.5261,1011508.999,185,Foraging,Foraging & Nesting Site & Travel connection,G1 & G2 & G3,R2 & R1,T2 & T1 & T3
+348,348,348,349,628810.8677,1011505.603,238,Foraging,Nesting Site & Travel connection,G2,R3 & R2 & R1,T3
+349,349,349,350,628800.1026,1011519.931,131,Travel connection & Foraging & Nesting Site,Nesting Site,G3 & G1,R2,T3 & T1
+350,350,350,351,628772.58,1011532.999,235,Foraging,Travel connection,G1 & G2,R3 & R2,T1
+351,351,351,352,628796.9202,1011490.973,113,Foraging & Travel connection & Nesting Site,Foraging,G2,R2,T1
+352,352,352,353,628775.2921,1011468.229,121,Travel connection,Nesting Site & Foraging & Travel connection,G3 & G2,R2,T2 & T1 & T3
+353,353,353,354,628646.4152,1011438.409,91,Nesting Site,Foraging,G1 & G2 & G3,R3,T1
+354,354,354,355,628759.5403,1011410.027,50,Nesting Site & Foraging,Nesting Site,G1 & G3,R3 & R2 & R1,T3
+355,355,355,356,628831.6851,1011335.68,121,Travel connection & Nesting Site,Travel connection & Foraging,G2 & G3 & G1,R3 & R1,T1 & T3
+356,356,356,357,628822.6189,1011347.439,337,Nesting Site,Nesting Site,G3,R2 & R1,T1
+357,357,357,358,628809.3703,1011360.734,210,Foraging & Nesting Site & Travel connection,Foraging & Travel connection,G1,R2,T3 & T2
+358,358,358,359,628811.0914,1011327.025,212,Nesting Site & Foraging,Nesting Site,G1 & G2 & G3,R2,T1
+359,359,359,360,628764.0355,1011344.246,94,Foraging,Nesting Site & Travel connection & Foraging,G2 & G1,R1,T1 & T3 & T2
+360,360,360,361,628942.0106,1011184.411,401,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G3,R1 & R3 & R2,T2
+361,361,361,362,628919.7101,1011126.44,219,Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R3 & R1,T2 & T3 & T1
+362,362,362,363,628857.9335,1011169.128,291,Foraging & Travel connection,Nesting Site & Travel connection,G2 & G1,R1 & R3 & R2,T2 & T3
+363,363,363,364,628677.0009,1010689.751,457,Travel connection,Nesting Site,G1,R1,T1 & T2
+364,364,364,365,628665.7369,1010703.117,158,Travel connection & Foraging & Nesting Site,Travel connection,G2,R3 & R2,T2
+365,365,365,366,628748.8582,1010741.507,210,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G2,R1 & R2 & R3,T1 & T2 & T3
+366,366,366,367,628730.2936,1010735.84,701,Foraging,Travel connection & Foraging,G3,R2 & R3 & R1,T2
+367,367,367,368,628753.9652,1010704.059,585,Travel connection,Travel connection & Nesting Site,G1 & G3,R3,T1
+368,368,368,369,628777.445,1010633.562,493,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G2,R3,T1 & T3 & T2
+369,369,369,370,628695.4978,1010539.7,126,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G2 & G1,R1 & R3,T1 & T3
+370,370,370,371,629069.014,1012990.619,182,Nesting Site,Travel connection & Foraging,G1,R2 & R3 & R1,T2
+371,371,371,372,629067.5651,1012977.764,100,Travel connection & Foraging,Foraging & Travel connection,G3 & G2 & G1,R3 & R1,T2 & T1
+372,372,372,373,629011.9283,1012909.437,183,Foraging,Nesting Site & Travel connection,G3,R1,T2 & T3
+373,373,373,374,629032.4766,1012929.175,252,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G2,R1,T3 & T1 & T2
+374,374,374,375,629022.3774,1012922.839,80,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1 & G3,R2 & R3,T2 & T3 & T1
+375,375,375,376,629068.0257,1012925.971,257,Travel connection & Foraging & Nesting Site,Travel connection,G2 & G3,R2,T1 & T3
+376,376,376,377,629049.5305,1012904.752,347,Nesting Site & Travel connection & Foraging,Nesting Site,G2,R1 & R2,T3 & T1
+377,377,377,378,629072.3391,1012895.194,210,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R2,T3 & T2
+378,378,378,379,629095.0946,1012875.843,183,Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R3 & R1 & R2,T3 & T1 & T2
+379,379,379,380,629170.9389,1012974.387,247,Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1,R3 & R1 & R2,T1 & T3 & T2
+380,380,380,381,629183.4802,1012961.423,148,Nesting Site & Foraging,Foraging & Travel connection,G2 & G3,R1,T1 & T3
+381,381,381,382,629170.1746,1012991.517,93,Travel connection,Travel connection & Foraging,G3 & G2 & G1,R1 & R2 & R3,T1 & T2 & T3
+382,382,382,383,629157.607,1012946.652,226,Travel connection & Nesting Site & Foraging,Travel connection,G3 & G2,R1,T2 & T3
+383,383,383,384,629140.3408,1012939.975,105,Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G2,R2 & R1,T3 & T2 & T1
+384,384,384,385,629151.3842,1012960.99,64,Travel connection & Foraging & Nesting Site,Nesting Site,G1,R3 & R2,T3 & T2
+385,385,385,386,629141.4164,1012953.259,284,Nesting Site & Foraging,Foraging,G3 & G1,R1,T1
+386,386,386,387,629253.0751,1012827.734,441,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G2,R2 & R3 & R1,T3
+387,387,387,388,629107.9081,1012852.367,497,Travel connection & Foraging & Nesting Site,Travel connection,G1 & G3,R2,T2 & T3
+388,388,388,389,629054.9035,1012852.94,355,Travel connection,Foraging,G3,R2,T3
+389,389,389,390,629023.6511,1012845.544,329,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1 & G3,R2,T2 & T3 & T1
+390,390,390,391,629013.3007,1012811.597,179,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1,R3,T3
+391,391,391,392,629028.115,1012815.917,138,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging,G1 & G2,R3 & R2,T3 & T2 & T1
+392,392,392,393,629030.3564,1012804.483,297,Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G3 & G1 & G2,R3,T2 & T3 & T1
+393,393,393,394,629054.9264,1012804.757,110,Nesting Site & Foraging & Travel connection,Foraging & Travel connection,G2 & G3 & G1,R2,T3 & T2
+394,394,394,395,629042.9886,1012731.588,651,Nesting Site,Travel connection,G3,R3 & R2 & R1,T3 & T1
+395,395,395,396,629221.0164,1012753.468,377,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site,G2 & G1 & G3,R1 & R2,T2 & T1 & T3
+396,396,396,397,629267.9909,1012734.992,64,Travel connection,Foraging & Travel connection & Nesting Site,G2 & G3,R2 & R1 & R3,T3 & T2 & T1
+397,397,397,398,629255.6157,1012713.481,326,Travel connection & Foraging & Nesting Site,Nesting Site,G1 & G3,R3,T3
+398,398,398,399,629072.7836,1012634.067,256,Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G3,R3 & R2 & R1,T1
+399,399,399,400,629053.8342,1012621.197,97,Travel connection,Travel connection,G1,R1 & R3 & R2,T1 & T3
+400,400,400,401,629038.0622,1012589.455,249,Foraging & Nesting Site & Travel connection,Nesting Site,G1 & G2,R2 & R1 & R3,T3
+401,401,401,402,629034.2314,1012570.033,368,Travel connection,Foraging & Travel connection & Nesting Site,G3 & G2,R1,T3
+402,402,402,403,629016.5291,1012565.588,221,Travel connection & Nesting Site,Foraging,G1,R3 & R1 & R2,T1 & T2
+403,403,403,404,629060.5963,1012563.748,259,Travel connection,Travel connection & Foraging & Nesting Site,G2 & G3,R2 & R1 & R3,T3
+404,404,404,405,629030.5659,1012518.797,592,Foraging,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R3 & R1,T3 & T2
+405,405,405,406,629117.0668,1012530.977,538,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1,R3 & R2 & R1,T2 & T1 & T3
+406,406,406,407,627112.6545,1013484.868,200,Foraging & Travel connection,Nesting Site,G2 & G1,R1 & R2,T3 & T1 & T2
+407,407,407,408,627018.7248,1013388.049,61,Foraging & Nesting Site & Travel connection,Foraging & Travel connection,G3 & G2 & G1,R1,T3
+408,408,408,409,627128.9783,1013487.402,356,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G3,R3,T3 & T1 & T2
+409,409,409,410,627160.4342,1013463.126,316,Foraging & Travel connection,Nesting Site,G3 & G2 & G1,R1 & R3 & R2,T3 & T1 & T2
+410,410,410,411,627213.2743,1013399.836,245,Travel connection & Nesting Site & Foraging,Foraging,G2,R2 & R3 & R1,T1 & T3 & T2
+411,411,411,412,627229.1448,1013388.602,431,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G1 & G3,R3 & R1,T3 & T1
+412,412,412,413,627348.7522,1013499.964,318,Nesting Site,Travel connection & Foraging & Nesting Site,G2,R1 & R2,T2 & T3
+413,413,413,414,627324.9744,1013237.196,148,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging,G2 & G3,R3,T1 & T2
+414,414,414,415,627060.6745,1013360.712,582,Foraging & Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G1,R3 & R2 & R1,T2 & T3
+415,415,415,416,627196.9035,1013208.046,363,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G3 & G1,R1 & R2 & R3,T1 & T3
+416,416,416,417,627189.797,1013174.96,618,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1,R2,T3
+417,417,417,418,627171.5741,1013172.37,131,Foraging & Travel connection & Nesting Site,Nesting Site,G2,R2 & R1,T1
+418,418,418,419,627226.1955,1013141.558,214,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G3 & G2 & G1,R1,T3 & T1 & T2
+419,419,419,420,627279.6547,1013137.06,510,Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G2 & G3,R2 & R3 & R1,T2 & T1
+420,420,420,421,627306.3034,1013155.556,446,Foraging & Nesting Site,Travel connection,G2 & G1,R2 & R1 & R3,T3 & T2 & T1
+421,421,421,422,627428.5893,1013053.403,253,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G3 & G1 & G2,R3 & R1,T3 & T1
+422,422,422,423,627355.8584,1013012.441,282,Foraging & Travel connection,Foraging & Travel connection,G2 & G1,R1 & R2 & R3,T2 & T1
+423,423,423,424,627270.7833,1013090.461,360,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G1,R2 & R1,T1 & T2 & T3
+424,424,424,425,627250.2791,1013076.894,371,Travel connection & Nesting Site,Nesting Site,G3 & G1,R3 & R2 & R1,T1 & T3
+425,425,425,426,626643.9898,1013299.726,143,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G3,R3 & R1,T3
+426,426,426,427,626526.151,1013428.305,108,Foraging & Travel connection & Nesting Site,Foraging & Travel connection,G3 & G1,R1 & R3,T2 & T3 & T1
+427,427,427,428,626590.7598,1013419.845,346,Foraging & Travel connection & Nesting Site,Foraging,G1 & G3 & G2,R1,T1 & T2
+428,428,428,429,626539.5178,1013369.289,372,Foraging & Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G2,R3,T1 & T3
+429,429,429,430,626681.8336,1013407.332,86,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site,G1,R3 & R1,T3
+430,430,430,431,626716.0366,1013466.533,227,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3,R1 & R2 & R3,T2
+431,431,431,432,626751.2689,1013426.681,247,Foraging,Foraging & Travel connection & Nesting Site,G2 & G3,R2,T1 & T2
+432,432,432,433,626770.1097,1013430.022,141,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G2 & G3 & G1,R1 & R2,T3
+433,433,433,434,626985.9598,1013378.601,325,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G1,R3,T1 & T2
+434,434,434,435,626930.0371,1013374.502,167,Foraging & Nesting Site & Travel connection,Nesting Site,G3,R2 & R1 & R3,T3 & T2
+435,435,435,436,626774.9723,1013350.378,308,Nesting Site & Travel connection & Foraging,Nesting Site,G3 & G1 & G2,R1 & R2,T2 & T1 & T3
+436,436,436,437,626761.9534,1013329.122,992,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1,R3,T3 & T1 & T2
+437,437,437,438,626702.5394,1013347.317,420,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G2 & G3 & G1,R1,T2 & T3 & T1
+438,438,438,439,626723.9848,1013278.401,835,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G2 & G1,R3 & R1,T1 & T3
+439,439,439,440,626695.7783,1013285.094,411,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G3 & G1,R2,T1 & T3
+440,440,440,441,626589.6682,1013223.99,37,Nesting Site,Nesting Site,G2 & G3 & G1,R1 & R2 & R3,T1 & T2
+441,441,441,442,626740.032,1013182.496,212,Nesting Site,Foraging & Nesting Site & Travel connection,G2,R3 & R2 & R1,T1 & T2 & T3
+442,442,442,443,626989.262,1013198.965,328,Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1,R1 & R3 & R2,T1 & T3
+443,443,443,444,626925.1704,1013095.355,112,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G1 & G2 & G3,R2 & R1 & R3,T1 & T2
+444,444,444,445,626748.5852,1012942.553,436,Nesting Site & Travel connection & Foraging,Nesting Site,G1 & G3,R1 & R3,T2 & T1
+445,445,445,446,626750.7606,1012958.488,380,Travel connection & Nesting Site,Nesting Site & Travel connection,G1 & G3,R3 & R1 & R2,T2
+446,446,446,447,626777.844,1012915.402,390,Nesting Site & Travel connection & Foraging,Foraging,G1 & G3 & G2,R2 & R1 & R3,T1 & T3 & T2
+447,447,447,448,626665.2257,1012757.777,151,Foraging & Nesting Site,Nesting Site & Foraging,G1 & G2,R3 & R1 & R2,T2
+448,448,448,449,626646.7143,1012778.295,415,Foraging,Travel connection,G3 & G2,R2,T3 & T2 & T1
+449,449,449,450,626636.5163,1012761.404,298,Nesting Site,Travel connection & Foraging & Nesting Site,G1,R3 & R1,T3 & T1
+450,450,450,451,626799.547,1012604.16,608,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G2 & G3,R1 & R2 & R3,T2 & T1
+451,451,451,452,627280.4838,1012951.317,339,Nesting Site & Travel connection & Foraging,Nesting Site,G3 & G1,R2,T1 & T3
+452,452,452,453,627260.3874,1012960.762,394,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G3 & G1 & G2,R1,T3
+453,453,453,454,627256.2619,1012934.548,"1,097",Foraging & Nesting Site,Foraging & Nesting Site,G1,R3 & R1 & R2,T1
+454,454,454,455,627361.8402,1012986.723,760,Foraging & Travel connection & Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G3,R3,T1 & T2 & T3
+455,455,455,456,627385.6901,1012971.026,329,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G3 & G1,R3 & R2 & R1,T2 & T1
+456,456,456,457,627418.9584,1012927.53,342,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G2,R1 & R3,T1
+457,457,457,458,627448.7242,1012936.807,461,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G1,R3 & R2,T1
+458,458,458,459,627472.1765,1012965.428,320,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection,G2 & G1,R3 & R1,T2 & T1 & T3
+459,459,459,460,627406.1874,1012889.267,374,Foraging,Nesting Site & Travel connection,G2,R2 & R3 & R1,T3 & T1 & T2
+460,460,460,461,627314.3501,1012831.286,736,Nesting Site & Foraging & Travel connection,Foraging & Travel connection,G3,R2 & R1,T3 & T1 & T2
+461,461,461,462,627286.8251,1012833.834,320,Foraging,Travel connection,G3,R2 & R3 & R1,T2 & T1 & T3
+462,462,462,463,627228.6436,1012886.098,451,Travel connection,Travel connection,G3 & G2 & G1,R3 & R2 & R1,T3
+463,463,463,464,627208.0153,1012881.975,372,Foraging,Travel connection,G1 & G2,R3 & R1 & R2,T3 & T1
+464,464,464,465,627104.3392,1012797.967,336,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G3,R3 & R1 & R2,T2
+465,465,465,466,627246.7149,1012776.719,286,Nesting Site & Foraging,Foraging & Nesting Site,G1 & G3,R2 & R3,T3 & T2
+466,466,466,467,627276.469,1012796.045,238,Foraging & Nesting Site & Travel connection,Foraging,G1 & G2,R3,T1 & T3
+467,467,467,468,627320.5327,1012670.531,533,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G3 & G1,R3 & R1 & R2,T3 & T1 & T2
+468,468,468,469,627169.7758,1012660.862,724,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G3 & G2,R2 & R3,T2 & T3 & T1
+469,469,469,470,627078.9888,1012620.761,701,Foraging & Travel connection,Travel connection,G1 & G3,R2,T3 & T1 & T2
+470,470,470,471,627003.5725,1012624.193,327,Nesting Site,Nesting Site & Foraging,G1 & G3,R2 & R1 & R3,T1 & T3
+471,471,471,472,627043.5819,1012584.757,332,Travel connection & Foraging,Foraging,G1,R3 & R1 & R2,T2 & T3
+472,472,472,473,627009.5311,1012581.109,54,Nesting Site & Foraging,Nesting Site,G2,R1 & R3 & R2,T2 & T1 & T3
+473,473,473,474,627063.0272,1012543.191,235,Travel connection,Nesting Site & Foraging & Travel connection,G2,R1,T3 & T2
+474,474,474,475,626533.147,1012621.036,697,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging,G1 & G3,R2,T3 & T2
+475,475,475,476,626886.4823,1012543.344,870,Nesting Site,Travel connection,G3,R2,T1 & T2
+476,476,476,477,626874.8008,1012734.661,172,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R1,T3 & T1 & T2
+477,477,477,478,626933.0979,1012730.008,165,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G1,R1,T3 & T1
+478,478,478,479,626968.2856,1012706.016,244,Foraging & Nesting Site,Nesting Site,G2,R3 & R2,T3
+479,479,479,480,627020.3427,1012253.36,184,Travel connection & Nesting Site,Travel connection & Foraging,G1 & G2,R1 & R2 & R3,T2 & T1
+480,480,480,481,627074.633,1012421.851,215,Nesting Site,Nesting Site & Travel connection & Foraging,G3,R3,T2 & T1 & T3
+481,481,481,482,627381.5736,1012289.064,415,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G3,R1,T3 & T1
+482,482,482,483,627115.3579,1012363.638,119,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2,R3 & R1,T3
+483,483,483,484,627356.4521,1012029.361,288,Foraging,Foraging & Nesting Site & Travel connection,G1 & G2,R1 & R3,T3 & T2
+484,484,484,485,627427.4767,1012015.557,455,Travel connection,Travel connection & Nesting Site,G3 & G2,R3 & R2 & R1,T2 & T3 & T1
+485,485,485,486,627424.4324,1012000.024,215,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G1 & G3 & G2,R1 & R3 & R2,T1 & T3 & T2
+486,486,486,487,627411.4224,1012001.894,94,Travel connection & Nesting Site,Foraging,G3 & G1 & G2,R3 & R1 & R2,T2
+487,487,487,488,626293.301,1013345.862,75,Nesting Site & Travel connection & Foraging,Nesting Site,G3 & G2 & G1,R2 & R3 & R1,T2
+488,488,488,489,626155.8238,1013115.893,181,Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G3,R3 & R2,T2
+489,489,489,490,626177.7264,1013123.433,164,Foraging,Nesting Site & Foraging & Travel connection,G2 & G3 & G1,R1,T3 & T2 & T1
+490,490,490,491,626181.8393,1013171.849,783,Foraging,Travel connection & Foraging & Nesting Site,G2 & G3,R1,T2 & T1
+491,491,491,492,626259.4824,1013259.223,88,Travel connection,Travel connection & Foraging,G3 & G2,R1 & R3 & R2,T2
+492,492,492,493,626314.3799,1013239.129,191,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site,G3 & G1,R3 & R1,T2
+493,493,493,494,625994.7141,1013246.546,196,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G3,R1 & R3 & R2,T3 & T1 & T2
+494,494,494,495,626235.6671,1013306.881,500,Travel connection,Travel connection & Nesting Site & Foraging,G2,R3,T1 & T3 & T2
+495,495,495,496,626238.4099,1013345.048,246,Foraging,Nesting Site & Travel connection,G2,R1 & R2,T1
+496,496,496,497,626401.5137,1013302.957,107,Foraging,Foraging & Nesting Site & Travel connection,G1 & G2,R1,T1 & T3
+497,497,497,498,626453.7004,1013407.571,130,Foraging & Travel connection,Travel connection,G3,R1 & R3 & R2,T1 & T2
+498,498,498,499,626429.5195,1013491.009,211,Nesting Site,Foraging & Nesting Site,G3 & G1 & G2,R1,T3
+499,499,499,500,626279.0623,1013470.019,480,Travel connection & Foraging & Nesting Site,Travel connection,G3 & G2,R3 & R1 & R2,T2 & T3 & T1
+500,500,500,501,626344.1902,1013057.3,211,Nesting Site,Nesting Site & Travel connection & Foraging,G2,R3 & R1,T1 & T3 & T2
+501,501,501,502,626102.2895,1013124.962,131,Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1,R3,T3
+502,502,502,503,626003.1448,1013173.161,242,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G2 & G3 & G1,R2,T3 & T2
+503,503,503,504,625991.8363,1013181.287,95,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G3 & G1 & G2,R3 & R2 & R1,T3
+504,504,504,505,626022.0332,1013053.475,580,Nesting Site,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R1 & R2 & R3,T2 & T1
+505,505,505,506,625998.6662,1013131.636,268,Nesting Site & Travel connection,Nesting Site,G2 & G1,R3 & R1 & R2,T2 & T3 & T1
+506,506,506,507,626129.1774,1013064.114,357,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site,G2 & G1 & G3,R2 & R1,T3 & T1 & T2
+507,507,507,508,626220.0379,1013024.821,220,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G1 & G3,R1 & R2 & R3,T3
+508,508,508,509,626015.1486,1012937.803,235,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection,G2,R2,T1
+509,509,509,510,626692.9557,1012450.706,180,Travel connection & Foraging,Foraging & Travel connection,G3,R3,T3
+510,510,510,511,626677.6556,1012446.923,386,Nesting Site & Foraging,Nesting Site,G3,R1,T2 & T3 & T1
+511,511,511,512,626665.3665,1012435.007,380,Nesting Site,Nesting Site & Foraging,G3 & G1,R2 & R1 & R3,T3 & T1
+512,512,512,513,626304.0816,1012773.562,401,Foraging & Nesting Site,Foraging & Travel connection,G3 & G1,R3 & R1,T3 & T1
+513,513,513,514,626222.4228,1012731.286,668,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G1 & G2 & G3,R3 & R2,T3 & T1
+514,514,514,515,626317.9511,1012795.903,283,Foraging & Travel connection,Foraging,G1,R3 & R2 & R1,T3 & T2 & T1
+515,515,515,516,625993.0234,1012537.085,"1,030",Nesting Site & Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G3,R2,T3
+516,516,516,517,626047.6517,1012618.737,638,Foraging,Travel connection,G3 & G2 & G1,R1 & R3 & R2,T1 & T2
+517,517,517,518,626062.6654,1012652.137,375,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G3,R3 & R1 & R2,T1 & T3
+518,518,518,519,626082.7314,1012647.173,571,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G2,R1 & R2 & R3,T1 & T3 & T2
+519,519,519,520,626211.5847,1012580.219,677,Nesting Site,Foraging & Travel connection & Nesting Site,G2,R2,T3 & T2 & T1
+520,520,520,521,626472.0589,1012749.726,537,Nesting Site & Travel connection,Nesting Site & Foraging,G3 & G1,R1 & R3,T3
+521,521,521,522,626140.5582,1012672.376,343,Foraging & Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G2,R3 & R1 & R2,T3 & T2
+522,522,522,523,626190.8163,1012680.127,338,Travel connection & Foraging,Foraging & Nesting Site & Travel connection,G2,R3 & R2 & R1,T2
+523,523,523,524,626095.5645,1012710.88,542,Foraging & Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R1 & R3,T3
+524,524,524,525,626175.3621,1012812.707,359,Foraging & Nesting Site,Foraging & Nesting Site,G1 & G3,R2,T1 & T3
+525,525,525,526,626392.6758,1012832.986,64,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G3 & G2,R2,T1
+526,526,526,527,626453.3024,1012947.413,214,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging,G3,R3 & R2,T1 & T2 & T3
+527,527,527,528,625997.1281,1012897.145,754,Travel connection,Foraging & Travel connection,G2 & G1 & G3,R3 & R1,T3 & T1 & T2
+528,528,528,529,626026.0596,1012953.288,383,Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G3 & G1,R3 & R1 & R2,T2
+529,529,529,530,626060.1147,1012945.798,623,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G1 & G3,R3 & R1,T2
+530,530,530,531,626948.9172,1012472.053,497,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G3 & G2,R1 & R2,T3 & T1 & T2
+531,531,531,532,626947.4042,1012394.984,256,Travel connection,Travel connection & Foraging,G1 & G2 & G3,R3 & R2 & R1,T1 & T2
+532,532,532,533,626970.3812,1012352.149,648,Nesting Site & Travel connection,Travel connection & Nesting Site,G3,R2 & R1 & R3,T1
+533,533,533,534,626906.8357,1012289.753,603,Foraging & Travel connection,Foraging & Nesting Site,G1,R3 & R1,T2 & T3 & T1
+534,534,534,535,626819.6375,1012349.594,173,Foraging,Travel connection,G1,R3 & R1,T3
+535,535,535,536,626856.6894,1012329.012,539,Foraging,Travel connection & Nesting Site,G1 & G2,R1,T3 & T1 & T2
+536,536,536,537,626768.3893,1012295.708,756,Foraging & Travel connection & Nesting Site,Travel connection,G2,R3 & R2 & R1,T1 & T3 & T2
+537,537,537,538,626694.8232,1012369.308,578,Nesting Site & Foraging,Travel connection & Nesting Site,G3,R3 & R2 & R1,T2 & T3
+538,538,538,539,626620.3727,1012298.017,990,Foraging,Foraging & Travel connection & Nesting Site,G2 & G3 & G1,R3,T2 & T3 & T1
+539,539,539,540,626585.9114,1012280.595,304,Foraging & Nesting Site,Travel connection & Nesting Site,G2,R2,T3
+540,540,540,541,626582.4966,1012260.174,312,Foraging & Nesting Site,Foraging & Travel connection,G2,R3,T2
+541,541,541,542,626689.1213,1012185.679,407,Foraging & Nesting Site,Foraging & Travel connection,G3,R1 & R2,T1 & T3 & T2
+542,542,542,543,626690.2446,1012149.445,555,Travel connection & Nesting Site & Foraging,Travel connection & Foraging,G3,R2,T1 & T2 & T3
+543,543,543,544,626812.4105,1012122.334,510,Travel connection & Nesting Site,Nesting Site,G3 & G1,R3 & R1,T3 & T1 & T2
+544,544,544,545,626981.1061,1012095.897,662,Foraging,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R2 & R3 & R1,T1 & T2 & T3
+545,545,545,546,626614.5121,1012089.244,71,Travel connection & Foraging & Nesting Site,Foraging,G3,R3 & R2,T3
+546,546,546,547,626991.9796,1011924.852,577,Travel connection,Nesting Site & Travel connection,G1,R2 & R3,T2
+547,547,547,548,627032.0436,1011920.532,262,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1 & G3 & G2,R3 & R1,T2 & T3 & T1
+548,548,548,549,627244.2935,1011877.468,764,Travel connection & Nesting Site,Foraging & Travel connection,G2 & G3,R2 & R1 & R3,T2 & T1 & T3
+549,549,549,550,627316.6385,1011938.213,546,Foraging,Travel connection,G2 & G1 & G3,R2 & R3 & R1,T3 & T2 & T1
+550,550,550,551,627368.3545,1011985.761,728,Travel connection & Foraging & Nesting Site,Foraging,G1 & G3,R1 & R3,T2 & T1
+551,551,551,552,627440.2673,1011869.093,249,Nesting Site & Foraging,Travel connection & Foraging,G2 & G1,R1,T2 & T1 & T3
+552,552,552,553,627424.8102,1011847.495,197,Nesting Site & Foraging,Nesting Site,G2,R1 & R3 & R2,T3 & T1
+553,553,553,554,627325.3982,1011760.562,692,Foraging,Nesting Site & Travel connection & Foraging,G1,R1 & R3,T1 & T3
+554,554,554,555,627286.2011,1011750.615,886,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G3,R1 & R2,T3 & T2 & T1
+555,555,555,556,627085.9784,1011816.745,497,Foraging,Foraging,G2 & G1,R1 & R3 & R2,T2
+556,556,556,557,627015.612,1011742.594,603,Foraging,Nesting Site,G3 & G1 & G2,R1 & R3,T3
+557,557,557,558,627016.4039,1011695.851,659,Nesting Site & Foraging,Foraging & Travel connection,G2 & G1 & G3,R2 & R3 & R1,T1 & T3 & T2
+558,558,558,559,627074.7983,1011668.683,538,Travel connection & Foraging,Nesting Site,G1 & G3 & G2,R3 & R1 & R2,T1 & T2
+559,559,559,560,627186.2008,1011644.427,612,Nesting Site,Nesting Site,G3,R2 & R3 & R1,T1
+560,560,560,561,627323.8927,1011639.745,343,Foraging & Travel connection,Travel connection & Foraging & Nesting Site,G2,R3,T1 & T3
+561,561,561,562,627392.6847,1011725.055,439,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3,R3,T2 & T3
+562,562,562,563,627384.3003,1011572.422,123,Nesting Site,Travel connection & Nesting Site & Foraging,G2,R3,T3 & T1
+563,563,563,564,627387.368,1011597.896,436,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G2,R2,T1 & T3
+564,564,564,565,627301.8737,1011520.359,227,Travel connection & Nesting Site,Travel connection & Nesting Site,G2 & G1 & G3,R2,T2 & T3 & T1
+565,565,565,566,627245.8604,1011594.249,148,Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G3 & G1,R1 & R2,T1
+566,566,566,567,627244.3967,1011565.864,390,Nesting Site,Travel connection & Nesting Site & Foraging,G1 & G3 & G2,R2 & R3 & R1,T2
+567,567,567,568,627163.2543,1011600.909,266,Foraging,Nesting Site & Travel connection,G2 & G1,R1,T2 & T1
+568,568,568,569,626858.0538,1011831.394,735,Foraging,Travel connection & Nesting Site & Foraging,G3,R3 & R1 & R2,T2 & T3 & T1
+569,569,569,570,626920.3398,1011569.884,378,Travel connection & Foraging,Nesting Site,G1,R3 & R1 & R2,T2 & T1
+570,570,570,571,626621.806,1011633.088,172,Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G1,R2 & R3 & R1,T1
+571,571,571,572,626541.3681,1011501.03,182,Travel connection & Foraging,Nesting Site & Travel connection,G2,R2 & R1,T1 & T2 & T3
+572,572,572,573,626567.1749,1011523.188,333,Foraging & Travel connection,Foraging & Travel connection,G1,R3 & R2,T2
+573,573,573,574,626597.1502,1011567.209,383,Foraging,Travel connection,G3,R2 & R1,T2
+574,574,574,575,626572.5796,1011578.897,571,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G2 & G3,R2 & R3,T3
+575,575,575,576,626578.6957,1011555.709,247,Travel connection,Foraging,G1 & G3,R3 & R1,T3
+576,576,576,577,626614.2034,1011583.534,381,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1 & G3,R3 & R1,T3 & T1 & T2
+577,577,577,578,626648.433,1011523.15,136,Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G1,R1,T1 & T3 & T2
+578,578,578,579,626785.3836,1011527.22,132,Foraging & Nesting Site & Travel connection,Foraging,G1,R2 & R1 & R3,T1 & T3
+579,579,579,580,626837.5801,1011708.921,535,Foraging,Foraging,G3,R3,T2 & T3 & T1
+580,580,580,581,626794.193,1011741.134,147,Nesting Site & Travel connection,Nesting Site & Foraging,G1,R3,T2 & T3 & T1
+581,581,581,582,626718.8472,1011622.605,315,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G1,R3 & R2,T3 & T1 & T2
+582,582,582,583,626760.3703,1011723.269,409,Nesting Site,Nesting Site & Travel connection,G1 & G3,R1,T2 & T3 & T1
+583,583,583,584,626680.5106,1011634.2,376,Nesting Site & Travel connection & Foraging,Nesting Site,G3 & G1,R2,T2
+584,584,584,585,626585.3685,1011677.03,476,Travel connection & Nesting Site,Foraging & Nesting Site,G2 & G3 & G1,R2 & R1 & R3,T3 & T1
+585,585,585,586,626632.2205,1011723.546,154,Travel connection,Travel connection & Nesting Site,G2 & G1 & G3,R3 & R2 & R1,T2
+586,586,586,587,626559.336,1011777.898,581,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging,G3 & G1 & G2,R3 & R1,T1 & T3 & T2
+587,587,587,588,626908.0755,1011826.055,301,Travel connection,Travel connection & Foraging,G3 & G2,R1,T3
+588,588,588,589,626878.1411,1011957.39,443,Nesting Site,Travel connection & Foraging & Nesting Site,G3,R2,T3 & T2
+589,589,589,590,626623.0019,1011941.198,183,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R3,T2 & T3 & T1
+590,590,590,591,626632.0258,1011955.963,666,Travel connection & Foraging,Nesting Site,G2 & G1,R1 & R3 & R2,T1
+591,591,591,592,626405.8322,1012297.175,73,Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1,R2 & R3 & R1,T2 & T1 & T3
+592,592,592,593,626293.8124,1012021.643,786,Nesting Site & Travel connection,Foraging,G1 & G2 & G3,R2 & R3 & R1,T3
+593,593,593,594,625841.6117,1013266.166,251,Nesting Site & Travel connection,Nesting Site,G2,R3,T1 & T2
+594,594,594,595,626124.6545,1012490.751,485,Nesting Site & Travel connection & Foraging,Travel connection,G3 & G1 & G2,R1 & R3,T3
+595,595,595,596,626151.1147,1012390.345,255,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G2,R3,T1 & T2
+596,596,596,597,626258.1682,1012409.48,400,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging,G3 & G1 & G2,R3,T1 & T2
+597,597,597,598,626223.2602,1012308.634,118,Nesting Site & Foraging,Travel connection & Foraging,G3 & G2,R3 & R1 & R2,T2 & T1
+598,598,598,599,626236.1721,1012320.718,254,Foraging & Nesting Site,Foraging,G2 & G1,R2 & R3,T1 & T3 & T2
+599,599,599,600,626217.5128,1012322.893,411,Foraging & Nesting Site & Travel connection,Travel connection & Foraging & Nesting Site,G3 & G1 & G2,R2 & R1,T1 & T2 & T3
+600,600,600,601,626161.29,1012328.888,299,Nesting Site & Travel connection,Travel connection & Nesting Site,G3 & G2 & G1,R2,T2 & T3
+601,601,601,602,626155.2787,1012316.596,248,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1 & G3,R2 & R3,T3
+602,602,602,603,626164.948,1012280.433,385,Nesting Site & Foraging,Nesting Site,G3 & G2,R3,T1
+603,603,603,604,626152.9385,1012265.562,618,Foraging & Travel connection & Nesting Site,Foraging,G2,R1 & R2,T3 & T2 & T1
+604,604,604,605,626079.4788,1012180.484,461,Foraging & Travel connection,Nesting Site,G1,R2,T2
+605,605,605,606,626115.5378,1012133.628,399,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G3,R2 & R1,T3 & T2 & T1
+606,606,606,607,626287.7662,1012182.143,218,Foraging & Travel connection,Foraging & Nesting Site,G2 & G1,R3 & R1,T3
+607,607,607,608,626305.7284,1012151.339,499,Nesting Site & Foraging,Foraging & Nesting Site,G1,R3 & R1 & R2,T1
+608,608,608,609,626147.2512,1012238.892,272,Foraging & Travel connection & Nesting Site,Nesting Site,G1 & G2,R2 & R3,T1
+609,609,609,610,625527.8851,1013427.99,688,Travel connection & Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R1 & R3,T1 & T3 & T2
+610,610,610,611,625610.8808,1013442.582,250,Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G1,R3 & R1,T1 & T3 & T2
+611,611,611,612,625591.4387,1013386.531,319,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G3,R3 & R2,T2
+612,612,612,613,625645.4663,1013376.515,513,Travel connection & Nesting Site,Travel connection,G1,R3,T1
+613,613,613,614,625630.7426,1013399.401,525,Nesting Site & Foraging,Travel connection & Nesting Site,G2 & G3,R1 & R3 & R2,T2 & T1 & T3
+614,614,614,615,625755.6781,1013374.848,327,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R3 & R1,T1 & T3
+615,615,615,616,625794.9112,1013390.329,522,Nesting Site & Travel connection,Foraging,G1 & G3 & G2,R2 & R3 & R1,T2 & T3 & T1
+616,616,616,617,625867.2061,1013274.362,410,Travel connection,Foraging,G2 & G1,R3 & R2 & R1,T3 & T1
+617,617,617,618,625823.1575,1013343.027,314,Travel connection,Foraging & Travel connection & Nesting Site,G1,R1 & R3 & R2,T3 & T2
+618,618,618,619,625831.5757,1013328.709,57,Foraging,Foraging,G2 & G1 & G3,R3 & R2,T1 & T3 & T2
+619,619,619,620,625938.5873,1013094.652,650,Foraging & Travel connection,Foraging,G1 & G3 & G2,R1 & R3 & R2,T3
+620,620,620,621,625945.4181,1013034.579,788,Foraging & Nesting Site,Travel connection & Nesting Site,G1 & G2 & G3,R2 & R1 & R3,T2 & T3
+621,621,621,622,625697.0446,1013134.276,"1,226",Foraging,Nesting Site & Travel connection,G3,R2 & R3,T3 & T1
+622,622,622,623,625596.8199,1013117.21,893,Travel connection & Foraging,Nesting Site & Travel connection,G1 & G2,R3 & R1 & R2,T1
+623,623,623,624,625534.4275,1013008.883,590,Foraging & Travel connection & Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G1 & G2,R2 & R3,T1
+624,624,624,625,625570.3015,1013016.885,544,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R1,T1 & T3
+625,625,625,626,625582.195,1013041.245,480,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1,R2 & R3,T1
+626,626,626,627,625676.0227,1013091.323,842,Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G1,R2 & R1 & R3,T3 & T1
+627,627,627,628,625757.21,1013035.223,344,Foraging & Travel connection,Foraging,G2 & G3,R2 & R1,T1 & T3
+628,628,628,629,625831.5221,1013104.076,732,Nesting Site & Travel connection,Nesting Site,G3,R1 & R3 & R2,T2 & T3
+629,629,629,630,625924.445,1013086.904,79,Nesting Site,Nesting Site & Foraging,G2,R2,T3 & T1 & T2
+630,630,630,631,625940.6635,1013160.98,455,Travel connection,Travel connection & Nesting Site,G3 & G1,R2 & R3 & R1,T3 & T2
+631,631,631,632,625910.0755,1013131.683,489,Foraging & Travel connection,Nesting Site & Foraging & Travel connection,G2 & G1 & G3,R3 & R2,T2 & T3 & T1
+632,632,632,633,625887.3414,1013149.808,278,Foraging,Nesting Site & Travel connection,G2,R3 & R1 & R2,T1 & T2 & T3
+633,633,633,634,625702.9339,1013184.425,"1,276",Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G1 & G3,R2 & R1,T1 & T3
+634,634,634,635,625662.7418,1013217.357,640,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G1 & G3,R2 & R1,T1 & T3
+635,635,635,636,625564.8325,1013180.089,400,Foraging,Travel connection,G1 & G2 & G3,R3,T2
+636,636,636,637,625530.0461,1013252.815,832,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G1,R1 & R2,T1 & T2 & T3
+637,637,637,638,625614.1808,1013329.597,202,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection,G3 & G1 & G2,R2 & R3 & R1,T3 & T1 & T2
+638,638,638,639,625625.8209,1013334.196,240,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1,R1 & R2 & R3,T3 & T2 & T1
+639,639,639,640,625737.5383,1013259.946,231,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G3,R3,T2 & T3
+640,640,640,641,625720.0351,1013296.057,555,Nesting Site & Travel connection & Foraging,Travel connection,G2 & G3 & G1,R3,T2 & T3
+641,641,641,642,625716.6581,1013327.818,210,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection,G3 & G1,R3 & R1,T3
+642,642,642,643,625807.5104,1013260.802,316,Foraging & Nesting Site & Travel connection,Nesting Site,G3 & G2,R2,T2 & T1
+643,643,643,644,627319.965,1011477.069,511,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G1,R1 & R2 & R3,T3 & T2
+644,644,644,645,627323.7198,1011357.083,100,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G1 & G2,R2,T3 & T2
+645,645,645,646,627485.5275,1011350.987,299,Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G3,R1 & R3 & R2,T1
+646,646,646,647,627463.4348,1011403.958,296,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G3,R3 & R2 & R1,T1 & T3 & T2
+647,647,647,648,627427.3701,1011468.445,348,Nesting Site & Foraging & Travel connection,Travel connection & Foraging,G2,R3,T1 & T2 & T3
+648,648,648,649,627359.1807,1011398.22,462,Foraging & Nesting Site,Nesting Site,G2 & G1,R1 & R2,T3
+649,649,649,650,627371.5709,1011411.159,122,Nesting Site & Travel connection,Nesting Site & Travel connection,G1 & G2 & G3,R2,T3
+650,650,650,651,627365.3279,1011460.621,335,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G3 & G1 & G2,R1 & R3 & R2,T3 & T2 & T1
+651,651,651,652,627340.5515,1011441.421,138,Nesting Site & Foraging & Travel connection,Nesting Site,G3 & G1 & G2,R1,T3 & T2
+652,652,652,653,627325.1054,1011493.275,161,Nesting Site,Travel connection & Nesting Site,G3 & G1,R3 & R2 & R1,T2
+653,653,653,654,627306.89,1011488.756,213,Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R2 & R1 & R3,T3 & T1 & T2
+654,654,654,655,627041.0188,1011418.207,328,Foraging & Travel connection,Foraging,G2 & G1,R1 & R3 & R2,T3
+655,655,655,656,627005.9761,1011313.857,292,Nesting Site & Travel connection,Travel connection,G1,R1 & R3,T2 & T3 & T1
+656,656,656,657,627282.2273,1011286.204,590,Travel connection & Nesting Site,Travel connection,G1 & G3,R1 & R3,T1 & T3
+657,657,657,658,627279.9253,1011326.679,459,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R1 & R3,T3
+658,658,658,659,627259.2651,1011366.307,600,Nesting Site & Travel connection,Foraging,G2,R2 & R1 & R3,T3 & T1 & T2
+659,659,659,660,627228.2135,1011354.228,293,Travel connection,Travel connection & Foraging & Nesting Site,G2 & G1 & G3,R1 & R2,T2 & T1 & T3
+660,660,660,661,627165.1073,1011338.732,425,Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G2,R2 & R3,T3 & T1 & T2
+661,661,661,662,626995.6758,1011236.382,656,Travel connection & Foraging,Foraging,G2 & G3,R2,T1 & T3 & T2
+662,662,662,663,627057.7098,1011202.333,362,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G2,R1 & R3,T3 & T1 & T2
+663,663,663,664,627266.7051,1011149.26,400,Foraging & Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G2,R2 & R3,T1
+664,664,664,665,627301.4679,1011135.646,652,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G1 & G2 & G3,R2 & R3 & R1,T1
+665,665,665,666,627306.6431,1011163.151,316,Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G2,R3 & R1,T3 & T1
+666,666,666,667,627423.8873,1011119.938,176,Nesting Site,Travel connection & Foraging & Nesting Site,G3 & G1,R3 & R2 & R1,T1 & T2
+667,667,667,668,627096.0968,1011059.233,221,Travel connection & Nesting Site,Nesting Site & Foraging,G1 & G3 & G2,R1 & R2,T2
+668,668,668,669,627111.8342,1011058.095,112,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G1 & G3,R1,T3
+669,669,669,670,627029.7885,1011136.497,210,Foraging,Nesting Site & Foraging,G1 & G3 & G2,R2 & R1,T1
+670,670,670,671,627002.3668,1011137.185,108,Foraging & Travel connection & Nesting Site,Travel connection,G3 & G1 & G2,R2 & R3,T1 & T3
+671,671,671,672,627107.8858,1011168.45,231,Foraging & Travel connection & Nesting Site,Foraging & Travel connection,G3 & G2 & G1,R2 & R1,T3 & T2 & T1
+672,672,672,673,627128.0581,1011161.496,348,Travel connection,Nesting Site & Travel connection,G1 & G3,R3 & R1 & R2,T1 & T2
+673,673,673,674,627369.7783,1011255.661,628,Foraging & Travel connection,Travel connection & Foraging,G3 & G2 & G1,R3,T2 & T3 & T1
+674,674,674,675,627537.0907,1011371.796,366,Travel connection & Nesting Site & Foraging,Nesting Site,G2,R3 & R2 & R1,T2 & T1 & T3
+675,675,675,676,627708.3271,1011207.387,250,Foraging & Nesting Site,Travel connection,G2 & G1 & G3,R2 & R1,T1
+676,676,676,677,627601.5056,1011271.923,187,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G3,R1 & R3,T1 & T3 & T2
+677,677,677,678,627543.0124,1011276.472,293,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G1,R3 & R1,T3
+678,678,678,679,627565.7432,1011240.994,222,Travel connection,Nesting Site & Travel connection & Foraging,G3 & G2,R2 & R1,T1
+679,679,679,680,627567.1273,1011212.626,285,Foraging,Nesting Site & Foraging & Travel connection,G2 & G3,R3 & R1 & R2,T2 & T3
+680,680,680,681,627530.6166,1011164.189,342,Nesting Site,Travel connection & Foraging,G2 & G3,R2,T1 & T3
+681,681,681,682,627551.7403,1011149.957,342,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G1,R1 & R3,T1 & T2 & T3
+682,682,682,683,627619.4522,1011214.462,707,Nesting Site & Travel connection,Travel connection,G1 & G2 & G3,R3 & R1 & R2,T2
+683,683,683,684,627907.2102,1010922.654,179,Foraging,Foraging & Nesting Site,G2,R2 & R1,T3 & T2 & T1
+684,684,684,685,627864.6621,1010861.611,153,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R2,T3
+685,685,685,686,627876.5668,1010880.156,192,Nesting Site & Foraging,Nesting Site & Foraging,G2 & G1 & G3,R2 & R3 & R1,T1 & T3 & T2
+686,686,686,687,627776.3855,1011164.008,311,Travel connection & Foraging & Nesting Site,Travel connection,G3,R1 & R3 & R2,T1 & T3 & T2
+687,687,687,688,628414.3132,1011364.96,104,Travel connection,Foraging,G3 & G2,R2,T3
+688,688,688,689,628972.125,1013241.674,321,Foraging,Foraging & Travel connection & Nesting Site,G3 & G2,R3,T3 & T2 & T1
+689,689,689,690,628970.3989,1013197.261,428,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G2,R3 & R1 & R2,T1
+690,690,690,691,628859.6226,1013180.003,474,Travel connection,Nesting Site & Foraging,G1,R1,T3 & T1
+691,691,691,692,628826.3784,1013187.514,251,Travel connection,Travel connection & Foraging,G3 & G1 & G2,R2,T1
+692,692,692,693,628800.9275,1013221.18,295,Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G2 & G1,R3 & R1,T1 & T3 & T2
+693,693,693,694,628783.4967,1013140.948,264,Foraging & Travel connection,Travel connection,G3 & G2,R2 & R3,T1
+694,694,694,695,628862.7074,1013039.097,380,Nesting Site,Travel connection,G3 & G2 & G1,R1,T2
+695,695,695,696,628916.5695,1013093.368,325,Nesting Site & Travel connection & Foraging,Foraging,G2 & G1 & G3,R3 & R1 & R2,T2
+696,696,696,697,628993.8521,1013078.741,155,Nesting Site,Travel connection & Nesting Site & Foraging,G3,R1 & R3,T3
+697,697,697,698,628965.0524,1013038.537,185,Travel connection,Travel connection & Nesting Site,G2,R2 & R3,T3 & T2
+698,698,698,699,628938.8505,1013152.886,190,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G3 & G2,R1 & R3,T1 & T3 & T2
+699,699,699,700,628936.9051,1013137.659,200,Travel connection,Nesting Site & Travel connection,G2,R3,T1
+700,700,700,701,628884.1989,1013143.397,180,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G1 & G3,R1 & R2,T1 & T3 & T2
+701,701,701,702,628998.4429,1013153.487,153,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G2,R2 & R3,T1 & T3 & T2
+702,702,702,703,629005.6783,1013248.287,385,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G3 & G2,R2 & R3 & R1,T1 & T2
+703,703,703,704,629053.1173,1013259.173,364,Foraging,Travel connection & Foraging,G3 & G2 & G1,R2 & R3,T2 & T1 & T3
+704,704,704,705,629064.8581,1013268.648,181,Nesting Site,Foraging & Nesting Site,G2,R2 & R3 & R1,T1 & T2 & T3
+705,705,705,706,629055.8716,1013207.233,385,Foraging & Nesting Site,Foraging,G2 & G1,R2,T2
+706,706,706,707,629112.4022,1013109.899,162,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G1 & G2,R1 & R3 & R2,T3
+707,707,707,708,629229.6157,1013119.898,394,Travel connection & Nesting Site,Nesting Site,G3,R3,T1 & T3 & T2
+708,708,708,709,629069.5621,1013224.901,114,Nesting Site & Travel connection & Foraging,Nesting Site,G1,R2 & R3,T2
+709,709,709,710,629128.4034,1013256.991,334,Foraging & Nesting Site,Travel connection & Foraging,G1,R2,T3
+710,710,710,711,629132.4787,1013246.474,104,Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G1,R1 & R2 & R3,T1
+711,711,711,712,629118.68,1013181.453,213,Foraging & Travel connection & Nesting Site,Travel connection,G3 & G1,R1 & R2 & R3,T3 & T1 & T2
+712,712,712,713,629040.7085,1013200.275,171,Foraging & Nesting Site,Nesting Site & Travel connection,G3,R2,T2
+713,713,713,714,629059.747,1013170.16,200,Travel connection & Foraging & Nesting Site,Nesting Site,G1,R3 & R1 & R2,T2 & T3 & T1
+714,714,714,715,629075.0149,1013165.106,81,Nesting Site & Travel connection,Foraging,G2 & G1,R2 & R1 & R3,T1
+715,715,715,716,629085.2725,1013166.906,168,Nesting Site,Foraging & Travel connection & Nesting Site,G1,R1 & R2 & R3,T3 & T2 & T1
+716,716,716,717,629097.0034,1013158.096,358,Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G2,R2,T3
+717,717,717,718,629085.0899,1013137.499,290,Travel connection & Nesting Site,Foraging,G1 & G2,R3 & R1,T1 & T2
+718,718,718,719,629087.6814,1013250.157,124,Foraging & Travel connection & Nesting Site,Nesting Site,G2,R2 & R3 & R1,T1 & T3
+719,719,719,720,629096.0759,1013230.398,95,Foraging,Nesting Site & Foraging & Travel connection,G1 & G3,R2,T3 & T1
+720,720,720,721,629137.7871,1013139.344,403,Nesting Site,Nesting Site & Travel connection & Foraging,G2 & G3,R1,T3 & T1
+721,721,721,722,629040.7143,1013097.824,430,Foraging,Foraging & Travel connection,G2 & G1 & G3,R2 & R3 & R1,T2 & T1 & T3
+722,722,722,723,629063.0644,1013099.548,302,Nesting Site,Nesting Site & Foraging,G2,R2 & R1 & R3,T1 & T2
+723,723,723,724,629086.8909,1013108.695,92,Nesting Site & Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G2,R1 & R3,T1 & T2
+724,724,724,725,629075.0364,1013096.987,190,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R3 & R1 & R2,T1
+725,725,725,726,629085.2782,1013089.523,314,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G1,R1,T3 & T1 & T2
+726,726,726,727,629098.9925,1013094.362,275,Travel connection,Travel connection & Foraging & Nesting Site,G3,R1 & R2,T1 & T3
+727,727,727,728,629026.1592,1013043.075,258,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2 & G1,R2 & R3,T2
+728,728,728,729,629035.5723,1013024.133,561,Nesting Site,Travel connection & Nesting Site,G3,R3 & R1,T3
+729,729,729,730,629056.8391,1013036.169,101,Foraging & Nesting Site & Travel connection,Travel connection,G2 & G1,R2,T3
+730,730,730,731,629083.8032,1013032.421,195,Foraging & Nesting Site,Foraging,G1,R2 & R3 & R1,T3
+731,731,731,732,629128.1927,1013056.324,121,Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G3,R1 & R3,T3 & T1 & T2
+732,732,732,733,629146.7832,1013023.191,302,Foraging,Foraging,G2,R1 & R2,T2 & T1
+733,733,733,734,629162.4952,1013041.732,71,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G1 & G3,R1 & R3,T1
+734,734,734,735,629162.8002,1013053.295,217,Foraging,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R1,T1 & T3 & T2
+735,735,735,736,629174.0129,1013020.657,334,Nesting Site & Travel connection,Travel connection & Foraging & Nesting Site,G1 & G2 & G3,R3 & R1 & R2,T1 & T3 & T2
+736,736,736,737,629190.634,1013034.181,291,Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1,R2,T2 & T3 & T1
+737,737,737,738,629158.0864,1013072.929,414,Nesting Site,Travel connection,G1,R1 & R3,T1 & T3
+738,738,738,739,629265.1866,1013142.603,453,Travel connection,Travel connection & Foraging & Nesting Site,G2 & G1,R2 & R1,T3
+739,739,739,740,629262.2423,1013089.542,389,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R1,T2 & T3
+740,740,740,741,629235.3169,1013067.315,588,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G3 & G1,R3,T2
+741,741,741,742,629191.5464,1013080.769,513,Foraging,Foraging & Nesting Site,G2 & G3 & G1,R1,T3 & T2 & T1
+742,742,742,743,629191.2386,1013104.715,377,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G2 & G3 & G1,R3 & R1,T2 & T3
+743,743,743,744,629260.0447,1013041.239,464,Travel connection & Foraging,Travel connection & Nesting Site,G1,R1,T3 & T1 & T2
+744,744,744,745,629230.7415,1013032.979,604,Foraging & Nesting Site & Travel connection,Foraging,G1 & G2 & G3,R3 & R1 & R2,T1
+745,745,745,746,629209.1735,1013056.113,269,Travel connection & Nesting Site & Foraging,Nesting Site,G1,R3 & R1 & R2,T3 & T1
+746,746,746,747,629276.3977,1013102.366,88,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G2 & G3,R3,T2 & T3
+747,747,747,748,629125.4079,1013189.728,112,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G3 & G1 & G2,R3 & R1 & R2,T3 & T1
+748,748,748,749,629072.4847,1013198.753,224,Travel connection & Nesting Site & Foraging,Foraging & Travel connection,G2 & G1 & G3,R3,T2 & T1
+749,749,749,750,629144.574,1012270.396,102,Travel connection,Nesting Site & Foraging & Travel connection,G2 & G3,R1 & R2 & R3,T1
+750,750,750,751,629018.756,1012492.741,119,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G1 & G3,R1 & R3,T1 & T2 & T3
+751,751,751,752,629024.7573,1012478.891,330,Nesting Site,Foraging & Travel connection,G1,R1 & R2,T2 & T3 & T1
+752,752,752,753,629071.7493,1012431.087,127,Travel connection,Travel connection & Foraging,G2,R1 & R3 & R2,T2
+753,753,753,754,629103.781,1012460.894,196,Travel connection,Nesting Site & Travel connection & Foraging,G3,R1 & R3 & R2,T2
+754,754,754,755,629114.9257,1012207.546,271,Travel connection & Foraging,Travel connection & Foraging,G3 & G1,R1 & R2 & R3,T3 & T2 & T1
+755,755,755,756,629157.7861,1012234.941,499,Travel connection,Foraging & Travel connection & Nesting Site,G1 & G3,R3,T1 & T3 & T2
+756,756,756,757,629178.0631,1012243.241,484,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging,G2,R3 & R1 & R2,T3
+757,757,757,758,629404.3346,1012198.396,153,Travel connection & Nesting Site,Nesting Site & Travel connection,G1 & G2,R1,T1 & T2
+758,758,758,759,629195.751,1012152.771,267,Foraging & Travel connection & Nesting Site,Nesting Site,G3 & G2,R1 & R3 & R2,T1
+759,759,759,760,625125.5488,1013352.573,307,Travel connection & Foraging & Nesting Site,Foraging & Travel connection,G2,R2,T2
+760,760,760,761,629081.8268,1012080.322,377,Nesting Site & Foraging,Travel connection & Foraging,G1 & G2 & G3,R2 & R1,T2 & T1
+761,761,761,762,629015.429,1012065.635,226,Travel connection,Foraging,G1 & G2,R2 & R1 & R3,T2 & T3 & T1
+762,762,762,763,629077.4069,1011996.202,379,Nesting Site & Travel connection & Foraging,Foraging & Nesting Site & Travel connection,G1 & G2,R3 & R1 & R2,T2
+763,763,763,764,629283.9652,1012033.595,426,Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G3 & G1,R1 & R3 & R2,T2 & T1 & T3
+764,764,764,765,629341.3167,1011982.56,238,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging,G3,R2 & R1 & R3,T2 & T1 & T3
+765,765,765,766,625194.3892,1013431.435,389,Nesting Site & Travel connection & Foraging,Nesting Site,G2,R1 & R3 & R2,T3
+766,766,766,767,625205.148,1013413.815,78,Foraging,Travel connection & Foraging & Nesting Site,G3,R1,T2 & T1 & T3
+767,767,767,768,625225.7852,1013401.551,262,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G2 & G3,R2 & R3 & R1,T3 & T2 & T1
+768,768,768,769,625181.6225,1013373.493,207,Travel connection & Foraging,Nesting Site,G2,R3,T2 & T1
+769,769,769,770,625428.5701,1013374.062,434,Travel connection,Nesting Site & Foraging,G3 & G1 & G2,R1,T2 & T1 & T3
+770,770,770,771,625438.9318,1013354.898,656,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G1 & G3,R1,T1 & T2
+771,771,771,772,625367.6156,1013387.668,142,Nesting Site & Travel connection & Foraging,Foraging & Travel connection,G2,R2 & R3,T2 & T1 & T3
+772,772,772,773,625407.3975,1013345.391,513,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G2,R3,T3
+773,773,773,774,625442.8012,1013311.825,403,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1,R3 & R2,T3
+774,774,774,775,625472.4491,1013309.971,282,Travel connection,Travel connection & Foraging,G1,R1 & R3 & R2,T1 & T2 & T3
+775,775,775,776,625472.2586,1013332.512,217,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging,G1 & G3,R1 & R3,T3 & T1 & T2
+776,776,776,777,625381.7433,1013287.01,549,Travel connection,Travel connection & Foraging,G3,R2,T3 & T2
+777,777,777,778,625411.8466,1013258.531,266,Travel connection,Nesting Site,G1 & G3 & G2,R3,T1 & T2 & T3
+778,778,778,779,625424.1371,1013252.401,141,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site,G3 & G2 & G1,R2 & R3,T1 & T2
+779,779,779,780,625447.986,1013249.57,605,Foraging & Travel connection,Nesting Site,G1 & G2 & G3,R1 & R2,T3 & T1 & T2
+780,780,780,781,625485.2714,1013234.593,"1,011",Nesting Site,Foraging,G2 & G1 & G3,R3 & R1,T3
+781,781,781,782,625416.572,1013094.497,654,Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R2 & R3,T1
+782,782,782,783,625394.9012,1013107.707,111,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R3 & R2 & R1,T1 & T2
+783,783,783,784,625395.9187,1013054.402,780,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G1,R2 & R3 & R1,T3
+784,784,784,785,625502.8715,1012986.383,113,Travel connection,Nesting Site,G3,R3 & R2,T1 & T2
+785,785,785,786,625504.0751,1013002.787,87,Travel connection & Nesting Site,Travel connection & Nesting Site,G3 & G1,R1,T1 & T2 & T3
+786,786,786,787,625426.0319,1012979.041,487,Nesting Site,Nesting Site & Foraging,G3,R2 & R1,T2 & T3
+787,787,787,788,625446.3736,1012999.751,516,Travel connection & Foraging,Travel connection,G3,R3 & R2 & R1,T2 & T1 & T3
+788,788,788,789,625468.5401,1013005.265,280,Nesting Site & Travel connection,Foraging & Travel connection,G3,R2 & R3 & R1,T3
+789,789,789,790,625338.9414,1013098.496,550,Travel connection & Nesting Site,Foraging & Nesting Site,G1,R3,T1
+790,790,790,791,625322.3414,1013086.409,359,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G2 & G3,R3,T2 & T1
+791,791,791,792,625278.9357,1013081.796,563,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G1 & G2,R1,T2 & T3 & T1
+792,792,792,793,625253.1239,1013027.876,205,Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G1,R3 & R1,T1 & T3
+793,793,793,794,625118.5053,1013070.348,370,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G1 & G2,R3 & R1 & R2,T2 & T3
+794,794,794,795,625656.4733,1012958.285,613,Foraging & Nesting Site & Travel connection,Foraging,G3 & G2 & G1,R3 & R2 & R1,T3 & T2
+795,795,795,796,625138.684,1013092.771,161,Travel connection & Nesting Site,Foraging,G3,R1 & R3 & R2,T1 & T3 & T2
+796,796,796,797,625108.0005,1013246.812,554,Foraging,Travel connection & Nesting Site,G3 & G2,R2,T1 & T2 & T3
+797,797,797,798,625293.6717,1013171.704,476,Travel connection & Nesting Site & Foraging,Foraging,G2 & G3,R1 & R3,T3 & T1
+798,798,798,799,625327.8021,1013181.365,252,Travel connection,Nesting Site,G1 & G2,R2 & R3,T1 & T2
+799,799,799,800,625222.5529,1013279.645,260,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging,G2 & G1,R1 & R3,T3 & T1 & T2
+800,800,800,801,625331.4465,1013282.254,81,Nesting Site & Travel connection,Foraging,G2 & G3 & G1,R3,T1 & T3
+801,801,801,802,625543.5742,1012913.632,403,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G2 & G3,R3,T1
+802,802,802,803,625699.1419,1012974.96,397,Foraging & Nesting Site,Nesting Site,G1 & G2,R1 & R3,T1
+803,803,803,804,625755.4845,1012947.711,152,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G3,R3 & R1 & R2,T1 & T3 & T2
+804,804,804,805,625730.4296,1012882.764,603,Nesting Site & Travel connection,Nesting Site,G2 & G1,R1 & R3 & R2,T2 & T3 & T1
+805,805,805,806,625872.3563,1012945.401,221,Travel connection,Nesting Site & Travel connection,G1 & G2,R2 & R3,T3 & T1 & T2
+806,806,806,807,625889.3264,1012922.253,150,Nesting Site,Travel connection,G2 & G3 & G1,R2 & R1,T2
+807,807,807,808,625913.7779,1012906.035,551,Travel connection & Nesting Site,Travel connection & Nesting Site,G1 & G3,R3,T1
+808,808,808,809,625833.9219,1012819.443,700,Nesting Site & Foraging,Foraging & Nesting Site,G1 & G2,R1,T3 & T1 & T2
+809,809,809,810,625894.8754,1012825.572,534,Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G1,R1 & R3,T1 & T2
+810,810,810,811,625858.724,1012812.303,608,Foraging & Travel connection,Travel connection & Nesting Site,G1 & G3 & G2,R1,T2
+811,811,811,812,625835.1205,1012777.945,425,Travel connection,Nesting Site,G1 & G2,R2,T2 & T1 & T3
+812,812,812,813,625726.0497,1012803.477,737,Travel connection,Travel connection & Foraging & Nesting Site,G2 & G1 & G3,R2 & R3 & R1,T2 & T3 & T1
+813,813,813,814,625680.8332,1012776.717,206,Foraging & Travel connection,Foraging,G3,R2,T1 & T3
+814,814,814,815,625633.8129,1012818.288,454,Foraging & Nesting Site & Travel connection,Foraging,G3 & G1,R3,T2 & T1 & T3
+815,815,815,816,625587.6446,1012813.37,474,Nesting Site & Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G2,R1 & R3,T1 & T3
+816,816,816,817,625568.6793,1012832.115,831,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G1,R1,T1 & T2
+817,817,817,818,625553.8407,1012764.949,211,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G3,R3 & R2 & R1,T2
+818,818,818,819,625537.6451,1012771.23,286,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G3,R2 & R3 & R1,T1 & T2 & T3
+819,819,819,820,625595.8507,1012711.896,965,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G2,R3 & R1 & R2,T1
+820,820,820,821,625660.1865,1012715.338,356,Travel connection,Nesting Site & Travel connection & Foraging,G1,R2 & R3 & R1,T1
+821,821,821,822,625703.9166,1012662.057,112,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1,R2 & R3,T1
+822,822,822,823,625704.7095,1012618.816,331,Foraging,Nesting Site,G2 & G3 & G1,R1 & R3,T2 & T1 & T3
+823,823,823,824,625854.5934,1012727.569,461,Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G1 & G3 & G2,R2 & R1 & R3,T2 & T3 & T1
+824,824,824,825,625896.4346,1012739.569,349,Travel connection,Travel connection & Foraging,G2,R2 & R1 & R3,T3
+825,825,825,826,625967.5706,1012674.543,690,Foraging & Nesting Site,Foraging,G2 & G1 & G3,R3 & R2,T2 & T3 & T1
+826,826,826,827,625962.0533,1012614.657,73,Nesting Site & Travel connection,Foraging & Nesting Site,G1 & G3,R1,T3 & T2
+827,827,827,828,625955.8021,1012629.648,404,Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G3,R3 & R1 & R2,T3 & T1 & T2
+828,828,828,829,625553.2984,1012642.858,442,Nesting Site & Foraging,Nesting Site & Travel connection,G2 & G1,R1,T3
+829,829,829,830,625707.3881,1012506.902,188,Nesting Site,Foraging,G2 & G3 & G1,R1,T2
+830,830,830,831,625536.2457,1012546.963,535,Foraging,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3,T3
+831,831,831,832,625596.6053,1012517.365,"1,066",Foraging,Foraging & Nesting Site,G3,R2 & R3,T2
+832,832,832,833,625566.5237,1012493.49,305,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G3 & G1 & G2,R2 & R3 & R1,T1
+833,833,833,834,625504.7868,1012508.418,555,Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R1,T3 & T1
+834,834,834,835,625510.407,1012491.894,38,Nesting Site & Foraging,Foraging & Nesting Site,G3 & G1 & G2,R2 & R1 & R3,T1
+835,835,835,836,625622.0823,1012384.817,320,Travel connection & Nesting Site & Foraging,Foraging,G1,R2 & R1 & R3,T3 & T2 & T1
+836,836,836,837,625619.121,1012451.312,477,Travel connection & Foraging & Nesting Site,Nesting Site,G2 & G3,R3 & R2 & R1,T1
+837,837,837,838,625740.6806,1012418.066,627,Foraging & Travel connection & Nesting Site,Foraging,G3 & G1 & G2,R1 & R2 & R3,T1 & T2
+838,838,838,839,625899.2768,1012287.143,411,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1,R1 & R3,T2 & T3 & T1
+839,839,839,840,625536.4147,1012215.041,894,Nesting Site & Travel connection & Foraging,Foraging & Nesting Site,G3,R2 & R1 & R3,T2 & T1 & T3
+840,840,840,841,625506.706,1012230.493,148,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G3,R3 & R2 & R1,T2 & T1
+841,841,841,842,625654.8972,1012205.26,639,Foraging,Travel connection,G1 & G2 & G3,R3 & R1 & R2,T3 & T1 & T2
+842,842,842,843,625754.7979,1012215.07,677,Nesting Site & Foraging & Travel connection,Travel connection,G2 & G1,R1 & R3 & R2,T2 & T1 & T3
+843,843,843,844,625946.3916,1012184.702,700,Foraging,Nesting Site & Travel connection & Foraging,G1,R3,T1
+844,844,844,845,625946.9467,1012152.938,957,Foraging,Travel connection,G3 & G2 & G1,R2 & R1 & R3,T3
+845,845,845,846,625671.0265,1012102.401,938,Travel connection,Nesting Site & Travel connection,G3 & G2,R2,T1 & T3
+846,846,846,847,625537.4448,1012023.25,442,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection,G2 & G3 & G1,R1 & R2 & R3,T2 & T1 & T3
+847,847,847,848,625614.8197,1012008.426,423,Nesting Site & Foraging & Travel connection,Travel connection,G2 & G3 & G1,R2,T2 & T3
+848,848,848,849,625651.5885,1012027.507,360,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G1 & G3,R3,T3
+849,849,849,850,625711.4042,1012013.623,295,Nesting Site & Foraging & Travel connection,Nesting Site,G2,R2 & R3,T3 & T1 & T2
+850,850,850,851,625921.9676,1012047.223,460,Travel connection & Nesting Site & Foraging,Nesting Site,G2,R3,T2 & T3 & T1
+851,851,851,852,626178.4842,1011514.472,296,Nesting Site & Travel connection,Foraging & Travel connection,G2 & G3,R1 & R3 & R2,T2
+852,852,852,853,626139.4805,1011510.108,359,Foraging & Travel connection & Nesting Site,Travel connection,G1,R2,T3 & T1
+853,853,853,854,626339.8421,1011971.627,573,Foraging & Travel connection & Nesting Site,Nesting Site,G2,R2 & R1 & R3,T3
+854,854,854,855,626451.2733,1011997.279,301,Nesting Site,Nesting Site & Foraging,G1 & G3 & G2,R2 & R1 & R3,T1 & T3
+855,855,855,856,626457.7937,1011893.274,383,Travel connection,Travel connection & Nesting Site & Foraging,G3,R1 & R2 & R3,T1
+856,856,856,857,626325.1604,1011713.788,869,Foraging & Nesting Site & Travel connection,Travel connection,G2 & G1,R3 & R2,T1 & T2 & T3
+857,857,857,858,626332.5337,1011659.681,213,Nesting Site,Nesting Site & Travel connection,G1 & G3,R3 & R2 & R1,T2 & T3
+858,858,858,859,626124.6936,1011646.601,428,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G2 & G1,R1,T3 & T1 & T2
+859,859,859,860,626017.7035,1011539.52,266,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G1 & G3 & G2,R1 & R2,T1 & T2 & T3
+860,860,860,861,626065.79,1011520.224,84,Nesting Site & Foraging & Travel connection,Travel connection & Foraging,G3 & G1,R1 & R3 & R2,T2 & T3 & T1
+861,861,861,862,626095.9193,1011564.03,197,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2,R3 & R1 & R2,T2
+862,862,862,863,626090.0137,1011518.363,293,Travel connection & Nesting Site,Travel connection & Foraging & Nesting Site,G2,R1 & R2,T3
+863,863,863,864,626322.8074,1011553.095,547,Foraging,Travel connection & Foraging,G1 & G3 & G2,R3 & R1,T2 & T1
+864,864,864,865,626469.9614,1011535.348,572,Travel connection,Nesting Site,G3,R2 & R1,T2 & T1
+865,865,865,866,626475.1971,1011519.482,172,Foraging,Nesting Site & Travel connection,G1 & G2 & G3,R2,T3 & T1
+866,866,866,867,626456.1301,1011518.061,369,Travel connection & Foraging,Foraging,G1,R2 & R3,T3 & T2 & T1
+867,867,867,868,626437.7972,1011516.515,461,Travel connection,Travel connection,G3 & G2,R1 & R3 & R2,T2 & T3 & T1
+868,868,868,869,626398.4441,1011546.344,449,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection,G2 & G3 & G1,R1 & R2,T3
+869,869,869,870,626771.123,1011405.921,107,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G1,R1 & R2,T2
+870,870,870,871,626966.3926,1011427.191,626,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G2 & G1,R2,T1 & T3 & T2
+871,871,871,872,626929.0769,1011334.239,273,Foraging & Travel connection,Nesting Site & Foraging,G3 & G2,R2 & R3 & R1,T2 & T1 & T3
+872,872,872,873,626975.8943,1011280.198,526,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3,R1 & R2,T2 & T3
+873,873,873,874,626865.7102,1011258.189,166,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging,G1 & G3 & G2,R1 & R2 & R3,T2 & T3
+874,874,874,875,626850.5947,1011260.471,350,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1 & G3 & G2,R1 & R2 & R3,T1 & T2 & T3
+875,875,875,876,626635.1032,1011371.366,469,Nesting Site,Nesting Site & Foraging,G3 & G2,R1 & R2,T2 & T1 & T3
+876,876,876,877,626629.7004,1011311.982,411,Foraging & Nesting Site,Foraging,G3 & G1 & G2,R2 & R3,T3 & T2
+877,877,877,878,626530.699,1011349.591,786,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G3,R1 & R2 & R3,T2
+878,878,878,879,626559.7065,1011282.451,"1,136",Nesting Site & Travel connection,Nesting Site,G1,R3 & R1 & R2,T2 & T1 & T3
+879,879,879,880,626563.6384,1011241.857,703,Travel connection & Foraging,Foraging & Travel connection,G2 & G1 & G3,R2 & R1 & R3,T2 & T3
+880,880,880,881,626653.9312,1011258.079,402,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G2 & G3 & G1,R2 & R3,T2 & T1
+881,881,881,882,626680.3446,1011249.125,340,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site,G1 & G3,R1 & R3,T3 & T2 & T1
+882,882,882,883,626852.1755,1011176.739,245,Foraging & Nesting Site,Travel connection,G2 & G1,R1 & R3 & R2,T2
+883,883,883,884,626787.0014,1011149.433,328,Travel connection,Nesting Site,G2 & G3 & G1,R2 & R1,T2 & T3 & T1
+884,884,884,885,626681.5743,1011052.825,332,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection,G1,R1,T3 & T2
+885,885,885,886,626608.2058,1011121.86,550,Foraging,Nesting Site,G2 & G1,R1 & R3,T1 & T3
+886,886,886,887,626605.5139,1011026.695,438,Nesting Site & Travel connection & Foraging,Foraging & Nesting Site & Travel connection,G3 & G1 & G2,R1 & R2 & R3,T3 & T2 & T1
+887,887,887,888,624670.8471,1013494.038,390,Foraging,Travel connection & Nesting Site & Foraging,G3 & G1,R3 & R2 & R1,T1 & T2
+888,888,888,889,624665.6106,1013468.767,169,Travel connection & Foraging,Foraging & Travel connection,G1,R2 & R3,T1 & T3 & T2
+889,889,889,890,624684.4015,1013450.629,249,Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G3 & G1,R3 & R2,T3
+890,890,890,891,624701.0745,1013400.532,613,Travel connection & Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3 & G2 & G1,R1,T3 & T1
+891,891,891,892,624739.7114,1013414.807,415,Foraging & Travel connection & Nesting Site,Foraging,G2 & G3,R1,T1 & T2 & T3
+892,892,892,893,624782.3556,1013472.546,154,Travel connection & Nesting Site,Travel connection,G1,R3,T2 & T1 & T3
+893,893,893,894,624621.0287,1013370.011,577,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R3 & R1 & R2,T3 & T1 & T2
+894,894,894,895,624850.5714,1013477.5,280,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G1,R1 & R2 & R3,T2
+895,895,895,896,624835.9426,1013451.227,388,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G1 & G2,R1,T1
+896,896,896,897,624805.6526,1013427.162,159,Foraging & Travel connection,Nesting Site & Foraging,G1,R3 & R2,T3 & T2
+897,897,897,898,624822.6212,1013416.533,425,Foraging,Nesting Site & Foraging,G1 & G3 & G2,R1,T1 & T3 & T2
+898,898,898,899,624815.8395,1013438.926,534,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3 & R1,T3
+899,899,899,900,624897.7148,1013462.464,169,Foraging & Nesting Site,Foraging & Nesting Site,G3,R2 & R1 & R3,T2 & T3
+900,900,900,901,624928.3397,1013470.637,194,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site,G3,R3 & R2,T2 & T1 & T3
+901,901,901,902,624961.6835,1013437.055,532,Foraging & Nesting Site,Foraging & Nesting Site,G2 & G3,R2 & R3,T1
+902,902,902,903,624950.886,1013500.702,304,Nesting Site & Travel connection,Foraging & Nesting Site,G2 & G1 & G3,R2 & R1,T1 & T3 & T2
+903,903,903,904,624892.2414,1013396.505,693,Nesting Site & Travel connection,Nesting Site,G2 & G3 & G1,R3,T3 & T2 & T1
+904,904,904,905,624803.0945,1013379.861,603,Foraging,Travel connection,G3,R1 & R2 & R3,T2 & T1
+905,905,905,906,624861.1077,1013307.083,237,Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G1 & G2,R1 & R2,T2 & T1 & T3
+906,906,906,907,624740.6913,1013370.877,735,Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G3,R2 & R1 & R3,T3
+907,907,907,908,624731.8804,1013350.824,383,Travel connection,Travel connection & Nesting Site,G2 & G1,R3,T3 & T2
+908,908,908,909,624749.0271,1013344.737,269,Foraging & Travel connection & Nesting Site,Foraging & Travel connection,G2 & G1,R1 & R2 & R3,T2
+909,909,909,910,624721.3302,1013315.702,303,Travel connection & Foraging & Nesting Site,Nesting Site,G1,R2 & R1 & R3,T3 & T2 & T1
+910,910,910,911,624698.2068,1013312.587,600,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G2 & G3,R2 & R1 & R3,T1 & T2 & T3
+911,911,911,912,624652.9336,1013307.863,767,Travel connection & Nesting Site,Nesting Site,G1 & G2,R3 & R1 & R2,T2 & T3
+912,912,912,913,624691.5015,1013264.515,384,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G3,R3 & R1 & R2,T1 & T2 & T3
+913,913,913,914,624832.6604,1013184.751,228,Nesting Site & Foraging & Travel connection,Travel connection & Foraging & Nesting Site,G1 & G2,R2 & R3,T1 & T3 & T2
+914,914,914,915,624850.4054,1013282.417,"1,134",Travel connection & Nesting Site & Foraging,Travel connection,G3 & G1,R2 & R3 & R1,T1 & T2
+915,915,915,916,624787.7247,1013209.866,698,Nesting Site,Nesting Site & Foraging,G3,R3 & R2,T1
+916,916,916,917,624839.4458,1013159.684,549,Travel connection & Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G1,R1 & R2,T3 & T1 & T2
+917,917,917,918,625135.3739,1012878.777,85,Nesting Site & Travel connection,Travel connection & Foraging,G3 & G1,R3 & R1 & R2,T1 & T2
+918,918,918,919,625117.7205,1012869.678,278,Foraging,Travel connection & Foraging & Nesting Site,G2 & G3 & G1,R3,T1
+919,919,919,920,625113.3438,1012884.823,205,Nesting Site & Foraging & Travel connection,Foraging & Travel connection,G1,R2,T3 & T2 & T1
+920,920,920,921,625090.7569,1012857.115,450,Foraging,Foraging & Nesting Site,G3,R1 & R3,T3 & T2 & T1
+921,921,921,922,625321.9469,1012841.835,704,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R3 & R2 & R1,T2 & T3 & T1
+922,922,922,923,625295.6635,1012860.275,344,Foraging & Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G2,R1 & R2 & R3,T3
+923,923,923,924,625439.5871,1012875.737,578,Travel connection & Nesting Site,Travel connection,G1,R1 & R3,T2
+924,924,924,925,625491.5579,1012883.65,423,Nesting Site & Foraging,Travel connection,G2 & G1 & G3,R3 & R2 & R1,T1 & T2
+925,925,925,926,625419.5829,1012908.073,556,Nesting Site,Foraging & Travel connection,G1 & G2 & G3,R1 & R3 & R2,T2 & T3
+926,926,926,927,625359.8623,1012931.379,675,Nesting Site,Foraging,G2,R1 & R3,T3 & T2 & T1
+927,927,927,928,625278.9137,1012988.679,162,Travel connection,Nesting Site,G3,R1,T2 & T1
+928,928,928,929,625210.1687,1012990.334,458,Foraging,Nesting Site & Travel connection,G2,R2 & R3 & R1,T1
+929,929,929,930,625140.2533,1012958.95,479,Travel connection & Foraging & Nesting Site,Foraging & Travel connection,G1 & G3,R1,T3 & T2
+930,930,930,931,624893.9332,1013103.72,544,Nesting Site & Travel connection,Nesting Site & Foraging,G2 & G3 & G1,R3 & R1 & R2,T2 & T1
+931,931,931,932,624879.8441,1013120.815,389,Travel connection,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R2 & R3,T1 & T3 & T2
+932,932,932,933,625196.8052,1012651.121,295,Travel connection & Nesting Site,Travel connection,G3,R3,T2 & T1
+933,933,933,934,625045.8413,1012830.241,134,Nesting Site & Foraging,Nesting Site,G1,R2,T3 & T1
+934,934,934,935,625051.3897,1012813.831,581,Nesting Site,Nesting Site,G1,R3 & R1,T3
+935,935,935,936,625023.1203,1012750.03,333,Foraging,Travel connection & Nesting Site & Foraging,G2,R3 & R1,T3 & T2 & T1
+936,936,936,937,625147.5968,1012792.844,489,Travel connection,Foraging,G2 & G3,R3 & R2 & R1,T3 & T1 & T2
+937,937,937,938,625362.9467,1012708.446,684,Travel connection & Foraging,Nesting Site & Travel connection,G1 & G3 & G2,R1,T2
+938,938,938,939,625462.6097,1012704.783,472,Foraging & Travel connection & Nesting Site,Foraging,G3,R1 & R3 & R2,T1 & T2 & T3
+939,939,939,940,625348.7769,1012672.178,486,Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R1 & R2,T2
+940,940,940,941,625316.7724,1012591.593,334,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2 & G3 & G1,R2,T1 & T3 & T2
+941,941,941,942,625298.471,1012575.392,704,Foraging,Nesting Site & Foraging & Travel connection,G1 & G2,R3,T1
+942,942,942,943,625249.0269,1012676.806,737,Foraging & Travel connection,Nesting Site & Travel connection,G3 & G2 & G1,R2 & R3,T2 & T1 & T3
+943,943,943,944,625219.4522,1012626.093,501,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2,R2 & R3 & R1,T3 & T2
+944,944,944,945,625358.7847,1012557.704,"1,139",Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G1 & G3 & G2,R3 & R1,T1 & T2
+945,945,945,946,625085.3152,1012677.815,543,Foraging & Nesting Site,Travel connection & Foraging,G1,R3 & R2 & R1,T3 & T2 & T1
+946,946,946,947,625424.1705,1012556.636,532,Foraging & Travel connection & Nesting Site,Foraging,G3 & G1,R3,T2
+947,947,947,948,625392.0227,1012507.078,601,Foraging & Nesting Site,Travel connection & Foraging,G2 & G1 & G3,R1 & R2,T2
+948,948,948,949,625339.9326,1012530.245,371,Nesting Site,Foraging & Travel connection,G3,R2 & R1 & R3,T1
+949,949,949,950,625347.6885,1012509.899,305,Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G1,R2 & R1 & R3,T2
+950,950,950,951,625095.5142,1012490.398,189,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R1 & R2,T1
+951,951,951,952,625083.7495,1012501.368,522,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G2,R3 & R2,T1
+952,952,952,953,624678.6545,1012995.294,181,Travel connection,Nesting Site & Foraging & Travel connection,G2 & G3,R3,T2 & T1 & T3
+953,953,953,954,624552.1779,1012899.252,333,Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3 & G2 & G1,R3,T1 & T3 & T2
+954,954,954,955,624994.351,1012987.445,378,Foraging,Travel connection & Foraging & Nesting Site,G1 & G3 & G2,R3 & R2 & R1,T3 & T2
+955,955,955,956,624964.2105,1012987.663,386,Travel connection,Foraging & Nesting Site & Travel connection,G1 & G2 & G3,R1 & R3 & R2,T1
+956,956,956,957,624962.3056,1012891.929,461,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G3,R2,T3 & T1 & T2
+957,957,957,958,624877.8641,1012883.507,"1,060",Nesting Site & Travel connection,Foraging,G1,R3 & R2,T2 & T1 & T3
+958,958,958,959,624675.8473,1012892.916,386,Foraging & Nesting Site,Nesting Site,G3,R1 & R3 & R2,T2 & T1
+959,959,959,960,624806.6249,1012842.096,773,Travel connection & Foraging,Foraging,G2 & G3 & G1,R1 & R2 & R3,T1 & T3 & T2
+960,960,960,961,624958.8684,1012806.017,125,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G2,R2 & R1 & R3,T2 & T1
+961,961,961,962,624981.928,1012560.556,804,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G3 & G2,R3 & R1 & R2,T1
+962,962,962,963,624799.2452,1012532.77,383,Foraging,Travel connection & Nesting Site,G2 & G1 & G3,R3 & R2,T1
+963,963,963,964,624712.9951,1012583.594,563,Foraging & Nesting Site,Travel connection & Foraging,G3,R2 & R3,T1
+964,964,964,965,624685.1501,1012575.147,368,Travel connection,Travel connection & Foraging & Nesting Site,G3 & G1,R3 & R2 & R1,T2
+965,965,965,966,624672.698,1012548.245,491,Travel connection,Nesting Site & Foraging,G3 & G1,R3 & R1 & R2,T2 & T1
+966,966,966,967,624647.677,1012545.336,563,Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G3,R3 & R1 & R2,T2 & T3 & T1
+967,967,967,968,624615.8344,1012526.291,581,Travel connection,Foraging & Travel connection & Nesting Site,G2,R2,T2
+968,968,968,969,624526.856,1012582.28,442,Travel connection & Nesting Site & Foraging,Travel connection,G3 & G2 & G1,R1 & R3 & R2,T3 & T2 & T1
+969,969,969,970,624542.2997,1012613.767,115,Travel connection,Nesting Site & Travel connection,G2 & G1,R1 & R3 & R2,T1 & T2 & T3
+970,970,970,971,624562.4757,1012623.059,526,Travel connection & Nesting Site,Nesting Site,G2,R1 & R2 & R3,T1 & T2
+971,971,971,972,624534.2546,1012628.419,445,Foraging & Travel connection,Foraging,G1 & G2 & G3,R2,T2 & T3
+972,972,972,973,624527.6848,1012642.315,132,Foraging,Nesting Site,G1 & G3 & G2,R1,T1 & T3 & T2
+973,973,973,974,624547.8738,1012646.691,477,Travel connection & Foraging,Travel connection & Foraging,G2 & G1 & G3,R2 & R1,T1 & T3
+974,974,974,975,624681.1031,1012660.877,239,Travel connection,Foraging,G3,R2 & R3 & R1,T1
+975,975,975,976,624695.3633,1012683.547,605,Foraging & Nesting Site & Travel connection,Travel connection & Foraging & Nesting Site,G1 & G3,R1 & R3 & R2,T1 & T3 & T2
+976,976,976,977,624536.122,1012713.234,"1,185",Foraging,Nesting Site & Travel connection,G2,R3 & R1 & R2,T1 & T2
+977,977,977,978,624801.5218,1012607.811,550,Foraging,Foraging & Nesting Site & Travel connection,G1 & G2 & G3,R2,T3
+978,978,978,979,624857.0778,1012593.927,241,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G1 & G3,R1 & R2,T3 & T2
+979,979,979,980,624935.1632,1012613.153,530,Nesting Site,Nesting Site & Foraging & Travel connection,G3,R3 & R2 & R1,T3 & T1
+980,980,980,981,624911.4175,1012740.318,967,Foraging & Nesting Site & Travel connection,Nesting Site & Travel connection,G1 & G2 & G3,R1,T2 & T3
+981,981,981,982,624630.9388,1012747.551,451,Nesting Site & Foraging & Travel connection,Travel connection & Foraging & Nesting Site,G1 & G3 & G2,R3 & R1,T2 & T3 & T1
+982,982,982,983,624745.8531,1012795.295,437,Travel connection & Foraging,Foraging,G3,R3 & R1,T2 & T3
+983,983,983,984,624576.0852,1012808.804,284,Nesting Site,Nesting Site & Foraging,G2 & G3,R3 & R1,T3 & T1 & T2
+984,984,984,985,625073.8373,1012432.88,445,Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G3 & G1,R1 & R2,T3
+985,985,985,986,625057.015,1012276.716,158,Foraging,Foraging,G2 & G1,R2,T2 & T1
+986,986,986,987,625361.3627,1012252.226,296,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G2 & G1,R1,T2
+987,987,987,988,625480.7826,1012385.963,943,Foraging,Foraging & Travel connection & Nesting Site,G1 & G3,R1 & R2 & R3,T3 & T2 & T1
+988,988,988,989,625269.6784,1012471.638,613,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site,G2 & G1 & G3,R3 & R2 & R1,T1 & T3 & T2
+989,989,989,990,625197.3511,1012482.735,915,Travel connection,Nesting Site,G3 & G2 & G1,R2,T1
+990,990,990,991,625128.987,1012485.438,271,Foraging & Travel connection,Nesting Site,G2,R1 & R2 & R3,T1 & T3
+991,991,991,992,625035.5513,1012442.498,315,Foraging & Nesting Site,Foraging & Travel connection,G1,R2 & R1 & R3,T3 & T1
+992,992,992,993,625192.9391,1012173.394,257,Travel connection & Foraging & Nesting Site,Nesting Site,G2 & G1,R2,T1 & T2 & T3
+993,993,993,994,625366.763,1012089.247,300,Nesting Site,Travel connection,G3 & G1 & G2,R3 & R2,T3 & T2
+994,994,994,995,625177.6605,1012373.442,372,Foraging,Foraging,G3 & G1 & G2,R1,T1
+995,995,995,996,625844.4672,1011913.042,577,Foraging,Nesting Site & Foraging & Travel connection,G2 & G3,R3,T1 & T2 & T3
+996,996,996,997,625871.476,1011994.837,666,Foraging,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R3 & R1,T2 & T1
+997,997,997,998,625943.8492,1011977.567,202,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1 & G3,R1 & R3 & R2,T2
+998,998,998,999,625860.9349,1011831.97,210,Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G1,R3 & R2 & R1,T3
+999,999,999,1000,625678.2783,1011762.38,597,Travel connection,Travel connection,G1 & G3,R3 & R2,T3 & T1
+1000,1000,"1,000",1001,625608.2187,1011831.947,"1,178",Foraging & Nesting Site & Travel connection,Nesting Site,G1 & G2 & G3,R2 & R1,T1 & T3
+1001,1001,"1,001",1002,625589.0039,1011871.974,269,Nesting Site,Travel connection & Foraging,G3,R3 & R2,T3 & T1
+1002,1002,"1,002",1003,625494.6258,1011787.131,607,Foraging & Travel connection,Travel connection & Nesting Site,G2 & G3,R2 & R1,T3 & T2
+1003,1003,"1,003",1004,625923.5237,1011502.764,306,Travel connection & Nesting Site & Foraging,Nesting Site,G2 & G3,R2,T1
+1004,1004,"1,004",1005,626019.0784,1011429.948,720,Travel connection & Foraging,Foraging,G2 & G3,R1 & R2,T2 & T1
+1005,1005,"1,005",1006,626466.2164,1011399.589,508,Foraging & Travel connection & Nesting Site,Nesting Site,G2 & G3,R1,T2
+1006,1006,"1,006",1007,626136.8692,1011356.849,48,Foraging,Travel connection & Nesting Site,G1 & G2,R3 & R1 & R2,T2
+1007,1007,"1,007",1008,626108.2623,1011346.894,547,Travel connection & Foraging & Nesting Site,Travel connection & Foraging,G3 & G2,R1,T1
+1008,1008,"1,008",1009,626100.0179,1011378.994,241,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R3,T1 & T3
+1009,1009,"1,009",1010,626236.0633,1011344.932,592,Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1 & G3,R2,T3 & T1
+1010,1010,"1,010",1011,626258.5386,1011354.147,524,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R2 & R1,T1 & T3 & T2
+1011,1011,"1,011",1012,626293.9373,1011297.276,377,Travel connection,Nesting Site & Travel connection,G1,R1 & R3 & R2,T3 & T2 & T1
+1012,1012,"1,012",1013,626392.5077,1011270.369,157,Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3 & R1 & R2,T2
+1013,1013,"1,013",1014,626391.4244,1011286.153,427,Nesting Site & Travel connection,Travel connection,G2 & G3,R1 & R2 & R3,T3 & T2 & T1
+1014,1014,"1,014",1015,626456.2705,1011276.213,464,Nesting Site & Foraging & Travel connection,Travel connection & Foraging & Nesting Site,G3,R2 & R1,T3
+1015,1015,"1,015",1016,626469.4303,1011487.889,89,Foraging & Travel connection,Foraging,G2,R1 & R2,T2 & T1 & T3
+1016,1016,"1,016",1017,626394.4206,1011382.107,564,Foraging,Foraging,G1 & G2 & G3,R3 & R1,T1 & T3
+1017,1017,"1,017",1018,626287.1711,1011419.981,239,Travel connection & Nesting Site,Nesting Site,G2 & G1 & G3,R3 & R2,T1 & T2
+1018,1018,"1,018",1019,626270.5165,1011420.765,271,Travel connection,Foraging & Nesting Site & Travel connection,G2,R1,T2 & T1 & T3
+1019,1019,"1,019",1020,626296.3911,1011480.569,680,Nesting Site & Travel connection & Foraging,Foraging,G1 & G3,R2 & R1,T3
+1020,1020,"1,020",1021,626076.7933,1011274.47,585,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G1 & G2 & G3,R2 & R3 & R1,T2 & T1 & T3
+1021,1021,"1,021",1022,626296.3073,1011066.103,547,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R2 & R1,T3 & T2 & T1
+1022,1022,"1,022",1023,626004.0604,1011325.372,205,Nesting Site,Nesting Site,G1 & G2,R1 & R2 & R3,T3 & T2 & T1
+1023,1023,"1,023",1024,626119.9901,1011211.402,551,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection,G2 & G1 & G3,R3,T2
+1024,1024,"1,024",1025,626204.4919,1011266.756,99,Nesting Site,Travel connection,G1,R3 & R2 & R1,T3 & T2
+1025,1025,"1,025",1026,626191.6253,1011242.562,392,Travel connection & Foraging,Nesting Site & Foraging,G2,R2 & R3 & R1,T2
+1026,1026,"1,026",1027,626213.9625,1011235.832,453,Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G2,R2 & R1,T3 & T1 & T2
+1027,1027,"1,027",1028,626216.3355,1011172.585,522,Travel connection & Foraging,Nesting Site & Foraging,G2 & G3,R2,T2
+1028,1028,"1,028",1029,626248.0288,1011150.213,140,Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G3,R1 & R3,T1 & T2 & T3
+1029,1029,"1,029",1030,626294.337,1011237.25,251,Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G1 & G2 & G3,R1 & R3,T1 & T3 & T2
+1030,1030,"1,030",1031,626278.6792,1011237.029,273,Nesting Site & Travel connection & Foraging,Travel connection,G1,R2 & R1 & R3,T2 & T1 & T3
+1031,1031,"1,031",1032,626305.2848,1011198.981,243,Travel connection & Foraging,Foraging,G3 & G2,R1 & R3 & R2,T2 & T3
+1032,1032,"1,032",1033,626396.843,1011190.483,169,Travel connection,Travel connection,G3 & G1,R2 & R1 & R3,T3
+1033,1033,"1,033",1034,626456.756,1011221.58,476,Foraging & Nesting Site,Foraging,G1 & G3,R2 & R1,T1 & T3
+1034,1034,"1,034",1035,626467.2418,1011096.34,373,Nesting Site,Foraging,G2,R1 & R3 & R2,T3
+1035,1035,"1,035",1036,626363.3939,1011080.352,397,Nesting Site,Foraging & Travel connection,G1 & G2 & G3,R2,T3 & T2 & T1
+1036,1036,"1,036",1037,626244.902,1011068.438,253,Nesting Site,Foraging,G2 & G3 & G1,R2 & R1 & R3,T1 & T2
+1037,1037,"1,037",1038,626037.7487,1011005.479,284,Travel connection,Nesting Site,G3,R3 & R2,T1 & T2 & T3
+1038,1038,"1,038",1039,626373.1029,1011065.972,165,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G3,R2 & R1,T1 & T3
+1039,1039,"1,039",1040,626321.9518,1011031.168,410,Travel connection & Nesting Site,Nesting Site,G2,R1 & R2 & R3,T1 & T3
+1040,1040,"1,040",1041,626186.0825,1011289.994,125,Foraging,Nesting Site,G1,R2 & R3,T1
+1041,1041,"1,041",1042,626515.9043,1010930.15,306,Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G3 & G2 & G1,R2 & R3,T3
+1042,1042,"1,042",1043,626589.8085,1010941.151,451,Foraging,Foraging,G3 & G2 & G1,R3,T3
+1043,1043,"1,043",1044,626607.4708,1010993.767,215,Foraging & Nesting Site & Travel connection,Travel connection,G2,R1 & R2,T2 & T1
+1044,1044,"1,044",1045,626616.1642,1010862.904,485,Travel connection,Foraging & Nesting Site & Travel connection,G2 & G3 & G1,R2 & R3 & R1,T1 & T2 & T3
+1045,1045,"1,045",1046,626536.1829,1010709.834,541,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R3 & R1 & R2,T1 & T3 & T2
+1046,1046,"1,046",1047,626492.0874,1010760.335,344,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G1,R1 & R3,T2
+1047,1047,"1,047",1048,626690.8897,1010717.884,751,Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G3,R3 & R2,T1 & T2 & T3
+1048,1048,"1,048",1049,626645.9959,1010673.613,328,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R2 & R1 & R3,T3
+1049,1049,"1,049",1050,626720.7396,1010701.916,337,Foraging,Foraging & Nesting Site & Travel connection,G1 & G2,R1 & R2,T3 & T2 & T1
+1050,1050,"1,050",1051,626803.5475,1010752.995,219,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G3 & G2 & G1,R1,T3 & T2
+1051,1051,"1,051",1052,626798.2267,1010722.855,98,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G2 & G3,R2 & R1,T3
+1052,1052,"1,052",1053,626933.8885,1010657.359,324,Foraging & Travel connection,Travel connection,G2 & G3 & G1,R2 & R3 & R1,T3 & T1 & T2
+1053,1053,"1,053",1054,626890.0316,1010664.624,179,Travel connection,Travel connection & Foraging & Nesting Site,G2 & G1,R2 & R1 & R3,T1 & T2 & T3
+1054,1054,"1,054",1055,626627.4802,1010580.375,489,Foraging,Travel connection & Nesting Site & Foraging,G1 & G2,R1 & R2 & R3,T1
+1055,1055,"1,055",1056,626613.8115,1010519.774,320,Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G3,R1 & R2,T3 & T2 & T1
+1056,1056,"1,056",1057,626549.256,1010504.052,158,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1 & G3 & G2,R3 & R2 & R1,T2 & T1
+1057,1057,"1,057",1058,627078.572,1010310.509,328,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G2 & G1,R2 & R1 & R3,T3 & T1
+1058,1058,"1,058",1059,624610.6685,1012430.429,383,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G2 & G3 & G1,R2 & R1,T1 & T2
+1059,1059,"1,059",1060,624387.5217,1012585.727,184,Nesting Site & Foraging,Nesting Site & Travel connection,G2 & G3 & G1,R3 & R1 & R2,T1 & T2
+1060,1060,"1,060",1061,624430.5137,1012567.5,385,Foraging & Nesting Site,Nesting Site & Travel connection,G1,R1,T1
+1061,1061,"1,061",1062,624403.1818,1012535.342,488,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site,G2 & G3 & G1,R1 & R3,T2 & T1 & T3
+1062,1062,"1,062",1063,624284.5596,1012596.096,228,Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G3,R3 & R1,T2
+1063,1063,"1,063",1064,624427.3535,1012625.711,933,Foraging,Foraging,G3 & G2,R2 & R1 & R3,T1
+1064,1064,"1,064",1065,624782.5493,1012348.073,153,Nesting Site,Travel connection,G1,R3 & R2,T2
+1065,1065,"1,065",1066,624558.9046,1012393.497,442,Foraging,Nesting Site & Travel connection,G2 & G1 & G3,R3,T3 & T1 & T2
+1066,1066,"1,066",1067,624498.4709,1012406.462,308,Nesting Site,Foraging,G1,R2,T2 & T1
+1067,1067,"1,067",1068,624495.0164,1012419.94,177,Nesting Site & Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G1 & G2 & G3,R3 & R2,T3 & T2
+1068,1068,"1,068",1069,624662.5923,1012472.018,434,Foraging,Travel connection & Foraging & Nesting Site,G3,R3 & R2 & R1,T2
+1069,1069,"1,069",1070,624689.4489,1012452.744,634,Foraging,Nesting Site,G1 & G2,R2,T1 & T2 & T3
+1070,1070,"1,070",1071,624754.4633,1012398.462,414,Travel connection,Foraging & Nesting Site,G1 & G2,R2,T2 & T1 & T3
+1071,1071,"1,071",1072,624643.0865,1012391.306,470,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G3 & G2 & G1,R2,T1
+1072,1072,"1,072",1073,624695.0869,1012405.803,334,Travel connection & Nesting Site,Foraging & Travel connection,G3 & G1 & G2,R3 & R2,T2
+1073,1073,"1,073",1074,624686.8057,1012382.179,575,Nesting Site & Travel connection & Foraging,Nesting Site,G2,R1,T3 & T1 & T2
+1074,1074,"1,074",1075,624803.4907,1012458.074,432,Foraging,Nesting Site & Travel connection & Foraging,G2,R2,T1 & T3 & T2
+1075,1075,"1,075",1076,624684.9732,1012423.828,133,Nesting Site,Nesting Site & Foraging,G1,R3,T1 & T2
+1076,1076,"1,076",1077,624833.397,1012460.078,312,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G2,R2 & R3,T3 & T1 & T2
+1077,1077,"1,077",1078,624769.6619,1012454.994,123,Foraging,Foraging,G1 & G3,R3 & R1,T1
+1078,1078,"1,078",1079,624904.6054,1012479.155,814,Foraging,Foraging,G1 & G3,R3,T3 & T2
+1079,1079,"1,079",1080,624959.6776,1012492.209,538,Foraging & Travel connection,Travel connection,G3 & G2 & G1,R2,T3 & T1
+1080,1080,"1,080",1081,624672.3579,1012336.933,472,Nesting Site,Nesting Site,G2,R1 & R2 & R3,T3 & T1
+1081,1081,"1,081",1082,624672.9837,1012217.384,599,Foraging,Nesting Site & Travel connection,G3 & G1,R2 & R1,T2 & T1
+1082,1082,"1,082",1083,624512.4616,1012163.036,499,Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R3 & R2,T3
+1083,1083,"1,083",1084,624498.0673,1012345.714,399,Foraging,Foraging,G1 & G3 & G2,R3 & R1 & R2,T2 & T3
+1084,1084,"1,084",1085,624511.7183,1012290.982,474,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G1 & G3,R1,T1 & T2
+1085,1085,"1,085",1086,624507.2852,1012211.212,601,Foraging,Foraging & Nesting Site & Travel connection,G2 & G3,R3 & R2,T2 & T3
+1086,1086,"1,086",1087,624576.6677,1012244.759,637,Nesting Site,Nesting Site,G2 & G3,R1,T2 & T1 & T3
+1087,1087,"1,087",1088,624576.4507,1012225.635,257,Foraging & Travel connection & Nesting Site,Nesting Site,G3 & G1 & G2,R3 & R1 & R2,T1 & T2
+1088,1088,"1,088",1089,624552.1853,1012275.901,224,Foraging & Travel connection,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R2 & R3 & R1,T1 & T3
+1089,1089,"1,089",1090,624552.8516,1012262.159,172,Foraging & Travel connection & Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G1 & G2,R3,T3 & T1
+1090,1090,"1,090",1091,624793.0452,1012195.8,219,Foraging,Travel connection,G3 & G2,R3 & R1,T3 & T1 & T2
+1091,1091,"1,091",1092,624872.2493,1012176.932,535,Travel connection & Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G3,R2 & R1 & R3,T2
+1092,1092,"1,092",1093,624901.039,1012234.902,515,Nesting Site & Travel connection,Travel connection,G3,R3 & R1,T3 & T1 & T2
+1093,1093,"1,093",1094,624951.6046,1012199.448,540,Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G2 & G3,R2 & R3,T3 & T1
+1094,1094,"1,094",1095,624884.8807,1012077.719,648,Nesting Site & Foraging & Travel connection,Nesting Site,G3,R1,T1 & T3
+1095,1095,"1,095",1096,624823.0275,1012047.892,540,Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G2 & G1,R1 & R2,T3 & T1 & T2
+1096,1096,"1,096",1097,624686.7555,1012047.431,287,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G3 & G2,R1 & R3,T2 & T1
+1097,1097,"1,097",1098,624564.852,1012024.029,537,Foraging,Travel connection & Foraging & Nesting Site,G1 & G2 & G3,R1 & R2,T2 & T3 & T1
+1098,1098,"1,098",1099,625061.8891,1011948.742,833,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G1 & G3,R1 & R3 & R2,T3 & T1 & T2
+1099,1099,"1,099",1100,625242.3048,1011972.077,261,Nesting Site & Travel connection,Foraging,G1,R3,T3 & T2 & T1
+1100,1100,"1,100",1101,625238.4781,1011951.898,562,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G1,R3,T2
+1101,1101,"1,101",1102,625338.5763,1011932.122,336,Foraging,Travel connection & Foraging,G1 & G2,R3,T2 & T3 & T1
+1102,1102,"1,102",1103,625364.5696,1011960.309,667,Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G3 & G1,R1 & R2,T1
+1103,1103,"1,103",1104,625451.4054,1011778.887,587,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G3 & G1,R1 & R3,T1 & T2
+1104,1104,"1,104",1105,625065.8797,1011774.498,154,Foraging & Nesting Site & Travel connection,Nesting Site,G3 & G2,R2 & R3,T1 & T2
+1105,1105,"1,105",1106,625000.0001,1011766.182,525,Travel connection,Foraging & Nesting Site,G2,R3 & R2 & R1,T3 & T1
+1106,1106,"1,106",1107,625213.5128,1011582.508,319,Travel connection,Foraging & Travel connection & Nesting Site,G2,R3 & R2,T1 & T2
+1107,1107,"1,107",1108,625065.0265,1011563.23,576,Foraging,Foraging,G3,R2 & R1 & R3,T2 & T3
+1108,1108,"1,108",1109,625089.5018,1011536.457,174,Nesting Site & Travel connection & Foraging,Travel connection & Foraging,G1 & G3,R2,T2 & T3
+1109,1109,"1,109",1110,625021.974,1011666.498,503,Foraging & Travel connection & Nesting Site,Travel connection & Foraging,G1 & G2 & G3,R1 & R2,T1
+1110,1110,"1,110",1111,624994.2976,1011719.098,322,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site & Foraging,G2 & G3,R2,T1 & T2 & T3
+1111,1111,"1,111",1112,625675.1165,1011481.819,479,Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G1,R2 & R1,T3
+1112,1112,"1,112",1113,625732.089,1011434.536,294,Nesting Site,Nesting Site & Travel connection,G3 & G1 & G2,R3,T3 & T1 & T2
+1113,1113,"1,113",1114,625785.3552,1011036.258,202,Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G3,R1,T1 & T3
+1114,1114,"1,114",1115,625872.6477,1011470.933,553,Travel connection & Foraging,Travel connection,G3 & G2,R2 & R3,T3 & T2
+1115,1115,"1,115",1116,625960.4925,1011403.927,405,Foraging & Travel connection & Nesting Site,Travel connection,G2 & G3 & G1,R1,T3
+1116,1116,"1,116",1117,625934.5102,1011382.043,280,Nesting Site & Travel connection & Foraging,Nesting Site,G3 & G1 & G2,R1,T3 & T1 & T2
+1117,1117,"1,117",1118,625882.1321,1011364.64,415,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G2,R3 & R2,T2 & T3
+1118,1118,"1,118",1119,625587.0484,1011299.672,519,Nesting Site & Travel connection & Foraging,Foraging,G1,R3 & R1 & R2,T1 & T2 & T3
+1119,1119,"1,119",1120,625709.1399,1011274.603,417,Nesting Site,Nesting Site & Foraging,G1 & G2,R1 & R2,T3 & T2 & T1
+1120,1120,"1,120",1121,625828.051,1011236.427,406,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G3,R3 & R2 & R1,T1 & T3
+1121,1121,"1,121",1122,625881.4652,1011249.96,266,Foraging,Travel connection,G3,R3 & R2,T2 & T1
+1122,1122,"1,122",1123,625829.266,1011307.526,255,Foraging & Travel connection & Nesting Site,Travel connection,G3,R1 & R2,T3 & T1 & T2
+1123,1123,"1,123",1124,625945.0214,1011235.572,359,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2 & G3,R3 & R1,T1 & T2 & T3
+1124,1124,"1,124",1125,625996.2264,1011235.736,182,Nesting Site,Nesting Site & Travel connection,G1,R3 & R1,T2 & T1
+1125,1125,"1,125",1126,625922.6807,1011162.08,434,Travel connection & Foraging & Nesting Site,Travel connection & Foraging,G3 & G2 & G1,R3 & R1,T2 & T1 & T3
+1126,1126,"1,126",1127,625981.5929,1011224.355,401,Travel connection,Travel connection & Foraging,G3 & G1,R2 & R3,T1 & T3
+1127,1127,"1,127",1128,625961.8986,1011114.633,648,Nesting Site & Foraging & Travel connection,Travel connection,G2,R3 & R1 & R2,T1 & T2 & T3
+1128,1128,"1,128",1129,625914.2678,1011112.081,566,Travel connection,Foraging & Nesting Site & Travel connection,G2 & G3 & G1,R1 & R2 & R3,T1 & T3
+1129,1129,"1,129",1130,625820.462,1011092.863,368,Foraging,Travel connection,G2 & G1 & G3,R2 & R3 & R1,T1
+1130,1130,"1,130",1131,625861.4829,1011085.402,601,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G3 & G2,R3 & R2 & R1,T1 & T2 & T3
+1131,1131,"1,131",1132,625839.9314,1011125.631,389,Foraging,Nesting Site & Travel connection,G1 & G3 & G2,R2,T2 & T3
+1132,1132,"1,132",1133,625820.1833,1011131.68,253,Foraging & Nesting Site,Nesting Site,G2,R3 & R2 & R1,T2
+1133,1133,"1,133",1134,625800.7408,1011134.804,431,Travel connection & Foraging,Foraging & Travel connection,G3 & G2 & G1,R1 & R3 & R2,T2 & T3 & T1
+1134,1134,"1,134",1135,625691.7589,1011113.65,236,Foraging & Travel connection & Nesting Site,Nesting Site,G2 & G1 & G3,R1 & R2,T1
+1135,1135,"1,135",1136,625706.1683,1011160.797,689,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G1 & G2 & G3,R3 & R2,T1
+1136,1136,"1,136",1137,625643.1975,1011065.489,140,Foraging,Nesting Site & Travel connection & Foraging,G2 & G3 & G1,R1,T1 & T2 & T3
+1137,1137,"1,137",1138,625591.8159,1011091.486,389,Foraging,Nesting Site & Foraging,G2 & G1 & G3,R1,T1
+1138,1138,"1,138",1139,625554.9772,1011079.96,357,Nesting Site,Travel connection & Nesting Site,G1,R2,T3
+1139,1139,"1,139",1140,625555.4971,1011035.654,176,Travel connection,Foraging & Nesting Site & Travel connection,G3,R1,T1 & T2
+1140,1140,"1,140",1141,625553.7093,1010983.519,224,Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G1 & G2,R1 & R3 & R2,T1 & T2
+1141,1141,"1,141",1142,625728.1359,1011022.64,209,Travel connection & Nesting Site,Foraging & Nesting Site,G2 & G1 & G3,R2 & R3,T3
+1142,1142,"1,142",1143,625779.7168,1011010.432,236,Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1 & G3,R2 & R3,T1
+1143,1143,"1,143",1144,626232.0181,1010768.432,236,Nesting Site & Foraging & Travel connection,Nesting Site,G3 & G1,R1 & R3,T2 & T3 & T1
+1144,1144,"1,144",1145,626416.3627,1010941.74,265,Travel connection & Foraging & Nesting Site,Foraging & Nesting Site,G2,R1 & R3,T2 & T3 & T1
+1145,1145,"1,145",1146,626014.1953,1010946.82,659,Foraging,Foraging,G3 & G2 & G1,R1 & R2,T3
+1146,1146,"1,146",1147,626038.9488,1010897.057,282,Nesting Site,Nesting Site,G3 & G1,R2 & R1,T2
+1147,1147,"1,147",1148,626135.3053,1010898.712,173,Travel connection,Foraging & Travel connection & Nesting Site,G3,R2 & R3,T1 & T3
+1148,1148,"1,148",1149,626266.4189,1010954.304,175,Nesting Site,Nesting Site,G1 & G3 & G2,R1,T2 & T3
+1149,1149,"1,149",1150,626339.9993,1010957.515,603,Nesting Site & Travel connection & Foraging,Travel connection,G2 & G1 & G3,R3 & R2 & R1,T3 & T2 & T1
+1150,1150,"1,150",1151,626395.158,1010989.914,405,Foraging,Travel connection,G3 & G2,R2,T3 & T1
+1151,1151,"1,151",1152,626325.5342,1010866.67,341,Nesting Site,Nesting Site & Foraging,G2,R2,T2
+1152,1152,"1,152",1153,626285.1888,1010863.324,553,Travel connection & Foraging & Nesting Site,Nesting Site,G2 & G3,R1 & R2,T2 & T1
+1153,1153,"1,153",1154,626116.7737,1010845.865,281,Travel connection & Foraging,Travel connection & Nesting Site,G2 & G3 & G1,R1,T3 & T2 & T1
+1154,1154,"1,154",1155,626071.4442,1010810.443,196,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G3,R3,T3 & T2
+1155,1155,"1,155",1156,626261.3443,1010779.245,222,Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G3 & G2,R2,T2
+1156,1156,"1,156",1157,626436.6541,1010777.58,324,Foraging & Nesting Site,Nesting Site & Foraging,G3 & G2,R1 & R2 & R3,T2 & T1
+1157,1157,"1,157",1158,626419.7876,1010664.556,452,Foraging & Nesting Site,Travel connection,G2 & G3,R2 & R1,T3 & T2 & T1
+1158,1158,"1,158",1159,626431.9492,1010612.416,342,Nesting Site & Foraging,Foraging & Travel connection,G2 & G1 & G3,R1 & R3,T3
+1159,1159,"1,159",1160,626333.4298,1010577.61,351,Nesting Site & Foraging & Travel connection,Nesting Site,G1 & G2 & G3,R2,T1 & T2 & T3
+1160,1160,"1,160",1161,626262.2,1010512.569,229,Nesting Site & Foraging,Nesting Site & Foraging & Travel connection,G3 & G2,R2 & R1 & R3,T3 & T1 & T2
+1161,1161,"1,161",1162,626375.5907,1010508.612,611,Travel connection,Foraging & Nesting Site & Travel connection,G2 & G3 & G1,R1,T3
+1162,1162,"1,162",1163,626156.4327,1010983.396,534,Foraging & Nesting Site,Travel connection & Foraging,G1 & G3 & G2,R3 & R1,T1
+1163,1163,"1,163",1164,626447.2586,1010487.258,494,Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G1 & G2,R2 & R3,T1
+1164,1164,"1,164",1165,626435.7786,1010427.782,326,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G3 & G1,R3 & R2 & R1,T1
+1165,1165,"1,165",1166,626375.5004,1010410.94,178,Nesting Site & Foraging,Foraging & Nesting Site,G2,R3 & R2 & R1,T2 & T1
+1166,1166,"1,166",1167,626277.1103,1010345.887,350,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site,G1 & G3 & G2,R2 & R1 & R3,T2
+1167,1167,"1,167",1168,626708.7147,1010455.812,176,Foraging & Travel connection,Foraging & Travel connection,G3 & G1 & G2,R2,T2
+1168,1168,"1,168",1169,626243.9549,1010470.6,317,Nesting Site & Travel connection,Foraging,G1 & G2,R2 & R3,T1
+1169,1169,"1,169",1170,626290.675,1010404.532,101,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G3,R2 & R3,T1 & T2
+1170,1170,"1,170",1171,626290.4571,1010389.683,310,Travel connection & Nesting Site,Nesting Site & Foraging & Travel connection,G3 & G1,R3 & R2 & R1,T3 & T1 & T2
+1171,1171,"1,171",1172,626205.42,1010399.133,135,Nesting Site,Travel connection & Foraging & Nesting Site,G2 & G3 & G1,R1,T1
+1172,1172,"1,172",1173,626333.1781,1010350.217,118,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G1 & G3 & G2,R2 & R3 & R1,T3 & T1 & T2
+1173,1173,"1,173",1174,626356.0359,1010351.23,62,Travel connection & Nesting Site,Nesting Site & Travel connection,G3,R3 & R2 & R1,T1 & T2
+1174,1174,"1,174",1175,626342.9872,1010356.358,117,Travel connection,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R3 & R1 & R2,T2 & T3
+1175,1175,"1,175",1176,626498.9516,1010173.488,323,Nesting Site & Travel connection,Travel connection & Foraging & Nesting Site,G1,R2 & R3,T2
+1176,1176,"1,176",1177,626494.6233,1010155.87,272,Foraging,Foraging & Travel connection,G1 & G2,R2 & R3,T2 & T3
+1177,1177,"1,177",1178,626858.8537,1010486.142,654,Travel connection & Nesting Site & Foraging,Nesting Site,G3 & G2,R1,T1 & T3 & T2
+1178,1178,"1,178",1179,624288.1192,1012428.745,258,Nesting Site & Travel connection & Foraging,Foraging & Nesting Site,G1 & G3,R2 & R3 & R1,T1 & T2
+1179,1179,"1,179",1180,626898.5633,1010415.52,215,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G3 & G1 & G2,R2 & R3 & R1,T3 & T1
+1180,1180,"1,180",1181,626816.4515,1010331.455,765,Travel connection,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R1 & R2,T2 & T3 & T1
+1181,1181,"1,181",1182,626792.2837,1010304.022,438,Travel connection,Nesting Site & Travel connection & Foraging,G2 & G1,R3 & R2 & R1,T1
+1182,1182,"1,182",1183,626635.4617,1010352.402,419,Travel connection & Foraging,Travel connection & Nesting Site,G3 & G2 & G1,R2 & R3,T1
+1183,1183,"1,183",1184,626657.5954,1010305.955,530,Foraging & Nesting Site,Travel connection & Nesting Site & Foraging,G3 & G2,R3,T1 & T2
+1184,1184,"1,184",1185,626624.234,1010249.148,556,Foraging,Travel connection & Foraging & Nesting Site,G3 & G2,R1,T2 & T1 & T3
+1185,1185,"1,185",1186,626689.7294,1010247.329,437,Nesting Site,Foraging & Travel connection & Nesting Site,G3 & G1,R3 & R2,T2
+1186,1186,"1,186",1187,626686.6942,1010214.433,678,Foraging & Travel connection & Nesting Site,Travel connection,G2,R3 & R1,T3 & T1
+1187,1187,"1,187",1188,626711.4114,1010217.476,628,Foraging & Nesting Site & Travel connection,Travel connection & Nesting Site,G2 & G3 & G1,R3,T1 & T3 & T2
+1188,1188,"1,188",1189,626751.0624,1010161.131,414,Travel connection,Travel connection,G1 & G3 & G2,R3,T2 & T1 & T3
+1189,1189,"1,189",1190,626784.9275,1010141.731,642,Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G1,R2 & R3 & R1,T3 & T1 & T2
+1190,1190,"1,190",1191,626649.9922,1010165.141,268,Nesting Site & Travel connection,Foraging,G3 & G1 & G2,R3,T1 & T2 & T3
+1191,1191,"1,191",1192,624448.8647,1012482.512,100,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging,G1,R3 & R1 & R2,T2
+1192,1192,"1,192",1193,624464.0314,1012445.706,499,Foraging,Travel connection & Nesting Site,G3 & G2 & G1,R3 & R1 & R2,T2 & T3
+1193,1193,"1,193",1194,624426.5581,1012453.353,504,Foraging & Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G3,R3,T1 & T2
+1194,1194,"1,194",1195,624409.0026,1012435.135,848,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection & Foraging,G1 & G3 & G2,R3 & R1,T2 & T1
+1195,1195,"1,195",1196,624313.2951,1012451.196,352,Travel connection & Foraging,Foraging,G3 & G1,R3 & R1,T1 & T2
+1196,1196,"1,196",1197,624274.1742,1012444.433,254,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site,G3 & G2,R1 & R2,T3 & T2 & T1
+1197,1197,"1,197",1198,624485.0546,1012313.48,255,Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G1,R1 & R2 & R3,T3 & T1
+1198,1198,"1,198",1199,624357.8477,1012221.303,302,Nesting Site & Foraging & Travel connection,Foraging,G2 & G1 & G3,R3 & R1,T1 & T2
+1199,1199,"1,199",1200,624409.2929,1012213.215,593,Travel connection & Foraging & Nesting Site,Nesting Site,G2,R2 & R1 & R3,T2 & T1 & T3
+1200,1200,"1,200",1201,624304.322,1012381.276,169,Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G3 & G2,R3 & R1,T3
+1201,1201,"1,201",1202,624319.7588,1012330.685,623,Foraging,Travel connection & Nesting Site,G1,R3 & R2,T1 & T3 & T2
+1202,1202,"1,202",1203,624319.1265,1012308.538,492,Foraging & Nesting Site,Foraging & Nesting Site & Travel connection,G2 & G3,R3 & R2,T1 & T3
+1203,1203,"1,203",1204,624416.8455,1012370.407,135,Travel connection & Nesting Site & Foraging,Nesting Site & Travel connection,G2 & G3 & G1,R1 & R3 & R2,T3 & T2 & T1
+1204,1204,"1,204",1205,624479.4633,1012360.913,274,Travel connection & Foraging,Foraging,G1,R1,T3 & T2 & T1
+1205,1205,"1,205",1206,624433.0118,1012381.282,108,Nesting Site & Travel connection,Travel connection & Foraging,G1 & G3 & G2,R1 & R2 & R3,T3 & T2
+1206,1206,"1,206",1207,624452.4093,1012352.672,141,Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G2,R2 & R3,T3
+1207,1207,"1,207",1208,624470.9232,1012285.603,557,Nesting Site,Travel connection & Nesting Site & Foraging,G2 & G1,R2 & R3,T3
+1208,1208,"1,208",1209,624423.6693,1012274.797,373,Travel connection & Foraging,Nesting Site,G1,R3 & R2,T2 & T3
+1209,1209,"1,209",1210,624408.5941,1012253.204,339,Nesting Site & Travel connection & Foraging,Travel connection & Foraging,G2,R1 & R2,T3 & T1 & T2
+1210,1210,"1,210",1211,624428.0245,1012296.18,266,Nesting Site & Travel connection & Foraging,Nesting Site & Travel connection & Foraging,G1,R1 & R3,T1 & T2
+1211,1211,"1,211",1212,624365.3374,1012266.236,407,Nesting Site & Travel connection & Foraging,Travel connection,G3,R3 & R2,T1 & T3 & T2
+1212,1212,"1,212",1213,624287.8823,1012290.655,305,Travel connection,Travel connection & Nesting Site & Foraging,G3,R3,T1
+1213,1213,"1,213",1214,624283.4117,1012269.534,456,Travel connection & Nesting Site & Foraging,Travel connection,G1 & G3,R1 & R2 & R3,T1 & T2
+1214,1214,"1,214",1215,624301.6921,1012276.313,188,Nesting Site,Nesting Site,G1 & G2 & G3,R2,T2 & T1 & T3
+1215,1215,"1,215",1216,624331.234,1012173.266,158,Travel connection,Foraging,G2,R1,T3 & T2
+1216,1216,"1,216",1217,624516.3844,1011526.927,434,Travel connection & Foraging & Nesting Site,Foraging,G3 & G1,R2 & R3,T3 & T1 & T2
+1217,1217,"1,217",1218,624638.7611,1011650.747,685,Foraging & Nesting Site,Nesting Site & Travel connection,G1,R2 & R3 & R1,T1 & T3
+1218,1218,"1,218",1219,624264.997,1012375.494,246,Foraging,Travel connection,G3 & G1 & G2,R3,T2 & T1 & T3
+1219,1219,"1,219",1220,624561.1811,1011926.904,473,Foraging,Travel connection & Nesting Site,G1 & G2,R1,T1
+1220,1220,"1,220",1221,624582.8599,1011916.841,541,Foraging & Nesting Site,Foraging,G3 & G2,R1 & R3,T3 & T2 & T1
+1221,1221,"1,221",1222,624534.7927,1011883.889,347,Foraging,Foraging,G2 & G1,R3,T2 & T3
+1222,1222,"1,222",1223,624950.5296,1011783.825,214,Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G3 & G1,R1,T1
+1223,1223,"1,223",1224,624782.4709,1011823.462,294,Nesting Site,Nesting Site,G1,R3,T1
+1224,1224,"1,224",1225,624734.391,1011850.904,155,Foraging,Nesting Site,G2,R1,T2 & T3 & T1
+1225,1225,"1,225",1226,624565.1362,1011864.948,672,Nesting Site,Foraging,G3 & G2,R3 & R2,T2 & T1 & T3
+1226,1226,"1,226",1227,624495.7808,1011879.268,701,Foraging,Nesting Site,G2 & G3,R3 & R1 & R2,T2 & T1 & T3
+1227,1227,"1,227",1228,624521.2731,1011842.815,681,Nesting Site,Travel connection & Nesting Site,G2,R3 & R2 & R1,T1
+1228,1228,"1,228",1229,624593.1568,1011784.641,437,Travel connection,Travel connection,G2,R3 & R1 & R2,T1
+1229,1229,"1,229",1230,624566.2093,1011724.241,346,Nesting Site,Foraging & Nesting Site,G1 & G3,R1 & R3,T3
+1230,1230,"1,230",1231,624585.2764,1011747.525,121,Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R2 & R1 & R3,T2
+1231,1231,"1,231",1232,624684.3763,1011721.903,764,Nesting Site,Foraging & Nesting Site,G1 & G3,R3 & R1 & R2,T3 & T1
+1232,1232,"1,232",1233,624888.2663,1011578.088,743,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G3 & G1 & G2,R3 & R2,T3 & T1 & T2
+1233,1233,"1,233",1234,624669.2589,1011564.097,460,Nesting Site,Foraging & Nesting Site & Travel connection,G1 & G3 & G2,R3 & R2 & R1,T1 & T3 & T2
+1234,1234,"1,234",1235,624691.8582,1011562.403,427,Travel connection,Foraging & Travel connection & Nesting Site,G2,R3 & R1 & R2,T3 & T1 & T2
+1235,1235,"1,235",1236,624636.7793,1011572.817,245,Nesting Site & Travel connection & Foraging,Foraging,G2,R1 & R2 & R3,T3 & T1
+1236,1236,"1,236",1237,624577.5511,1011615.909,458,Nesting Site,Nesting Site & Travel connection & Foraging,G1,R3 & R1 & R2,T2 & T3
+1237,1237,"1,237",1238,624563.4951,1011560.156,277,Travel connection,Foraging,G2,R1,T2 & T3 & T1
+1238,1238,"1,238",1239,624572.1663,1011500.36,251,Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G1 & G3 & G2,R3,T2 & T3 & T1
+1239,1239,"1,239",1240,624882.7186,1011514.311,133,Travel connection,Nesting Site & Foraging & Travel connection,G2 & G1,R2,T3 & T2
+1240,1240,"1,240",1241,624680.8577,1011778.689,95,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site,G3 & G1,R3 & R1,T3 & T2 & T1
+1241,1241,"1,241",1242,624590.364,1011479.735,566,Foraging,Travel connection & Nesting Site & Foraging,G1,R1,T3 & T2 & T1
+1242,1242,"1,242",1243,624615.3191,1011492.574,683,Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G1 & G2,R3,T2 & T1
+1243,1243,"1,243",1244,624328.587,1011879.448,372,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging,G2 & G3,R1,T2
+1244,1244,"1,244",1245,624498.5962,1011508.344,391,Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G2,R3 & R1 & R2,T1 & T2
+1245,1245,"1,245",1246,624463.6002,1011542.604,195,Nesting Site & Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G3 & G2 & G1,R2 & R1 & R3,T3 & T2
+1246,1246,"1,246",1247,624367.6799,1011924.026,331,Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G3 & G1,R2 & R1,T2 & T3 & T1
+1247,1247,"1,247",1248,624342.9704,1011869.833,154,Travel connection,Foraging & Travel connection,G1 & G2,R1,T3 & T2
+1248,1248,"1,248",1249,624462.7465,1011707.723,208,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site & Travel connection,G2 & G1,R2,T1 & T2 & T3
+1249,1249,"1,249",1250,624352.3279,1011686.016,400,Travel connection & Nesting Site,Foraging & Travel connection & Nesting Site,G1,R2,T2 & T3
+1250,1250,"1,250",1251,624316.8586,1011747.59,281,Travel connection,Nesting Site,G1 & G3 & G2,R2 & R3,T3 & T1
+1251,1251,"1,251",1252,624377.236,1011723.82,328,Travel connection,Foraging & Travel connection & Nesting Site,G3 & G2,R2 & R3,T3
+1252,1252,"1,252",1253,624335.0165,1011627.529,646,Travel connection & Foraging & Nesting Site,Nesting Site & Foraging & Travel connection,G2,R2 & R1 & R3,T2
+1253,1253,"1,253",1254,624317.6678,1011613.358,248,Travel connection & Nesting Site & Foraging,Foraging & Travel connection,G2 & G1 & G3,R1,T3
+1254,1254,"1,254",1255,624331.9259,1011596.069,410,Nesting Site,Travel connection & Foraging,G1 & G2 & G3,R3 & R1,T2 & T1
+1255,1255,"1,255",1256,624369.9371,1011594.088,464,Foraging & Nesting Site & Travel connection,Foraging & Travel connection & Nesting Site,G3 & G1,R1,T2 & T1 & T3
+1256,1256,"1,256",1257,624399.1268,1011628.946,426,Nesting Site & Travel connection,Nesting Site & Travel connection & Foraging,G2 & G3,R1 & R3 & R2,T2 & T1 & T3
+1257,1257,"1,257",1258,624370.9995,1011615.75,154,Travel connection,Nesting Site,G1 & G3,R3 & R2 & R1,T1 & T2 & T3
+1258,1258,"1,258",1259,624404.6983,1011656.82,499,Travel connection,Travel connection,G3 & G2,R2 & R3,T3 & T1 & T2
+1259,1259,"1,259",1260,624424.3142,1011670.023,134,Travel connection & Nesting Site & Foraging,Foraging & Travel connection,G3 & G1 & G2,R3 & R2,T3
+1260,1260,"1,260",1261,624429.9336,1011661.642,230,Travel connection & Nesting Site,Travel connection & Foraging,G3,R2 & R1 & R3,T3 & T2
+1261,1261,"1,261",1262,624458.2768,1011620.536,396,Nesting Site,Nesting Site & Foraging,G1 & G2,R1 & R3,T1 & T3
+1262,1262,"1,262",1263,624474.0829,1011648.643,288,Travel connection,Foraging & Travel connection,G1,R2 & R3 & R1,T2 & T1 & T3
+1263,1263,"1,263",1264,624495.5082,1011643.903,543,Nesting Site & Foraging,Travel connection,G3 & G1 & G2,R2 & R1,T2 & T1
+1264,1264,"1,264",1265,624490.1533,1011616.861,341,Travel connection & Foraging,Travel connection & Foraging,G2 & G1,R2,T3 & T1
+1265,1265,"1,265",1266,624133.129,1011542.222,213,Foraging,Travel connection & Nesting Site,G1 & G3 & G2,R1,T2 & T3 & T1
+1266,1266,"1,266",1267,624143.1207,1011574.263,61,Foraging & Nesting Site & Travel connection,Travel connection & Foraging,G1,R3 & R2 & R1,T1 & T2 & T3
+1267,1267,"1,267",1268,624151.475,1011584.473,244,Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G3 & G1 & G2,R1,T2 & T1
+1268,1268,"1,268",1269,624416.4642,1011534.553,123,Nesting Site & Foraging & Travel connection,Travel connection & Foraging,G1 & G3,R2,T2 & T3 & T1
+1269,1269,"1,269",1270,624481.1179,1011514.594,282,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site,G3 & G2,R2,T2 & T3 & T1
+1270,1270,"1,270",1271,624468.5595,1011513.35,97,Travel connection,Travel connection & Foraging & Nesting Site,G3,R2 & R3,T2
+1271,1271,"1,271",1272,624501.7678,1011490.912,141,Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G3,R3 & R2 & R1,T1
+1272,1272,"1,272",1273,625044.9465,1011229.576,174,Foraging,Travel connection & Foraging & Nesting Site,G2 & G1,R2,T1
+1273,1273,"1,273",1274,625354.7557,1011149.151,580,Travel connection,Foraging & Travel connection & Nesting Site,G2 & G1,R2 & R3,T2 & T3
+1274,1274,"1,274",1275,625249.1809,1011142.465,407,Nesting Site & Foraging,Nesting Site & Travel connection & Foraging,G1 & G2 & G3,R1 & R2,T1 & T2
+1275,1275,"1,275",1276,625212.4897,1011096.73,328,Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G1,R3,T1 & T2 & T3
+1276,1276,"1,276",1277,625200.5702,1011146.355,167,Foraging & Nesting Site & Travel connection,Foraging & Travel connection,G2 & G3,R2 & R1 & R3,T3
+1277,1277,"1,277",1278,625160.0391,1011124.343,321,Travel connection & Foraging,Travel connection & Nesting Site,G2 & G1,R1,T3 & T1
+1278,1278,"1,278",1279,625160.3475,1011150.026,620,Nesting Site & Foraging,Travel connection,G3 & G1,R1 & R3,T2 & T1 & T3
+1279,1279,"1,279",1280,625047.2611,1011120.678,239,Foraging,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R1,T2 & T3
+1280,1280,"1,280",1281,625076.2333,1011158.4,539,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging,G1,R2 & R1,T1
+1281,1281,"1,281",1282,625032.4443,1011190.943,401,Travel connection & Nesting Site & Foraging,Foraging & Travel connection,G3 & G2,R2 & R3 & R1,T1 & T2
+1282,1282,"1,282",1283,625008.2982,1011288.273,698,Foraging & Nesting Site,Travel connection,G3 & G2 & G1,R1 & R3,T1 & T2 & T3
+1283,1283,"1,283",1284,625059.9249,1011244.203,553,Travel connection & Foraging & Nesting Site,Travel connection,G3,R3 & R1 & R2,T1 & T3 & T2
+1284,1284,"1,284",1285,625115.4264,1011221.51,228,Foraging & Travel connection,Foraging & Travel connection,G2,R1 & R3,T2 & T3
+1285,1285,"1,285",1286,625100.4323,1011263.02,128,Foraging & Travel connection,Foraging,G3 & G2 & G1,R1 & R2 & R3,T1 & T2 & T3
+1286,1286,"1,286",1287,625272.6938,1011239.112,526,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site,G2 & G3,R3 & R1 & R2,T1 & T3
+1287,1287,"1,287",1288,625266.7792,1011272.577,563,Travel connection & Nesting Site,Foraging & Nesting Site & Travel connection,G2 & G3,R1 & R3 & R2,T1
+1288,1288,"1,288",1289,625311.8188,1011263.048,481,Travel connection & Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G1,R2 & R1 & R3,T3 & T2
+1289,1289,"1,289",1290,625424.3208,1011269.119,462,Travel connection & Nesting Site & Foraging,Travel connection,G2 & G3 & G1,R2,T3 & T1
+1290,1290,"1,290",1291,625417.6208,1011308.929,310,Travel connection,Nesting Site & Travel connection,G1 & G2,R1 & R3 & R2,T3
+1291,1291,"1,291",1292,625251.1763,1011477.655,"1,061",Nesting Site,Travel connection & Nesting Site,G1,R3,T2 & T1 & T3
+1292,1292,"1,292",1293,625161.4688,1011397.482,373,Foraging,Nesting Site & Foraging,G3 & G1 & G2,R3,T3 & T2
+1293,1293,"1,293",1294,625124.5202,1011455.919,358,Travel connection,Nesting Site & Travel connection,G3 & G1 & G2,R1 & R2,T2 & T1
+1294,1294,"1,294",1295,625093.8555,1011474.837,306,Travel connection & Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G3,R3 & R2,T1 & T3
+1295,1295,"1,295",1296,625443.1081,1011037.35,118,Foraging & Nesting Site & Travel connection,Foraging & Nesting Site,G2,R1 & R3,T2 & T3
+1296,1296,"1,296",1297,625400.4156,1011032.786,400,Travel connection,Travel connection & Nesting Site,G1,R3,T2
+1297,1297,"1,297",1298,625383.7078,1011051.94,473,Nesting Site & Travel connection,Foraging,G2,R3 & R2,T3 & T2 & T1
+1298,1298,"1,298",1299,625179.4814,1011071.812,417,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site,G2 & G1,R3,T3 & T2
+1299,1299,"1,299",1300,625127.3793,1011051.211,556,Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2,R2,T3 & T1 & T2
+1300,1300,"1,300",1301,625152.3238,1010996.575,277,Nesting Site & Travel connection & Foraging,Nesting Site & Foraging & Travel connection,G2 & G1 & G3,R2 & R3,T1 & T3 & T2
+1301,1301,"1,301",1302,625042.9104,1011370.429,253,Travel connection & Foraging & Nesting Site,Foraging & Travel connection & Nesting Site,G1 & G2,R2,T1 & T2 & T3
+1302,1302,"1,302",1303,625038.8837,1011342.718,328,Nesting Site & Travel connection & Foraging,Travel connection & Foraging & Nesting Site,G1,R2 & R3,T3 & T2
+1303,1303,"1,303",1304,625108.5854,1011358.284,202,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G1,R1,T2 & T1
+1304,1304,"1,304",1305,625111.9776,1011342.887,222,Nesting Site,Foraging & Travel connection & Nesting Site,G2 & G3 & G1,R3,T1 & T3
+1305,1305,"1,305",1306,625159.9241,1011354.419,640,Nesting Site & Travel connection,Foraging & Nesting Site & Travel connection,G1,R1 & R2,T1 & T2
+1306,1306,"1,306",1307,624449.706,1011443.195,203,Travel connection,Foraging & Nesting Site,G1,R2 & R1,T3
+1307,1307,"1,307",1308,624511.9527,1011414.81,312,Nesting Site & Foraging,Travel connection,G3 & G2,R1 & R3 & R2,T1 & T3 & T2
+1308,1308,"1,308",1309,624688.4707,1011460.224,599,Nesting Site & Foraging & Travel connection,Nesting Site,G1 & G3 & G2,R3,T1
+1309,1309,"1,309",1310,624741.223,1011433.564,521,Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G2,R1 & R2 & R3,T1 & T3 & T2
+1310,1310,"1,310",1311,624941.6955,1011462.05,309,Travel connection & Nesting Site,Nesting Site,G3,R1 & R2 & R3,T3
+1311,1311,"1,311",1312,624994.1964,1011389.441,393,Travel connection & Foraging & Nesting Site,Nesting Site,G3 & G1,R2 & R1 & R3,T2 & T3
+1312,1312,"1,312",1313,624947.9416,1011338.818,191,Nesting Site,Nesting Site,G1 & G2,R2 & R3,T2 & T1 & T3
+1313,1313,"1,313",1314,624960.5408,1011335.711,138,Travel connection & Nesting Site,Foraging & Travel connection,G2 & G1 & G3,R2 & R3 & R1,T3 & T1 & T2
+1314,1314,"1,314",1315,624948.4904,1011314.846,234,Nesting Site,Travel connection & Foraging & Nesting Site,G1 & G2,R1,T3 & T1 & T2
+1315,1315,"1,315",1316,624854.5008,1011338.863,295,Nesting Site,Nesting Site & Travel connection & Foraging,G3 & G2,R2,T3 & T2 & T1
+1316,1316,"1,316",1317,624844.4471,1011319.833,220,Travel connection & Nesting Site,Nesting Site & Travel connection,G3 & G1,R1,T3 & T2
+1317,1317,"1,317",1318,624873.8994,1011262.379,274,Nesting Site & Foraging & Travel connection,Foraging,G3,R3,T2
+1318,1318,"1,318",1319,624657.0811,1011321.837,270,Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G1 & G3,R2 & R3 & R1,T1 & T3
+1319,1319,"1,319",1320,624675.2971,1011258.693,500,Nesting Site & Foraging,Nesting Site & Foraging,G3 & G2 & G1,R2 & R1 & R3,T3 & T1 & T2
+1320,1320,"1,320",1321,624760.9247,1011244.638,334,Foraging & Travel connection & Nesting Site,Nesting Site,G3,R1 & R2 & R3,T2 & T1 & T3
+1321,1321,"1,321",1322,624862.6888,1011239.439,476,Nesting Site & Foraging,Travel connection,G2 & G1 & G3,R3,T3
+1322,1322,"1,322",1323,624565.7459,1011307.506,238,Travel connection,Travel connection & Foraging & Nesting Site,G3 & G2,R2 & R3 & R1,T2
+1323,1323,"1,323",1324,624549.6812,1011274.121,290,Nesting Site,Nesting Site,G3,R2 & R3,T2
+1324,1324,"1,324",1325,624537.7042,1011176.787,317,Foraging & Travel connection,Foraging & Nesting Site,G1 & G3,R1,T2 & T1
+1325,1325,"1,325",1326,624511.4117,1011154.464,257,Foraging & Nesting Site,Travel connection,G3,R1 & R2 & R3,T3
+1326,1326,"1,326",1327,624599.1806,1011146.547,196,Nesting Site & Foraging,Foraging & Travel connection,G1 & G2,R1 & R2 & R3,T1 & T3
+1327,1327,"1,327",1328,624605.4482,1011121.679,259,Nesting Site,Foraging & Travel connection,G2,R3 & R1 & R2,T1 & T3 & T2
+1328,1328,"1,328",1329,624689.8267,1011124.019,345,Foraging & Nesting Site & Travel connection,Foraging & Travel connection,G1,R1 & R3,T2 & T3 & T1
+1329,1329,"1,329",1330,624733.4929,1011158.864,76,Travel connection & Foraging & Nesting Site,Travel connection & Foraging,G2 & G3 & G1,R1,T3
+1330,1330,"1,330",1331,624629.8571,1011186.246,275,Nesting Site & Foraging,Foraging & Travel connection & Nesting Site,G1 & G3,R2,T3 & T2
+1331,1331,"1,331",1332,624618.6184,1011166.461,255,Travel connection & Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G1 & G2,R2 & R3,T2
+1332,1332,"1,332",1333,624660.4988,1011146.83,320,Nesting Site & Travel connection & Foraging,Travel connection & Foraging,G1 & G2 & G3,R3 & R1,T1
+1333,1333,"1,333",1334,624658.5919,1011184.173,290,Travel connection,Foraging,G3,R2,T3 & T1
+1334,1334,"1,334",1335,624621.3628,1011231.082,232,Foraging & Travel connection & Nesting Site,Nesting Site & Foraging,G1 & G2,R3,T1 & T3
+1335,1335,"1,335",1336,624522.3243,1011188.469,191,Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G1 & G2 & G3,R3 & R1 & R2,T2 & T1 & T3
+1336,1336,"1,336",1337,624760.678,1011132.892,278,Travel connection & Nesting Site,Foraging,G1 & G3 & G2,R2 & R1 & R3,T3
+1337,1337,"1,337",1338,624756.0847,1011103.636,596,Foraging & Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R1 & R2 & R3,T3
+1338,1338,"1,338",1339,624755.3278,1011085.526,400,Travel connection,Nesting Site,G2 & G1 & G3,R1,T3 & T1
+1339,1339,"1,339",1340,624735.7172,1011062.392,266,Nesting Site,Nesting Site & Travel connection,G2,R1,T1
+1340,1340,"1,340",1341,624795.9798,1011027.019,129,Nesting Site & Travel connection,Foraging & Nesting Site,G2 & G1 & G3,R3,T3 & T2 & T1
+1341,1341,"1,341",1342,624773.2446,1010989.459,306,Travel connection,Nesting Site & Travel connection & Foraging,G1 & G3,R1 & R3,T1 & T2
+1342,1342,"1,342",1343,624894.9267,1011066.035,474,Foraging & Nesting Site & Travel connection,Nesting Site,G3 & G1 & G2,R3 & R2 & R1,T1 & T3
+1343,1343,"1,343",1344,624961.3293,1011001.608,323,Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G2 & G1 & G3,R2 & R1,T3 & T1 & T2
+1344,1344,"1,344",1345,624864.6537,1011164.891,355,Travel connection & Nesting Site,Foraging & Travel connection,G1 & G3,R3 & R1,T2
+1345,1345,"1,345",1346,624927.3833,1011200.151,138,Foraging & Travel connection & Nesting Site,Nesting Site,G3,R3,T1
+1346,1346,"1,346",1347,624920.6483,1011211.408,310,Nesting Site & Travel connection & Foraging,Foraging,G2,R3 & R1,T1 & T2
+1347,1347,"1,347",1348,624703.4252,1011211.877,229,Nesting Site,Nesting Site & Travel connection & Foraging,G3,R1 & R3 & R2,T1 & T3 & T2
+1348,1348,"1,348",1349,625091.2447,1010954.024,385,Foraging & Travel connection & Nesting Site,Travel connection,G2 & G3 & G1,R1 & R2 & R3,T1 & T2
+1349,1349,"1,349",1350,624946.5372,1010949.719,536,Foraging & Travel connection,Foraging & Travel connection,G3 & G1,R3,T3 & T2
+1350,1350,"1,350",1351,625162.8043,1010861.458,610,Nesting Site & Foraging & Travel connection,Travel connection & Nesting Site,G2 & G1,R2,T1 & T2 & T3
+1351,1351,"1,351",1352,625342.7105,1010941.522,484,Travel connection,Nesting Site,G2 & G1,R1 & R3,T2
+1352,1352,"1,352",1353,625400.2597,1010936.023,237,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G1 & G2 & G3,R3 & R2 & R1,T2 & T1
+1353,1353,"1,353",1354,625426.7741,1010894.052,287,Nesting Site & Foraging,Nesting Site & Travel connection,G2 & G1 & G3,R1,T2 & T1
+1354,1354,"1,354",1355,625441.4594,1010883.575,503,Foraging,Foraging & Nesting Site & Travel connection,G3,R2 & R1 & R3,T2
+1355,1355,"1,355",1356,625472.7889,1010808.873,291,Travel connection & Foraging & Nesting Site,Nesting Site & Travel connection,G2 & G3,R3,T2 & T1 & T3
+1356,1356,"1,356",1357,625490.9944,1010808.306,170,Nesting Site,Travel connection & Foraging,G1 & G3 & G2,R3 & R2 & R1,T2
+1357,1357,"1,357",1358,625385.6556,1010824.58,177,Nesting Site,Foraging,G3 & G2,R3 & R1,T2
+1358,1358,"1,358",1359,625378.6057,1010782.512,393,Foraging & Travel connection,Nesting Site & Travel connection & Foraging,G3 & G2,R1 & R2 & R3,T1
+1359,1359,"1,359",1360,625309.0116,1010841.523,254,Travel connection,Foraging & Travel connection,G2 & G3 & G1,R3 & R1,T1
+1360,1360,"1,360",1361,625261.9857,1010813.48,567,Travel connection & Foraging & Nesting Site,Nesting Site,G1 & G3,R2 & R1 & R3,T3
+1361,1361,"1,361",1362,625255.8523,1010859.103,231,Nesting Site,Nesting Site,G3 & G2 & G1,R1,T1 & T2
+1362,1362,"1,362",1363,625129.2434,1010828.832,334,Travel connection & Nesting Site & Foraging,Travel connection & Nesting Site,G1,R1 & R2,T2
+1363,1363,"1,363",1364,625127.0171,1010811.698,382,Nesting Site,Travel connection,G1,R2 & R1,T1 & T2
+1364,1364,"1,364",1365,625089.655,1010844.873,358,Nesting Site & Foraging & Travel connection,Foraging & Travel connection & Nesting Site,G2 & G1 & G3,R1,T2
+1365,1365,"1,365",1366,625056.9397,1010844.48,530,Travel connection,Nesting Site & Travel connection & Foraging,G2 & G3,R1 & R2 & R3,T2 & T1
+1366,1366,"1,366",1367,625139.0894,1010773.844,492,Foraging & Nesting Site & Travel connection,Nesting Site & Foraging & Travel connection,G2,R2 & R1,T1
+1367,1367,"1,367",1368,625335.8072,1010688.718,295,Nesting Site & Travel connection,Nesting Site,G3 & G1,R3,T3 & T2
+1368,1368,"1,368",1369,625315.842,1010689.524,168,Nesting Site,Travel connection,G3 & G1 & G2,R2 & R1 & R3,T1 & T3 & T2
+1369,1369,"1,369",1370,625426.6502,1010726.982,344,Foraging & Nesting Site & Travel connection,Travel connection,G1,R2 & R3,T3 & T2
+1370,1370,"1,370",1371,625641.3854,1010904.421,235,Foraging & Nesting Site,Nesting Site & Travel connection,G3,R3 & R2,T2
+1371,1371,"1,371",1372,625678.8148,1010926.765,567,Travel connection & Foraging,Travel connection,G2 & G3 & G1,R3,T1 & T2 & T3
+1372,1372,"1,372",1373,625696.6824,1010925.957,319,Nesting Site & Foraging,Foraging,G2 & G1 & G3,R2 & R3,T1 & T2 & T3
+1373,1373,"1,373",1374,625711.5258,1010904.562,388,Nesting Site & Foraging & Travel connection,Nesting Site & Foraging,G1,R2 & R3 & R1,T2
+1374,1374,"1,374",1375,625523.1774,1010937.653,245,Foraging,Foraging & Travel connection,G2 & G3,R1 & R3 & R2,T2
+1375,1375,"1,375",1376,625729.5114,1010510.237,283,Nesting Site & Foraging,Travel connection & Foraging & Nesting Site,G1 & G2,R1 & R2,T3
+1376,1376,"1,376",1377,625664.8374,1010542.389,235,Nesting Site & Foraging & Travel connection,Foraging & Nesting Site & Travel connection,G1 & G3,R3,T2
+1377,1377,"1,377",1378,625851.4128,1010685.959,322,Nesting Site & Travel connection & Foraging,Travel connection & Nesting Site & Foraging,G2 & G1,R1 & R2 & R3,T2 & T1
+1378,1378,"1,378",1379,625527.3658,1010744.162,906,Foraging & Travel connection,Foraging,G1 & G3,R1 & R3 & R2,T1
+1379,1379,"1,379",1380,625555.1778,1010811.153,233,Travel connection & Foraging & Nesting Site,Travel connection & Nesting Site,G3 & G1 & G2,R2 & R3,T3
+1380,1380,"1,380",1381,625560.8296,1010830.278,131,Nesting Site & Travel connection,Nesting Site,G2 & G3,R1 & R2,T3
+1381,1381,"1,381",1382,625562.3234,1010852.614,261,Foraging & Travel connection,Nesting Site & Foraging,G3 & G1,R3 & R2,T1 & T2 & T3
+1382,1382,"1,382",1383,625784.1673,1010849.853,144,Nesting Site & Travel connection & Foraging,Foraging & Travel connection & Nesting Site,G2 & G3 & G1,R3 & R1,T1
+1383,1383,"1,383",1384,625773.7892,1010865.774,183,Foraging & Nesting Site,Travel connection & Foraging & Nesting Site,G2,R3,T2 & T1
+1384,1384,"1,384",1385,625866.9166,1010931.634,582,Foraging & Travel connection,Nesting Site & Foraging,G1 & G2 & G3,R1,T3 & T1 & T2
+1385,1385,"1,385",1386,625841.9216,1010933.6,472,Travel connection,Nesting Site,G3 & G1 & G2,R2 & R3,T2 & T3 & T1
+1386,1386,"1,386",1387,625796.1331,1010921.558,417,Foraging & Travel connection,Travel connection & Nesting Site & Foraging,G1 & G3,R3,T3 & T2 & T1
+1387,1387,"1,387",1388,625774.9472,1010926.36,432,Travel connection & Nesting Site,Travel connection & Nesting Site & Foraging,G1,R2 & R1 & R3,T1 & T2 & T3
+1388,1388,"1,388",1389,625752.8248,1010952.23,610,Foraging,Nesting Site,G1,R3 & R2,T1
+1389,1389,"1,389",1390,625849.7099,1010586.386,153,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1 & G3,R3 & R1 & R2,T1 & T3
+1390,1390,"1,390",1391,624910.8317,1014362.321,96,Travel connection & Nesting Site,Travel connection,G2 & G1 & G3,R1,T1
+1391,1391,"1,391",1393,626432.6192,1010717.533,49,Travel connection,Travel connection & Foraging,G1,R2 & R3,T2
+1392,1392,"1,392",1394,627111.8021,1014052.127,294,Nesting Site & Travel connection,Travel connection & Nesting Site & Foraging,G2 & G1,R3 & R2 & R1,T3 & T1
+1393,1393,"1,393",1395,627795.1237,1014113.773,101,Travel connection,Travel connection,G1 & G2 & G3,R3 & R2 & R1,T2 & T1
+1394,1394,"1,394",1396,627782.3406,1014114.383,168,Travel connection & Nesting Site & Foraging,Foraging & Nesting Site,G2,R3,T1
+1395,1395,"1,395",1397,627543.8179,1012861.966,50,Nesting Site & Travel connection & Foraging,Nesting Site,G2 & G1,R2 & R3 & R1,T1
+1396,1396,"1,396",1398,627201.3633,1012772.452,17,Travel connection,Travel connection & Nesting Site,G2 & G1 & G3,R3,T2 & T1
+1397,1397,"1,397",1399,627206.6295,1012777.625,78,Foraging & Nesting Site & Travel connection,Foraging & Travel connection,G2,R1 & R3 & R2,T3
+1398,1398,"1,398",1400,629720.606,1012782.407,199,Travel connection,Nesting Site,G3,R2 & R3 & R1,T1 & T3
+1399,1399,"1,399",1401,629522.1304,1012340.378,110,Nesting Site & Foraging & Travel connection,Foraging & Travel connection,G1,R2 & R3 & R1,T1
+1400,1400,"1,400",1402,629556.0395,1012274.773,119,Foraging,Travel connection & Foraging & Nesting Site,G3 & G1,R3 & R2,T3 & T2

@@ -75,6 +75,31 @@ export function showPoints(id) {
   // }
 }
 
+export function showData(data) {
+  d3.selectAll("circle.points").remove();
+
+  var dot = svg
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("class", "points")
+    .attr("id", function (d) {
+      return d["individual-local-identifier"];
+    })
+    .attr("cx", function (d) {
+      return xScale(parseFloat(d["utm-easting"]));
+    })
+    .attr("cy", function (d) {
+      return yScale(parseFloat(d["utm-northing"]));
+    })
+    .attr("r", 1)
+    .style("opacity", 1)
+    .attr("fill", function (d) {
+      return colorDictionary[d["individual-local-identifier"]];
+    });
+}
+
 setTimeout(function () {
   // Your function code here
   showPoints("");

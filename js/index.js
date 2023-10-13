@@ -127,10 +127,6 @@ document
   .getElementById("point-resize")
   .addEventListener("change", resizePoints, false);
 
-document
-  .getElementById("lines-add")
-  .addEventListener("change", plotTrajectoryBCI, false);
-
 // document
 //   .getElementById("start-resize")
 //   .addEventListener("change", sliderChanged, false);

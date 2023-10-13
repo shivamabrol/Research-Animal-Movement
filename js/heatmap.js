@@ -97,7 +97,7 @@ export function gridHeatmaps(value, timelineParam = false) {
   var myColor = d3
     .scaleSequential()
     .interpolator(d3.interpolateMagma)
-    .domain([1, numRectangles * 1.5]); // Doubling the domain range
+    .domain([1, numRectangles * 2]); // Doubling the domain range
 
   const svg_rect = d3
     .select("#map")
@@ -113,7 +113,7 @@ export function gridHeatmaps(value, timelineParam = false) {
     .enter()
     .append("rect")
     .attr("x", (d, i) => (i * 400) / numRectangles) // Adjust the positioning as needed
-    .attr("width", 1000 / numRectangles) // Adjust the width as needed
+    .attr("width", 400 / numRectangles) // Adjust the width as needed
     .attr("height", 50)
     .attr("fill", (d) => myColor(d * 2)); // Doubling the input value
 
@@ -178,7 +178,10 @@ export function gridHeatmaps(value, timelineParam = false) {
       var key = [delaunay.find(coordinates[0], coordinates[1])];
 
       var value = selectedData[delaunay.find(coordinates[0], coordinates[1])];
-      value = value == undefined ? 0 : value;
+      if (value == undefined) {
+        tooltip.transition().duration(500).style("opacity", 0);
+        return;
+      }
       console.log(value);
       console.log();
       tooltip
@@ -187,6 +190,8 @@ export function gridHeatmaps(value, timelineParam = false) {
         .style("background-color", "white")
         .style("border", "solid")
         .style("top", d.screenY + "px");
+
+      // highlightRectangleByValue(svg_rect, value, maxValue, myColor);
     })
     .on("mouseout", function (d, i) {
       // Hide the tooltip on mouseout
@@ -238,3 +243,60 @@ function updateRectanglesAndValues(maxValue) {
 document
   .getElementById("heatmap-cell-width")
   .addEventListener("change", gridHeatmaps, false);
+
+function highlightRectangle(svg_rect, myColor, colorToHighlight) {
+  const numRectangles = 100;
+
+  svg_rect
+    .selectAll("rect")
+    .style("stroke", "none") // Remove any previous highlights
+    .data(d3.range(numRectangles))
+    .enter()
+    .append("rect")
+    .attr("x", (d, i) => (i * 400) / numRectangles) // Adjust the positioning as needed
+    .attr("width", 1000 / numRectangles) // Adjust the width as needed
+    .attr("height", 50)
+    .attr("fill", (d) => myColor(d * 2));
+
+  let index = findRectangleIndexByColor(svg_rect, colorToHighlight);
+  index = index == -1 ? 0 : index;
+  // Highlight the specific rectangle by index
+  svg_rect
+    .select(`rect:nth-child(${index + 1})`)
+    .style("stroke", "red") // Change the border color to red (you can customize this)
+    .style("stroke-width", 2);
+}
+
+function highlightRectangleByValue(
+  svg_rect,
+  valueToHighlight,
+  maxValue,
+  myColor
+) {
+  // Calculate the index based on linear interpolation
+  const index =
+    (valueToHighlight / maxValue) * svg_rect.selectAll("rect").size();
+
+  svg_rect
+    .selectAll("rect") // Select all the rectangle elements
+    .each(function (d, i) {
+      if (i === Math.floor(index)) {
+        // Check if the index matches the calculated index
+        d3.select(this) // Select the rectangle element
+          .attr("fill", "red"); // Change the fill color to highlight
+      } else {
+        d3.select(this).attr("fill", myColor[d]);
+      }
+    });
+}
+
+function findRectangleIndexByColor(svg_rect, targetColor) {
+  const rectangles = svg_rect.selectAll("rect").nodes();
+  for (let i = 0; i < rectangles.length; i++) {
+    const currentColor = d3.select(rectangles[i]).attr("fill");
+    if (currentColor === targetColor) {
+      return i; // Return the index of the matching rectangle
+    }
+  }
+  return -1; // Return -1 if no matching color is found
+}

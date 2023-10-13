@@ -3,6 +3,7 @@ import { xScale, yScale } from "./index.js";
 import { colorArrayTrajectory } from "./colors.js";
 import { showPoints } from "./points.js";
 import { plotFruitTrees } from "./fruits.js";
+import { showData } from "./points.js";
 var trajectoryColumn = "trajectory_number";
 const svg = d3.select("svg#map");
 
@@ -55,21 +56,13 @@ function plotSeparatePaths(data) {
     .style("fill", "#69b3a2");
 }
 export function plotTrajectoryBCI() {
+  svg.selectAll(".lines").remove();
+
   if (document.getElementById("lines-add").checked == false) {
-    svg.selectAll(".lines").remove();
+    // svg.selectAll(".lines").remove();
     return;
   }
-  let plotList = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked == true) {
-      plotList.push(checkbox.value);
-    }
-  });
-  const trajectoryData = data.filter((item) =>
-    plotList.includes(item["individual-local-identifier"])
-  );
-
+  let trajectoryData = d3.selectAll(".points").data();
   // Get the unique categories from the data
   const uniqueTrajectories = [
     ...new Set(trajectoryData.map((item) => item[trajectoryColumn])),
@@ -142,6 +135,7 @@ function trajectoryPlotter() {
   if (objects.data().length == 0) {
     return;
   }
+  let screenData = d3.selectAll(".points").data();
 
   objects = objects.data();
   // console.log(data);
@@ -153,8 +147,7 @@ function trajectoryPlotter() {
     ...new Set(objects.map((item) => item[trajectoryColumn])),
   ];
 
-  // Filter the data based on the list of names
-  const filteredTrajectories = data.filter((item) =>
+  const filteredTrajectories = screenData.filter((item) =>
     distinctTrajectories.includes(item[trajectoryColumn])
   );
 
@@ -172,11 +165,11 @@ export function plotCircles() {
 
   let activated = document.getElementById("start-location");
 
+  let thisData = d3.selectAll("circle.points").data();
   // Create an SVG element
   const svg = d3.select("svg#map");
   d3.selectAll("circle.points").remove();
   svg.selectAll(".fruits").remove();
-
   var drag = d3
     .drag()
     .on("start", function (event, d) {
@@ -227,7 +220,7 @@ export function plotCircles() {
     .call(drag)
     .on("click", clicked);
 
-  showPoints("");
+  showData(thisData);
   //   if (document.getElementById("fruit").checked) {
   //     plotFruitTrees();
   //   }
@@ -261,3 +254,7 @@ document
 document
   .getElementById("start-resize")
   .addEventListener("change", sliderChanged, false);
+
+document
+  .getElementById("lines-add")
+  .addEventListener("change", plotTrajectoryBCI, false);
