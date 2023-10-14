@@ -35,7 +35,7 @@ export function showPoints(id) {
   let resizer = document.getElementById("point-resize");
   let color = document.getElementById("colorpicker");
 
-  if (checkedValues.length == 0) {
+  if (checkedValues.length == 0 || checkedValues.length > 1) {
     resizer.disabled = true;
     color.disabled = true;
   } else {

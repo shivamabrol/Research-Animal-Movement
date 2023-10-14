@@ -8,6 +8,9 @@ import { plotTrajectoryBCI } from "./trajectory.js";
 
 const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
 const svg = d3.select("svg#map");
+const minDate = new Date("06-01-2022");
+
+const maxDate = new Date("04-01-2023");
 
 function compareTimes(first, second) {
   const dateString1 = first;
@@ -39,6 +42,7 @@ function compareTimes(first, second) {
     return true;
   }
 }
+
 function caller() {
   // append the svg2 object to the body of the page
   // set the dimensions and margins of the graph
@@ -55,6 +59,7 @@ function caller() {
 
   const svg2 = containerDiv
     .append("svg")
+    .attr("id", "timeline1")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -63,6 +68,7 @@ function caller() {
   // Create and append the right SVG
   const svg3 = containerDiv
     .append("svg")
+    .attr("id", "timeline2")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -91,17 +97,27 @@ function changeAttribute(svg2, attribute, width, height) {
   //////////
 
   // Add X axis
+  // Calculate the minimum and maximum dates from your data
+  const minDate = new Date("06-01-2022");
 
-  const x = d3
-    .scaleTime()
-    .domain([new Date("2022-01-01"), new Date("2023-01-31")])
-    .range([0, width]);
+  const maxDate = new Date("04-01-2023");
+
+  const ticks = d3.timeMonth.every(1).range(minDate, maxDate);
+
+  const x = d3.scaleTime().domain([minDate, maxDate]).range([0, width]);
+
+  // Add one more tick after the last tick
+  const lastTick = new Date(ticks[ticks.length - 1]);
+  const oneMonthLater = new Date(lastTick);
+  oneMonthLater.setMonth(oneMonthLater.getMonth() + 1);
+  ticks.push(oneMonthLater);
 
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(d3.timeMonth.every(1))); // Show ticks every month
-
+    .call(
+      d3.axisBottom(x).tickValues(ticks).tickFormat(d3.timeFormat("%b %Y"))
+    );
   // Add X axis label:
   svg2
     .append("text")
@@ -131,7 +147,8 @@ function changeAttribute(svg2, attribute, width, height) {
 
   // Add brushing
   const brush = d3
-    .brushX() // Add the brush feature using the d3.brush function
+    .brushX()
+    // Add the brush feature using the d3.brush function
     .extent([
       [0, 0],
       [width, height],
@@ -161,6 +178,7 @@ function changeAttribute(svg2, attribute, width, height) {
     .attr("class", function (d) {
       return "myArea " + d.key;
     })
+    .attr("id", "mybrush")
     .style("fill", function (d) {
       return color(d.key);
     })
@@ -172,10 +190,33 @@ function changeAttribute(svg2, attribute, width, height) {
   // A function that update the chart for given boundaries
   function updateChart(event, d) {
     addEventListener("dblclick", (event) => {});
+    const x = d3.scaleTime().domain([minDate, maxDate]).range([0, width]);
+    const x1 = d3
+      .scaleTime()
+      .domain([
+        new Date("2022-01-01T00:00:00"),
+        new Date("2022-01-01T23:59:59"),
+      ])
+      .range([0, width]);
+
+    let timeStart = x1.invert(
+      parseInt(d3.select("#timeline2").select(".selection").attr("x"))
+    );
+    let timeEnd = x1.invert(
+      parseInt(d3.select("#timeline2").select(".selection").attr("width")) +
+        parseInt(d3.select("#timeline2").select(".selection").attr("x"))
+    );
 
     let extent = event.selection;
-    // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
-    showPointsTimeline(x.invert(extent[0]), x.invert(extent[1]));
+    let dayStart = x.invert(extent[0]);
+    let dayEnd = x.invert(extent[1]);
+    // console.log(isDateValid(dayStart));
+    // console.log(dayStart, dayEnd, timeStart, timeEnd);
+    // // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
+
+    let data2 = filterDataset(dayStart, dayEnd, timeStart, timeEnd);
+    showPointsTimeline(data2);
+    // // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
   }
 }
 
@@ -206,14 +247,31 @@ function changeAttributeDays(svg2, attribute, width, height) {
     .domain([new Date("2022-01-01T00:00:00"), new Date("2022-01-01T23:59:59")])
     .range([0, width]);
 
+  // Calculate the ticks for the axis
+  const tickInterval = d3.timeHour.every(2);
+  const tickStart = new Date("2022-01-01T00:00:00");
+  const tickEnd = new Date("2022-01-01T23:59:59");
+  const ticks = [];
+  let currentTick = new Date(tickStart);
+
+  while (currentTick <= tickEnd) {
+    ticks.push(new Date(currentTick));
+    currentTick = d3.timeHour.offset(currentTick, 2);
+  }
+
+  // Add "11:59 PM" as one tick after the last tick
+  const lastTick = new Date(ticks[ticks.length - 1]);
+  const oneMinuteBeforeMidnight = new Date(lastTick);
+  oneMinuteBeforeMidnight.setMinutes(59); // Set the minutes to 59
+  oneMinuteBeforeMidnight.setHours(23); // Set the hours to 23
+  ticks.push(oneMinuteBeforeMidnight);
+
+  // Format ticks
   const xAxis = svg2
     .append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(
-      d3
-        .axisBottom(x)
-        .ticks(d3.timeHour.every(2)) // Show ticks every 2 hours
-        .tickFormat(d3.timeFormat("%I %p")) // Format ticks in "12 AM", "2 AM", etc.
+      d3.axisBottom(x).tickValues(ticks).tickFormat(d3.timeFormat("%I:%M %p"))
     );
 
   // ...
@@ -291,153 +349,39 @@ function changeAttributeDays(svg2, attribute, width, height) {
   function updateChart(event, d) {
     addEventListener("dblclick", (event) => {});
 
+    const x1 = d3.scaleTime().domain([minDate, maxDate]).range([0, width]);
+    const x = d3
+      .scaleTime()
+      .domain([
+        new Date("2022-01-01T00:00:00"),
+        new Date("2022-01-01T23:59:59"),
+      ])
+      .range([0, width]);
+
+    let dayStart = x1.invert(
+      parseInt(d3.select("#timeline1").select(".selection").attr("x"))
+    );
+    let dayEnd = x1.invert(
+      parseInt(d3.select("#timeline1").select(".selection").attr("width")) +
+        parseInt(d3.select("#timeline1").select(".selection").attr("x"))
+    );
+
     let extent = event.selection;
-    // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
-    showPointsTimelineDays(x.invert(extent[0]), x.invert(extent[1]));
+    let timeStart = x.invert(extent[0]);
+    let timeEnd = x.invert(extent[1]);
+
+    console.log(timeStart, timeEnd);
+    // console.log(isDateValid(dayStart));
+    // console.log(dayStart, dayEnd, timeStart, timeEnd);
+    // // console.log([x.invert(extent[0]) + " " + x.invert(extent[1])]);
+
+    let data2 = filterDataset(dayStart, dayEnd, timeStart, timeEnd);
+    showPointsTimeline(data2);
+    // showPointsTimelineDays(x.invert(extent[0]), x.invert(extent[1]));
   }
 }
 
-function changeAttribute2(attribute) {
-  const margin = { top: 10, right: 30, bottom: 30, left: 60 },
-    width = 500 - margin.left - margin.right,
-    height = 250 - margin.top - margin.bottom;
-
-  // append the svg object to the body of the page
-  const svg2 = d3
-    .select("#timechart")
-    .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-  var parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S.%L");
-
-  //Read the data
-  d3.csv(
-    "../data/combined.csv",
-
-    // When reading the csv, I must format variables:
-    (d) => {
-      return {
-        date: parseTime(d.date),
-        value: d[attribute],
-      };
-    }
-  ).then(
-    // Now I can use this dataset:
-    function (data1) {
-      // Add X axis --> it is a date format
-      const x = d3
-        .scaleTime()
-        .domain(d3.extent(data1, (d) => d.date))
-        .range([0, width]);
-      xAxis = svg2
-        .append("g")
-        .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x));
-
-      // Add Y axis
-      // const y = d3
-      //   .scaleLinear()
-      //   .domain([0, d3.max(data1, (d) => +d.value)])
-      //   .range([height, 0]);
-      // yAxis = svg2.append("g").call(d3.axisLeft(y));
-
-      // Add a clipPath: everything out of this area won't be drawn.
-      const clip = svg2
-        .append("defs")
-        .append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("width", width)
-        .attr("height", height)
-        .attr("x", 0)
-        .attr("y", 0);
-
-      // Add brushing
-      const brush = d3
-        .brushX() // Add the brush feature using the d3.brush function
-        .extent([
-          [0, 0],
-          [width, height],
-        ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-        .on("end", updateChart); // Each time the brush selection changes, trigger the 'updateChart' function
-
-      // Create the area variable: where both the area and the brush take place
-      const area = svg2.append("g").attr("clip-path", "url(#clip)");
-
-      // Create an area generator
-      const areaGenerator = d3
-        .area()
-        .x(function (d) {
-          return d.date;
-        })
-        .y0(y(0))
-        .y1(function (d) {
-          return d.value;
-        });
-
-      //   // Add the area
-      //   area
-      //     .append("path")
-      //     .datum(data)
-      //     .attr("class", "myArea") // I add the class myArea to be able to modify it later on.
-      //     .attr("fill", "#69b3a2")
-      //     .attr("fill-opacity", 0.3)
-      //     .attr("stroke", "black")
-      //     .attr("stroke-width", 1)
-      //     .attr("d", areaGenerator);
-
-      area
-        .append("path")
-        .attr("class", "myArea")
-        .attr("d", areaGenerator(data1));
-
-      // Add the brushing
-      area.append("g").attr("class", "brush").call(brush);
-
-      // A function that set idleTimeOut to null
-      let idleTimeout;
-      function idled() {
-        idleTimeout = null;
-      }
-
-      // A function that update the chart for given boundaries
-      function updateChart(event) {
-        // What are the selected boundaries?
-        extent = event.selection;
-
-        // If no selection, back to initial coordinate. Otherwise, update X axis domain
-        if (!extent) {
-          if (!idleTimeout) return (idleTimeout = setTimeout(idled, 350)); // This allows to wait a little bit
-          x.domain([4, 8]);
-        } else {
-          x.domain([x.invert(extent[0]), x.invert(extent[1])]);
-          area.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
-        }
-
-        // Update axis and area position
-        xAxis.transition().duration(1000).call(d3.axisBottom(x));
-        area
-          .select(".myArea")
-          .transition()
-          .duration(1000)
-          .attr("d", areaGenerator(data1));
-      }
-
-      // If user double click, reinitialize the chart
-      svg2.on("dblclick", function () {
-        x.domain(d3.extent(data1, (d) => d.date));
-        xAxis.transition().call(d3.axisBottom(x));
-        area.select(".myArea").transition().attr("d", areaGenerator(data1));
-      });
-    }
-  );
-}
-
-function showPointsTimeline(startTime, endTime) {
-  console.log(startTime, endTime);
-
+function calculateDynamicDataset() {
   var plotList = [];
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
@@ -445,19 +389,70 @@ function showPointsTimeline(startTime, endTime) {
       plotList.push(checkbox.value);
     }
   });
-  const circles = data.filter((item) =>
+  return data.filter((item) =>
     plotList.includes(item["individual-local-identifier"])
   );
+}
+function filterDataset(startingDay, endingDay, startingTime, endingTime) {
+  const circles = calculateDynamicDataset();
 
-  var data2 = circles.filter(function (d) {
-    return (
-      new Date(d["date"]) >= new Date(startTime) &&
-      new Date(d["date"]) <= new Date(endTime)
-    );
+  return circles.filter((item) => {
+    const timestamp = new Date(item["study-local-timestamp"]);
+    const studyDay = timestamp.toISOString().split("T")[0];
+    const studyTime = timestamp.toISOString().split("T")[1].split(".")[0]; // Extract time part
+
+    // Check if the study-local-timestamp is within the specified date and time range
+    const isDateValid = (startingDay, endingDay) => {
+      if (!validDate(startingDay) || !validDate(endingDay)) {
+        return true; // Ignore the date check if starting or ending date is not provided
+      }
+      return (
+        new Date(studyDay) >= new Date(startingDay) &&
+        new Date(studyDay) <= new Date(endingDay)
+      );
+    };
+
+    const isTimeValid = (start, end) => {
+      if (!validDate(start) || !validDate(end)) {
+        return true; // Ignore the time check if starting or ending time is not provided
+      }
+      return compareTimes(timestamp, start) && compareTimes(end, timestamp);
+    };
+
+    if (
+      isDateValid(startingDay, endingDay) &&
+      isTimeValid(startingTime, endingTime)
+    ) {
+      return true;
+    }
+
+    return false;
   });
+}
+
+function validDate(dateString) {
+  const date = new Date(dateString);
+  // Check if the date is a valid date and the date string was parsed correctly
+  return !isNaN(date.getTime());
+}
+
+function showPointsTimeline(data2) {
+  // console.log(startTime, endTime);
+
   pointsTimelinePlot(data2);
   if (document.getElementById("find-heatmap").checked) {
     gridHeatmaps("", true);
+  }
+  if (document.getElementById("pattern-toggle").checked) {
+    let clicks = getTotalClicks();
+    plotPattern(clicks);
+  }
+  if (document.getElementById("voronoi-plot").checked) {
+    plotCaller();
+  }
+
+  if (document.getElementById("lines-add").checked) {
+    plotTrajectoryBCI();
   }
 }
 function showPointsTimelineDays(startTime, endTime) {
@@ -483,7 +478,7 @@ function showPointsTimelineDays(startTime, endTime) {
       compareTimes(endTime, d["study-local-timestamp"])
     );
   });
-  console.log(data2.length);
+  // console.log(data2.length);
   pointsTimelinePlot(data2);
   // add condition if color grid is checked
   if (document.getElementById("find-heatmap").checked) {
@@ -526,7 +521,12 @@ function pointsTimelinePlot(data2) {
       return colorDictionary[d["individual-local-identifier"]];
     });
 }
-caller();
+
+setTimeout(function () {
+  // Your function code here
+  caller();
+}, 1000); // 1000 milliseconds = 1 second
+
 // document
 //   .getElementById("see-timeline")
 //   .addEventListener("click", caller, false);

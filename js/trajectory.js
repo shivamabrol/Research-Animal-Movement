@@ -159,12 +159,17 @@ function trajectoryPlotter() {
 }
 
 export function plotCircles() {
+  let activated = document.getElementById("start-location");
   var circleData = [
     { x: 250, y: 200, r: 20, color: "red", opacity: 0.5, id: "start-circle" },
   ];
 
-  let activated = document.getElementById("start-location");
-
+  if (!activated.checked) {
+    d3.selectAll("#start-circle").remove();
+    document.getElementById("start-resize").disabled = true;
+    return;
+  }
+  document.getElementById("start-resize").disabled = false;
   let thisData = d3.selectAll("circle.points").data();
   // Create an SVG element
   const svg = d3.select("svg#map");
@@ -249,7 +254,7 @@ function sliderChanged(id) {
 
 document
   .getElementById("start-location")
-  .addEventListener("click", plotCircles, false);
+  .addEventListener("change", plotCircles, false);
 
 document
   .getElementById("start-resize")
