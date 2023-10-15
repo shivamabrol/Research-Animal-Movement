@@ -5,7 +5,9 @@ import { colorDictionary } from "./colors.js";
 const svg = d3.select("svg#map");
 
 export function showPoints(id) {
-  id = id.currentTarget.id;
+  if (id != "") {
+    id = id.currentTarget.id;
+  }
 
   const checkboxes = [
     document.getElementById("Daniel-checkbox"),

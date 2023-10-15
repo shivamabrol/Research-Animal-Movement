@@ -217,7 +217,11 @@ background-color: black;
 }
 
 
-
+.selected {
+  /* opacity: 0 !important; */
+  stroke: white;
+  stroke-width: 0.5px;
+}
 
 html,body { height:90%; 
     text-align: center;

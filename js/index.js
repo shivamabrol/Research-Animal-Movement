@@ -1,8 +1,10 @@
 //Color picker would be activated only if single animal is present on screen a
 import { colorDictionary, names } from "./colors.js";
 import { plotFruitTrees } from "./fruits.js";
-import { showPoints } from "./points.js";
+import { showPoints, showData } from "./points.js";
 import { changeColor } from "./colors.js";
+import { data } from "./data.js";
+
 import { plotTrajectoryBCI } from "./trajectory.js";
 import { plotCircles } from "./trajectory.js";
 
@@ -11,6 +13,8 @@ import { plotCircles } from "./trajectory.js";
 var svgPanZoom = $("svg#map").svgPanZoom();
 
 const svg = d3.select("svg#map");
+
+let brushedData = null;
 
 export const xScale = d3
   .scaleLinear()
@@ -149,10 +153,35 @@ svg.call(
       [0, 0],
       [1000, 1000],
     ]) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
-    .on("end", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
+    .on("brush", updateChart2) // Each time the brush selection changes, trigger the 'updateChart' function
 );
 
-function updateChart2(ev) {}
+function updateChart2(event) {
+  const extent = event.selection; // Get the brush extent
+  let points = d3.selectAll("circle.points");
+  let check = document.getElementById("selected-data");
+  if (!extent) return;
+
+  brushedData = points.filter((d) =>
+    isBrushed(extent, xScale(d["utm-easting"]), yScale(d["utm-northing"]))
+  );
+  // Remove any previously applied "selected" class
+  points.classed("selected", false);
+
+  // Apply the "selected" class to the brushed points
+  brushedData.classed("selected", true);
+  // showData(brushedData.data());
+}
+
+// A function that returns TRUE or FALSE depending on if a point is in the selection or not
+function isBrushed(brushCoords, cx, cy) {
+  const x0 = brushCoords[0][0];
+  const x1 = brushCoords[1][0];
+  const y0 = brushCoords[0][1];
+  const y1 = brushCoords[1][1];
+  return x0 <= cx && cx <= x1 && y0 <= cy && cy <= y1;
+}
+
 // Function that is triggered when brushing is performed
 function updateChart(e1) {
   extent = e1.selection;
@@ -465,3 +494,13 @@ for (var i = 5; i <= 8; i++) {
     mapInfoElement.style.left = "0";
   }
 }
+
+function dataSelection(event) {
+  if (brushedData) {
+    showData(brushedData.data());
+  }
+}
+
+document
+  .getElementById("selected-data")
+  .addEventListener("click", dataSelection, false);
