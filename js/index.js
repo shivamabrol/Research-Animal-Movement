@@ -69,10 +69,6 @@ document.getElementById("left").addEventListener("mousedown", function () {
   //
 });
 
-document.getElementById("download").addEventListener("click", function () {
-  exportData();
-});
-
 document.getElementById("fruit").addEventListener("change", (event) => {
   // code to be executed when button is clicked
   if (event.target.checked) {
@@ -409,27 +405,6 @@ export function compareTimes(first, second) {
 }
 
 // changeAttribute("speed");
-
-function convertToCSV(arr) {
-  const array = [Object.keys(arr[0])].concat(arr);
-
-  return array
-    .map((it) => {
-      return Object.values(it).toString();
-    })
-    .join("\n");
-}
-
-function exportData() {
-  var a = document.createElement("a");
-  var exportData = d3.selectAll("circle.points").data();
-  console.log(exportData);
-  a.href = URL.createObjectURL(
-    new Blob([convertToCSV(exportData)], { type: "application/csv" })
-  );
-  a.download = "myFile.csv";
-  a.click();
-}
 
 var trajectoryColumn = "trajectory_number";
 // document

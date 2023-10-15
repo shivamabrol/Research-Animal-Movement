@@ -6,6 +6,7 @@ import {
   cellVisits,
   cellMoves,
 } from "./grid.js";
+import { seeDistance } from "./download.js";
 
 //Add all the heatmap and pattern finding functions here - Grid should only contain voronoi stuff
 const svg = d3.select("svg#map");
@@ -267,7 +268,7 @@ export function plotCaller() {
 
 document
   .getElementById("voronoi-cell-width")
-  .addEventListener("change", (event) => {
+  .addEventListener("input", (event) => {
     // let summarize = document.getElementById("summarize");
     svg.selectAll("*.cells").remove();
 
@@ -283,3 +284,12 @@ document
       voronoiGridSize.disabled = true;
     }
   });
+
+document.getElementById("voronoi-cell-width").addEventListener(
+  "input",
+  function (event) {
+    // console.log(id.target);
+    seeDistance(event.target.id);
+  },
+  false
+);

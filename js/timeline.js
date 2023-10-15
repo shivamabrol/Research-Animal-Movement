@@ -2,7 +2,7 @@ import { data } from "./data.js";
 import { xScale, yScale } from "./index.js";
 import { colorDictionary } from "./colors.js";
 import { gridHeatmaps } from "./heatmap.js";
-import { plotPattern, getTotalClicks } from "./grid.js";
+import { plotPattern, getTotalClicks, patternFinder } from "./grid.js";
 import { plotCaller } from "./summarize.js";
 import { plotTrajectoryBCI } from "./trajectory.js";
 
@@ -444,8 +444,7 @@ function showPointsTimeline(data2) {
     gridHeatmaps("", true);
   }
   if (document.getElementById("pattern-toggle").checked) {
-    let clicks = getTotalClicks();
-    plotPattern(clicks);
+    patternFinder(true);
   }
   if (document.getElementById("voronoi-plot").checked) {
     plotCaller();
@@ -485,8 +484,7 @@ function showPointsTimelineDays(startTime, endTime) {
     gridHeatmaps("", true);
   }
   if (document.getElementById("pattern-toggle").checked) {
-    let clicks = getTotalClicks();
-    plotPattern(clicks);
+    patternFinder();
   }
   if (document.getElementById("voronoi-plot").checked) {
     plotCaller();

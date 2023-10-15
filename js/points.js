@@ -5,6 +5,8 @@ import { colorDictionary } from "./colors.js";
 const svg = d3.select("svg#map");
 
 export function showPoints(id) {
+  id = id.currentTarget.id;
+
   const checkboxes = [
     document.getElementById("Daniel-checkbox"),
     document.getElementById("Magnolia-checkbox"),
@@ -27,11 +29,20 @@ export function showPoints(id) {
   });
 
   const selectAll = document.getElementById("all-checkbox");
-  if (selectAll.checked) {
-    checkboxes.forEach((checkbox) => {
-      checkedValues.push(checkbox.value);
-    });
+  if (id == selectAll.id) {
+    if (selectAll.checked) {
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = true;
+        checkedValues.push(checkbox.value);
+      });
+    } else {
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+      checkedValues = [];
+    }
   }
+
   let resizer = document.getElementById("point-resize");
   let color = document.getElementById("colorpicker");
 

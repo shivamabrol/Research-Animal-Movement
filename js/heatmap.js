@@ -1,6 +1,6 @@
 import { pointsInGridCount, uniqueRevisitsCount } from "./grid.js";
 import { xScale, yScale, dataAlert } from "./index.js";
-
+import { seeDistance } from "./download.js";
 const svg = d3.select("svg#map");
 export function gridHeatmaps(value, timelineParam = false) {
   let heatmapButton = document.getElementById("find-heatmap");
@@ -33,10 +33,6 @@ export function gridHeatmaps(value, timelineParam = false) {
   // );
   let cellWidth = 5.5 * document.getElementById("heatmap-cell-width").value;
   cellWidth = Math.round(cellWidth);
-  const widthInfoElement = document.getElementById("heatmapInfo");
-
-  // Display the information on the screen
-  widthInfoElement.textContent = "Width of cell: " + cellWidth + " meters";
 
   // let summarizedPoints = d3.selectAll("circle.points").data();
 
@@ -186,7 +182,7 @@ export function gridHeatmaps(value, timelineParam = false) {
       console.log();
       tooltip
         .html("Animal count: " + value)
-        .style("left", d.screenX - 40 + "px")
+        .style("left", d.screenX + "px")
         .style("background-color", "white")
         .style("border", "solid")
         .style("top", d.screenY + "px");
@@ -242,7 +238,7 @@ function updateRectanglesAndValues(maxValue) {
 
 document
   .getElementById("heatmap-cell-width")
-  .addEventListener("change", gridHeatmaps, false);
+  .addEventListener("input", gridHeatmaps, false);
 
 function highlightRectangle(svg_rect, myColor, colorToHighlight) {
   const numRectangles = 100;
@@ -300,3 +296,12 @@ function findRectangleIndexByColor(svg_rect, targetColor) {
   }
   return -1; // Return -1 if no matching color is found
 }
+
+document.getElementById("heatmap-cell-width").addEventListener(
+  "input",
+  function (event) {
+    // console.log(id.target);
+    seeDistance(event.target.id);
+  },
+  false
+);

@@ -1,4 +1,5 @@
 import { xScale, yScale, dataAlert } from "./index.js";
+import { seeDistance } from "./download.js";
 
 const svg = d3.select("svg#map");
 var trajectoryColumn = "trajectory_number";
@@ -285,8 +286,8 @@ function getDelaunay() {
 }
 
 ///function for finding the pattern
-function patternFinder() {
-  if (!dataAlert()) {
+export function patternFinder(timelineParam = false) {
+  if (!dataAlert() && !dataAlert(timelineParam)) {
     alert("Select Animal first");
     return;
   }
@@ -304,8 +305,6 @@ function patternFinder() {
   const delaunay = getDelaunay();
   let cellList = pointsInGridCount(delaunay, gridData);
   let uniqueRevists = uniqueRevisitsCount(cellList);
-  console.log(uniqueRevists);
-  console.log(totalClicks);
 
   let patterns = findCombos(uniqueRevists, totalClicks);
 
@@ -316,13 +315,13 @@ function patternFinder() {
   } else {
     lengthValueElement.textContent = 0;
   }
-
+  console.log(totalClicks, patterns.length);
   // Update the value
   // totalClicks = [];
   highlightCellsFromPatterns(delaunay, patterns.flat());
 }
 
-function allPatternFinder() {
+function directionString() {
   let gridData = d3.selectAll(".points").data();
   const delaunay = getDelaunay();
   let cellList = pointsInGridCount(delaunay, gridData);
@@ -340,6 +339,7 @@ function allPatternFinder() {
 
 function highlightCellsFromPatterns(delaunay, highlightCells, color = "red") {
   d3.selectAll(".cells").remove();
+  console.log(totalClicks);
   const voronoi = delaunay.voronoi([0, 0, 1000, 1000]);
 
   svg
@@ -349,18 +349,27 @@ function highlightCellsFromPatterns(delaunay, highlightCells, color = "red") {
     .append("path")
     .attr("d", (d) => "M" + d.join("L") + "Z")
     .attr("class", "cells")
+    .attr("id", "pattern-cells")
     .attr("stroke", "orange")
     .attr("stroke-width", 1)
     .attr("stroke-opacity", 0.5)
     .attr("fill", function (d, i) {
-      if (highlightCells.indexOf(i) != -1) {
+      if (highlightCells.indexOf(i) != -1 || totalClicks.indexOf(i) != -1) {
         // console.log(i);
         return color;
       }
 
       return "none";
     })
-    .attr("fill-opacity", 0.3);
+    .attr("fill-opacity", function (d, i) {
+      if (highlightCells.indexOf(i) !== -1) {
+        return 0.3;
+      } else if (totalClicks.indexOf(i) !== -1) {
+        return 0.9;
+      } else {
+        return 0; // Set to 0 if neither condition is met.
+      }
+    });
 }
 
 export function trajectoryGroups(summarizedPoints) {
@@ -523,6 +532,11 @@ function gridConfig() {
   }
 }
 
+function resetPattern() {
+  totalClicks = [];
+  d3.selectAll("#pattern-cells").remove();
+  patternFinder();
+}
 document
   .getElementById("pattern-toggle")
   .addEventListener("change", gridConfig);
@@ -531,10 +545,23 @@ document
   .getElementById("find-pattern")
   .addEventListener("click", patternFinder, false);
 
-document
-  .getElementById("find-all-pattern")
-  .addEventListener("click", allPatternFinder, false);
+// document
+//   .getElementById("find-all-pattern")
+//   .addEventListener("click", directionString, false);
 
 document
   .getElementById("pattern-cell-width")
   .addEventListener("change", patternFinder, false);
+
+document
+  .getElementById("reset-pattern")
+  .addEventListener("click", resetPattern, false);
+
+document.getElementById("pattern-cell-width").addEventListener(
+  "input",
+  function (event) {
+    // console.log(id.target);
+    seeDistance(event.target.id);
+  },
+  false
+);

@@ -159,8 +159,6 @@
         <label for="voronoi-plot">See Voronoi Grid</label>
         <br />
         <br />
-        <br />
-
         <label for="voronoi-cell-width">Grid Size:</label>
         <input
           type="range"
@@ -171,6 +169,7 @@
           id="voronoi-cell-width"
           disabled
         />
+        <p id="voronoi-cell-width-text">200 m</p>
 
         <br />
       </div>
@@ -366,6 +365,7 @@
           id="heatmap-cell-width"
           disabled
         />
+        <p id="heatmap-cell-width-text">200 m</p>
       </div>
 
       <div class="pattern-class">
@@ -387,6 +387,10 @@
         <button class="btn btn-primary btn-sm" type="button" id="find-pattern">
           Find the pattern
         </button>
+
+        <button class="btn btn-primary btn-sm" type="button" id="reset-pattern">
+          Reset Pattern
+        </button>
         <p id="combosLength">Pattern Count: <span id="lengthValue"></span></p>
 
         <label for="pattern-cell-width">Grid Size:</label>
@@ -399,6 +403,7 @@
           id="pattern-cell-width"
           disabled
         />
+        <p id="pattern-cell-width-text">200 m</p>
       </div>
       <div class="trajectory-class">
         <h5>Trajectory View</h5>
@@ -491,8 +496,19 @@
         >
           Download Directional String
         </button>
+
         <br />
-        <br />
+        <label for="directional-diff">Directional distance threshold </label>
+
+        <input
+          type="range"
+          min="10"
+          max="100"
+          value="50"
+          class="slider"
+          id="directional-diff"
+        />
+        <p id="directional-diff-text">200 m</p>
 
         <br />
         <br />
@@ -514,6 +530,7 @@
     <script src="js/summarize.js" type="module"></script>
     <script src="js/heatmap.js" type="module"></script>
     <script src="js/timeline.js" type="module"></script>
+    <script src="js/download.js" type="module"></script>
     <!-- <script src="js/pattern-summarizer.js" type="module"></script> -->
 
     <!-- <script src="js/suffixTree.js" type="module"></script> -->
