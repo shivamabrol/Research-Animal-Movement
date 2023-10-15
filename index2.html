@@ -1,85 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <style>
-      body,
-      html {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        padding: 0;
-        margin: 0;
-      }
-
-      .header {
-        width: 100%;
-        height: auto;
-        background-color: teal;
-        color: white;
-        text-align: center;
-        font-size: 32px;
-        padding: 20px;
-      }
-
-      button {
-        background-color: teal;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        color: white;
-        padding: 10px 20px;
-        cursor: pointer;
-      }
-
-      input,
-      textarea {
-        font-size: 16px;
-      }
-
-      #status {
-        font-size: 24px;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <title>Data Configuration UI</title>
   </head>
+  <body>
+    <!-- User Interface for Data Configuration -->
+    <form id="config-form">
+      <label for="data-source">Data Source URL:</label>
+      <input
+        type="text"
+        id="data-source"
+        name="data_source"
+        placeholder="Enter Data Source URL"
+      />
+      <br />
+      <label for="context-source">Context Source URL:</label>
+      <input
+        type="text"
+        id="context-source"
+        name="context_source"
+        placeholder="Enter Context Source URL"
+      />
+      <br />
+      <button type="submit">Save Configuration</button>
+    </form>
 
-  <body onload="main()">
-    <div class="header">Generalized Suffix Tree Demo</div>
-
-    <table cellspacing="20px">
-      <tr>
-        <th style="text-align: left">Text:</th>
-        <th></th>
-        <th style="width: 300px; text-align: left">
-          Pattern: &nbsp;<input id="pattern" onkeyup="search()" />
-        </th>
-        <th>
-          <button id="reset" style="background-color: red" onclick="reset()">
-            Reset
-          </button>
-        </th>
-      </tr>
-      <tr>
-        <td style="vertical-align: top">
-          <textarea id="words" style="width: 500px; height: 400px"></textarea>
-
-          <br />
-          <br />
-
-          <button id="preprocessBtn" onclick="preprocess()">Preprocess</button>
-          <span style="margin-left: 20px" id="readyStatus">Ready!</span>
-        </td>
-        <td></td>
-        <td style="width: 300px; vertical-align: top">
-          <span id="matches"></span>
-        </td>
-      </tr>
-    </table>
+    <script src="js/script.js"></script>
   </body>
-
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-    crossorigin="anonymous"
-  ></script>
-
-  <script src="js/suffixTree.js"></script>
-  <script src="js/app.js"></script>
 </html>
